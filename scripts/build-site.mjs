@@ -158,4 +158,24 @@ writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urls
 writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 writeFileSync('dist/.htaccess', htaccess(posts));
 
+// ---------- Preview build (GitHub Pages) ----------
+// SITE_PREVIEW=1 keeps search engines out of the preview copy; PAGES_BASE is the subpath (e.g. /BRP-new-page).
+if (process.env.SITE_PREVIEW) {
+  const base = (process.env.PAGES_BASE || '').replace(/\/$/, '');
+  let n = 0;
+  for (const f of readdirSync('dist', { recursive: true })) {
+    if (!String(f).endsWith('.html')) continue;
+    const file = `dist/${String(f).replace(/\\/g, '/')}`;
+    const html = readFileSync(file, 'utf8');
+    let out = html.replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="noindex, nofollow">');
+    if (out === html && !/name="robots"/.test(html)) out = html.replace('</head>', '  <meta name="robots" content="noindex, nofollow">\n</head>');
+    if (out !== html) { writeFileSync(file, out); n++; }
+  }
+  // 404.html uses root-absolute paths; on Pages the site lives under /<repo>/
+  if (base) writeFileSync('dist/404.html', readFileSync('dist/404.html', 'utf8').replace(/(href|src)="\/(?!\/)/g, `$1="${base}/`));
+  writeFileSync('dist/robots.txt', 'User-agent: *\nDisallow: /\n');
+  rmSync('dist/.htaccess', { force: true });
+  console.log(`Preview build: noindex on ${n} pages, base path "${base || '/'}"`);
+}
+
 console.log(`Built ${posts.length} posts + ${pages.length} pages into dist/`);
