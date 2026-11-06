@@ -1,0 +1,475 @@
+<p>At <strong>Canadian Technology Magazine</strong>, we spend plenty of time talking about what AI can create. A prompt goes in, and minutes later there is a surprisingly capable app, dashboard, game, chatbot, or automation. It is genuinely impressive. Then the laptop closes, the local process stops, and the thing that just got built effectively disappears.</p>
+
+
+
+<p>That is the gap that matters now. Writing code is no longer the only hard part, and sometimes it is not even the hard part at all. The bigger challenge is everything underneath the code: servers, databases, public URLs, authentication, storage, uptime, deployment, and keeping an application alive at 3 a.m. without someone manually babysitting it.</p>
+
+
+
+<p>The real opportunity is not merely using AI to generate software. It is using AI to build <strong>hosted, persistent, accessible software</strong> that remains online after you walk away. That is where an always on cloud computer changes the equation.</p>
+
+
+
+<h2 id="from-ai-demo-to-software-that-actually-lives-somewhere">From AI Demo to Software That Actually Lives Somewhere</h2>
+
+
+
+<p>The pattern is familiar. An AI agent builds something cool in 20 minutes. Maybe it is a multiplayer game. Maybe it is a real time social platform. Maybe it is a custom tool that solves a very specific business problem. But a prototype is not a product just because it runs once on a developer machine.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> sees this as one of the most important shifts in practical AI adoption. The bottleneck has moved from producing code to operating the software that code creates.</p>
+
+
+
+<p>A proper deployment needs a home. That home may need:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A Linux server that remains online continuously</li>
+
+
+
+<li>A database that retains user activity after restarts</li>
+
+
+
+<li>File storage for media, models, and application assets</li>
+
+
+
+<li>A public address so people can access the product</li>
+
+
+
+<li>Service management that restarts applications automatically</li>
+
+
+
+<li>Version control and portability through tools such as GitHub</li>
+
+
+
+<li>Secure remote access through SSH for technical users</li>
+</ul>
+
+
+
+<p>Without that infrastructure, even a beautiful AI generated application is often just an expensive browser tab waiting to be closed.</p>
+
+
+
+<p>An always on cloud machine gives AI projects somewhere to live. It can host an agent, a website, an internal business system, a local language model, a media service, or a multi-user app. The goal is simple: you describe what you want in plain English, the AI helps build it, and the system stays online.</p>
+
+
+
+<h2 id="what-an-always-on-ai-supercomputer-includes">What an Always On AI Supercomputer Includes</h2>
+
+
+
+<p>The platform demonstrated here is Abacus AI Supercomputer, positioned as a personal cloud computer that does not turn off. Under the friendly AI interface is a real Ubuntu Linux virtual machine, rather than a locked down toy environment.</p>
+
+
+
+<p>For <strong>Canadian Technology Magazine</strong> readers, that distinction is important. A real machine means people can start with natural language prompts, then move into the technical details only if and when they want to.</p>
+
+
+
+<p>The core components include:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Always on computing:</strong> Applications can run 24 hours a day.</li>
+
+
+
+<li><strong>Database support:</strong> PostgreSQL can store posts, users, records, and other persistent data.</li>
+
+
+
+<li><strong>Object storage:</strong> File storage uses an Amazon S3 compatible protocol.</li>
+
+
+
+<li><strong>GitHub connectivity:</strong> Projects remain portable and under the creator's control.</li>
+
+
+
+<li><strong>SSH access:</strong> Developers can connect directly to the server terminal.</li>
+
+
+
+<li><strong>Docker support:</strong> Existing containers and Dockerfiles can be brought into the environment.</li>
+
+
+
+<li><strong>AI model access:</strong> A large collection of language, image, video, and speech models is available.</li>
+</ul>
+
+
+
+<p>This combination matters because it makes the platform useful at two levels. Someone who never wants to touch a terminal can ask an agent to build and deploy an app. An engineer can inspect services, install software, manage containers, use SSH, and work with the machine much like any conventional cloud server.</p>
+
+
+
+<h2 id="one-click-deployment-for-ai-agents">One Click Deployment for AI Agents</h2>
+
+
+
+<p>Running an AI agent locally can be useful, but it comes with a catch: the agent stops when the local machine is unavailable. Hosting it on an always on machine means the agent can keep working without relying on a personal computer.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> is particularly interested in this model for agents such as Hermes and OpenClaw. Hermes is designed as a self evolving AI agent that can develop and improve useful skills. OpenClaw is a widely discussed AI agent that can be hosted remotely instead of running only on a local computer.</p>
+
+
+
+<p>Both can be deployed with minimal setup. Models and tools can be selected from the dashboard, and updates can be performed with a click rather than through a manual install process. For people who have previously spent hours configuring dependencies, command line tools, environments, and updates, that is a major quality of life improvement.</p>
+
+
+
+<p>The practical point is not that terminals are bad. Terminals are great when you need them. The point is that infrastructure should not become a barrier for someone whose real goal is to test an AI workflow, build an automation, or launch a useful application.</p>
+
+
+
+<h2 id="use-the-right-model-without-guessing">Use the Right Model Without Guessing</h2>
+
+
+
+<p>AI projects rarely require only one kind of model. One task may need a top reasoning model, another may need fast low cost responses, and a third may need image, video, or speech generation.</p>
+
+
+
+<p>Instead of forcing people to choose a model every time, a routing layer can assess a request and send it to the model it considers most appropriate. This is useful for people who care more about solving the task than endlessly comparing model names.</p>
+
+
+
+<p>The available options include familiar categories:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Large language models for chat, reasoning, coding, and analysis</li>
+
+
+
+<li>Image models for creating visual assets</li>
+
+
+
+<li>Video models for generated clips and media experiments</li>
+
+
+
+<li>Speech tools for voice output</li>
+
+
+
+<li>Multiple providers and model families for flexibility</li>
+</ul>
+
+
+
+<p>For <strong>Canadian Technology Magazine</strong>, the important takeaway is that model choice can be either hands on or abstracted away. You can select a specific model when you have a reason to do so, or let routing handle the decision for routine work.</p>
+
+
+
+<h2 id="build-your-own-hosted-llm-chat-interface">Build Your Own Hosted LLM Chat Interface</h2>
+
+
+
+<p>One of the clearest examples is a self hosted chat application backed by an open source language model. Rather than depending on an external API for every request, an open source model can be installed directly on the cloud machine and accessed through a custom browser interface.</p>
+
+
+
+<p>A sample build used Ollama alongside Qwen models in two sizes. The prompt requested a clean dark mode chat application with a model selector, streaming answers, and a visible status badge confirming that it was running on the supercomputer without an external API.</p>
+
+
+
+<p>The result was a personal ChatGPT style interface accessible from anywhere. The smaller model could respond quickly, while the larger option could provide a different balance of model capacity and response time.</p>
+
+
+
+<p>This approach has several practical advantages:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Customization:</strong> The model and interface can be adapted to specific needs.</li>
+
+
+
+<li><strong>Ownership:</strong> The models reside on the machine rather than disappearing behind a third party chat window.</li>
+
+
+
+<li><strong>Accessibility:</strong> The chat interface is available from anywhere with an internet connection.</li>
+
+
+
+<li><strong>Control:</strong> Open source models can be fine tuned or equipped with skills and tools.</li>
+
+
+
+<li><strong>Reduced dependency on API credits:</strong> The workflow does not require per request external API billing.</li>
+</ul>
+
+
+
+<p>It is not magic. Models still use disk space and computing resources. Larger models can also take longer to load or respond. But the idea of running a personalized language model service without assembling every layer manually is becoming very real.</p>
+
+
+
+<h2 id="real-time-multiplayer-apps-without-the-infrastructure-headache">Real Time Multiplayer Apps Without the Infrastructure Headache</h2>
+
+
+
+<p>A multiplayer 3D arena game is a good stress test because it is not just a static webpage. Multiple people need to connect to the same live environment. The application has to handle player state, scores, game sessions, server communication, and public access.</p>
+
+
+
+<p>In the example, separate browser sessions could enter the same arena under different names and see each other in the shared game. It was a prototype, not a polished blockbuster, and that is exactly the point. The value is not perfect gameplay created in record time. The value is that the difficult plumbing was handled.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> believes this is where AI assisted development becomes especially compelling. Builders can spend their energy on product ideas, mechanics, experience, and iteration instead of spending all their time configuring servers and databases.</p>
+
+
+
+<p>The same logic applies far beyond games. A live service could be a customer portal, a team dashboard, a booking system, an internal operations tool, or a community app. If the product needs more than one person to use it at once, infrastructure matters.</p>
+
+
+
+<h2 id="a-social-platform-built-with-one-detailed-prompt">A Social Platform Built With One Detailed Prompt</h2>
+
+
+
+<p>Another prototype was a real time social app. It supported display names, a live conversation feed, an online user sidebar, and persistent storage through PostgreSQL. Posts appeared instantly, and records remained available after a reboot because they were stored in the database.</p>
+
+
+
+<p>The prompt defined the desired product in practical terms: build a real time social platform, show who is online, use a dark visual theme with violet accents, and save posts in Postgres.</p>
+
+
+
+<p>That one request captures a useful lesson. Better prompts are not about sounding technical. They are about clearly describing the product requirements:</p>
+
+
+
+<ol class="wp-block-list">
+<li>What should the application do?</li>
+
+
+
+<li>Who will use it?</li>
+
+
+
+<li>What must update in real time?</li>
+
+
+
+<li>What information must remain after a restart?</li>
+
+
+
+<li>What visual direction should it follow?</li>
+</ol>
+
+
+
+<p>For <strong>Canadian Technology Magazine</strong>, this is a strong example of plain language becoming a practical interface for software development. You still need good judgment, testing, and refinement. But the distance between idea and functioning prototype is getting dramatically shorter.</p>
+
+
+
+<h2 id="building-a-24-7-streaming-tv-service">Building a 24/7 Streaming TV Service</h2>
+
+
+
+<p>A streaming TV prototype shows that the same infrastructure can support more media oriented ideas. The service included multiple channels, poster art, uploaded video assets, a dark theme, and continuous channel playback.</p>
+
+
+
+<p>Some channels used available video content, while others were generated with FFmpeg based graphics to avoid copyright concerns. Channel posters could be created from frames within their own videos, producing thumbnail style visuals. Videos were served as direct MP4 files to improve browser playback reliability.</p>
+
+
+
+<p>The result was a small always on network with an AI themed presentation and generated anchors. The broader lesson is not that every organization needs its own television channel. It is that a modest cloud machine can host a persistent media experience, and an AI agent can help assemble the interface, workflows, and delivery system.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> sees clear potential here for organizations that want to experiment with internal information hubs, branded media dashboards, continuously updated content feeds, or specialized digital channels.</p>
+
+
+
+<h2 id="multi-agent-paper-trading-as-an-infrastructure-demonstration">Multi Agent Paper Trading as an Infrastructure Demonstration</h2>
+
+
+
+<p>The live trading experiment is worth discussing carefully. It used simulated money only. It was paper trading, not financial advice, and it should not be treated as a recommendation to hand real investment capital to autonomous agents.</p>
+
+
+
+<p>Still, as an infrastructure demonstration, it is fascinating. The system divided responsibilities among multiple agents:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Research:</strong> Examining relevant market information and candidate ideas.</li>
+
+
+
+<li><strong>Strategy:</strong> Proposing trading actions and explaining the reasoning.</li>
+
+
+
+<li><strong>Risk:</strong> Reviewing exposure and vetoing actions that violate constraints.</li>
+
+
+
+<li><strong>Execution:</strong> Recording and carrying out simulated buy and sell actions.</li>
+</ul>
+
+
+
+<p>The risk agent is especially important. It can reject a proposal if it would push total equity exposure past a defined limit, such as 85% of the portfolio. That illustrates a broader multi agent principle: do not let a single optimistic agent make every decision without an independent constraint system.</p>
+
+
+
+<p>The account could rise or fall, and in the example it experienced a notable simulated drawdown after earlier gains. That does not matter as much as the architecture. The agents continued researching, proposing, assessing risk, and executing actions around the clock while every action was logged.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> considers this a useful pattern for many non-financial workflows too. One agent can research, another can draft a plan, another can enforce policy, and a final system can execute approved actions. The point is accountability and separation of responsibilities.</p>
+
+
+
+<h2 id="under-the-hood-it-is-a-real-linux-server">Under the Hood: It Is a Real Linux Server</h2>
+
+
+
+<p>The friendly agent experience is useful, but technical users understandably want to know what sits behind it. The answer is a standard Ubuntu 24 LTS environment with two processor cores, 8 GB of memory, and 48 GB of disk space in the demonstrated configuration.</p>
+
+
+
+<p>Direct SSH access allows users to connect from their own terminal, inspect the environment, and manage it like a normal server. Applications can run as proper Linux services and be configured to restart automatically if the server restarts.</p>
+
+
+
+<p>In the demonstration, five separate projects were operating as active services on one machine:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A multiplayer game</li>
+
+
+
+<li>A self hosted LLM chat application</li>
+
+
+
+<li>A real time social platform</li>
+
+
+
+<li>A continuous streaming TV service</li>
+
+
+
+<li>A multi agent paper trading system</li>
+</ul>
+
+
+
+<p>Each application could be exposed through its own subdomain and routed to the appropriate service. That is the unglamorous but essential work behind hosted software. It is also why this matters so much. AI can now help handle the part that used to make launching an app feel like an entirely separate profession.</p>
+
+
+
+<h2 id="ownership-portability-and-the-cost-question">Ownership, Portability, and the Cost Question</h2>
+
+
+
+<p>Software should not become trapped inside the tool used to create it. If projects are connected to GitHub and can run in standard environments with Docker, services, databases, and SSH, they are far more portable. Builders can migrate later rather than being held hostage by a closed platform.</p>
+
+
+
+<p>That openness is a major consideration for <strong>Canadian Technology Magazine</strong>. Convenience is great, but ownership is better. The software, code, and project assets should remain yours.</p>
+
+
+
+<p>The demonstrated pricing began at US$10 per month for the base plan, with a further US$10 for the Pro plan that included the capabilities shown. A launch offer listed the first month at US$7, followed by the standard monthly amount. Pricing and available features can change, so it is sensible to verify current details before making a decision.</p>
+
+
+
+<p>The bigger point is not simply that cloud computing can be inexpensive. It is that a relatively low cost, always on machine can now support experiments that previously required far more deployment knowledge, multiple service accounts, and continuous maintenance.</p>
+
+
+
+<h2 id="the-new-standard-build-it-deploy-it-keep-it-alive">The New Standard: Build It, Deploy It, Keep It Alive</h2>
+
+
+
+<p>AI generated code is no longer the finish line. The future is prompt to product: an idea becomes an application, the application gets a database and public URL, and the product remains live after the laptop closes.</p>
+
+
+
+<p>For <strong>Canadian Technology Magazine</strong>, that is the exciting part. A game can remain multiplayer. A social platform can remain social. A local language model can remain available. A dashboard can continue collecting data. A group of agents can keep operating within the limits you set.</p>
+
+
+
+<p>The computer keeps running. The software keeps existing. And suddenly an AI prototype has a chance to become something real.</p>
+
+
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+
+
+<h3 class="wp-block-heading">What does an always on AI cloud computer do?</h3>
+
+
+
+<p>It provides a persistent cloud based Linux machine where AI agents, websites, databases, chat applications, and other software can run continuously. Instead of depending on a local laptop, the project remains online and accessible through the internet.</p>
+
+
+
+<h3 class="wp-block-heading">Can I use an always on cloud machine without knowing Linux?</h3>
+
+
+
+<p>Yes. AI agent interfaces can build and deploy projects from plain language instructions. However, technical users can also connect through SSH, use the terminal, run Docker containers, inspect services, and manage the environment directly.</p>
+
+
+
+<h3 class="wp-block-heading">Can I host my own open source language model?</h3>
+
+
+
+<p>Yes. An open source model can be installed on the machine and connected to a custom chat interface. This enables a ChatGPT style experience that can be accessed remotely while giving the builder more control over the model and interface.</p>
+
+
+
+<h3 class="wp-block-heading">Why does a real time app need a database?</h3>
+
+
+
+<p>A database stores persistent information such as posts, usernames, scores, activity logs, and application records. Without persistent storage, information can disappear when an application or server restarts.</p>
+
+
+
+<h3 class="wp-block-heading">Is the AI trading example suitable for real investing?</h3>
+
+
+
+<p>No. The example used paper trading with simulated money and was presented as an infrastructure experiment. It is not financial advice, and autonomous systems should not be trusted with real investment decisions without rigorous research, controls, and professional oversight.</p>
+
+
+
+<h3 class="wp-block-heading">Why does Canadian Technology Magazine focus on AI infrastructure?</h3>
+
+
+
+<p>Canadian Technology Magazine focuses on the practical technology behind business outcomes. AI is most useful when it can move beyond one time demonstrations and support reliable tools, services, automations, and products that people can actually use.</p>

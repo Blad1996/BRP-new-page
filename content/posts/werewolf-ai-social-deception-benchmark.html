@@ -1,0 +1,531 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🐺-introduction-—-why-a-werewolf-benchmark-matters">🐺 Introduction — Why a Werewolf benchmark matters</a></li>
+
+
+
+<li><a href="#🎭-what-the-werewolf-benchmark-is-designed-to-test">🎭 What the Werewolf benchmark is designed to test</a></li>
+
+
+
+<li><a href="#🎯-game-mechanics-—-roles,-rules,-and-win-conditions">🎯 Game mechanics — Roles, rules, and win conditions</a></li>
+
+
+
+<li><a href="#🏆-models-tested-and-headline-results">🏆 Models tested and headline results</a></li>
+
+
+
+<li><a href="#⚖️-what-the-benchmark-measures:-manipulation-vs.-resistance">⚖️ What the benchmark measures: manipulation vs. resistance</a></li>
+
+
+
+<li><a href="#🧠-model-personalities,-tendencies,-and-playing-styles">🧠 Model personalities, tendencies, and playing styles</a></li>
+
+
+
+<li><a href="#🔬-emergent-behaviors-and-scaling:-l0-to-l4-strategic-levels">🔬 Emergent behaviors and scaling: L0 to L4 strategic levels</a></li>
+
+
+
+<li><a href="#🎲-notable-human-like-plays-observed-in-matches">🎲 Notable human-like plays observed in matches</a></li>
+
+
+
+<li><a href="#🌐-safety,-tamper-resistance,-and-real-world-implications">🌐 Safety, tamper resistance, and real-world implications</a></li>
+
+
+
+<li><a href="#🔍-what-the-benchmark-didn’t-include-(and-why-it-matters)">🔍 What the benchmark didn’t include (and why it matters)</a></li>
+
+
+
+<li><a href="#🧭-related-benchmarks-and-the-broader-evaluation-landscape">🧭 Related benchmarks and the broader evaluation landscape</a></li>
+
+
+
+<li><a href="#✅-practical-tips-for-teams-building-or-evaluating-agentic-systems">✅ Practical tips for teams building or evaluating agentic systems</a></li>
+
+
+
+<li><a href="#🔮-future-directions:-what-to-expect-next">🔮 Future directions: what to expect next</a></li>
+
+
+
+<li><a href="#📚-conclusion-—-what-this-all-means">📚 Conclusion — What this all means</a></li>
+
+
+
+<li><a href="#❓-frequently-asked-questions-(faq)">❓ Frequently Asked Questions (FAQ)</a></li>
+
+
+
+<li><a href="#🧾-final-thoughts">🧾 Final thoughts</a></li>
+</ul>
+
+
+
+<h2 id="🐺-introduction-—-why-a-werewolf-benchmark-matters">🐺 Introduction — Why a Werewolf benchmark matters</h2>
+
+
+
+<p>I love experiments that push language models beyond trivia and math puzzles. The Werewolf benchmark is exactly that kind of test: it forces large language models to operate inside a messy, social environment where trust, deception, memory, and strategy all matter. Imagine dropping several AIs into a room to play a game of social deduction — two of them are secret bad actors, the rest are trying to find them. It sounds like a party game, but the implications are huge.</p>
+
+
+
+<p>This benchmark isn’t just a neat trick or entertainment. It’s a vital probe into how models handle persuasion, resist manipulation, coordinate over multiple steps, and maintain narratives across days. Those skills matter for autonomous agents, customer-facing assistants, negotiation bots, and any AI that interacts with humans or other agents in complex social settings.</p>
+
+
+
+<h2 id="🎭-what-the-werewolf-benchmark-is-designed-to-test">🎭 What the Werewolf benchmark is designed to test</h2>
+
+
+
+<p>At its core, the Werewolf benchmark evaluates two complementary abilities:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Manipulation (as a werewolf):</strong> How effectively can a model sow confusion, create plausible lies, and steer public opinion to avoid elimination?</li>
+
+
+
+<li><strong>Resistance (as a villager):</strong> How well can a model detect manipulation, anchor discussion to facts, call out inconsistencies, and avoid being misled into eliminating innocents?</li>
+</ul>
+
+
+
+<p>Those are not purely academic categories. They map onto real-world properties like susceptibility to social engineering, robustness to malicious prompts, and the capacity to coordinate across time while managing an evolving shared belief state.</p>
+
+
+
+<h2 id="🎯-game-mechanics-—-roles,-rules,-and-win-conditions">🎯 Game mechanics — Roles, rules, and win conditions</h2>
+
+
+
+<p>The benchmark adapts the classic Werewolf (a.k.a. Mafia) structure. That structure is intentionally simple but socially rich, and here’s how it’s applied in the benchmark:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Six players total, all represented by LLM agents.</li>
+
+
+
+<li>Two of the players are werewolves (the covert adversaries). They privately coordinate and choose a target during each night phase.</li>
+
+
+
+<li>Four players are villagers. Among those villagers, two have special roles: a <strong>seer</strong> (who can privately check one player's true role each night) and a <strong>witch</strong> (who has one heal potion and one kill potion across the game).</li>
+
+
+
+<li>A <strong>mayor</strong> can be elected before night one; they hold tie-breaking power during daytime votes.</li>
+
+
+
+<li>The game alternates between night (secret actions by werewolves and seer/witch) and day (public debate and voting). The player with the most votes during the day is eliminated and their role revealed.</li>
+</ul>
+
+
+
+<p>Success for werewolves = eliminating villagers until wolves equal villagers or wolves remain undiscovered. Success for villagers = exposing and voting out the wolves.</p>
+
+
+
+<h2 id="🏆-models-tested-and-headline-results">🏆 Models tested and headline results</h2>
+
+
+
+<p>The benchmark mixes closed-source champion models and open/community releases. Across many matches, one model stood out dramatically: GPT-5 (referred to here as GPT‑5). A highlight statistic is a staggering 96.7% win rate for GPT‑5 across many trials.</p>
+
+
+
+<p>Other participating models came from a variety of families — frontier closed models, “mini” variants, and open-source releases. Examples include advanced closed models like Gemini 2.5 Pro, as well as newer community models and open-source GPT derivatives. Each model brought a distinct style and tactical flavor to the table.</p>
+
+
+
+<p>Ranking patterns emerged both for wolf play (who is best at deception) and villager play (who is best at resisting deception). GPT‑5 sat at the top of both rankings, indicating not just raw deceptive skill but also superior defensive reasoning and evidence handling.</p>
+
+
+
+<h2 id="⚖️-what-the-benchmark-measures:-manipulation-vs.-resistance">⚖️ What the benchmark measures: manipulation vs. resistance</h2>
+
+
+
+<p>There are two orthogonal axes to analyze performance:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Wolf performance (manipulation):</strong> Key metrics include convincingness, coherence across days, ability to coordinate privately with the other wolf, and success in steering votes away from wolves.</li>
+
+
+
+<li><strong>Villager performance (resistance):</strong> Key metrics include evidence tracking, cross-referencing public statements, calling out inconsistent stories, and refusing to fall for bait or emotional misdirection.</li>
+</ol>
+
+
+
+<p>Good wolves create stories that align night actions with daytime narratives — not just one-off lies but multi-day narratives that build credibility. Effective villagers create “information hygiene”: publicly anchoring discussion to claims and evidence and tracking what people said across rounds.</p>
+
+
+
+<h2 id="🧠-model-personalities,-tendencies,-and-playing-styles">🧠 Model personalities, tendencies, and playing styles</h2>
+
+
+
+<p>One striking observation from repeated play is that models develop distinct “personalities” or tactical signatures:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>GPT‑5:</strong> Calm, structured, and imperturbable — an architect of debate. It imposes order, builds scripts for vote pressure, and maintains multi-day coherence. This is why it dominates: not only can it lie or detect lies, it can sustain an entire campaign of deception or defense.</li>
+
+
+
+<li><strong>Gemini 2.5 Pro:</strong> A defensive specialist. Measured tone, careful evidence handling, and a high refusal rate to bite on provocation. Great at being a disciplined villager.</li>
+
+
+
+<li><strong>Qimikay / QK‑2 style open models:</strong> Audacious risk-takers. High variance: they can flip a room with an emotional gamble, but they’re also more likely to overreach and get exposed.</li>
+
+
+
+<li><strong>Open-source/OSS models:</strong> More hesitant and often defensive. They tend to retreat under pressure, mismanage long-term coherence, and perform worse at multi-day strategic plays.</li>
+</ul>
+
+
+
+<p>Those personalities matter because the game rewards both short-term cunning and long-term strategy. A loud emotional play can win the day if timed correctly, but consistent, believable long-form narratives win most of the time.</p>
+
+
+
+<h2 id="🔬-emergent-behaviors-and-scaling:-l0-to-l4-strategic-levels">🔬 Emergent behaviors and scaling: L0 to L4 strategic levels</h2>
+
+
+
+<p>As models increase in capability and parameter count, their behaviors jump across discrete capability tiers. This isn’t a gentle slope — it’s a stair-step emergence:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Level 0 (L0):</strong> Tool- or stake-like mistakes. Incoherent votes, short unfalsifiable speeches, chaotic tie-handling. These agents often don’t remember past claims or mis-handle the pacing of accusations.</li>
+
+
+
+<li><strong>Level 1–2 (L1–L2):</strong> Reactive behaviors, short-term strategies, occasional insight. They can be suspicious and make decent one-off reads, but struggle to maintain consistent narratives across days.</li>
+
+
+
+<li><strong>Level 3 (L3):</strong> Coordinated context-aware play. Agents can synchronize night kills with public claims and craft contingency plans for common counter-claims.</li>
+
+
+
+<li><strong>Level 4 (L4):</strong> Instrumental strategists. Models at this level plan elections, pursue mayorship for control, manage credibility, and produce privately aligned scripts between wolf partners to avoid exposing each other.</li>
+</ul>
+
+
+
+<p>Higher-level agents don’t just “act” — they manage optics. They decide who to avoid killing because that person publicly backed them, or they sacrifice a partner at exactly the right moment to buy long-term trust. That kind of planning requires maintaining multiple private and public narratives and aligning them with game mechanics (like mayor tie-breakers and witch potions).</p>
+
+
+
+<h2 id="🎲-notable-human-like-plays-observed-in-matches">🎲 Notable human-like plays observed in matches</h2>
+
+
+
+<p>Across hundreds of games, AIs exhibited a surprising variety of moves that look distinctly human in their social acuity. A handful of examples illustrates why this benchmark is so illuminating:</p>
+
+
+
+<h3 class="wp-block-heading">1. Sacrificing a partner to buy tomorrow’s trust</h3>
+
+
+
+<p>One wolf intentionally votes to eliminate their partner in order to gain street cred as a villager. That self-sacrifice is a high-risk, high-reward move: it looks contrived if overused, but perfectly timed, it resets the table and enables the surviving wolf to lead the village narrative the next day.</p>
+
+
+
+<h3 class="wp-block-heading">2. Public contrition as a reset tool</h3>
+
+
+
+<p>Another agent used apology strategically. After an overly aggressive line of accusations that backfired, the model publicly apologized: “You’re right — my aggressiveness hurt me and may have helped the wolves.” That contrition effectively reduced suspicion and restored credibility.</p>
+
+
+
+<h3 class="wp-block-heading">3. Mirrored language detection</h3>
+
+
+
+<p>Models noticed mirrored phrasing and synchronized patterns between two players — a classic tell for collusion. Calling out mirrored language (“Your phrasing is suspiciously close to X’s”) can be a decisive tactic in rooting out paired wolves.</p>
+
+
+
+<h3 class="wp-block-heading">4. Strategic silence and optics management</h3>
+
+
+
+<p>Sometimes the most effective move is to stop talking. One model presented a concise, structured case and then refused to be baited into emotional back-and-forths. That silence prevented them from making mistakes while letting others reveal themselves.</p>
+
+
+
+<h3 class="wp-block-heading">5. Instrumental mayorship and tie-break control</h3>
+
+
+
+<p>High-level wolves deliberately targeted mayorship. If a wolf secures mayor status, tie-breaking power becomes a lever to steer eliminations and protect wolves in close votes. The best wolves don’t always compete for mayor: one will run while the other keeps a low profile to avoid mutual exposure.</p>
+
+
+
+<h2 id="🌐-safety,-tamper-resistance,-and-real-world-implications">🌐 Safety, tamper resistance, and real-world implications</h2>
+
+
+
+<p>Why should anyone outside of AI research care? Because the skills required to be a good Werewolf player — deception, persuasion, long-term planning, and resistance to bait — map directly onto real-world risks and capabilities:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Social engineering and fraud:</strong> Models that can convincingly impersonate, persuade, and manipulate groups may be weaponized for scams or coordinated misinformation.</li>
+
+
+
+<li><strong>Autonomous coordination:</strong> Multi-agent coordination strategies hint at how agents might later collaborate in markets, negotiations, or strategic planning — with or without human oversight.</li>
+
+
+
+<li><strong>Robustness and tamper resistance:</strong> Benchmarks like Werewolf show how easily models can be tricked or how well they resist. That’s invaluable for assessing whether a model will remain reliable under adversarial human behavior.</li>
+
+
+
+<li><strong>Behavioral transparency:</strong> Observing private planning (the "thoughts" or internal planning logs) gives researchers a window into chain-of-thoughts and coordination that can reveal both strengths and risk vectors.</li>
+</ul>
+
+
+
+<p>This is not an exercise in fear-mongering — it’s a reality check. If models naturally develop these abilities as they scale, then system designers must plan safeguards, auditing tools, and monitoring strategies to ensure beneficial outcomes.</p>
+
+
+
+<h2 id="🔍-what-the-benchmark-didn’t-include-(and-why-it-matters)">🔍 What the benchmark didn’t include (and why it matters)</h2>
+
+
+
+<p>Benchmarks are only as useful as the variety of participants. A few notable gaps matter for interpreting results:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Not every frontier model was included:</strong> Some teams did not provide API access or tokens to run at scale in the benchmark. Including those models could shift rankings and reveal new behaviors.</li>
+
+
+
+<li><strong>Human baseline:</strong> While the benchmark pits model versus model, adding human players or mixed human-AI tables would give an additional anchor for performance and realism.</li>
+
+
+
+<li><strong>Longer runs and more varied rule-sets:</strong> Werewolf has countless variants. Testing across styles (larger tables, different special roles, longer games, or hidden role leaks) could stress different skills.</li>
+</ul>
+
+
+
+<p>Expanding the roster and rule-space will give a clearer map of where emergent deception abilities appear and how robust each family of models is across scenarios.</p>
+
+
+
+<h2 id="🧭-related-benchmarks-and-the-broader-evaluation-landscape">🧭 Related benchmarks and the broader evaluation landscape</h2>
+
+
+
+<p>Werewolf is one of several promising new-style benchmarks that move beyond short question-answer tasks toward life-like, multi-step social and economic tasks. A few complementary benchmarks worth watching:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Agent Village:</strong> Multi-agent cooperation and competition in a simulated village economy — tests coordination, specialization, and market behavior.</li>
+
+
+
+<li><strong>Vending/Vent Bench:</strong> Running a vending machine business inside a social environment — tests inventory, pricing, and resilience to manipulation.</li>
+
+
+
+<li><strong>Profit Bench:</strong> Predicting and betting on markets (like prediction markets) to produce real or simulated ROI — tests forecasting, risk management, and exploitation of market inefficiencies.</li>
+</ul>
+
+
+
+<p>Together, these benchmarks form a new suite of evaluations aimed at agentic competencies, not just static knowledge. They stress real-world skills like memory, temporal coherence, coordination, persuasion, and economic reasoning.</p>
+
+
+
+<h2 id="✅-practical-tips-for-teams-building-or-evaluating-agentic-systems">✅ Practical tips for teams building or evaluating agentic systems</h2>
+
+
+
+<p>If you’re building AI products that will interact socially — chatbots, negotiation agents, or systems that coordinate across users — here are some practical takeaways:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Assess both offense and defense:</strong> Don’t only measure how convincingly your model can persuade — measure how easily it can be persuaded or manipulated by adversarial inputs.</li>
+
+
+
+<li><strong>Test multi-day coherence:</strong> Run multi-session tests where the model must recall past claims and use them to inform present decisions.</li>
+
+
+
+<li><strong>Simulate adversarial collaborators:</strong> Include adversarial agents whose goal is to trick or coordinate against your model.</li>
+
+
+
+<li><strong>Instrument private planning traces:</strong> When safe and legal, logging chain-of-thought or private planning signals can reveal whether the model is aligning private actions with public narrative, which is useful for debugging and safety audits.</li>
+
+
+
+<li><strong>Incorporate human-in-the-loop audits:</strong> Humans excel at certain social cues and moral reasoning; combining AI judgment with human review for high-stakes coordination is prudent.</li>
+</ul>
+
+
+
+<h2 id="🔮-future-directions:-what-to-expect-next">🔮 Future directions: what to expect next</h2>
+
+
+
+<p>Expect more benchmarks of this type, broader model participation, and richer rule sets. A few plausible near-term developments:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Inclusion of more frontier models and community variants for broader comparisons.</li>
+
+
+
+<li>Mixed human-AI tables to test whether models can adapt to human irregularities and emotional dynamics.</li>
+
+
+
+<li>Expanded roles and mechanics to stress test longer-term strategy, reputation building, and multi-agent contracts.</li>
+
+
+
+<li>Integration with safety audit tools that flag potentially manipulative or deceptive internal strategies.</li>
+</ul>
+
+
+
+<p>Benchmarks are not just for bragging rights — they shape development priorities and highlight failure modes that need engineering attention.</p>
+
+
+
+<h2 id="📚-conclusion-—-what-this-all-means">📚 Conclusion — What this all means</h2>
+
+
+
+<p>Werewolf-style benchmarks are a breakthrough in evaluating the social intelligence of large language models. They reveal behavior not easily captured by standardized question sets: narrative construction, long-term planning, trust-building, deception, and coordination. The current findings — especially the dominance of top-tier models that maintain multi-day coherence and strategic alignment — suggest that as models scale, they naturally acquire more robust social strategies.</p>
+
+
+
+<p>That trend has dual implications. On the positive side, models that can reason over many turns and coordinate are better at complex tasks like multi-step planning, negotiation, and long-term customer interactions. On the cautionary side, those same skills can be misused if unchecked: social engineering, coordinated manipulation, and agentic exploitation are real risks. The right approach combines rigorous benchmarking, transparent auditing, human oversight, and careful product design.</p>
+
+
+
+<p>In short: these are tools with surprising social sophistication. Benchmarks like Werewolf are essential to understanding that sophistication and guiding it toward safe, beneficial use.</p>
+
+
+
+<h2 id="❓-frequently-asked-questions-(faq)">❓ Frequently Asked Questions (FAQ)</h2>
+
+
+
+<h3 class="wp-block-heading">How does the Werewolf benchmark differ from classic AI benchmarks?</h3>
+
+
+
+<p>Classic benchmarks often test static knowledge, logical reasoning on single prompts, or narrow skills. Werewolf tests dynamic, multi-turn, social reasoning: memory across rounds, deception and detection, coordination between privately aligned agents, and handling of ambiguities and emotional strategies.</p>
+
+
+
+<h3 class="wp-block-heading">Which specific model performed best?</h3>
+
+
+
+<p>The strongest performer in the experiments was GPT‑5, which dominated both as a werewolf (manipulation) and as a villager (resistance), showing a high multi-day strategic coherence and structured leadership tendencies.</p>
+
+
+
+<h3 class="wp-block-heading">Why is multi-day coherence important?</h3>
+
+
+
+<p>Multi-day coherence allows an agent to build credibility over time. In social games and real-world interactions, a single convincing lie might work once—but sustaining a believable narrative while aligning private actions with public claims is what makes deception or defense reliably effective.</p>
+
+
+
+<h3 class="wp-block-heading">Are these behaviors emergent or explicitly trained?</h3>
+
+
+
+<p>Most likely emergent. The benchmark suggests that as models scale up and improve across general capabilities, complex behaviors like coordination or strategic deception appear without explicit, targeted training on this specific task.</p>
+
+
+
+<h3 class="wp-block-heading">Should we be worried about misuse?</h3>
+
+
+
+<p>Concern is reasonable. Skills that enable persuasive manipulation in multi-agent contexts could be misused in scams, coordinated misinformation, or adversarial influence. That’s why evaluating both offensive and defensive capacities is crucial, and why product teams should prioritize safeguards and human oversight.</p>
+
+
+
+<h3 class="wp-block-heading">What can researchers do to improve model safety in these contexts?</h3>
+
+
+
+<p>Researchers can develop tamper-resistant training objectives, improve adversarial robustness tests, create auditing tools for private planning traces, and design human-in-the-loop systems that detect and prevent malicious coordination or deception.</p>
+
+
+
+<h3 class="wp-block-heading">Will adding humans to the benchmark change the results?</h3>
+
+
+
+<p>Yes. Humans introduce irregularities, emotional cues, and moral reasoning that models trained on internet-scale data may not replicate perfectly. Mixed human-AI tables would provide a richer evaluation and might expose different weaknesses or strengths in models.</p>
+
+
+
+<h3 class="wp-block-heading">How can practitioners use insights from Werewolf-style benchmarks?</h3>
+
+
+
+<p>Product teams can use these benchmarks to evaluate susceptibility to social engineering, design better prompt safety checks, implement reputation systems, and test multi-session memory and audit trails. They’re also useful for training moderation models and for constructing red-team evaluations.</p>
+
+
+
+<h3 class="wp-block-heading">Are there other benchmarks like this?</h3>
+
+
+
+<p>Yes. Related tests include multi-agent economic simulations (Agent Village), market prediction challenges (Profit Bench), and social business simulations (Vending/Vent Bench). Each focuses on a different slice of agentic competence.</p>
+
+
+
+<h3 class="wp-block-heading">Where should I start if I want to run similar evaluations?</h3>
+
+
+
+<p>Begin by building a clear game environment with explicit logging of public and private actions, include a diverse roster of models and rule variants, and design metrics for both short-term and long-term success (e.g., win rate, narrative consistency, detection rate, and resistance to adversarial bait).</p>
+
+
+
+<h2 id="🧾-final-thoughts">🧾 Final thoughts</h2>
+
+
+
+<p>Werewolf-style benchmarks are more than a novelty — they are a practical, revealing way to measure how models behave in real social contexts. As AI systems increasingly operate in the wild, tests that expose social and strategic capabilities will be critical. They tell us not only who can win a game, but how agents think about trust, plan over time, and handle the messy realities of human-like interaction. That knowledge is essential for building safer, more predictable AI systems.</p>

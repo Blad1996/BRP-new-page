@@ -1,0 +1,611 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🔧-change-#1-—-prompt-gpt‑5-differently-(use-the-prompt-optimizer)">🔧 Change #1 — Prompt GPT‑5 differently (Use the Prompt Optimizer)</a></li>
+
+
+
+<li><a href="#💬-change-#2-—-enable-follow‑up-suggestions-in-chat">💬 Change #2 — Enable Follow‑Up Suggestions in Chat</a></li>
+
+
+
+<li><a href="#🧠-change-#3-—-understand-and-manage-the-context-window-(up-to-200k-tokens)">🧠 Change #3 — Understand and Manage the Context Window (Up to 200k tokens)</a></li>
+
+
+
+<li><a href="#🧾-change-#4-—-set-up-and-audit-your-memory-properly">🧾 Change #4 — Set Up and Audit Your Memory Properly</a></li>
+
+
+
+<li><a href="#🔗-change-#5-—-connectors:-link-your-apps-to-chatgpt">🔗 Change #5 — Connectors: Link Your Apps to ChatGPT</a></li>
+
+
+
+<li><a href="#putting-it-all-together:-a-recommended-workflow">Putting it all together: A recommended workflow</a></li>
+
+
+
+<li><a href="#practical-example-prompts-and-templates-you-can-copy">Practical example prompts and templates you can copy</a></li>
+
+
+
+<li><a href="#common-mistakes-people-make-(and-how-to-fix-them)">Common mistakes people make (and how to fix them)</a></li>
+
+
+
+<li><a href="#faq-🤔">FAQ 🤔</a></li>
+
+
+
+<li><a href="#resources-and-further-reading">Resources and further reading</a></li>
+
+
+
+<li><a href="#conclusion-&amp;-call-to-action-🚀">Conclusion &amp; Call to Action 🚀</a></li>
+</ul>
+
+
+
+<h2 id="🔧-change-#1-—-prompt-gpt‑5-differently-(use-the-prompt-optimizer)">🔧 Change #1 — Prompt GPT‑5 differently (Use the Prompt Optimizer)</h2>
+
+
+
+<p>One of the most important things I want you to understand is that ChatGPT 5 cannot be prompted the same way you prompted GPT-4 or earlier. GPT‑5 introduces more powerful agentic workflows, longer context windows, and different internal heuristics. If you keep using the same casual prompts you used with older models, you’ll miss out on dramatic improvements — or worse, get worse answers.</p>
+
+
+
+<p>OpenAI provides a free Prompt Optimizer specifically for GPT‑5. Use it. The URL is:</p>
+
+
+
+<figure class="wp-block-embed"><div class="wp-block-embed__wrapper">
+https://platform.openai.com/chat/edit?models=gpt-5&amp;optimize=true
+</div></figure>
+
+
+
+<p>How the Prompt Optimizer helps:</p>
+
+
+
+<ul class="wp-block-list">
+<li>It analyzes your raw prompt and turns it into an expert-level prompt.</li>
+
+
+
+<li>It shows what you did wrong and explains why each change improves the prompt.</li>
+
+
+
+<li>It gives you the final optimized prompt so you can reuse (or save) it.</li>
+</ul>
+
+
+
+<p>Quick step-by-step:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Open the Prompt Optimizer URL above (you’ll need to be signed into your OpenAI account).</li>
+
+
+
+<li>Paste your initial prompt — for example, “Make me a script for a TikTok video about AI agents.”</li>
+
+
+
+<li>Click “Optimize.”</li>
+
+
+
+<li>Review the recommended edits and the reasoning behind each change.</li>
+
+
+
+<li>Copy the final optimized prompt into GPT‑5 or save it as a project.</li>
+</ol>
+
+
+
+<p>Why this matters: GPT‑5 expects structure. The optimizer enforces best practices like defining the audience, desired tone, expected length, output format, and step-by-step constraints. Without those constraints, GPT‑5’s agentic workflows may attempt multi-step reasoning or side-actions that don’t match your intent.</p>
+
+
+
+<h3 class="wp-block-heading">Practical trick: Build an in‑Chat prompt optimizer</h3>
+
+
+
+<p>If you don’t want to open the external site every time, do this:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Take a screenshot or copy the optimizer’s recommended prompt structure.</li>
+
+
+
+<li>Open a new chat with GPT‑5 and say: “Apply this structure to the following prompt to optimize it,” then paste the structure and your raw prompt.</li>
+
+
+
+<li>GPT‑5 will apply the same optimizations internally and return an expert-level prompt you can use immediately.</li>
+</ol>
+
+
+
+<p>Sample before / after (illustrative):</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Before:</strong> “Write a TikTok about AI agents.”</li>
+
+
+
+<li><strong>After (optimized):</strong> “You are a friendly, high-energy social media strategist. Create a 45–60 second TikTok script about ‘AI agents’ aimed at creators who know basic AI concepts but aren’t developers. Include: hook (3 seconds), 3 key benefits, one short demo idea, and CTA. Output as timestamped script lines.”</li>
+</ul>
+
+
+
+<p>That extra structure makes the output predictable and usable—no guesswork, no rambling.</p>
+
+
+
+<h2 id="💬-change-#2-—-enable-follow‑up-suggestions-in-chat">💬 Change #2 — Enable Follow‑Up Suggestions in Chat</h2>
+
+
+
+<p>There’s a small toggled setting that has a huge positive impact on your workflow: “Show follow‑up suggestions in chat.” Turning this on gives you short, actionable next-step suggestions automatically after each GPT reply. It’s subtle but transformative.</p>
+
+
+
+<p>Where to find it: Settings &gt; General &gt; Show follow-up suggestions in chat (turn it on).</p>
+
+
+
+<p>What it does:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Produces suggested follow-up prompts after each response (for example: “Do you want a sample TikTok script or just the framework?”).</li>
+
+
+
+<li>Keeps the conversation moving forward and helps non-expert users know what to ask next.</li>
+
+
+
+<li>Works very well with voice mode — you can just say the suggestion and continue the flow.</li>
+</ul>
+
+
+
+<p>Why it matters: Without follow-up suggestions, you frequently stall or end up asking the wrong follow-up question. With it, GPT nudges you toward clarifying, deepening, or executing the output—turning one-shot answers into iterative, higher-quality deliverables.</p>
+
+
+
+<h2 id="🧠-change-#3-—-understand-and-manage-the-context-window-(up-to-200k-tokens)">🧠 Change #3 — Understand and Manage the Context Window (Up to 200k tokens)</h2>
+
+
+
+<p>GPT‑5 has an enormous context window—up to 200,000 tokens. That’s powerful, but it introduces new failure modes if you don’t manage it properly.</p>
+
+
+
+<p>Quick conversion to help you reason: roughly every 100 tokens is about 75 words (ballpark). With a 200k token limit you can store very long documents, entire books, or multiple long conversations. But that also means it’s possible to accidentally fill the context window and cause the model to “forget” earlier parts of the conversation.</p>
+
+
+
+<h3 class="wp-block-heading">How the context window works (simple metaphor)</h3>
+
+
+
+<p>Think of the context window as a single sheet of paper where two people write back and forth. At first the sheet is blank. With each message both people write, more of the sheet gets filled. Once the sheet fills up, the top lines start getting erased so only the newest lines remain. GPT works the same way: older exchanges can get evicted when the token budget fills.</p>
+
+
+
+<h3 class="wp-block-heading">Why this causes bad responses</h3>
+
+
+
+<ul class="wp-block-list">
+<li>If you keep using the same chat for many unrelated tasks, the chat fills with tokens and older instructions get pushed out, so the model “forgets” your original goals or constraints.</li>
+
+
+
+<li>If you feed large files or long documents into one chat without summarizing them, you consume tokens quickly and reduce the model’s effective memory for the rest of the chat.</li>
+
+
+
+<li>If you allow the model to ramble (no length constraints), you waste tokens on verbose answers that could be concise and more useful.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Practical ways to manage the context window</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Use one chat per project/task. Avoid one-chat-for-everything.</li>
+
+
+
+<li>Explicitly constrain output length: ask for “a 3-paragraph summary” or “bullet list of 6 points.”</li>
+
+
+
+<li>Periodically summarize long chat histories into a short context note and then start a new chat with that summary.</li>
+
+
+
+<li>Avoid pasting whole books or huge PDFs into a single chat—chunk and reference only the relevant sections.</li>
+
+
+
+<li>Use the token estimate prompt after a long exchange: “Please give me a rough calculated estimate of tokens used so far in this conversation based on the text length of all our exchanges.”</li>
+</ul>
+
+
+
+<p>That token-estimate prompt is extremely useful. Run it after long sessions and when you’re unsure if the model has started to forget earlier instructions.</p>
+
+
+
+<h2 id="🧾-change-#4-—-set-up-and-audit-your-memory-properly">🧾 Change #4 — Set Up and Audit Your Memory Properly</h2>
+
+
+
+<p>GPT’s memory feature can be incredibly helpful. When set up correctly, memory allows ChatGPT to personalize responses across chats by remembering persistent facts about you: your role, preferences, ongoing projects, etc. But memory can also store incorrect, outdated, or irrelevant facts—so you need to manage it actively.</p>
+
+
+
+<p>Where to go: Settings &gt; Personalization &gt; Manage memories (and make sure personalization is enabled).</p>
+
+
+
+<p>What to enable and check:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Enable personalization and memory toggles in settings.</li>
+
+
+
+<li>Add or edit your custom instructions so the model consistently knows how to behave by default.</li>
+
+
+
+<li>In Advanced, enable memory for new chats if you want persistent personalization across sessions.</li>
+
+
+
+<li>Open Manage Memories and review stored items periodically (weekly or bi-weekly is a good rhythm).</li>
+</ul>
+
+
+
+<p>Common memory issues I see:</p>
+
+
+
+<ul class="wp-block-list">
+<li>The model remembers incorrect facts about you (e.g., associating you with someone else’s niche or channel).</li>
+
+
+
+<li>Outdated project details remain in memory and lead to irrelevant or wrong answers.</li>
+
+
+
+<li>Memory is filled with trivial items that provide no real benefit and clutter personalization.</li>
+</ul>
+
+
+
+<p>Example from my own usage: I had a memory entry that my Instagram was “holistic health.” That was wrong, so I deleted it. If you never audit memory, you’ll eventually get answers that seem like the model “doesn’t know you” — it does, but it’s recalling the wrong things.</p>
+
+
+
+<p>Important new detail: Memory can be used to personalize queries to external search providers like Bing. That means not only what you tell ChatGPT but also other integrated inputs may influence personalization. Be aware of this when debugging odd results.</p>
+
+
+
+<h2 id="🔗-change-#5-—-connectors:-link-your-apps-to-chatgpt">🔗 Change #5 — Connectors: Link Your Apps to ChatGPT</h2>
+
+
+
+<p>One of the most powerful shifts is that ChatGPT now integrates with your apps (connectors). Think Gmail, Google Calendar, Google Drive, Notion, HubSpot, GitHub, Dropbox, and soon Canva. When you connect these apps, ChatGPT can access and search their data to provide context-aware responses.</p>
+
+
+
+<p>Why connectors change the game:</p>
+
+
+
+<ul class="wp-block-list">
+<li>ChatGPT can draft emails by pulling real data from your Gmail.</li>
+
+
+
+<li>It can check your calendar and schedule tasks or suggest times.</li>
+
+
+
+<li>It can pull documents from Drive or Notion to summarize or suggest edits.</li>
+
+
+
+<li>It enables more powerful AI agents that act on real, live data in your systems.</li>
+</ul>
+
+
+
+<p>How to set connectors for the best experience:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Open Connectors (or Settings > Connected Apps).</li>
+
+
+
+<li>Add the apps you use: Gmail, Google Calendar, Google Drive, Notion, HubSpot, GitHub, Dropbox, etc.</li>
+
+
+
+<li>For each connector, check that the connection mode is set to “auto” under Connected apps > Added source. When set to “auto,” the connector will be searched automatically without you needing to mention it explicitly.</li>
+
+
+
+<li>If a connector is not set to “auto,” you must explicitly ask the model to use that source in your prompt.</li>
+</ol>
+
+
+
+<p>Security &amp; privacy note: Only connect apps you trust and review the permissions requested by each connector. Consider using read-only permissions where possible and periodically audit connected apps.</p>
+
+
+
+<h2 id="putting-it-all-together:-a-recommended-workflow">Putting it all together: A recommended workflow</h2>
+
+
+
+<p>Here’s a step-by-step workflow that uses all five improvements so you get consistent, high-quality outputs:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Start a new chat per project or major task to avoid filling the context window.</li>
+
+
+
+<li>Before you ask anything substantive, paste a short project brief (2–4 sentences) and specify the output format and length constraints.</li>
+
+
+
+<li>If you’re building creative content (e.g., social media, emails), run your base prompt through the Prompt Optimizer or use your saved optimizer structure inside chat.</li>
+
+
+
+<li>Turn on follow-up suggestions so ChatGPT prompts you with helpful next steps automatically.</li>
+
+
+
+<li>If personalization matters, make sure memory is enabled and that your custom instructions are accurate. Audit Manage Memories weekly for stale facts.</li>
+
+
+
+<li>If relevant, ensure connectors are connected and set to “auto” so the model can pull contextual data from your apps.</li>
+
+
+
+<li>After a long session, ask: “Please give a rough estimate of tokens used so far” to check whether the context window is becoming an issue.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Example end-to-end scenario</h3>
+
+
+
+<p>Use case: You want a 60‑second promotional TikTok script and a follow-up email to send to collaborators.</p>
+
+
+
+<ol class="wp-block-list">
+<li>Start a new chat titled “TikTok promo + collab email.”</li>
+
+
+
+<li>Paste a one-paragraph project brief: audience, tone, length, CTA.</li>
+
+
+
+<li>Paste the rough prompt: “Write a 60-second TikTok script and a short email to request collaboration. Use a confident, conversational tone.”</li>
+
+
+
+<li>Run the prompt through the Prompt Optimizer or apply your saved optimization template.</li>
+
+
+
+<li>Enable connectors: if the email needs to reference calendar availability, ensure Google Calendar is connected and set to auto.</li>
+
+
+
+<li>Get the script. Use follow-up suggestions to prompt revisions like “Make the hook stronger” or “Include a demo idea.”</li>
+
+
+
+<li>Save the final outputs and summarize the chat in one paragraph for future reference; optionally store it in Notion or Drive and delete irrelevant memories.</li>
+</ol>
+
+
+
+<h2 id="practical-example-prompts-and-templates-you-can-copy">Practical example prompts and templates you can copy</h2>
+
+
+
+<p>Below are copyable prompt templates optimized for GPT‑5. Use the Prompt Optimizer if you want to refine them further.</p>
+
+
+
+<h3 class="wp-block-heading">1) 60‑second TikTok script (social style)</h3>
+
+
+
+<p>“You are a high-energy social media strategist. Create a 60-second TikTok script about [TOPIC]. Target audience: [e.g., indie creators, marketing managers]. Structure: 3-second hook, 3 main points with examples, 10-second demo idea, 5-second CTA. Output as timestamped lines.”</p>
+
+
+
+<h3 class="wp-block-heading">2) Email draft using Gmail connector</h3>
+
+
+
+<p>“You are a professional outreach specialist. Draft an email to [Recipient name] asking about collaboration on [project]. Tone: friendly-professional. Include: one-sentence intro referencing a recent accomplishment of theirs, two short value points about how we can help, proposed calendar times (pull from my Google Calendar availability), and a brief signature. Output the email only.”</p>
+
+
+
+<h3 class="wp-block-heading">3) Project brief summary (for long chat cleanup)</h3>
+
+
+
+<p>“Summarize the following conversation into a 3-sentence brief that includes objective, deliverables, and next steps. Make it neutral and saveable to Notion.”</p>
+
+
+
+<h3 class="wp-block-heading">4) Token check</h3>
+
+
+
+<p>“Please give me a rough calculated estimate of tokens used so far in this conversation based on the text length of all our exchanges.”</p>
+
+
+
+<h3 class="wp-block-heading">5) Memory audit instruction</h3>
+
+
+
+<p>“List any saved memories you have about me and flag those that might be outdated or incorrect. Suggest deletions or edits if a memory seems irrelevant to my current projects: [list current projects].”</p>
+
+
+
+<h2 id="common-mistakes-people-make-(and-how-to-fix-them)">Common mistakes people make (and how to fix them)</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Prompting GPT‑5 like GPT‑4:</strong> Fix: Use the Prompt Optimizer and include structure (audience, format, constraints).</li>
+
+
+
+<li><strong>Single chat for everything:</strong> Fix: Create a new chat per project and summarize old chats.</li>
+
+
+
+<li><strong>Not auditing memory:</strong> Fix: Review Manage Memories weekly and delete wrong items.</li>
+
+
+
+<li><strong>Not using connectors:</strong> Fix: Connect Gmail, Calendar, Drive, etc. and set to “auto” for seamless context.</li>
+
+
+
+<li><strong>Ignoring token usage:</strong> Fix: Use the token estimate prompt and constrain output lengths.</li>
+</ul>
+
+
+
+<h2 id="faq-🤔">FAQ 🤔</h2>
+
+
+
+<h3 class="wp-block-heading">Q: Do I need to pay for GPT‑5 to use these settings?</h3>
+
+
+
+<p>A: Access to GPT‑5 may require a paid plan depending on OpenAI’s pricing and rollout. Some features like the Prompt Optimizer are free to use on OpenAI’s platform, but model availability is governed by OpenAI’s subscription tiers.</p>
+
+
+
+<h3 class="wp-block-heading">Q: How often should I audit my memories?</h3>
+
+
+
+<p>A: Weekly to bi-weekly is a good cadence. If you’re running a lot of projects or have frequent changes, check once a week. For casual users, once per month may suffice.</p>
+
+
+
+<h3 class="wp-block-heading">Q: What does “set connector to auto” mean?</h3>
+
+
+
+<p>A: When a connector is set to “auto,” ChatGPT will search that data source automatically when appropriate. If it’s not set to auto you must explicitly request the connector in your prompt.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Is the token estimate exact?</h3>
+
+
+
+<p>A: No — the token estimate prompt provides a rough calculated estimate based on text length. It helps you know if you’re approaching the context limit but isn’t a precise accounting tool.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Will connecting apps leak my data?</h3>
+
+
+
+<p>A: Connectors require permissions. Only connect apps you trust, review permission scopes (read vs read/write), and periodically remove unused connections. Use organization-level security features if connecting business accounts.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Can GPT‑5 access private calendars, emails, or docs without permission?</h3>
+
+
+
+<p>A: No. Connectors must be authorized explicitly by you. Don’t share credentials; use the connector authorization flow provided by the platform.</p>
+
+
+
+<h2 id="resources-and-further-reading">Resources and further reading</h2>
+
+
+
+<ul class="wp-block-list">
+<li>OpenAI Prompt Optimizer: https://platform.openai.com/chat/edit?models=gpt-5&amp;optimize=true</li>
+
+
+
+<li>AI Automation School: https://www.skool.com/ai-automation-school/about</li>
+
+
+
+<li>If you want to follow industry analysis, look for reports by major banks and consultancies—Goldman Sachs and others publish periodic AI impact reports.</li>
+</ul>
+
+
+
+<h2 id="conclusion-&amp;-call-to-action-🚀">Conclusion &amp; Call to Action 🚀</h2>
+
+
+
+<p>If you want to get 10x better responses from ChatGPT right now, don’t just hope for better outputs—change three things: your prompting style, your settings, and your tooling. Enable follow-up suggestions, manage context windows and memories, use the Prompt Optimizer, and connect the apps you rely on. These five changes will make ChatGPT more reliable, faster, and far more useful.</p>
+
+
+
+<p>If you want hands-on learning, project templates, and audits of your personal AI workflow, check out AI Automation School where I teach how to automate work with AI, build agents without code, and make more money with AI: https://www.skool.com/ai-automation-school/about</p>
+
+
+
+<p>Bookmark the Prompt Optimizer: https://platform.openai.com/chat/edit?models=gpt-5&amp;optimize=true — and try the token estimate and memory audit prompts I shared. If you implement these five settings and adopt the workflow above, your ChatGPT experience will be radically better.</p>
+
+
+
+<p>Thanks for reading — I’m Rob The AI Guy. If you try any of these tips, share what changed for you and what output you got. I love seeing real-world results and helping people level up their AI workflows.</p>

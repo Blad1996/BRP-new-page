@@ -1,0 +1,595 @@
+<p>
+    OpenClaw is the breakthrough AI agent platform that lets you run a persistent, autonomous assistant tailored to your workflows. In 2026, the fastest and least painful way to get a private OpenClaw instance running is through myclaw.ai. This guide walks through a beginner-friendly, step-by-step setup, practical configuration tips, high-impact use cases, cost and security considerations, and a ready-to-use prompt template you can copy and adapt.
+  </p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#why-use-myclaw-ai-to-run-openclaw">Why use myclaw.ai to run OpenClaw?</a></li>
+
+
+
+<li><a href="#quick-overview-what-you-ll-accomplish">Quick overview: What you’ll accomplish</a></li>
+
+
+
+<li><a href="#step-by-step-setup-beginners">Step-by-step setup (beginners)</a></li>
+
+
+
+<li><a href="#key-settings-you-should-configure-immediately">Key settings you should configure immediately</a></li>
+
+
+
+<li><a href="#three-high-impact-use-cases-to-start-with">Three high-impact use cases to start with</a></li>
+
+
+
+<li><a href="#scheduling-and-cron-job-ideas">Scheduling and cron job ideas</a></li>
+
+
+
+<li><a href="#cost-model-selection-and-token-management">Cost, model selection, and token management</a></li>
+
+
+
+<li><a href="#security-and-privacy-best-practices">Security and privacy best practices</a></li>
+
+
+
+<li><a href="#tips-to-get-better-results-from-your-openclaw-agent">Tips to get better results from your OpenClaw agent</a></li>
+
+
+
+<li><a href="#sample-prompt-template-copy-and-adapt">Sample prompt template (copy and adapt)</a></li>
+
+
+
+<li><a href="#suggested-image-and-multimedia-assets">Suggested image and multimedia assets</a></li>
+
+
+
+<li><a href="#meta-description-and-suggested-tags">Meta description and suggested tags</a></li>
+
+
+
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+
+
+
+<li><a href="#final-thoughts-and-next-steps">Final thoughts and next steps</a></li>
+</ul>
+
+
+
+<h2 id="why-use-myclaw-ai-to-run-openclaw">Why use myclaw.ai to run OpenClaw?</h2>
+
+
+
+<p>
+    Running OpenClaw yourself can be powerful but time consuming. You need a server, environment setup, updates, scaling, and ongoing maintenance. Using myclaw.ai gives you a private, fully isolated OpenClaw instance without the ops headache. Benefits include:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Private, dedicated bot:</strong> Your OpenClaw instance is fully isolated and only for you.</li>
+
+
+
+<li><strong>Always online:</strong> 24/7 uptime without managing servers or scheduled maintenance windows.</li>
+
+
+
+<li><strong>Model flexibility:</strong> Choose between MyClaw API models or bring-your-own API keys for OpenAI, Anthropic, Gemini, MiNiMax, and others.</li>
+
+
+
+<li><strong>Transparent pricing and usage metrics:</strong> Track tokens, monthly costs, and set spending limits to avoid surprises.</li>
+
+
+
+<li><strong>Managed updates and security:</strong> MyClaw handles backend updates, security patches, and scaling.</li>
+</ul>
+
+
+
+<h2 id="quick-overview-what-you-ll-accomplish">Quick overview: What you’ll accomplish</h2>
+
+
+
+<p>
+    After following the steps below you will have:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>A personalized OpenClaw instance running on myclaw.ai.</li>
+
+
+
+<li>Memory enabled and basic persona settings configured.</li>
+
+
+
+<li>One or more scheduled cron jobs for automation.</li>
+
+
+
+<li>At least one high-value use case implemented (feature ideation, lead generation, or monitoring social accounts).</li>
+
+
+
+<li>Spending limits in place and the option to swap models as needed.</li>
+</ul>
+
+
+
+<h2 id="step-by-step-setup-beginners">Step-by-step setup (beginners)</h2>
+
+
+
+<ol class="wp-block-list">
+<li><br>      <p><br>        Go to <strong>https://myclaw.ai</strong> and click the button to run OpenClaw now. Create an account using your email.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        From the dashboard, launch your private OpenClaw instance. You’ll land on a chat-style UI that matches OpenClaw’s interaction model.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        Open the AI settings. Choose whether to use MyClaw API models or add your own API keys. If you use your own keys, paste them for the providers you want to access.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        Set usage limits and monthly spending caps so you never get bill-shocked. MyClaw shows transparent pricing per model which makes planning straightforward.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        Give your bot a name, personality, emoji, and a short description of its role. This helps steer responses and makes the agent feel like a teammate.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        Turn memory on. Memory enables the agent to keep context across sessions and improve responses over time.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        Explore built-in skills and agents. MyClaw ships with 50+ skills you can enable; add or customize agents to perform specialized tasks.<br>      </p><br>    </li>
+
+
+
+<li><br>      <p><br>        Create a cron job for tasks you want to run on a schedule. Cron jobs let the agent do work while you sleep: gather leads, scan social feeds, or check website features.<br>      </p><br>    </li>
+</ol>
+
+
+
+<h2 id="key-settings-you-should-configure-immediately">Key settings you should configure immediately</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Identity and vibe:</strong> Name the agent, assign its role (for example: Product Ideas Bot, Outreach Assistant), and set a tone.</li>
+
+
+
+<li><strong>Memory:</strong> Enable memory and set what types of info to retain (preferences, recurring project notes, contact histories).</li>
+
+
+
+<li><strong>Model selection:</strong> Pick a model for high-skill tasks (e.g., Opus 4.6 for coding or complex reasoning) and a cheaper model for routine tasks to save costs.</li>
+
+
+
+<li><strong>API keys:</strong> If you have preferred provider subscriptions, add API keys so the agent uses your quotas and billing.</li>
+
+
+
+<li><strong>Spending limits:</strong> Hard caps and alerts to prevent unexpected bills.</li>
+
+
+
+<li><strong>Agents and skills:</strong> Turn on agents that match your workflows and add custom agents when needed.</li>
+</ul>
+
+
+
+<h2 id="three-high-impact-use-cases-to-start-with">Three high-impact use cases to start with</h2>
+
+
+
+<h3 class="wp-block-heading">1. Daily product and feature ideation (automated brainstorming + code prototypes)</h3>
+
+
+
+<p>
+    Use your OpenClaw instance as a product cofounder that generates feature ideas, writes specifications, and even scaffolds code. Tell it about your product, paste current features, and ask for daily prioritized suggestions.
+  </p>
+
+
+
+<p>
+    Example workflow:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Provide agent with your product description and a URL.</li>
+
+
+
+<li>Ask for ten new feature ideas prioritized by impact and implementation complexity.</li>
+
+
+
+<li>Request a minimal reproducible code scaffold or design spec for the top idea, and have the agent run a test or linting check.</li>
+
+
+
+<li>Approve, refine, or reject. The agent remembers feedback for future suggestions.</li>
+</ul>
+
+
+
+<p>
+    This is ideal for founders, product managers, and small engineering teams who want continuous ideation without hiring additional staff.
+  </p>
+
+
+
+<h3 class="wp-block-heading">2. 24/7 lead generation and outreach using Gmail integration</h3>
+
+
+
+<p>
+    Turn OpenClaw into a persistent business development assistant. Configure Gmail access, define your ideal lead profile, and schedule the agent to search for leads, research contacts, draft tailored emails, and send them for approval or automatically.
+  </p>
+
+
+
+<p>
+    Typical setup:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Grant access to the agent to read/send email via secure OAuth flow.</li>
+
+
+
+<li>Provide a geo and industry filter (example: snow removal commercial accounts in Bozeman, Montana).</li>
+
+
+
+<li>Set a cadence (every 30 minutes, hourly, or daily) with cron jobs.</li>
+
+
+
+<li>Ask the agent to research contacts, draft personalized outreach, and queue messages for your approval.</li>
+</ul>
+
+
+
+<p>
+    The agent will try multiple search strategies until it pulls relevant leads. Once you approve a draft, it can send the email and log responses into memory or a CRM.
+  </p>
+
+
+
+<h3 class="wp-block-heading">3. Real-time monitoring and personalized news feed</h3>
+
+
+
+<p>
+    Have the agent monitor an X account, YouTube channel, subreddit, or website and automatically summarize new posts. It can suggest content ideas, draft scripts, or produce thumbnails and titles tailored to your audience.
+  </p>
+
+
+
+<p>
+    Practical example:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Tell the agent to watch a specific X account and summarize the last five tweets every hour.</li>
+
+
+
+<li>Ask for a short script, title, and thumbnail idea based on the most relevant tweets.</li>
+
+
+
+<li>Set a cron job so you always have fresh content ideas when you open your laptop.</li>
+</ul>
+
+
+
+<p>
+    This use case turns raw social activity into a personalized news desk and creative assistant.
+  </p>
+
+
+
+<h2 id="scheduling-and-cron-job-ideas">Scheduling and cron job ideas</h2>
+
+
+
+<p>
+    Cron jobs are the simplest way to automate recurring tasks. Here are sensible cadences depending on intent:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Every 30 minutes:</strong> Lead hunting during business hours or monitoring fast-moving feeds.</li>
+
+
+
+<li><strong>Hourly:</strong> Social media monitoring and content idea generation.</li>
+
+
+
+<li><strong>Daily:</strong> Feature ideation, daily standup summaries, site checks.</li>
+
+
+
+<li><strong>Weekly:</strong> Performance reports, market analysis, competitor checks.</li>
+</ul>
+
+
+
+<p>
+    Start conservative to limit token usage, then increase frequency for tasks that demonstrate clear ROI.
+  </p>
+
+
+
+<h2 id="cost-model-selection-and-token-management">Cost, model selection, and token management</h2>
+
+
+
+<p>
+    MyClaw shows transparent pricing by model, which makes it easy to choose the right model for each job. Practical guidance:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Use a high-performing model (for example Opus 4.6 or Claude Opus variant) for coding, data analysis, or long-form creative work.</li>
+
+
+
+<li>Use cheaper models for routine monitoring, short-form replies, or background tasks.</li>
+
+
+
+<li>Enable spending caps and usage alerts to avoid surprises. For example, the demo usage of 40,000 tokens may cost pennies depending on model selection.</li>
+
+
+
+<li>Bring-your-own API keys to use existing provider quotas and consolidate billing under your accounts.</li>
+</ul>
+
+
+
+<h2 id="security-and-privacy-best-practices">Security and privacy best practices</h2>
+
+
+
+<p>
+    Security matters when an agent can access email, CRM, or internal networks. Follow these precautions:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Limit permission scopes when connecting Gmail and rotate API keys regularly.</li>
+
+
+
+<li>Use account-level two-factor authentication for your MyClaw account.</li>
+
+
+
+<li>Only enable memory for the data you want the agent to retain. Exclude sensitive credentials or personal identifiers unless absolutely necessary.</li>
+
+
+
+<li>Set sending limits and require manual approval for outbound messages when experimenting.</li>
+</ul>
+
+
+
+<h2 id="tips-to-get-better-results-from-your-openclaw-agent">Tips to get better results from your OpenClaw agent</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Be explicit in prompts:</strong> Define the output format you want so the agent returns consistent structure (e.g., bullet list, JSON, email draft).</li>
+
+
+
+<li><strong>Provide examples:</strong> Show the agent an ideal email or feature spec so it can mimic style and tone.</li>
+
+
+
+<li><strong>Iterate with memory:</strong> Correct the agent and store those corrections in memory so future work improves.</li>
+
+
+
+<li><strong>Split big tasks:</strong> Break large requests into smaller steps and use subagents to parallelize work.</li>
+
+
+
+<li><strong>Switch models per task:</strong> Use a stronger model to plan and a faster, cheaper model to execute routine tasks.</li>
+</ul>
+
+
+
+<h2 id="sample-prompt-template-copy-and-adapt">Sample prompt template (copy and adapt)</h2>
+
+
+
+<pre class="wp-block-code"><code>
+  You are my Product Feature Assistant. Company: &#91;Your Company Name]
+  URL: &#91;paste product URL]
+  Current features: &#91;short list of features]
+  Goal: Generate 5 new feature ideas prioritized by impact and implementation complexity. For the top feature, produce:
+  - One-paragraph description
+  - User story (As a..., I want..., So that...)
+  - Tech-spec bullet list with files to deliver
+  - Minimal code scaffold (if applicable)
+  Provide all outputs in Markdown-style bullets. Remember past feedback: &#91;paste any learned preferences]
+  </code></pre>
+
+
+
+<h2 id="suggested-image-and-multimedia-assets">Suggested image and multimedia assets</h2>
+
+
+
+<p>
+    Enhance your setup guide and content by including:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>An annotated screenshot of the myclaw.ai dashboard labeled with settings to change.</li>
+
+
+
+<li>A flow diagram showing cron jobs feeding outputs into email or content pipelines.</li>
+
+
+
+<li>Short screencast showing an agent creating a feature and committing a code scaffold.</li>
+</ul>
+
+
+
+<p>
+    Alt text examples:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>"MyClaw dashboard showing AI settings and usage metrics."</li>
+
+
+
+<li>"Flowchart of cron job schedule sending leads to Gmail for approval."</li>
+</ul>
+
+
+
+<h2 id="meta-description-and-suggested-tags">Meta description and suggested tags</h2>
+
+
+
+<p>
+    Meta description (150–160 characters): Set up a private OpenClaw instance on myclaw.ai in minutes. Run 24/7 agents for feature ideas, lead gen, and social monitoring in 2026.
+  </p>
+
+
+
+<p>
+    Suggested tags: OpenClaw, myclaw.ai, OpenClaw setup, AI assistant, autonomous agents, Opus 4.6, cron jobs, lead generation, AI monitoring
+  </p>
+
+
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+
+
+<h3 class="wp-block-heading">How quickly can I get a private OpenClaw instance running on myclaw.ai?</h3>
+
+
+
+<p>You can be up and running within minutes: sign up at myclaw.ai, launch your instance, configure API keys or use MyClaw models, set a name and memory, and create a cron job. Most of the heavy lifting is managed for you.</p>
+
+
+
+<h3 class="wp-block-heading">Do I lose any OpenClaw features when using myclaw.ai?</h3>
+
+
+
+<p>No. The platform exposes full OpenClaw capabilities, including agents, skills, memory, cron jobs, and model selection. You keep the core functionality without maintaining servers yourself.</p>
+
+
+
+<h3 class="wp-block-heading">Can I use my own API keys for OpenAI, Anthropic, or Gemini?</h3>
+
+
+
+<p>Yes. You can either use MyClaw API models or paste your own API keys to route calls through your accounts and billing. This is useful when you want to use existing provider quotas.</p>
+
+
+
+<h3 class="wp-block-heading">How do cron jobs work and what should I schedule?</h3>
+
+
+
+<p>Cron jobs run agents on a schedule. Use them for lead scraping every 30 minutes, social monitoring hourly, nightly website checks, or weekly reports. Start conservatively to control usage.</p>
+
+
+
+<h3 class="wp-block-heading">Is it safe to give the agent Gmail access?</h3>
+
+
+
+<p>It can be safe if you follow best practices: limit permission scopes, require manual approval for outbound messages during testing, rotate keys, and enable two-factor authentication for your account. Only grant the minimum access needed.</p>
+
+
+
+<h3 class="wp-block-heading">How do I control costs?</h3>
+
+
+
+<p>Set spending limits and usage alerts in the dashboard, choose cheaper models for routine tasks, and bring-your-own API keys to use existing quotas. Monitor token usage and adjust cron frequency based on ROI.</p>
+
+
+
+<h2 id="final-thoughts-and-next-steps">Final thoughts and next steps</h2>
+
+
+
+<p>
+    Running a private OpenClaw instance through myclaw.ai removes the major technical friction that used to block beginners. Whether you want continuous feature ideation, automated lead generation, or a personalized social news desk, this setup gives you a powerful, always-on assistant without painful ops work.
+  </p>
+
+
+
+<p>
+    Action plan:
+  </p>
+
+
+
+<ol class="wp-block-list">
+<li>Sign up at <strong>https://myclaw.ai</strong> and launch your instance.</li>
+
+
+
+<li>Configure identity, memory, models, and spending limits.</li>
+
+
+
+<li>Enable one cron job for a high-value use case and iterate until it provides consistent ROI.</li>
+</ol>
+
+
+
+<p>
+    Try the sample prompt, test a cron job, and adjust models as you learn. If you want more examples for specific industries or hands-on templates, leave a comment or bookmark this guide for quick reference.
+  </p>

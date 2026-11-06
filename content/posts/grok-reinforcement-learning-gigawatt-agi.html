@@ -1,0 +1,583 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#⚡-quick-overview">⚡ Quick overview</a></li>
+
+
+
+<li><a href="#🧭-what-do-we-even-mean-by-">🧭 What do we even mean by "AGI"?</a></li>
+
+
+
+<li><a href="#🧩-the-pieces-required-for-agi">🧩 The pieces required for AGI</a></li>
+
+
+
+<li><a href="#🧠-grok-4:-what-it-is-and-why-it-matters">🧠 Grok 4: what it is and why it matters</a></li>
+
+
+
+<li><a href="#🔁-pretraining-vs-rl-vs-test-time-compute:-analogies-that-make-sense">🔁 Pretraining vs RL vs test-time compute: analogies that make sense</a></li>
+
+
+
+<li><a href="#🎯-grok-4-=-grok-3-+-lots-of-rl-compute">🎯 Grok 4 = Grok 3 + lots of RL compute</a></li>
+
+
+
+<li><a href="#🔌-colossus,-gigawatt-clusters,-and-the-logistics-of-power">🔌 Colossus, gigawatt clusters, and the logistics of power</a></li>
+
+
+
+<li><a href="#⚙️-model-routing-problems:-why-having-the-best-model-isn't-always-enough">⚙️ Model routing problems: why having the best model isn't always enough</a></li>
+
+
+
+<li><a href="#🔬-self-play,-teacher-student-loops,-and-alphazero-lessons">🔬 Self-play, teacher-student loops, and AlphaZero lessons</a></li>
+
+
+
+<li><a href="#🔓-open-source-models-and-community-acceleration">🔓 Open source models and community acceleration</a></li>
+
+
+
+<li><a href="#🎮-from-apps-to-real-time-generated-experiences:-the-">🎮 From apps to real-time generated experiences: the "edge node" prediction</a></li>
+
+
+
+<li><a href="#👶-the-fertility-claim:-ai-increasing-birth-rates?">👶 The fertility claim: AI increasing birth rates?</a></li>
+
+
+
+<li><a href="#📈-so,-how-likely-is-agi-by-this-scaling-path?">📈 So, how likely is AGI by this scaling path?</a></li>
+
+
+
+<li><a href="#🔮-practical-implications-for-businesses-and-developers">🔮 Practical implications for businesses and developers</a></li>
+
+
+
+<li><a href="#🏁-where-we-might-hit-walls—and-why-they-may-be-temporary">🏁 Where we might hit walls—and why they may be temporary</a></li>
+
+
+
+<li><a href="#🔍-a-few-concrete-benchmarks-and-practical-notes">🔍 A few concrete benchmarks and practical notes</a></li>
+
+
+
+<li><a href="#📢-closing-thoughts">📢 Closing thoughts</a></li>
+
+
+
+<li><a href="#❓-frequently-asked-questions-(faq)">❓ Frequently Asked Questions (FAQ)</a></li>
+
+
+
+<li><a href="#✅-final-note">✅ Final note</a></li>
+</ul>
+
+
+
+<h2 id="⚡-quick-overview">⚡ Quick overview</h2>
+
+
+
+<p>We’re at a moment where a handful of technical levers—massive compute farms, new training recipes, reinforcement learning (RL), and a fast pace of engineering—are colliding. One company’s claim that its next-generation cluster will be a "gigawatt-plus" AI training supercomputer has reignited a familiar question: is AGI (artificial general intelligence) finally within nontrivial reach?</p>
+
+
+
+<p>This article walks through the crucial pieces that have to be in place for a plausible AGI trajectory, why reinforcement learning is being touted as the next big wave, what recent models (notably the Grok series) actually excel at, and what the broader implications are for software, devices, and society. The tone is conversational and curious—technical, but not opaque—because these are big ideas we all should understand.</p>
+
+
+
+<h2 id="🧭-what-do-we-even-mean-by-&quot;agi&quot;?">🧭 What do we even mean by "AGI"?</h2>
+
+
+
+<p>"AGI" is shorthand for a system that can understand, learn, and apply intelligence across a broad set of tasks at a human-like level. Trouble is: there’s no universally accepted objective test for AGI. For practical discussion, one useful working definition is sociological: AGI is the point at which a meaningful portion of experts and the public are actively arguing whether systems have achieved it.</p>
+
+
+
+<p>Why use that definition? Because the current frontier is full of incremental, sometimes dramatic, improvements. Some systems excel in narrow domains, others surprise on tasks that require flexible, "fluid" reasoning. The debate itself is part of the phenomenon—if a model becomes good enough to make many observers seriously ask whether it’s "general," then we’ve arguably crossed an important threshold.</p>
+
+
+
+<h2 id="🧩-the-pieces-required-for-agi">🧩 The pieces required for AGI</h2>
+
+
+
+<p>Think of AGI as a house: you need the design (models and algorithms), the foundation (compute &amp; power), skilled builders (research and engineering teams), and a continuous supply of materials (data and training cycles). Here’s a breakdown:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Large pre-trained base models:</strong> Massive transformer-based models trained on wide-ranging text, code, images, and more.</li>
+
+
+
+<li><strong>Reinforcement learning and RL-style fine-tuning:</strong> Training that turns “knowledge” into adaptive problem-solving skills—learning by doing.</li>
+
+
+
+<li><strong>Test-time compute:</strong> Allowing models more “thinking time” (larger compute per query) can significantly improve output quality.</li>
+
+
+
+<li><strong>Infrastructure &amp; power:</strong> Gigawatt-class clusters, energy logistics, and the ability to scale H100-equivalent hardware at a competitive pace.</li>
+
+
+
+<li><strong>Software tooling &amp; routing:</strong> Systems that pick which model to run for which request; model orchestration matters a lot.</li>
+
+
+
+<li><strong>Open source &amp; community:</strong> Access to full-sized production models enables rapid innovation across the ecosystem.</li>
+</ul>
+
+
+
+<h2 id="🧠-grok-4:-what-it-is-and-why-it-matters">🧠 Grok 4: what it is and why it matters</h2>
+
+
+
+<p>Grok 4 has emerged as a fascinating case study. Benchmarks show it near or at the top across a range of reasoning, coding, and exam-style tests. But user experience and adoption paint a subtler picture.</p>
+
+
+
+<p>Grok 4’s strengths:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Top performance on long-form, complex tasks (reasoning-heavy benchmarks, coding at scale).</li>
+
+
+
+<li>Excellent showing in software engineering benchmarks (SWE Bench), AIME-2025-style tests, and reasoning exams that reward fluid problem-solving.</li>
+
+
+
+<li>It behaves like a model that "tries very hard" on each task: it allocates more internal thinking and produces longer, thoughtful outputs.</li>
+</ul>
+
+
+
+<p>Grok 4’s trade-offs:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Higher latency and cost—especially on simple tasks—because it tends to use heavy reasoning even when a shallower answer would suffice.</li>
+
+
+
+<li>Engineers sometimes prefer models that are faster and "good enough" for routine tasks rather than the heaviest reasoning model every time.</li>
+
+
+
+<li>Model routing is essential: you want the right model for the right job.</li>
+</ul>
+
+
+
+<p>In plain terms: Grok 4 looks like a model that benefits from a lot of RL-style work—it's essentially Grok 3 behavior with a massive reinforcement-learning compute boost. That shift in training emphasis is what gives it the edge in fluid reasoning tasks.</p>
+
+
+
+<h2 id="🔁-pretraining-vs-rl-vs-test-time-compute:-analogies-that-make-sense">🔁 Pretraining vs RL vs test-time compute: analogies that make sense</h2>
+
+
+
+<p>There are three training and scaling axes people talk about a lot: pretraining compute, reinforcement learning (and RLHF), and test-time compute. The easiest way to grasp why this matters is with a study analogy:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Pretraining:</strong> Reading all the textbooks and lectures—building broad knowledge and compression of the world’s content. This is the classic "scale up dataset and model size" approach used for GPT-4 and many base models.</li>
+
+
+
+<li><strong>Reinforcement learning:</strong> Doing the homework problems over and over, getting feedback or scoring, and discovering heuristics and strategies that generalize.</li>
+
+
+
+<li><strong>Test-time compute:</strong> Giving the student more time during an exam to think through the problem—more chain-of-thought steps, more internal sampling before an answer.</li>
+</ul>
+
+
+
+<p>Historically, pretraining delivered the bulk of gains: bigger models, more data, more compute. Then clever uses of test-time compute (like chain-of-thought prompting and longer reasoning budgets) pushed models further without requiring a 10× jump in model size. Now, the frontier is increasingly about scaling RL-style compute: running the model through vast numbers of problem-solving episodes where feedback reinforces better strategies.</p>
+
+
+
+<h2 id="🎯-grok-4-=-grok-3-+-lots-of-rl-compute">🎯 Grok 4 = Grok 3 + lots of RL compute</h2>
+
+
+
+<p>One practical lesson: you can often get big returns by throwing targeted RL compute at an existing strong base model. Grok 4 appears to be an example of that: a reasoning-focused successor that applies orders-of-magnitude more RL-style training on top of the base. The result is improved "fluid intelligence"—the ability to reason through novel problems not explicitly memorized from the training data.</p>
+
+
+
+<p>This raises the strategic question for AI teams: do you build an even larger base model and then RL it, or do you keep the base roughly the same and pour RL compute into it? Both axes matter, and the right mix may depend on available chips, power logistics, and the architecture of your training infrastructure.</p>
+
+
+
+<h2 id="🔌-colossus,-gigawatt-clusters,-and-the-logistics-of-power">🔌 Colossus, gigawatt clusters, and the logistics of power</h2>
+
+
+
+<p>Training at the scale needed for major leaps in RL compute requires not just chips and engineers but reliable power. When someone talks about a "gigawatt-plus" AI training supercomputer, that’s not hyperbole—the energy and cooling logistics alone become central concerns.</p>
+
+
+
+<p>Key elements:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Hardware scale:</strong> Hundreds of thousands of H100-equivalent GPUs or TPUs translate to massive training bandwidth and wall-clock speed.</li>
+
+
+
+<li><strong>Power and cooling:</strong> Shipping power generation, building substations, and securing energy contracts are real constraints.</li>
+
+
+
+<li><strong>Operational tempo:</strong> Rapid iteration depends on being able to burn through large training runs quickly—hence the race to build more, faster.</li>
+</ul>
+
+
+
+<p>Who benefits most from this? Well-funded entities with deep engineering stacks, big cloud partnerships, or the ability to deploy their own datacenters: large cloud providers, hyperscalers, and ambitious AI startups that secure chip supply and power. If you can run months-long RL sweeps at scale, you can iterate models much faster.</p>
+
+
+
+<h2 id="⚙️-model-routing-problems:-why-having-the-best-model-isn't-always-enough">⚙️ Model routing problems: why having the best model isn't always enough</h2>
+
+
+
+<p>Recent practical lessons show that it's not just raw model quality that matters—it's the systems engineering around model selection and routing. A spectacular model locked behind a brittle or inconsistent routing layer can feel unreliable to users. If the system fails to route a query to the highest-capability worker model every time, user experience suffers, leaving space for competitors with smoother orchestration.</p>
+
+
+
+<p>Model orchestration issues have been blamed for some uneven user reports: a model might be "freaking good" sometimes and mediocre other times depending on which internal model variant the request hits. That inconsistency is a product-design problem as much as a modeling problem.</p>
+
+
+
+<h2 id="🔬-self-play,-teacher-student-loops,-and-alphazero-lessons">🔬 Self-play, teacher-student loops, and AlphaZero lessons</h2>
+
+
+
+<p>One promising RL approach borrows from what DeepMind did with AlphaGo/AlphaZero: self-play. Instead of only learning from human-labeled examples, a model can generate new, challenging problems for itself (as a "teacher") while another instance learns to solve them (as a "student").</p>
+
+
+
+<p>This teacher-student dynamic can bootstrap increasingly sophisticated problem sets, allowing models to invent richer training curricula than would be possible by relying solely on human-created datasets. Self-play works spectacularly in structured domains like games; the challenge is making it generalize across open-ended domains like coding, reasoning, and dialogue.</p>
+
+
+
+<h2 id="🔓-open-source-models-and-community-acceleration">🔓 Open source models and community acceleration</h2>
+
+
+
+<p>Open-sourcing production-scale models (not tiny distilled copies) is a game-changer for the community. When the full-size model used in production is shared, researchers and engineers outside the founding lab can experiment, discover failure modes, build new training tricks, and push the technology forward in parallel.</p>
+
+
+
+<p>That’s why releases of full-sized Grok 2.5 and plans to open-source subsequent models matter: it democratizes what used to be locked behind massive gates and accelerates the pace of innovation—beneficial for research progress, but also complicating safety and governance conversations.</p>
+
+
+
+<h2 id="🎮-from-apps-to-real-time-generated-experiences:-the-&quot;edge-node&quot;-prediction">🎮 From apps to real-time generated experiences: the "edge node" prediction</h2>
+
+
+
+<p>A bold prediction emerging from these developments is that devices (phones, consoles, thin clients) become primarily inference edge nodes while the real "software" lives in generated artifacts created on demand by models. In this world:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Commercial apps as pre-authored artifacts decline—users ask an AI to create the exact utility they need now.</li>
+
+
+
+<li>Video games, UIs, and interactive experiences are generated in real time based on user intent and context.</li>
+
+
+
+<li>Devices focus on low-latency rendering and local inference for responsiveness, while heavy lifting may still occur server-side or in hybrid modes.</li>
+</ul>
+
+
+
+<p>We’ve already seen early signs: diffusion-based systems producing game environments, immersive scene generation like Google’s generative tools that let you "enter" an image, and chatbots that can script small utilities on demand. As models improve, the need to download a pre-built app for many common tasks could fade.</p>
+
+
+
+<h2 id="👶-the-fertility-claim:-ai-increasing-birth-rates?">👶 The fertility claim: AI increasing birth rates?</h2>
+
+
+
+<p>There’s a provocative assertion floating around: as AI capabilities rise, they might actually increase birth rates—contrary to the expectation that virtual companionship and robot partners would depress them. The claim is counterintuitive but worth unpacking.</p>
+
+
+
+<p>Possible mechanisms that could increase fertility:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Social skill bootstrapping:</strong> AI companions and coaching tools can build confidence in social interactions, lowering barriers to real-world relationships.</li>
+
+
+
+<li><strong>Support for parenting:</strong> AI tools could make childcare, education, and parenting tasks less onerous—reducing perceived costs of having children.</li>
+
+
+
+<li><strong>Cultural nudging:</strong> AI-mediated matchmaking and relationship coaching may accelerate pair formation.</li>
+</ul>
+
+
+
+<p>Counterarguments are equally plausible:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Substitutes: Highly satisfying digital or robotic companions might decrease desire for real-world relationships.</li>
+
+
+
+<li>Economic &amp; social trends that reduce fertility (cost of living, career prioritization) may dominate any AI-driven effects.</li>
+</ul>
+
+
+
+<p>At the end of the day, "programming" society to make people reproduce is ethically fraught and technically naive. Behavioral outcomes are complex and emergent. It's possible AI will influence fertility rates in both directions through multiple mediating factors; the exact effect remains speculative and likely small compared to macroeconomic forces.</p>
+
+
+
+<h2 id="📈-so,-how-likely-is-agi-by-this-scaling-path?">📈 So, how likely is AGI by this scaling path?</h2>
+
+
+
+<p>When people talk about a "nontrivial chance" of AGI, we should clarify what that means. For existential risk contexts, even a 0.01–0.1 probability can be considered significant. For everyday decisions, 1–5% is enough to force attention and planning.</p>
+
+
+
+<p>Given the combination of:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Rapid hardware deployment (gigawatt clusters, H100 scale),</li>
+
+
+
+<li>Demonstrable improvements from scaling RL compute, and</li>
+
+
+
+<li>More aggressive open-source and engineering iteration,</li>
+</ul>
+
+
+
+<p>it’s reasonable to assign a nontrivial probability—meaning more than negligible—that substantial new capabilities will arrive within years, not decades. Whether those capabilities constitute AGI depends on definitions and thresholds. We could see systems that appear domain-general in many respects without being human-level in all dimensions. Alternatively, RL-driven breakthroughs could widen the capability gap dramatically.</p>
+
+
+
+<h2 id="🔮-practical-implications-for-businesses-and-developers">🔮 Practical implications for businesses and developers</h2>
+
+
+
+<p>Whether or not AGI arrives soon, the near-term changes are real and actionable:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Model selection matters:</strong> Use specialized, cheaper models for routine tasks; reserve heavyweight reasoning models for complex tasks.</li>
+
+
+
+<li><strong>Invest in orchestration:</strong> How you route requests—latency budget, cost targets, capability match—will shape product performance and costs.</li>
+
+
+
+<li><strong>Edge-first design:</strong> Plan for devices to offload heavy workloads while supporting local inference for latency-sensitive features.</li>
+
+
+
+<li><strong>Leverage on-demand generation:</strong> For many internal tools, rapid prototyping, and bespoke customer workflows, AI-generated micro-apps can replace months of engineering.</li>
+
+
+
+<li><strong>Security &amp; safety:</strong> Open-source full-size models accelerate innovation but raise new attack surfaces—governance and testing are necessary.</li>
+</ul>
+
+
+
+<h2 id="🏁-where-we-might-hit-walls—and-why-they-may-be-temporary">🏁 Where we might hit walls—and why they may be temporary</h2>
+
+
+
+<p>There are many reasons progress could plateau:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Chip shortages or supply-chain bottlenecks</li>
+
+
+
+<li>Power or cooling limitations</li>
+
+
+
+<li>Diminishing returns from simply scaling pretraining compute</li>
+
+
+
+<li>Software engineering and orchestration issues that prevent consistent access to top-model performance</li>
+</ul>
+
+
+
+<p>However, history suggests walls are often temporary: new learning recipes, RL approaches, model architectures, or system-level engineering can reopen progress. Right now reinforcement learning appears to be one of the most promising ways to leap past a plateau because it can be applied to strong base models with potentially massive gains in fluid reasoning.</p>
+
+
+
+<h2 id="🔍-a-few-concrete-benchmarks-and-practical-notes">🔍 A few concrete benchmarks and practical notes</h2>
+
+
+
+<p>Benchmarks give us measurable signals, even if they aren’t the whole story:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>SWE Bench:</strong> Grok variants have ranked at the top in software engineering benchmarks, sometimes ahead of close rivals by small margins.</li>
+
+
+
+<li><strong>AIME and reasoning exams:</strong> Grok 4 scored extremely well on math and reasoning tests that emphasize fluent problem solving.</li>
+
+
+
+<li><strong>LiveCodeBench and RL-oriented metrics:</strong> Grok shows top-tier performance on many hard tasks, especially when deployed with a heavy RL training budget.</li>
+</ul>
+
+
+
+<p>Interpreting benchmarks requires nuance: higher scores on challenging tasks indicate important progress, but product-level adoption depends on latency, cost, and behavior on simpler tasks too.</p>
+
+
+
+<h2 id="📢-closing-thoughts">📢 Closing thoughts</h2>
+
+
+
+<p>We’re in a phase where brute engineering—bigger clusters, more power, and aggressive RL—can generate surprising capability improvements. That doesn’t guarantee AGI tomorrow, but it does validate a credible path toward systems that are far more capable than the models most people use today.</p>
+
+
+
+<p>The real story isn’t a single lab or a single model; it’s the interplay of open-source communities, hyperscale infrastructure, new training recipes, product engineering, and governance. As models improve, the invisible scaffolding—routing, orchestration, power logistics—will become the differentiators between contentious claims and consistent, product-quality AI.</p>
+
+
+
+<p>Be curious, be skeptical, and pay attention to the engineering details. The next few years promise to be interesting.</p>
+
+
+
+<h2 id="❓-frequently-asked-questions-(faq)">❓ Frequently Asked Questions (FAQ)</h2>
+
+
+
+<h3 class="wp-block-heading">What is "RL compute" and why is it different from pretraining compute?</h3>
+
+
+
+<p>RL compute refers to the compute spent on reinforcement learning-style training: running the model through tasks with feedback signals and optimizing behavior based on rewards or human preference signals. Pretraining compute is the budget used to ingest and compress massive corpora (text, code, images) into a base model. RL refines policy and strategy; pretraining builds a broad knowledge base.</p>
+
+
+
+<h3 class="wp-block-heading">Why would increasing RL compute produce bigger gains than increasing pretraining compute?</h3>
+
+
+
+<p>Pretraining scales eventually face diminishing returns: the marginal benefit of adding another chunk of raw internet data decreases. RL, by contrast, focuses on problem-solving behavior and can dramatically improve adaptability and strategy when scaled, especially on tasks that reward multi-step reasoning or planning.</p>
+
+
+
+<h3 class="wp-block-heading">Does having the best benchmark scores mean a model is the most useful in production?</h3>
+
+
+
+<p>No. Benchmarks measure specific capabilities under test conditions. Production usefulness depends on consistency, latency, cost, and behavior on everyday tasks. A model that’s best at complex reasoning but slow and expensive might be less useful for routine applications than a slightly less capable but faster model.</p>
+
+
+
+<h3 class="wp-block-heading">Is AGI inevitable because of this compute scaling?</h3>
+
+
+
+<p>Not inevitable. The trajectory suggests a nontrivial chance that we’ll see far more capable systems over the coming years, especially if RL scaling continues to pay off. But technical challenges, supply constraints, and the need for new algorithms could slow or redirect progress. AGI may emerge as a graded set of capabilities rather than a single binary event.</p>
+
+
+
+<h3 class="wp-block-heading">What should businesses do now to prepare?</h3>
+
+
+
+<p>Focus on practical, immediate changes: invest in model orchestration to route queries effectively, experiment with hybrid edge/cloud inference, take advantage of AI-generated tooling to speed internal workflows, and prioritize safety and governance as you integrate larger models into products.</p>
+
+
+
+<h3 class="wp-block-heading">Will apps disappear as AI generates everything on demand?</h3>
+
+
+
+<p>Not overnight. Pre-built apps will persist where predictable UX, regulatory constraints, or specialized integrations matter. But many new utilities—scripts, micro-apps, customized UIs, and bespoke experiences—will be created dynamically, reducing friction for tasks that previously required downloading or paying for dedicated software.</p>
+
+
+
+<h3 class="wp-block-heading">Are open-source full-size models a net positive?</h3>
+
+
+
+<p>Open source accelerates research and democratizes innovation, which is a strong positive. It also raises safety and misuse concerns that need active governance, testing, and responsible stewardship. The trade-offs are complex but real: more minds working on full-size models speeds progress and exposes weaknesses early.</p>
+
+
+
+<h3 class="wp-block-heading">Could AI actually increase birth rates?</h3>
+
+
+
+<p>It’s speculative. AI might raise birth rates by reducing parenting burdens, improving matchmaking, or enhancing social confidence through coaching. Conversely, it might lower birth rates by offering satisfying alternatives to real-world relationships. Macro trends like economics and policy will likely remain dominant factors.</p>
+
+
+
+<h3 class="wp-block-heading">How should I interpret "nontrivial chance" when people use it to describe AGI risk?</h3>
+
+
+
+<p>"Nontrivial" means more than negligible—somewhere from a small but meaningful probability (e.g., 1–5%) to much larger, depending on context. In existential risk conversations, even low probabilities (0.01–0.1) are taken seriously. Context matters: different stakeholders use pretty different implicit thresholds.</p>
+
+
+
+<h3 class="wp-block-heading">Where can I learn more about applying these ideas in my company?</h3>
+
+
+
+<p>Start with concrete experiments: test different models on core workflows, build a model chooser (routing) to minimize cost and maximize quality, and explore on-demand generation for internal automation. Also, monitor open-source releases and benchmark updates to stay agile as capabilities shift.</p>
+
+
+
+<h2 id="✅-final-note">✅ Final note</h2>
+
+
+
+<p>The next phase of AI is likely to be messy, fast, and surprising. A mix of massive compute, RL-heavy training, and rapid open-source contributions creates fertile ground for breakthroughs—and for new challenges. Staying informed, pragmatic, and safety-minded will be the best way for companies and researchers to benefit from what comes next.</p>

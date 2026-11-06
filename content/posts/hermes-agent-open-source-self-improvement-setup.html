@@ -1,0 +1,231 @@
+<p><strong>Canadian Technology Magazine</strong> readers should pay attention to Hermes Agent, because this is one of the more interesting shifts in AI agents right now. It is not just another chatbot wrapper. It is an open source agent built around a much bigger idea: the longer it runs, the more useful it becomes. It keeps persistent memory, develops reusable skills, and improves how it handles your projects over time.</p>
+<p>That is the part that immediately grabs people. Most AI tools feel stateless. You ask, they answer, and the interaction evaporates. Hermes Agent is aiming at something else entirely. It treats new capabilities almost like mini research projects. It forms hypotheses, tests methods, refines workflows, and then keeps what worked. If that sounds like a big deal, it is, and <strong>Canadian Technology Magazine</strong> would be hard pressed to ignore it.</p>
+<p>There is also a broader reason this matters. Hermes Agent comes from Nous Research, a lab deeply committed to open source and local AI. Their philosophy is that giant AI labs should not get to define the morality and behavioural limits of every model by default. Users should have more control. Whether you agree with every implication of that or not, it is a serious vision, and Hermes Agent feels like one of the clearest practical expressions of it.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul><li><a href="#what-makes-hermes-agent-different">What makes Hermes Agent different</a></li><li><a href="#the-bigger-vision-behind-hermes-agent">The bigger vision behind Hermes Agent</a></li><li><a href="#the-model-options-are-part-of-the-appeal">The model options are part of the appeal</a></li><li><a href="#why-a-vps-makes-sense-for-hermes-agent">Why a VPS makes sense for Hermes Agent</a></li><li><a href="#a-practical-setup-path-for-non-developers">A practical setup path for non-developers</a></li><li><a href="#getting-through-the-terminal-without-panic">Getting through the terminal without panic</a></li><li><a href="#what-the-hermes-setup-wizard-actually-controls">What the Hermes setup wizard actually controls</a></li><li><a href="#starting-the-telegram-gateway">Starting the Telegram gateway</a></li><li><a href="#what-using-hermes-feels-like-at-first">What using Hermes feels like at first</a></li><li><a href="#when-you-need-to-edit-the-env-file-manually">When you need to edit the .env file manually</a></li><li><a href="#security-and-approvals-inside-hermes">Security and approvals inside Hermes</a></li><li><a href="#why-hermes-agent-feels-important-right-now">Why Hermes Agent feels important right now</a></li><li><a href="#who-should-actually-try-hermes-agent">Who should actually try Hermes Agent</a></li><li><a href="#faq">FAQ</a></li></ul>
+<h2 id="what-makes-hermes-agent-different">What makes Hermes Agent different</h2>
+<p>The headline feature is simple to describe and much harder to build: <strong>self-improvement over time</strong>.</p>
+<p>Hermes Agent is designed around a loop of doing, learning, and improving. As it works on your projects, it can build up memories, create skills, and retain ways of solving problems it has already encountered. Instead of acting like every session is day one, it accumulates operational knowledge.</p>
+<p>That makes it different from a lot of agent frameworks that feel exciting for an hour and forgettable by tomorrow.</p>
+<p>Even before the self-improvement loop really kicks in, the default package is already substantial. A fresh install ships with <strong>74 built-in skills</strong>. These range across research, coding, media generation, local model tasks, quantization, fine-tuning, GitHub workflows, reinforcement learning tooling, Notion, Obsidian, PyTorch, Stable Diffusion, text-to-speech, YouTube research, X research, and more.</p>
+<p>It also has some very spicy options that make it clear this is not a watered-down corporate toy. There is a “God mode” skill aimed at jailbreak and safety research using techniques like prefill and prompt manipulation. That will not be for everyone, but it tells you a lot about the lab’s priorities. The toolset is broad, experimental, and openly built for power users.</p>
+<h2 id="the-bigger-vision-behind-hermes-agent">The bigger vision behind Hermes Agent</h2>
+<p>This is not just about a command line assistant with extra plugins.</p>
+<p>Hermes Agent is also meant to power an agentic reinforcement learning pipeline. It supports large-scale data generation out of the box and feeds into a wider vision of scalable asynchronous large language model reinforcement learning. Even if you are not touching that side on day one, the architecture hints at where things are going.</p>
+<p>Another important detail for <strong>Canadian Technology Magazine</strong> readers is the local-first mindset. Hermes Agent is closely tied to the world of local open source models. Expect to see it pushed onto lightweight hardware and integrated with increasingly efficient local inference stacks. That matters for privacy, cost control, and flexibility.</p>
+<p>Version 0.9.0, described as the “Everywhere” release, pushed that idea even further. The energy around Hermes right now comes partly from the software itself and partly from the sense that this is the beginning of something that bigger labs will be scrambling to imitate.</p>
+<h2 id="the-model-options-are-part-of-the-appeal">The model options are part of the appeal</h2>
+<p>One reason Hermes Agent is getting traction is that it is not locked to a single model provider.</p>
+<p>OpenRouter is one of the default providers, which means you can move across a huge range of available models from one setup. That includes premium models like Claude Opus, but also cheaper or even free alternatives depending on current availability.</p>
+<p>That flexibility matters because agents can burn tokens quickly. A powerful system is less exciting if every test run feels like setting money on fire.</p>
+<p>Hermes lets you choose based on what you need:</p>
+<ul>
+<li><strong>Top-end reasoning</strong> for complex research and coding</li>
+<li><strong>Cheaper models</strong> for routine tasks</li>
+<li><strong>Free models</strong> for experimentation</li>
+<li><strong>Local models</strong> for privacy-conscious setups</li>
+</ul>
+<p>There was specific excitement around some lower-cost models on OpenRouter that were benchmarking surprisingly close to much more expensive premium options. If that trend continues, Hermes Agent becomes even more attractive because the software can scale with your budget instead of fighting it.</p>
+<h2 id="why-a-vps-makes-sense-for-hermes-agent">Why a VPS makes sense for Hermes Agent</h2>
+<p>If you want Hermes Agent to be available consistently, a VPS is one of the cleanest ways to run it.</p>
+<p>You can absolutely install it on a desktop, old laptop, Mac mini, or mini PC. But a virtual private server solves two common problems:</p>
+<ul>
+<li><strong>Availability</strong>, because the agent stays online</li>
+<li><strong>Simplicity</strong>, because you are not babysitting local hardware</li>
+</ul>
+<p>Nous Research itself recommends a VPS as one of the better options. That makes sense. An always-on machine is a better home for an agent that is supposed to remember, iterate, and improve.</p>
+<p>The setup described here used a KVM VPS plan with:</p>
+<ul>
+<li>2 vCPU cores</li>
+<li>8 GB RAM</li>
+<li>100 GB NVMe storage</li>
+</ul>
+<p>That is enough for one agent with room to breathe. The fast NVMe storage matters more than people think, because agents often need to scan files, read project directories, and access stored memory quickly.</p>
+<p>The really useful piece is the <strong>persistent Docker container</strong>. This is what helps Hermes keep its learned skills, session history, memories, and configuration across restarts and updates. Without persistence, one of Hermes Agent’s biggest advantages disappears.</p>
+<h2 id="a-practical-setup-path-for-non-developers">A practical setup path for non-developers</h2>
+<p>This is where a lot of AI projects lose people. The promise sounds simple, then the install turns into command-line archaeology.</p>
+<p>Hermes Agent is still early enough that some terminal work is involved, but it is much more approachable than it looks. If you can use an AI chatbot, copy and paste commands, and follow directions carefully, you can get this running.</p>
+<p>The basic setup flow looks like this:</p>
+<ol>
+<li>Create a VPS with a Hermes-ready deployment</li>
+<li>Add your API credentials</li>
+<li>Create a Telegram bot token</li>
+<li>Connect to the server terminal</li>
+<li>Enter the Hermes Docker container</li>
+<li>Activate the Hermes environment</li>
+<li>Launch Hermes and configure it</li>
+</ol>
+<p>The needed credentials typically include:</p>
+<ul>
+<li><strong>OpenRouter API key</strong></li>
+<li><strong>Anthropic API key</strong></li>
+<li><strong>OpenAI API key</strong></li>
+<li><strong>Telegram bot token</strong></li>
+</ul>
+<p>OpenRouter is especially useful because one key can give you access to a large number of models. For many people, that becomes the central connection point.</p>
+<h3>Creating the Telegram bot</h3>
+<p>For messaging access, Telegram is one of the easiest ways to interact with Hermes Agent remotely.</p>
+<p>You create a bot using Telegram’s BotFather account. The process is straightforward:</p>
+<ol>
+<li>Open Telegram</li>
+<li>Search for <code>@BotFather</code></li>
+<li>Create a new bot with <code>/newbot</code></li>
+<li>Pick a display name</li>
+<li>Pick a username that ends in <code>bot</code></li>
+<li>Copy the generated bot token</li>
+</ol>
+<p>That token is then added to your Hermes configuration.</p>
+<h2 id="getting-through-the-terminal-without-panic">Getting through the terminal without panic</h2>
+<p>For a lot of people, the terminal is the emotional boss battle of any setup guide. It looks intimidating until you realize it is mostly just a place to type direct instructions.</p>
+<p>The key commands used in this setup were:</p>
+
+<pre class="wp-block-code"><code>cd /docker/hermes-agent-xxx
+docker compose exec -it hermes-agent /bin/bash
+source /opt/hermes/.venv/bin/activate
+hermes</code></pre>
+
+<p>Here is what those commands are doing:</p>
+<ul>
+<li><code>cd</code> changes directories</li>
+<li><code>docker compose exec -it</code> opens an interactive terminal inside the running Hermes container</li>
+<li><code>source ... activate</code> turns on the Python virtual environment Hermes uses</li>
+<li><code>hermes</code> launches the Hermes CLI</li>
+</ul>
+<p>That is really the heart of it. Once you are inside the container and the virtual environment is active, Hermes is mostly ready to go.</p>
+<p>If you want the available command options, you can use:</p>
+
+<pre class="wp-block-code"><code>hermes -h</code></pre>
+
+<p>If you want to pick or change the default model:</p>
+
+<pre class="wp-block-code"><code>hermes model</code></pre>
+
+<p>If you want to run the setup wizard:</p>
+
+<pre class="wp-block-code"><code>hermes setup</code></pre>
+
+<h2 id="what-the-hermes-setup-wizard-actually-controls">What the Hermes setup wizard actually controls</h2>
+<p>The setup flow is more important than it first appears. It determines how expensive, verbose, and persistent your agent behaviour will be.</p>
+<p>Some of the key options include:</p>
+<ul>
+<li><strong>Primary provider and model</strong></li>
+<li><strong>Fallback credentials</strong> for provider rotation</li>
+<li><strong>Text-to-speech provider</strong></li>
+<li><strong>Tool-calling iteration limits</strong></li>
+<li><strong>Progress display verbosity</strong></li>
+<li><strong>Context compression level</strong></li>
+<li><strong>Session reset behaviour</strong></li>
+<li><strong>Messaging platform configuration</strong></li>
+</ul>
+<p>A few settings deserve extra attention.</p>
+<h3>Tool-calling iterations</h3>
+<p>This controls how far Hermes can keep working through a problem within one conversation.</p>
+<ul>
+<li><strong>60</strong> is conservative</li>
+<li><strong>90</strong> is a solid default</li>
+<li><strong>150+</strong> is better for deep research and open-ended tasks</li>
+</ul>
+<p>If you want Hermes to really keep going on a difficult job, this number matters.</p>
+<h3>Context compression</h3>
+<p>This determines when Hermes compresses older context to save tokens. A lower threshold can reduce cost. A higher threshold can preserve more detail for long tasks but may increase API usage.</p>
+<p>The default of <strong>0.5</strong> is a reasonable place to start.</p>
+<h3>Session reset policy</h3>
+<p>This is a practical feature that prevents stale conversation history from contaminating new tasks. Messaging sessions can grow expensive and messy if they never reset. Hermes can summarize what matters, preserve useful memory, and clear the running context after inactivity or at a daily reset point.</p>
+<p>You can also manually reset a session with:</p>
+
+<pre class="wp-block-code"><code>/reset</code></pre>
+
+<h2 id="starting-the-telegram-gateway">Starting the Telegram gateway</h2>
+<p>Once your config is in place, the next important command is:</p>
+
+<pre class="wp-block-code"><code>hermes gateway</code></pre>
+
+<p>This starts the messaging gateway used for Telegram communication.</p>
+<p>After that, you can search for your bot in Telegram, open the chat, and start it. On first contact, Hermes may ask for a pairing code. That is a security feature, and it is a good one.</p>
+<p>To approve the Telegram user, use the command Hermes gives you, which follows this pattern:</p>
+
+<pre class="wp-block-code"><code>hermes pairing approve telegram YOUR_CODE</code></pre>
+
+<p>This pairs your account with the bot so not just anyone can start talking to your agent.</p>
+<h2 id="what-using-hermes-feels-like-at-first">What using Hermes feels like at first</h2>
+<p>Once it is live, Hermes behaves a lot like a chatbot on the surface. You can open the CLI and simply type something like “hi” to start interacting.</p>
+<p>But under the hood, there is a lot more going on.</p>
+<p>You can ask it to inspect its own environment, identify its hardware, review available skills, describe its hosting setup, and explain what tools it can access. This is actually a smart first task because it helps you confirm everything is wired correctly.</p>
+<p>It also helps to give your agent some personality. A distinct name, humour style, or communication quirk makes it easier to tell multiple agents apart later. That may sound cosmetic, but if you end up running several assistants, it becomes surprisingly useful.</p>
+<h2 id="when-you-need-to-edit-the-env-file-manually">When you need to edit the .env file manually</h2>
+<p>This is the part where setups usually get a little messy.</p>
+<p>All the sensitive credentials live in the <code>.env</code> file. That includes API keys, tokens, and other configuration values. If your automated setup misses something, this is where you fix it.</p>
+<p>To locate files in the working directory:</p>
+
+<pre class="wp-block-code"><code>ls
+ls -a</code></pre>
+
+<p>The <code>-a</code> flag shows hidden files, including <code>.env</code>.</p>
+<p>In the setup described, the <code>.env</code> file was found in <code>/opt/data</code>. To edit it manually, the lightweight editor Nano was used:</p>
+
+<pre class="wp-block-code"><code>nano /opt/data/.env</code></pre>
+
+<p>If Nano is not installed yet, you may need to install it first using the package manager on the machine.</p>
+<p>Inside the file, values that begin with a <code>#</code> are commented out, meaning they are ignored. Remove the <code>#</code> and add your actual value to make the line active.</p>
+<p>You may need to fill in things such as:</p>
+<ul>
+<li><strong>OpenRouter API key</strong></li>
+<li><strong>Anthropic API key</strong></li>
+<li><strong>Telegram bot token</strong></li>
+<li><strong>Allowed Telegram users</strong></li>
+</ul>
+<p>After editing, save the file and restart the Docker container so Hermes picks up the changes.</p>
+
+<pre class="wp-block-code"><code>docker compose restart</code></pre>
+
+<p>That restart step is easy to forget and annoyingly important.</p>
+<h2 id="security-and-approvals-inside-hermes">Security and approvals inside Hermes</h2>
+<p>Hermes includes a guard system that prompts for approval when potentially risky commands are about to run. You can usually choose between:</p>
+<ul>
+<li><strong>Allow once</strong></li>
+<li><strong>Allow for session</strong></li>
+<li><strong>Allow always</strong></li>
+<li><strong>Deny</strong></li>
+</ul>
+<p>This is one of those features that becomes more valuable as agents get more capable. If an AI system is interacting with files, services, APIs, and command line tools, guardrails around dangerous actions are not optional.</p>
+<p>In Telegram, these prompts can also appear directly in chat, which makes remote control much more practical.</p>
+<h2 id="why-hermes-agent-feels-important-right-now">Why Hermes Agent feels important right now</h2>
+<p>There are lots of AI tools that are fun demos. Hermes Agent feels like infrastructure.</p>
+<p>It combines several things that normally show up separately:</p>
+<ul>
+<li><strong>Persistent memory</strong></li>
+<li><strong>Skill-based tooling</strong></li>
+<li><strong>Open model flexibility</strong></li>
+<li><strong>Messaging integration</strong></li>
+<li><strong>Self-improvement loops</strong></li>
+<li><strong>Reinforcement learning ambitions</strong></li>
+</ul>
+<p>That combination is why it is being talked about as a serious OpenClaw rival and, in some ways, a step beyond it.</p>
+<p>For <strong>Canadian Technology Magazine</strong>, the bigger story is not just that Hermes can do a lot today. It is that the design points toward a future where personal and business agents become more like long-term collaborators than disposable tools. That is especially relevant for teams thinking about research automation, internal knowledge work, coding workflows, and persistent AI operations.</p>
+<h2 id="who-should-actually-try-hermes-agent">Who should actually try Hermes Agent</h2>
+<p>Hermes Agent is especially interesting if you fall into one of these groups:</p>
+<ul>
+<li><strong>People who liked OpenClaw</strong> and want the next evolution</li>
+<li><strong>Technical tinkerers</strong> who want deep control over tools and models</li>
+<li><strong>Business operators</strong> exploring persistent AI assistants</li>
+<li><strong>Open source AI enthusiasts</strong> who care about local-first ecosystems</li>
+<li><strong>Researchers and automation builders</strong> who want a flexible agent base</li>
+</ul>
+<p>If you need a glossy one-click consumer product with zero friction, this is not quite that yet. But if you want a powerful open system that is moving fast and getting more capable, Hermes is absolutely worth your time.</p>
+<h2 id="faq">FAQ</h2>
+<h3>Is Hermes Agent better than OpenClaw?</h3>
+<p>In some important ways, yes. The standout difference is Hermes Agent’s emphasis on persistent memory, auto-generated skills, and self-improvement over time. It is trying to become more capable the longer it runs, not just complete one-off tasks.</p>
+<h3>Do I need to be a developer to install Hermes Agent?</h3>
+<p>No, but you do need to be comfortable following instructions, using a terminal, and asking an AI assistant for help when something breaks. The process is much easier than it looks, especially with a VPS setup that preconfigures most of the environment.</p>
+<h3>What is the easiest way to run Hermes Agent?</h3>
+<p>A VPS is one of the easiest and most practical ways to run it. It stays online, avoids local hardware headaches, and supports persistent Docker storage so the agent can keep its memory, learned skills, and session history.</p>
+<h3>What models can Hermes Agent use?</h3>
+<p>Hermes Agent supports multiple providers, including OpenRouter, Anthropic, OpenAI, Hugging Face, and others. OpenRouter is especially useful because it gives access to many different models through one API key.</p>
+<h3>Why is Telegram used with Hermes Agent?</h3>
+<p>Telegram gives you a simple remote interface for interacting with the agent. Once the bot token and pairing process are set up, you can message Hermes directly and approve or deny actions from chat.</p>
+<h3>Where are the API keys stored?</h3>
+<p>They are stored in the <code>.env</code> file. If the automated setup misses any credentials, you can manually edit that file and then restart the Docker container so Hermes loads the updated values.</p>
+<h3>Why is Canadian Technology Magazine covering Hermes Agent?</h3>
+<p>Because <strong>Canadian Technology Magazine</strong> tracks meaningful shifts in business and IT tooling, and Hermes Agent represents more than a novelty. It reflects the rise of open, persistent, model-flexible agents that may shape how individuals and organizations use AI day to day.</p>
+<p><strong>Canadian Technology Magazine</strong> should keep this one on the radar. Hermes Agent still has some rough edges, and yes, it is early. But the underlying idea is strong, the pace of development is fast, and the combination of memory, skills, model choice, and open source philosophy makes it one of the more compelling agent projects available right now.</p>
+<p>If this category keeps evolving the way it looks like it will, Hermes Agent may not just be a useful tool. It may turn out to be one of the templates other AI systems start copying.</p>

@@ -1,0 +1,677 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🛠️-quick-overview:-what-just-changed">🛠️ Quick Overview: What Just Changed</a></li>
+
+
+
+<li><a href="#⚙️-how-to-enable-the-new-features-in-claude">⚙️ How to Enable the New Features in Claude</a></li>
+
+
+
+<li><a href="#📱-claude-mobile:-what-it-can-do-on-your-phone">📱 Claude Mobile: What It Can Do on Your Phone</a></li>
+
+
+
+<li><a href="#🔗-connectors:-linking-claude-to-your-tools">🔗 Connectors: Linking Claude to Your Tools</a></li>
+
+
+
+<li><a href="#📄-claude’s-upgraded-file-creator-&amp;-analyzer">📄 Claude’s Upgraded File Creator &amp; Analyzer</a></li>
+
+
+
+<li><a href="#💡-practical-use-cases-&amp;-prompt-examples">💡 Practical Use Cases &amp; Prompt Examples</a></li>
+
+
+
+<li><a href="#🔒-security,-privacy-&amp;-permissions-best-practices">🔒 Security, Privacy &amp; Permissions Best Practices</a></li>
+
+
+
+<li><a href="#🧭-best-practices-for-prompting-claude">🧭 Best Practices for Prompting Claude</a></li>
+
+
+
+<li><a href="#🧪-real-world-walkthroughs:-step-by-step-examples">🧪 Real-World Walkthroughs: Step-by-Step Examples</a></li>
+
+
+
+<li><a href="#🔍-troubleshooting-&amp;-limitations">🔍 Troubleshooting &amp; Limitations</a></li>
+
+
+
+<li><a href="#🚀-the-bigger-picture:-why-this-matters">🚀 The Bigger Picture: Why This Matters</a></li>
+
+
+
+<li><a href="#📌-suggested-multimedia-&amp;-seo-extras">📌 Suggested Multimedia &amp; SEO Extras</a></li>
+
+
+
+<li><a href="#📣-call-to-action">📣 Call to Action</a></li>
+
+
+
+<li><a href="#❓-frequently-asked-questions-(faq)-🤖">❓ Frequently Asked Questions (FAQ) 🤖</a></li>
+
+
+
+<li><a href="#🔚-final-thoughts">🔚 Final Thoughts</a></li>
+</ul>
+
+
+
+<h2 id="🛠️-quick-overview:-what-just-changed">🛠️ Quick Overview: What Just Changed</h2>
+
+
+
+<p>Two big updates were released for Claude that I want to highlight immediately:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Mobile app actions:</strong> Claude Mobile can now connect to apps on your phone and take actions—scheduling focused time blocks, drafting messages, setting reminders, finding nearby places, and more.</li>
+
+
+
+<li><strong>Upgraded file creator &amp; analyzer:</strong> From the web or desktop app, Claude can now create, edit, and analyze documents, PDFs, Excel spreadsheets, PowerPoint presentations and data reports. It can also produce consultant-style deliverables with executive summaries, roadmaps, KPIs and projected ROI.</li>
+</ul>
+
+
+
+<p>Put together, these features let you speak to Claude on your phone and have it act across apps, and let Claude generate and analyze high-value content and reports from datasets and connected services.</p>
+
+
+
+<h2 id="⚙️-how-to-enable-the-new-features-in-claude">⚙️ How to Enable the New Features in Claude</h2>
+
+
+
+<p>Before you can use the upgraded file creator or Claude’s mobile app actions, you need to enable specific features in Claude’s settings. Here’s how to do it step-by-step:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Open Claude (web or desktop).</li>
+
+
+
+<li>Go to the bottom-left corner and click on <strong>Settings</strong>.</li>
+
+
+
+<li>Choose the <strong>Features</strong> tab.</li>
+
+
+
+<li>Enable the following (as applicable):
+<ul class="wp-block-list">
+<li><strong>AI-Powered Artifacts</strong> (Artifacts) — required for richer file creation and content generation.</li>
+
+
+
+<li><strong>Search &amp; Reference Chats</strong> — this acts like a memory feature so Claude can find relevant details in past chats.</li>
+
+
+
+<li><strong>Analyze Tool</strong> — for data analysis and file insights.</li>
+</ul>
+</li>
+
+
+
+<li><strong>Important:</strong> You might see that certain features cannot be on at the same time (e.g., the previous version of a feature vs. the new file creation &amp; analysis). If you want the new file creator/analyzer, switch the older feature off—Claude only allows one of those modes active at a time.</li>
+
+
+
+<li>Finally, refresh Claude if needed so the changes take effect.</li>
+</ol>
+
+
+
+<p>If you plan to use Claude Mobile’s app actions, you'll also need to grant permissions from the mobile app when prompted—these are standard OS-level permissions (calendar, reminders, contacts, etc.). Accepting them allows Claude to act directly in your device apps.</p>
+
+
+
+<h2 id="📱-claude-mobile:-what-it-can-do-on-your-phone">📱 Claude Mobile: What It Can Do on Your Phone</h2>
+
+
+
+<p>The mobile update is particularly powerful because it allows Claude to take real actions in phone apps. That’s beyond just producing text; Claude can schedule events, check availability, create reminders, draft texts and emails, and even look up nearby locations like coffee shops and return results with links and maps-like info.</p>
+
+
+
+<p>Example of a single prompt that demonstrates the new capability:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>“Schedule a focused time block over the next work week that avoids conflicts with existing meetings, find nearby coffee shops, and remind me to take my headphones.”</p>
+</blockquote>
+
+
+
+<p>In my demo, Claude did the following after I clicked “Try it out”: checked my calendar for conflicts, created an event in the calendar, added the reminder for headphones, and generated a short list of nearby coffee shops.</p>
+
+
+
+<p>It’s impressive how quickly Claude handled all actions, even over a flaky Airbnb Wi‑Fi connection. The key is that the mobile app has connectors that let Claude call into the appropriate app APIs and make changes or propose items—so you don’t have to switch between apps manually.</p>
+
+
+
+<h2 id="🔗-connectors:-linking-claude-to-your-tools">🔗 Connectors: Linking Claude to Your Tools</h2>
+
+
+
+<p>Claude’s power increases considerably when you connect it to your services. In Settings → Connectors, you’ll find a long list of services you can hook up to Claude:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Gmail</li>
+
+
+
+<li>Google Calendar</li>
+
+
+
+<li>Google Drive</li>
+
+
+
+<li>Canva</li>
+
+
+
+<li>InVideo</li>
+
+
+
+<li>PayPal</li>
+
+
+
+<li>Stripe</li>
+
+
+
+<li>monday.com</li>
+
+
+
+<li>and many others</li>
+</ul>
+
+
+
+<p>These connectors allow Claude to pull data from these services (for analysis) and push actions into them (to create events, documents, files, or messages). That means you can ask Claude to generate a PowerPoint using assets from your Google Drive, or analyze sales pulled from Stripe or PayPal to produce a business report.</p>
+
+
+
+<p>If you want more third-party connectors, I recommend checking out Rube.app (rube.app). Rube offers a marketplace that lets Claude (or “Cod” as some internal names reference) connect to more than 500 apps—CRM tools, analytics platforms, developer tools, and more. Rube.app is currently free and massively expands Claude’s reach.</p>
+
+
+
+<h2 id="📄-claude’s-upgraded-file-creator-&amp;-analyzer">📄 Claude’s Upgraded File Creator &amp; Analyzer</h2>
+
+
+
+<p>This is the other big update. Claude can now:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Create full PowerPoint decks from prompts (complete design + content)</li>
+
+
+
+<li>Generate and edit Word-like docs and Google Docs-ready content</li>
+
+
+
+<li>Produce CSV/Excel data from prompts and then analyze it</li>
+
+
+
+<li>Create polished PDF-style business reports with executive summaries, strategy, implementation roadmaps, KPIs, and projected ROI</li>
+
+
+
+<li>Process and analyze uploaded files (text, CSV, Excel, PDF) to produce insights</li>
+</ul>
+
+
+
+<p>In my walkthrough I had Claude create an 18-slide PowerPoint for students about voice agents—how they work, how to set them up, and how to train them. With a simple prompt, Claude generated the slides, layout, headings and suggested imagery. It even applied a color scheme (I changed it later because I didn’t like the orange).</p>
+
+
+
+<p>Another showcase: I asked Claude to generate dummy sales data for a fleet of five food trucks, exported it as a text file, uploaded it to Claude, and then asked for a full analysis and optimization strategy.</p>
+
+
+
+<p>Within seconds, Claude examined the data structure, parsed the fields, and delivered a comprehensive, consultant-style report including:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Executive summary</li>
+
+
+
+<li>Key findings</li>
+
+
+
+<li>Revenue drivers and strategic opportunities</li>
+
+
+
+<li>Risk mitigation strategies</li>
+
+
+
+<li>Implementation roadmap (Phase 1, 2, 3)</li>
+
+
+
+<li>Conservative and optimistic financial projections and ROI estimates</li>
+
+
+
+<li>Primary KPIs to monitor</li>
+
+
+
+<li>Appendix with data sources</li>
+</ul>
+
+
+
+<p>This kind of deliverable would normally cost thousands of dollars if commissioned, but Claude produced a well-structured version instantly. That’s transformative for small businesses, consultants, and internal teams who need fast, high-quality analysis.</p>
+
+
+
+<h2 id="💡-practical-use-cases-&amp;-prompt-examples">💡 Practical Use Cases &amp; Prompt Examples</h2>
+
+
+
+<p>Below are concrete use cases and example prompts you can adapt right away.</p>
+
+
+
+<h3 class="wp-block-heading">Use Case: Personal Productivity</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Prompt: “Block 90 minutes of focused work every morning next week without conflicting with calendar meetings, set a reminder 15 minutes before, and send me a text reminder the night before.”</li>
+
+
+
+<li>Result: Claude checks your calendar, schedules the blocks, creates reminders, and drafts the text for final approval.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Use Case: Teaching &amp; Presentations</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Prompt: “Create an 18-slide PowerPoint for my class about voice agents: what they are, setup steps, training best practices, and 3 hands-on exercises.”</li>
+
+
+
+<li>Result: A ready-to-edit slide deck with suggested images and talking points.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Use Case: Small Business Analysis</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Prompt: “Here’s a CSV of sales data for five food trucks. Provide a consulting report analyzing sales by location and item, suggest opportunities to grow revenue, propose an implementation roadmap, and estimate conservative and optimistic revenue uplift.”</li>
+
+
+
+<li>Result: A full consultant-style Google Doc report, with graphs, KPIs and roadmap.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Use Case: Marketing Collateral</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Prompt: “Generate a 4-page PDF product cheat sheet with visuals and a one-page social posting calendar for next quarter based on our product features in Google Drive.”</li>
+
+
+
+<li>Result: Shareable PDF, social calendar and suggested graphics (Canva template references).</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Use Case: Finance &amp; Accounting</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Prompt: “Pull last quarter’s transactions from Stripe and PayPal, categorize revenue, and produce a financial summary with recommendations to reduce payment fees.”</li>
+
+
+
+<li>Result: Categorized financials and actionable recommendations.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Use Case: Sales &amp; CRM</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Prompt: “Analyze CRM pipeline from monday.com and highlight stalled deals with suggested follow-up scripts and a prioritization list.”</li>
+
+
+
+<li>Result: Prioritized deal list and draft outreach scripts ready to send.</li>
+</ul>
+
+
+
+<h2 id="🔒-security,-privacy-&amp;-permissions-best-practices">🔒 Security, Privacy &amp; Permissions Best Practices</h2>
+
+
+
+<p>These features are powerful, but with power comes responsibility. When you connect accounts and grant Claude access to apps on your phone, follow these guidelines:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Grant the minimum requested permissions:</strong> Only allow access that’s necessary for the task. Revoke permissions you no longer need.</li>
+
+
+
+<li><strong>Review actions before they are taken:</strong> If Claude drafts an email or schedules a meeting, confirm the final content before it’s sent or saved.</li>
+
+
+
+<li><strong>Keep sensitive data off free or shared accounts:</strong> Use business accounts with appropriate governance if you are handling protected information.</li>
+
+
+
+<li><strong>Audit connectors regularly:</strong> Periodically check the connectors page and revoke any services you don’t use often.</li>
+
+
+
+<li><strong>Use role-based access:</strong> For teams, use managed accounts and limit who can connect third-party apps to Claude.</li>
+</ul>
+
+
+
+<p>Also be mindful of organizational policies. Some companies restrict third-party AI access to financial or HR systems. If you’re using Claude inside a business, coordinate with IT and security teams before connecting production systems.</p>
+
+
+
+<h2 id="🧭-best-practices-for-prompting-claude">🧭 Best Practices for Prompting Claude</h2>
+
+
+
+<p>To get the best outputs, follow these prompting tips:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Be explicit about format:</strong> “Create a 12-slide PowerPoint with slide titles, speaker notes, and a one-page takeaway PDF.”</li>
+
+
+
+<li><strong>Provide brand guidelines:</strong> If you want brand colors or fonts, include them: “Use brand colors #123456 and #abcdef, and our headline font is Montserrat.”</li>
+
+
+
+<li><strong>Supply examples or datasets:</strong> Upload a sample CSV or provide a link to your Google Drive assets for better alignment.</li>
+
+
+
+<li><strong>Ask for deliverable structure:</strong> Request sections like Executive Summary, Recommendations, Roadmap, and KPIs to get consultant-quality outputs.</li>
+
+
+
+<li><strong>Iterate:</strong> Use follow-up prompts like “Make this more concise” or “Add a risk assessment section” to refine outputs quickly.</li>
+</ul>
+
+
+
+<h2 id="🧪-real-world-walkthroughs:-step-by-step-examples">🧪 Real-World Walkthroughs: Step-by-Step Examples</h2>
+
+
+
+<h3 class="wp-block-heading">Example 1: Create a Class Presentation</h3>
+
+
+
+<ol class="wp-block-list">
+<li>Open Claude and ensure file creation is enabled in Settings → Features.</li>
+
+
+
+<li>Prompt: “Create a PowerPoint for my students about voice agents: 18 slides, learning objectives, hands-on exercises, and speaker notes.”</li>
+
+
+
+<li>Claude generates slide content and layout. Review and tweak colors, images and text.</li>
+
+
+
+<li>Download the deck as PPTX or save to Google Drive via the connector.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Example 2: Data Analysis &amp; Consulting Report</h3>
+
+
+
+<ol class="wp-block-list">
+<li>Generate dummy or real sales CSV (Claude can fabricate example data if needed).</li>
+
+
+
+<li>Upload the CSV to Claude in the chat window.</li>
+
+
+
+<li>Prompt: “Analyze this dataset for five food trucks and give me an optimization strategy, revenue drivers, implementation roadmap and KPI list.”</li>
+
+
+
+<li>Claude analyzes and returns an executive summary and detailed recommendations.</li>
+
+
+
+<li>Prompt: “Package that into a Google Doc-style consultant report with an appendix and ROI projections.” Claude produces the document ready for download or to be saved to Drive.</li>
+</ol>
+
+
+
+<h2 id="🔍-troubleshooting-&amp;-limitations">🔍 Troubleshooting &amp; Limitations</h2>
+
+
+
+<p>While the features are impressive, there are some current limitations to be aware of:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Feature toggle conflicts:</strong> Some features can’t be enabled simultaneously—if you rely on older features, you may need to switch modes.</li>
+
+
+
+<li><strong>Connector limits:</strong> Not every app you use may have a native connector yet; third-party marketplaces like Rube can help bridge this gap.</li>
+
+
+
+<li><strong>Image watermarks and assets:</strong> Automatically suggested images may include watermarks—replace them with licensed images when publishing.</li>
+
+
+
+<li><strong>Design fidelity:</strong> Generated slide designs are a great starting point but may require brand adjustments for final delivery.</li>
+
+
+
+<li><strong>Data accuracy:</strong> For critical analyses, verify calculated numbers and assumptions—Claude can make mistakes or misinterpret ambiguous fields.</li>
+</ul>
+
+
+
+<h2 id="🚀-the-bigger-picture:-why-this-matters">🚀 The Bigger Picture: Why This Matters</h2>
+
+
+
+<p>These updates democratize high-value work. Small business owners, educators, consultants and solo creators can now generate polished presentations and deep analyses at near-zero cost. Tasks that previously required multiple tools and hours of manual effort are now possible in minutes.</p>
+
+
+
+<p>That said, this is a double-edged sword. As financial analysts and institutions have warned, AI will reshape the workforce dramatically. Goldman Sachs reported that AI could replace hundreds of millions of jobs worldwide in the coming decade. Whether that figure is precise or directionally accurate, the key takeaway is the same: if you don’t learn how to work with AI, you risk being left behind.</p>
+
+
+
+<p>This is why I created AI Automation School—to help you learn how to automate work with AI, build AI agents (without coding), and audit your personal AI workflows for efficiency and income generation. If you want to stay ahead, the skills you build now will compound quickly.</p>
+
+
+
+<h2 id="📌-suggested-multimedia-&amp;-seo-extras">📌 Suggested Multimedia &amp; SEO Extras</h2>
+
+
+
+<p>To make your blog post or internal documentation richer and more engaging, consider adding:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Annotated screenshots showing the “Try it out” flow on mobile (alt text: “Claude Mobile schedule focused time screenshot”).</li>
+
+
+
+<li>GIFs demonstrating Claude creating a PowerPoint and generating a consultant-style report.</li>
+
+
+
+<li>Infographic summarizing the setup steps for connectors and the file creation workflow.</li>
+</ul>
+
+
+
+<p>Meta description suggestion (150–160 chars): Claude’s new mobile actions and upgraded file creator let you automate scheduling, create PPTs and produce consultant reports—learn how to enable and use them.</p>
+
+
+
+<h2 id="📣-call-to-action">📣 Call to Action</h2>
+
+
+
+<p>If you want hands-on help applying these features to your work, consider:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Joining AI Automation School for step-by-step automation training (link available in my channel’s pinned comment).</li>
+
+
+
+<li>Subscribing to updates if you want daily AI walkthroughs and new automations.</li>
+
+
+
+<li>Experimenting with connectors and Rube.app to expand Claude’s capabilities across your toolset.</li>
+</ul>
+
+
+
+<h2 id="❓-frequently-asked-questions-(faq)-🤖">❓ Frequently Asked Questions (FAQ) 🤖</h2>
+
+
+
+<h3 class="wp-block-heading">Q: Do I need to pay extra to use these Claude features?</h3>
+
+
+
+<p>A: Many of the features are available within Claude’s current plans, but some advanced connectors or integrations (or higher usage volumes) may require a paid plan. Rube.app currently offers a free marketplace to extend connectors. Always check your subscription details.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Can Claude actually send emails or texts from my phone?</h3>
+
+
+
+<p>A: Yes—when you grant the necessary permissions in Claude Mobile, it can draft and, depending on your confirmation settings, send messages or create calendar events. I recommend reviewing drafts before sending and limiting auto-send for important communications.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Is my data safe if I connect Claude to Stripe or PayPal?</h3>
+
+
+
+<p>A: Connectors typically use secure OAuth flows. However, treat financial data with caution—use account-level controls, and consider creating service accounts with limited scope for AI integrations when possible.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Can Claude replace a human consultant?</h3>
+
+
+
+<p>A: Claude can produce high-quality analyses and roadmaps quickly, but human validation is still crucial for strategic decisions—especially for legal, compliance, or high-risk business moves. Use Claude to accelerate research, draft plans, and generate hypotheses, then validate with domain experts.</p>
+
+
+
+<h3 class="wp-block-heading">Q: What if Claude makes a mistake in my report?</h3>
+
+
+
+<p>A: Always verify numeric outputs and assumptions. Prompt Claude to show its calculations and data sources (e.g., “Show me the formulas you used for revenue projection”), and cross-check against source systems.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Will Claude push updates to my calendar without confirmation?</h3>
+
+
+
+<p>A: That depends on the permissions you grant and your confirmation settings. I recommend leaving “manual confirmation” on for any actions that have operational impact (calendar events, emails, payments).</p>
+
+
+
+<h3 class="wp-block-heading">Q: How do I revert connectors or remove access?</h3>
+
+
+
+<p>A: Visit Settings → Connectors and revoke permissions for any service you no longer want Claude to access. Also revoke OAuth permissions from the connected service provider (e.g., Google account security settings) for additional safety.</p>
+
+
+
+<h2 id="🔚-final-thoughts">🔚 Final Thoughts</h2>
+
+
+
+<p>Claude’s new mobile actions and upgraded file creation &amp; analysis capabilities are game-changers. They let you automate actions on your phone and produce high-value deliverables—presentations, PDFs, spreadsheets and consultant-grade analyses—faster than ever before. Use the setup and best practices above to get started safely, and remember to iterate: start small with low-risk tasks, then scale Claude into more complex workflows as you gain confidence.</p>
+
+
+
+<p>If you want step-by-step help implementing automations in your business or career, check out AI Automation School via the pinned comment on my channel. If you liked this deep-dive, subscribe for daily AI walkthroughs and tips—I publish content like this every day to help you keep pace with AI’s rapid changes.</p>
+
+
+
+<p><strong>— Rob The AI Guy</strong></p>
+
+
+
+<p><em>This article was created from the video <a href="https://www.youtube.com/watch?v=JNtPWSWMfh0" target="_blank">Claude Launched NEW Features That are INSANE 👀 (Updated Files Creator &amp; Analyzer)</a> with the help of AI.</em></p>

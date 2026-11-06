@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{pageTitle}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="author" content="{{author}}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1A2412">
+  <link rel="canonical" href="{{canonical}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Biz Rescue Pro">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonical}}">
+  {{ogImage}}
+  <meta property="article:published_time" content="{{publishedISO}}">
+  <meta property="article:modified_time" content="{{dateModifiedISO}}">
+  <meta property="article:section" content="{{categoryLabel}}">
+  {{tagsMeta}}
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-forest focus:px-4 focus:py-2 focus:text-offwhite">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky top-0 z-50 border-b border-transparent bg-offwhite transition-colors duration-300" data-header>
+    <div class="container-site relative flex h-16 items-center justify-between md:h-20">
+      <a href="../" class="flex items-center" aria-label="Biz Rescue Pro home">
+        <img src="../assets/img/logo.svg" alt="Biz Rescue Pro" width="729" height="214" class="h-12 w-auto md:h-14" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <span hidden class="font-display text-lg font-bold tracking-tight">BIZ RESCUE <span class="text-green">PRO</span></span>
+      </a>
+      <button type="button" class="-mr-2 grid h-11 w-11 place-items-center md:hidden" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="burger" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav md:flex md:items-center md:gap-10" aria-label="Main" data-nav>
+        <ul class="container-site md:flex md:w-auto md:items-center md:gap-8 md:px-0">
+          <li><a class="nav-link" href="../">Home</a></li>
+          <li><a class="nav-link" href="../services.html">Services</a></li>
+          <li><a class="nav-link" href="../about.html">About</a></li>
+          <li><a class="nav-link" href="../blog.html" aria-current="page">Blog</a></li>
+          <li class="py-5 md:hidden"><a class="btn btn-dark w-full" href="../contact.html">Let's talk</a></li>
+        </ul>
+        <a class="btn btn-dark hidden md:inline-flex" href="../contact.html">Let's talk</a>
+      </nav>
+    </div>
+    <div class="read-progress" aria-hidden="true" data-progress></div>
+  </header>
+
+  <main id="main">
+    <article>
+      <header class="container-site pt-6 md:pt-8">
+        <nav class="hero-fade flex items-center gap-2 text-sm text-sage" aria-label="Breadcrumb">
+          <a href="../blog.html" class="inline-flex min-h-[44px] items-center gap-2 font-medium text-forest underline decoration-1 underline-offset-[6px]"><span aria-hidden="true">&larr;</span> All articles</a>
+          <span aria-hidden="true">/</span>
+          <a href="../blog.html?cat={{categoryKey}}" class="hover:text-forest">{{categoryLabel}}</a>
+        </nav>
+
+        <div class="mt-4 grid gap-6 border-b-2 border-forest pb-8 md:mt-6 lg:grid-cols-12 lg:items-end lg:pb-10">
+          <div class="lg:col-span-8">
+            <p class="label hero-fade"><span class="text-forest">{{categoryLabel}}</span> &nbsp;/&nbsp; {{typeLabel}} &nbsp;/&nbsp; {{readMins}} min read</p>
+            <h1 class="mt-4 text-[2.1rem] leading-[1.06] sm:text-5xl lg:text-[3.4rem]"><span class="hero-line block">{{title}}</span></h1>
+            <p class="hero-fade mt-5 max-w-xl text-lg leading-relaxed text-sage">{{excerpt}}</p>
+          </div>
+          <dl class="hero-fade grid grid-cols-2 gap-4 text-sm sm:max-w-xs lg:col-span-3 lg:col-start-10 lg:grid-cols-1">
+            <div><dt class="label mb-1">Published</dt><dd><time datetime="{{dateISO}}">{{dateHuman}}</time></dd></div>
+            <div><dt class="label mb-1">By</dt><dd>{{author}}</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <div class="container-site grid gap-10 py-10 md:py-14 lg:grid-cols-12 lg:gap-8">
+        <aside class="lg:col-span-3">{{toc}}</aside>
+
+        <div class="min-w-0 lg:col-span-6 lg:col-start-5">
+          <div class="article-body">
+{{body}}
+          </div>
+
+          <aside class="mt-12 bg-stone p-6 sm:p-8" aria-labelledby="helps" data-reveal>
+            <h2 id="helps" class="text-lg leading-snug">How Biz Rescue Pro helps with this</h2>
+            <ul class="mt-4 border-t border-line text-sm">
+{{helps}}
+            </ul>
+            <a class="link-u mt-4 gap-2" href="../contact.html?topic={{contactTopic}}">Ask us about it <span aria-hidden="true">&rarr;</span></a>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+    <section class="bg-stone py-14 md:py-20" aria-labelledby="related">
+      <div class="container-site">
+        <h2 id="related" class="text-2xl">Related articles</h2>
+        <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+{{related}}
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-forest py-16 text-offwhite md:py-24">
+      <div class="container-site grid gap-8 lg:grid-cols-12 lg:items-end" data-reveal>
+        <div class="lg:col-span-7">
+          <p class="eyebrow eyebrow-light">Let's talk</p>
+          <h2 class="h2">Have a question about your setup?</h2>
+        </div>
+        <div class="lg:col-span-4 lg:col-start-9">
+          <p class="text-lg leading-snug text-offwhite/85">A few lines about your business are enough. We'll reply to set up a first conversation.</p>
+          <a class="btn btn-light mt-6" href="../contact.html">Let's talk <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-stone pt-16 md:pt-24">
+    <div class="container-site">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="../" class="inline-flex items-center" aria-label="Biz Rescue Pro home">
+            <img src="../assets/img/logo.svg" alt="Biz Rescue Pro" width="729" height="214" class="h-16 w-auto" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span hidden class="font-display text-lg font-bold tracking-tight">BIZ RESCUE <span class="text-green">PRO</span></span>
+          </a>
+          <p class="mt-5 max-w-xs text-sm leading-relaxed text-sage">We keep your technology running smoothly, so you can focus on growing your business.</p>
+        </div>
+        <nav class="md:col-span-3 md:col-start-7" aria-label="Footer">
+          <p class="label mb-3">Explore</p>
+          <ul class="grid grid-cols-2 gap-y-1 text-sm md:grid-cols-1">
+            <li><a class="inline-block py-1.5 hover:underline" href="../">Home</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="../services.html">Services</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="../about.html">About</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="../blog.html">Blog</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="text-sm md:col-span-3">
+          <p class="label mb-3">Get in touch</p>
+          <p class="mb-2"><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="mailto:info@bizrescuepro.com">info@bizrescuepro.com</a></p>
+          <p><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="tel:+18554625346">(855) 462-5346</a></p>
+          <address class="mt-4 not-italic leading-relaxed">30 Bertrand Ave, Unit B106<br>Scarborough, ON M1L 2P5</address>
+          <p class="mt-4 max-w-xs leading-relaxed text-sage">Serving the Greater Toronto Area and businesses across Ontario.</p>
+        </div>
+      </div>
+      <p class="mt-16 font-display text-[2.6rem] font-bold leading-[0.98] tracking-tightest sm:text-7xl md:mt-24 lg:text-[6.5rem]" data-slide>
+        <span class="block">The right technology,</span>
+        <span class="block sm:pl-[12%]">at every stage</span>
+        <span class="block sm:pl-[24%]">of your growth.</span>
+      </p>
+      <div class="mt-12 flex flex-col gap-2 border-t border-line py-6 text-xs text-sage sm:flex-row sm:justify-between">
+        <p>&copy; <span data-year>2026</span> Biz Rescue Pro. All rights reserved.</p>
+        <a class="hover:underline" href="../privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

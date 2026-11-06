@@ -1,0 +1,201 @@
+<html><head></head><body><img loading="lazy" alt="Featured" image="" src="../assets/uploads/2025/09/d4e30e1d-6e9f-40dc-82d0-57113524506b.png" aspect-ratio="7/4" width="100%">
+
+<p>In a recent breakdown I shared, I went through a new OpenAI paper that may have finally nailed down the root cause of hallucinations in large language models — and proposed a practical way to fix them. I’m Matthew Berman, and in this article I’ll walk you through what the paper says, why the finding is so intuitive once you see it, and what it means for models, benchmark designers, engineers and everyday users. I’ll also pull in related work (like the Anthropic findings) and give actionable recommendations so we can move from polite optimism to real change.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2><ul><li><a href="#why-language-models-hallucinate-🧠">Why language models hallucinate 🧠</a></li><li><a href="#pretraining:-the-data-problem-📚">Pretraining: the data problem 📚</a></li><li><a href="#post-training-and-rl:-incentives-that-reward-bluffing-🎯">Post-training and RL: incentives that reward bluffing 🎯</a></li><li><a href="#behavioral-calibration-and-the-i-don't-know-fix-⚖️">Behavioral calibration and the I-don't-know fix ⚖️</a></li><li><a href="#benchmarks,-evaluations,-and-how-they-shape-models-🏁">Benchmarks, evaluations, and how they shape models 🏁</a></li><li><a href="#evidence-and-examples:-birthdays,-gpt-5,-and-momentum-🔍">Evidence and examples: birthdays, GPT-5, and momentum 🔍</a></li><li><a href="#practical-steps-for-researchers-and-engineers-🛠️">Practical steps for researchers and engineers 🛠️</a></li><li><a href="#practical-tips-for-users-to-avoid-hallucinations-✅">Practical tips for users to avoid hallucinations ✅</a></li><li><a href="#implications-for-ai-safety-and-trust-🌐">Implications for AI safety and trust 🌐</a></li><li><a href="#faq-❓">FAQ ❓</a></li><li><a href="#conclusion-🏁">Conclusion 🏁</a></li></ul><h2 id="why-language-models-hallucinate-🧠">Why language models hallucinate 🧠</h2>
+
+<p>Let’s cut to the chase: OpenAI’s paper argues that hallucinations aren’t merely a result of noisy data, nor are they just “bugs” to be patched at the surface. Instead, hallucinations are fundamentally tied to the objectives we use to train and fine-tune models. Put simply, how we reward the model — the feedback signal — teaches it to prefer certain behaviors. Right now, that feedback incentivizes confident, specific answers even when the model shouldn’t be confident.</p>
+
+<p>Two core ideas run through the paper:</p>
+
+<ul>
+  <li>Generating a correct answer is intrinsically harder than judging whether an answer is correct.</li>
+  <li>The objectives and benchmarks used during post-training and RLHF often reward guessing and penalize abstention, which encourages models to produce plausible but wrong answers.</li>
+</ul>
+
+<p>Both points together explain why models will confidently produce falsehoods sometimes. The model learns that being specific and decisive increases its measured utility, even at the cost of factuality.</p>
+
+<blockquote>
+  <p>"When uncertain, students may guess on multiple choice exams and even bluff on written exams, submitting plausible answers in which they have little confidence."</p>
+</blockquote>
+
+<p>That line from the paper is gold. It compares model behavior to human students: if the evaluation scheme is binary (right = 1, blank or wrong = 0), guessing is often the rational move. A model optimized to maximize expected score will emulate that behavior.</p>
+
+<h2 id="pretraining:-the-data-problem-📚">Pretraining: the data problem 📚</h2>
+
+<p>We often default to blaming hallucinations on imperfect training data — and data does matter. The pretraining corpus is massive and inevitably contains errors, half-truths and rare facts that appear only once or twice. OpenAI points to a simple, intuitive example: birthdays.</p>
+
+<p>If a specific birthday appears only once in the entire pretraining corpus, a base model has essentially no reliable signal to memorize that fact. If 20% of birthday facts appear exactly once, then base models may hallucinate on at least 20% of those birthday questions. That’s a concrete way to link sparse, one-off facts in pretraining data to measurable hallucination rates.</p>
+
+<p>But here’s the kicker: even if we magically had perfect, error-free training data, hallucinations would still emerge under the standard training objectives. Why? Because base modeling learns the distribution of language and is not directly optimized to abstain when uncertain. Generating the right precise fact is vastly harder than discriminating whether a given fact is right.</p>
+
+<p>So pretraining contributes to hallucinations, but it’s not the whole story — the way we evaluate and reward models after pretraining plays a crucial role.</p>
+
+<h2 id="post-training-and-rl:-incentives-that-reward-bluffing-🎯">Post-training and RL: incentives that reward bluffing 🎯</h2>
+
+<p>After pretraining, models typically undergo a post-training phase that includes fine-tuning with supervised signals and reinforcement learning from human feedback (RLHF). The goal here often includes making the model more "helpful" — more decisive, more useful— but that helpfulness can be at odds with honesty.</p>
+
+<p>Why does RLHF push models toward hallucination? Because human raters and reward models frequently prefer responses that look confident and complete. A model that gives a wrong but convincing answer might get a higher human preference score than a model that replies "I don't know" or gives an equivocal but correct answer. The reward function thus nudges the model to sound certain, to commit, and to finish the narrative — even if that narrative isn’t grounded in fact.</p>
+
+<p>Look at the concept of behavioral calibration introduced in the paper: a well-calibrated model should be accurate at roughly the same rate as its stated confidence. If it says 80% confidence, the answers should be correct about 80% of the time. But after RLHF, we often observe models that report high confidence but perform worse than those confidence levels imply.</p>
+
+<p>The OpenAI paper shows this visually: a base model's accuracy tracks predicted confidence reasonably well, but after reinforcement learning the curve shifts — models become overconfident for low-accuracy answers. In practical terms: RL makes the model more decisive but less honest about its uncertainty.</p>
+
+<h2 id="behavioral-calibration-and-the-i-don't-know-fix-⚖️">Behavioral calibration and the I-don't-know fix ⚖️</h2>
+
+<p>OpenAI’s proposed fix is elegantly simple and surprisingly practical: teach models to abstain when below a certain confidence threshold. In other words, answer only if you are sufficiently confident — otherwise say "I don't know." This is a behavioral calibration policy implemented during post-training and reinforced through benchmark design.</p>
+
+<p>Imagine a threshold of 75%:</p>
+
+<ul>
+  <li>If the model believes the correct answer probability is &gt; 75%, it responds.</li>
+  <li>If it estimates &lt; 75%, it replies "I don't know" or offers to look the information up.</li>
+</ul>
+
+<p>That change in behavior directly attacks the reward structure problem. When the evaluation and training processes reward correct answers, penalize wrong ones, and treat "I don't know" neutrally (or slightly positively), the optimal strategy flips. Abstention becomes rational when facts are uncertain.</p>
+
+<p>Two important clarifications:</p>
+
+<ul>
+  <li>This is not about making models weak or unhelpful. It’s about aligning incentives so that being honest about uncertainty is valued.</li>
+  <li>We can still couple abstention with helpful behaviors: suggest possible research steps, request clarification, or offer conditional information (“If X is true, then Y follows”). These are not hallucinations if they are framed as hypotheticals or steps to verify.</li>
+</ul>
+
+<h2 id="benchmarks,-evaluations,-and-how-they-shape-models-🏁">Benchmarks, evaluations, and how they shape models 🏁</h2>
+
+<p>Benchmarks are the unsung influencers of model behavior. OpenAI highlights that most commonly used benchmarks (GPQA, MMLU Pro, Math, Sweeney Bench, etc.) use binary scoring and do not credit "I don't know" answers. This creates a powerful feedback loop: models are trained to perform well on these benchmarks; benchmarks reward guessing; models learn to guess.</p>
+
+<p>The cure is to change the benchmarks:</p>
+
+<ol>
+  <li>Introduce confidence thresholds and require models to provide confidence estimates.</li>
+  <li>Adopt reward structures that provide neutral or slightly positive credit for abstention when appropriate (e.g., +1 for correct, 0 for "I don't know", -1 for incorrect).</li>
+  <li>Design tasks that explicitly measure calibration rather than only accuracy — e.g., Brier scores, ECE (expected calibration error), and behavioral calibration metrics.</li>
+</ol>
+
+<p>One benchmark exception called out in the paper is WildBench — it allows abstentions. That’s an encouraging sign: benchmarks that award "I don't know" can shape models to be more conservative and honest. But we need broader adoption across the industry and academia.</p>
+
+<h2 id="evidence-and-examples:-birthdays,-gpt-5,-and-momentum-🔍">Evidence and examples: birthdays, GPT-5, and momentum 🔍</h2>
+
+<p>The OpenAI paper uses concrete examples to show how hallucination patterns look in practice. Birthdays are a visceral example: when a person’s birth date appears only once or twice in pretraining, the model is likely to guess later because the signal is weak. The result: a specific but wrong date like “September 30th” instead of “sometime in autumn.”</p>
+
+<p>Another recent signpost is GPT-5 behavior, as reported by users: strong, explicit "I don't know" responses with long latencies like "I can't reliably find out." Elon Musk and many others highlighted an example where GPT-5 paused, thought for 34 seconds, and then said "I don't know." That’s exactly the kind of behavior we want models to learn — deliberate humility instead of confident invention.</p>
+
+<p>Anthropic’s research complements this story. They describe internal model dynamics like "momentum": once a model starts producing an answer, it's unlikely to change mid-response. It wants to be complete and grammatical. That momentum explains why a model might continue producing plausible-sounding but false content rather than stopping to say "I don't know." OpenAI’s contribution is different: they identify the objective-level cause and show how changing objectives and evaluations can remove the incentive to hallucinate.</p>
+
+<blockquote>
+  <p>"Bluffs are often overconfident and specific, such as September 30th, rather than sometime in autumn for a question about a date."</p>
+</blockquote>
+
+<p>That line ties together momentum and incentive: the model prefers a concise, specific bluff because that’s what gets rewarded and what internal momentum pushes toward.</p>
+
+<h2 id="practical-steps-for-researchers-and-engineers-🛠️">Practical steps for researchers and engineers 🛠️</h2>
+
+<p>If you’re building or fine-tuning models, here are concrete steps you can take now to reduce hallucinations at the source.</p>
+
+<h3>1. Introduce abstention in training signals</h3>
+
+<ul>
+  <li>During RLHF or supervised fine-tuning, reward "I don't know" or "I can’t verify that" when it is the appropriate response.</li>
+  <li>Design reward models that recognize calibrated uncertainty as valuable. Train preferred responses that include abstention when evidence is weak.</li>
+</ul>
+
+<h3>2. Calibrate models explicitly</h3>
+
+<ul>
+  <li>Measure calibration metrics: expected calibration error (ECE), reliability diagrams, and behavioral calibration (how often is the model correct at stated confidence levels?).</li>
+  <li>Use temperature adjustments, confidence-aware decoding, or auxiliary heads trained to predict correctness probability.</li>
+</ul>
+
+<h3>3. Change benchmark scoring</h3>
+
+<ul>
+  <li>Adopt scoring schemes that reward abstention or partial credit for uncertainty-aware answers: +1 correct, 0 abstain, -1 wrong.</li>
+  <li>Include calibration tasks as part of leaderboards.</li>
+</ul>
+
+<h3>4. Incorporate retrieval and external verification</h3>
+
+<ul>
+  <li>Use retrieval-augmented generation (RAG) or external knowledge bases to raise confidence when the data exists.</li>
+  <li>When no corroborating evidence is found, prefer abstention rather than hallucination.</li>
+</ul>
+
+<h3>5. Train models to explain uncertainty</h3>
+
+<ul>
+  <li>Ask models to provide evidence and sources for claims. Reward answers that cite verifiable sources or explicitly say when sources are unavailable.</li>
+  <li>Use chain-of-thought prompts that end with a confidence estimate or "I don't know" when reasoning is incomplete.</li>
+</ul>
+
+<p>These steps are actionable and interoperable: you can change training signals without sacrificing helpfulness. In fact, honest models can be more helpful long-term because users learn to trust them and follow their verification suggestions.</p>
+
+<h2 id="practical-tips-for-users-to-avoid-hallucinations-✅">Practical tips for users to avoid hallucinations ✅</h2>
+
+<p>Not everyone reading this is an engineer — a lot of you are end users or product builders. Here’s how to get better output today, given current model behaviors.</p>
+
+<ul>
+  <li>Ask the model to state its confidence. Prompt with: "On a scale of 0–100, how confident are you in that answer? Please explain why."</li>
+  <li>Encourage source citations. Ask: "Show sources or explain how you know this." If the model can’t provide credible sources, treat the claim as suspect.</li>
+  <li>Use binary checks. For facts that matter, ask the model to verify with an external step: "Can you look up and confirm this?" (For models with browsing or RAG, use those features.)</li>
+  <li>Prefer conservative phrasing. Prompt models: "If you are uncertain, say 'I don't know' or suggest ways to verify." You can make this a system-level instruction in product settings.</li>
+  <li>Chain multiple agents. Use one agent to produce answers and another to verify them. An explicit verifier is often better than expecting a single pass to be perfect.</li>
+</ul>
+
+<p>These simple UX and prompt-engineering changes can reduce the impact of hallucinations when accuracy matters.</p>
+
+<h2 id="implications-for-ai-safety-and-trust-🌐">Implications for AI safety and trust 🌐</h2>
+
+<p>Why should we care beyond better product UX? Hallucinations are a trust and safety problem. Confident falsehoods — especially in high-stakes contexts like medical or legal domains — can cause real harm. The OpenAI paper gives us a roadmap for aligning models with truthful behavior by addressing the incentives that produced hallucination in the first place.</p>
+
+<p>Key safety takeaways:</p>
+
+<ul>
+  <li>Design reward models and benchmarks that value abstention. Safety is not just about content filters; it’s about training models to know what they don’t know.</li>
+  <li>Calibration is a safety metric. A well-calibrated model lets humans make safer decisions by understanding model uncertainty.</li>
+  <li>Transparency matters. Models that provide their internal confidence estimates and the evidence they relied on are easier to audit and safer to deploy.</li>
+</ul>
+
+<p>OpenAI’s proposal is pragmatic: it doesn’t require perfect knowledge graphs or magical new algorithms. It requires shifting incentives, which is an engineering and evaluation problem we can solve now.</p>
+
+<h2 id="faq-❓">FAQ ❓</h2>
+
+<h3>Q: Are hallucinations now solved?</h3>
+
+<p>A: Not completely. The paper gives a powerful, practical direction: change objectives and benchmarks to reward abstention and calibration. That will reduce many types of hallucination. But model architecture, data limitations, retrieval quality, and user behavior still play roles. The paper is a major step, not the final stop.</p>
+
+<h3>Q: Won’t telling a model to say "I don't know" make it less useful?</h3>
+
+<p>A: Not if done correctly. Calibrated abstention is paired with helpful alternatives: suggest how to verify, provide conditional reasoning, or propose follow-up queries. A model that honestly says "I don't know" but offers next steps is more useful and trustworthy than one that invents facts.</p>
+
+<h3>Q: How should benchmarks change in practice?</h3>
+
+<p>A: Adopt scoring schemes that recognize abstention and evaluate calibration. Use metrics like ECE, Brier score, and behavioral calibration. Reward models for honest detection of uncertainty.</p>
+
+<h3>Q: Does this affect retrieval-augmented models (RAG)?</h3>
+
+<p>A: RAG helps by providing evidence for answers, which raises confidence when correct sources exist. But RAG also introduces failure modes (e.g., retrieving misleading sources). Behavioral calibration still matters: if retrieval can’t find evidence, the model should abstain rather than hallucinate.</p>
+
+<h3>Q: What about the Anthropic momentum finding?</h3>
+
+<p>A: Anthropic’s observation about momentum — the model’s tendency to produce a complete, grammatical response once it starts — explains a symptom. OpenAI identifies the root cause in training objectives. Both insights are complementary: momentum explains why models rarely flip mid-response, while objective misalignment explains why they choose to bluff in the first place.</p>
+
+<h3>Q: How can product teams implement these ideas now?</h3>
+
+<p>A: Start by changing prompts and system messages to encourage abstention, require confidence estimates, and demand citations. If you control model fine-tuning, incorporate abstention into reward signals and train verification agents that can confirm or reject claims. For deployed systems, design user interfaces that surface uncertainty and provide verification workflows.</p>
+
+<h3>Q: Will models retract past hallucinations?</h3>
+
+<p>A: Retraining or fine-tuning with calibration objectives can reduce future hallucinations, but it doesn't retroactively change deployed outputs. The best path is continuous improvement: update models, change evaluation metrics, and add verification layers in production systems.</p>
+
+<h2 id="conclusion-🏁">Conclusion 🏁</h2>
+
+<p>OpenAI’s paper reframes hallucinations from a nebulous “model quirk” into a concrete, correctable outcome of training objectives and evaluation design. The core insight — that models are incentivized to guess under binary scoring, and that changing those incentives can produce honest abstention — gives both researchers and product teams a roadmap forward.</p>
+
+<p>We don’t need perfect data or magical new architectures to make meaningful progress. We need better reward functions, better benchmarks, and a commitment to valuing uncertainty. Doing that will yield models that are not only more accurate but more trustworthy — a crucial step for wide adoption and safety.</p>
+
+<p>On a practical note: if you build models or design products, start experimenting with abstention thresholds, add calibration metrics to your evaluation suite, and design user experiences that surface uncertainty. If you’re a user, ask models for their confidence and sources, and prefer the honest "I don't know" over a polished hallucination.</p>
+
+<p>Thanks for reading. If you enjoyed this breakdown, and you want to dive deeper into prompt engineering, model evaluation, and product strategies for trustworthy AI, I’ve put together guides and resources you can explore. I’ll continue to track how these ideas are adopted across the industry — this is an exciting moment where engineering choices can significantly improve model truthfulness.</p>
+
+<p>— Matthew Berman</p><p><em>This article was created from the video <a href="https://www.youtube.com/watch?v=xGO5Q94XXf0" target="_blank">Did OpenAI just solve hallucinations?</a> with the help of AI.</em></p></body></html>

@@ -1,0 +1,715 @@
+<p> In this article I'll walk you through practical, battle-tested prompting techniques I use with GPT-5, distilled from OpenAI's GPT-5 prompting guide and my own experience building agentic workflows and coding assistants. Whether you’re a developer wiring up tools, a builder iterating on a codebase, or someone trying to get faster, cheaper answers from GPT-5, these techniques will help you get more predictable, efficient, and useful results.</p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🔧-what-gpt-5-is-best-at-—-and-where-you-need-control">🔧 What GPT-5 Is Best At — And Where You Need Control</a></li>
+
+
+
+<li><a href="#⚡-agentic-eagerness:-how-much-autonomy-should-gpt-5-have?">⚡ Agentic Eagerness: How Much Autonomy Should GPT-5 Have?</a></li>
+
+
+
+<li><a href="#🧭-agentic-scaffolding:-give-gpt-5-rules-for-context-gathering">🧭 Agentic Scaffolding: Give GPT-5 Rules for Context Gathering</a></li>
+
+
+
+<li><a href="#🧾-tool-call-budgets:-limit-how-many-external-actions-gpt-5-can-take">🧾 Tool Call Budgets: Limit How Many External Actions GPT-5 Can Take</a></li>
+
+
+
+<li><a href="#📌-persistence:-when-you-want-gpt-5-to-keep-going">📌 Persistence: When You Want GPT-5 to Keep Going</a></li>
+
+
+
+<li><a href="#🧾-tool-preambles:-ask-gpt-5-to-narrate-what-it’s-doing">🧾 Tool Preambles: Ask GPT-5 to Narrate What It’s Doing</a></li>
+
+
+
+<li><a href="#🔁-responses-api-vs-chat-completions:-why-the-responses-endpoint-matters">🔁 Responses API vs Chat Completions: Why the Responses Endpoint Matters</a></li>
+
+
+
+<li><a href="#💻-prompting-gpt-5-for-coding:-practical-rules-and-stack-recommendations">💻 Prompting GPT-5 for Coding: Practical Rules and Stack Recommendations</a></li>
+
+
+
+<li><a href="#📝-one-shot-web-app-strategy:-make-gpt-5-self-rubric">📝 One-Shot Web App Strategy: Make GPT-5 Self-Rubric</a></li>
+
+
+
+<li><a href="#🛠️-iterating-on-an-existing-codebase:-teach-gpt-5-your-conventions">🛠️ Iterating on an Existing Codebase: Teach GPT-5 Your Conventions</a></li>
+
+
+
+<li><a href="#🔬-lessons-from-cursor:-tune-down-over-thoroughness-when-needed">🔬 Lessons from Cursor: Tune Down Over-Thoroughness When Needed</a></li>
+
+
+
+<li><a href="#📏-other-useful-parameters:-verbosity,-minimal-reasoning,-and-instruction-precision">📏 Other Useful Parameters: Verbosity, Minimal Reasoning, and Instruction Precision</a></li>
+
+
+
+<li><a href="#🧪-handling-contradictions:-make-prompts-logically-consistent">🧪 Handling Contradictions: Make Prompts Logically Consistent</a></li>
+
+
+
+<li><a href="#🧾-markdown-and-output-formatting">🧾 Markdown and Output Formatting</a></li>
+
+
+
+<li><a href="#🧭-meta-prompting:-use-gpt-5-to-improve-your-prompts">🧭 Meta-Prompting: Use GPT-5 to Improve Your Prompts</a></li>
+
+
+
+<li><a href="#🧰-using-the-prompt-optimizer-in-the-playground">🧰 Using the Prompt Optimizer in the Playground</a></li>
+
+
+
+<li><a href="#🔁-example:-from-a-developer-prompt-to-an-optimized-one">🔁 Example: From a Developer Prompt to an Optimized One</a></li>
+
+
+
+<li><a href="#🏷️-practical-prompt-examples-you-can-copy-and-adapt">🏷️ Practical Prompt Examples You Can Copy and Adapt</a></li>
+
+
+
+<li><a href="#📚-my-prompting-checklist:-a-one-page-guide">📚 My Prompting Checklist: A One-Page Guide</a></li>
+
+
+
+<li><a href="#✅-conclusion-—-a-practical,-iterative-mindset">✅ Conclusion — A Practical, Iterative Mindset</a></li>
+
+
+
+<li><a href="#❓-faq">❓ FAQ</a></li>
+</ul>
+
+
+
+<h2 id="🔧-what-gpt-5-is-best-at-—-and-where-you-need-control">🔧 What GPT-5 Is Best At — And Where You Need Control</h2>
+
+
+
+<p>GPT-5 is a powerful reasoning model that shines at three things: tool calling, instruction following, and long-context understanding. Out of the box it's designed to be thorough and proactive — it will explore many corners of your data, call tools, and cross-check things to provide a correct answer. That thoroughness is a feature, not a bug, but it can also be the exact behavior you don’t want in latency-sensitive or cost-sensitive workflows.</p>
+
+
+
+<p>So the central theme of effective GPT-5 prompting is control: how much decision-making do you want the model to take on versus how many explicit instructions you want to give it? I call that spectrum agentic eagerness — telling the model when to autonomously explore and when to stop and wait for human direction.</p>
+
+
+
+<h2 id="⚡-agentic-eagerness:-how-much-autonomy-should-gpt-5-have?">⚡ Agentic Eagerness: How Much Autonomy Should GPT-5 Have?</h2>
+
+
+
+<p>Agentic eagerness is how aggressive you want GPT-5’s tool use and exploration to be. On one end you can say "make all decisions, research, plan, and act" — on the other end you can say "solve this one problem and wait for my next instruction." The trick is choosing the right spot for your use case.</p>
+
+
+
+<p>Key control: the reasoning effort setting. You can set reasoning effort to high, medium, low, or minimal. High reasoning effort makes GPT-5 deep and thorough. Lowering reasoning effort reduces exploration depth, improves efficiency and latency, and lowers token and tool-call costs. Many workflows work fine at medium or low reasoning effort.</p>
+
+
+
+<p>Where to set this:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Playground: reasoning effort selector</li>
+
+
+
+<li>API: reasoning effort parameter</li>
+
+
+
+<li>ChatGPT: choose the model tier (fast / thinking / pro)</li>
+</ul>
+
+
+
+<p>When cost or latency is important, bias toward lower reasoning effort and explicit constraints around tool use. When correctness and comprehensive investigation are critical, bias higher.</p>
+
+
+
+<h2 id="🧭-agentic-scaffolding:-give-gpt-5-rules-for-context-gathering">🧭 Agentic Scaffolding: Give GPT-5 Rules for Context Gathering</h2>
+
+
+
+<p>When you're building agentic flows, provide explicit scaffolding for how the model should gather context. These are concise instructions that limit search depth, parallelization, escalation criteria, and stop conditions. A succinct system message that defines goals, methods, and early stop criteria dramatically improves predictable behavior.</p>
+
+
+
+<p>Example scaffolding instructions I use:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>Goal:</strong> Get enough context fast. Parallelize discovery and stop as soon as you can act.</p>
+
+
+
+<p><strong>Methods:</strong> Start broad, then fan out to focused subqueries in parallel. Launch varied queries (e.g., web searches, repo lookups), read top hits per query, deduplicate results and cache answers. Avoid repeating queries and avoid over-searching. If needed, run targeted searches in a single focused branch.</p>
+
+
+
+<p><strong>Early stop:</strong> Stop if you can name exact content to change, or if top hits converge 70% on one area. If signals conflict or scope is fuzzy, run one refined parallel batch then proceed.</p>
+
+
+
+<p><strong>Loop:</strong> Batch search → minimal plan → complete task. Search again only if validation fails or new unknowns appear. Prefer acting over more searching.</p>
+</blockquote>
+
+
+
+<p>Notice how this scaffolding sets explicit behavior rules rather than leaving exploration open-ended. Provide criteria like "70% convergence" or "maximum two tool calls" to make the behavior measurable.</p>
+
+
+
+<h2 id="🧾-tool-call-budgets:-limit-how-many-external-actions-gpt-5-can-take">🧾 Tool Call Budgets: Limit How Many External Actions GPT-5 Can Take</h2>
+
+
+
+<p>A powerful control I recommend: define a tool-call budget. If you want speed and lower cost, explicitly cap the number of allowed tool calls. When I want answers fast and am willing to accept a little uncertainty, I set a low budget (e.g., an absolute maximum of two tool calls) and instruct the model to return the best answer it can with that limited information.</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>Context gathering — search depth: very low.</strong> Bias strongly toward providing a correct answer as quickly as possible even if it might not be fully correct. Absolute maximum two tool calls. If more investigation is required, update the user with latest findings and open questions.</p>
+</blockquote>
+
+
+
+<p>That "escape hatch" — telling the model to stop searching if it finds adequate context — prevents unnecessary tool overuse. If you need the opposite behavior, raise the budget and the reasoning effort and provide persistence instructions.</p>
+
+
+
+<h2 id="📌-persistence:-when-you-want-gpt-5-to-keep-going">📌 Persistence: When You Want GPT-5 to Keep Going</h2>
+
+
+
+<p>When you want the model to guarantee a resolved outcome before yielding, instruct it explicitly. Here’s a persistence-style system message I use when the task requires completion without human handoff until done:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>You are an agent. Please keep going until the user's query is completely resolved before ending your turn and yielding back to the user. Only terminate your turn when you are sure the problem is solved. Never stop or hand back to the user when you encounter uncertainty. Research or deduce the most reasonable approach and continue. Do not ask the human to confirm or clarify assumptions — decide on the most reasonable assumption, proceed with it, and document that assumption for the user's reference after you finish.</p>
+</blockquote>
+
+
+
+<p>Persistence is great for complex flows where context and multiple tool calls are needed. But persistence increases latency and tokens — use it only when warranted.</p>
+
+
+
+<h2 id="🧾-tool-preambles:-ask-gpt-5-to-narrate-what-it’s-doing">🧾 Tool Preambles: Ask GPT-5 to Narrate What It’s Doing</h2>
+
+
+
+<p>When GPT-5 is allowed to call tools, you don’t have to be in the dark. Use tool preambles: short, structured status updates that tell you what the model is about to do, the plan it will execute, and progress while executing. GPT-5 is trained to produce preambles by default, but you can steer frequency, length, and content.</p>
+
+
+
+<p>Sample tool preamble instructions:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>Always begin by rephrasing the user's goal in a friendly, clear, concise manner before calling any tools. Immediately outline a structured plan detailing each logical step you'll follow. As you execute file edits, narrate each step succinctly and sequentially, marking progress clearly. Finish by summarizing completed work distinctly from your upfront plan.</p>
+</blockquote>
+
+
+
+<p>Example of the model's preamble output when asked about weather:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>Reasoning:</strong> Need to answer user's question about current weather in San Francisco. Plan: (1) Check a live weather service for current conditions. (2) Return summary of temperature, precipitation, and wind. (3) Provide a short advice bullet list. (4) End. (Tool call next: live weather API)</p>
+</blockquote>
+
+
+
+<p>Tool preambles are invaluable in agentic flows because they give clear checkpoints and help debug the model’s decision-making path.</p>
+
+
+
+<h2 id="🔁-responses-api-vs-chat-completions:-why-the-responses-endpoint-matters">🔁 Responses API vs Chat Completions: Why the Responses Endpoint Matters</h2>
+
+
+
+<p>OpenAI provides two API styles for GPT-5: the older chat completions endpoint and the newer responses API. Use the responses API — it’s built for agentic workflows.</p>
+
+
+
+<p>Why? The responses API allows the model to reuse context across calls, preserving reasoning traces and planning tokens. In practice that means:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Better agentic flows — the model can refer to its previous reasoning instead of reconstructing it after each tool call.</li>
+
+
+
+<li>Lower token usage and cost — you don’t need to repeat chain-of-thought tokens.</li>
+
+
+
+<li>Improved latency and performance — no rebuilds after each function call.</li>
+</ul>
+
+
+
+<p>OpenAI’s internal evaluations showed statistically significant improvements when using the responses API. For example, TAO bench scores rose noticeably. For any tool-heavy or multi-step automation, the responses API is the right choice.</p>
+
+
+
+<h2 id="💻-prompting-gpt-5-for-coding:-practical-rules-and-stack-recommendations">💻 Prompting GPT-5 for Coding: Practical Rules and Stack Recommendations</h2>
+
+
+
+<p>I use GPT-5 for a lot of coding tasks — both one-shot generation of small apps and iterative editing of large repos. GPT-5 is particularly strong at front-end development and looks especially comfortable with the most common modern stacks. If you want consistent, high-quality output, use the stacks GPT-5 has lots of training data on.</p>
+
+
+
+<p>Recommended front-end languages and frameworks for best results:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Next.js, React, TypeScript, HTML</li>
+
+
+
+<li>Styling: Tailwind CSS, shadcn UI, Radix</li>
+
+
+
+<li>Icons: Material Symbols, Heroicons, Lucide</li>
+
+
+
+<li>Animations: Framer Motion (motion)</li>
+
+
+
+<li>Fonts: Inter, Manrope, IBM Plex Sans, Mono options for code where relevant</li>
+</ul>
+
+
+
+<p>When generating front ends, instruct GPT-5 to follow design and engineering rules to match your repo’s conventions and quality bar.</p>
+
+
+
+<h2 id="📝-one-shot-web-app-strategy:-make-gpt-5-self-rubric">📝 One-Shot Web App Strategy: Make GPT-5 Self-Rubric</h2>
+
+
+
+<p>One of the coolest tricks: ask GPT-5 to build an internal rubric and evaluate itself against that rubric as it generates a one-shot web application. The model is talented at self-reflection and planning, so this technique yields better outputs.</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>Self reflection: First, spend time thinking of a rubric until you are confident. Think deeply about every aspect that makes for a world-class one-shot web app. Create a rubric of 5–7 categories (e.g., functionality, accessibility, performance, UI clarity, modularity). Do not show this rubric to the user — it's for internal use only. Use the rubric to iterate internally: if your response doesn't hit the top marks across all categories, start again. Then produce the final deliverable.</p>
+</blockquote>
+
+
+
+<p>This forces GPT-5 to set objective standards and to iterate until it meets them. It leverages the model’s internal planning and self-evaluation strengths.</p>
+
+
+
+<h2 id="🛠️-iterating-on-an-existing-codebase:-teach-gpt-5-your-conventions">🛠️ Iterating on an Existing Codebase: Teach GPT-5 Your Conventions</h2>
+
+
+
+<p>When using GPT-5 as a code editor for an existing repo, don’t assume it'll perfectly match your implicit conventions. Supply a concise engineering principles section in the system message describing directory structure, naming conventions, reuse rules, and UX expectations. GPT-5 already reads package.json and basic repo context, but explicit rules prevent surprises.</p>
+
+
+
+<p>Example code editing rules you might include:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Clarity and reuse: every component should be modular and reusable. Avoid duplication.</li>
+
+
+
+<li>Consistency: follow existing naming patterns for files and components.</li>
+
+
+
+<li>Simplicity: favor readable, maintainable solutions with clear names and inline comments where needed.</li>
+
+
+
+<li>Visual quality: demo-oriented but polished UI; prioritize visual hierarchy and accessibility.</li>
+</ul>
+
+
+
+<p>These rules act like an agents.md for GPT-5 and make its code edits easier to review and safer to propose.</p>
+
+
+
+<h2 id="🔬-lessons-from-cursor:-tune-down-over-thoroughness-when-needed">🔬 Lessons from Cursor: Tune Down Over-Thoroughness When Needed</h2>
+
+
+
+<p>Cursor (an early GPT-5 implementer) discovered some important nuances. GPT-5 defaults to inquisitive, thorough behavior — which is generally good — but it can be overzealous and produce verbose or overly frequent status outputs. Cursor adjusted by:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Setting verbosity to low at the API level to keep text outputs brief, while adjusting prompts to request detailed tool-call outputs only when necessary.</li>
+
+
+
+<li>Asking the model to prefer readable code (avoid single-letter variable names) and to write code for clarity first.</li>
+
+
+
+<li>Softening "maximize thoroughness" language in prompts so GPT-5 relies on internal knowledge when appropriate rather than always reaching for external tools.</li>
+</ul>
+
+
+
+<p>Takeaway: tune the balance between autonomy and restraint. Sometimes you must dial the model back from the "search everything" default to reduce noise and latency.</p>
+
+
+
+<h2 id="📏-other-useful-parameters:-verbosity,-minimal-reasoning,-and-instruction-precision">📏 Other Useful Parameters: Verbosity, Minimal Reasoning, and Instruction Precision</h2>
+
+
+
+<p>There are a few additional knobs to tweak:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Verbosity:</strong> Controls length of the final answer (not the internal thinking). Use this to constrain the final text output size.</li>
+
+
+
+<li><strong>Minimal reasoning:</strong> A very fast option for latency-sensitive use cases. It still benefits from the reasoning-model paradigm but can be sensitive to prompt quality.</li>
+
+
+
+<li><strong>Instruction precision:</strong> GPT-5 follows instructions with surgical precision — so make sure your prompts are logically consistent. Avoid contradictory instructions and undefined edge cases.</li>
+</ul>
+
+
+
+<p>When using minimal reasoning, you should move more planning into the prompt itself because the model has fewer internal reasoning tokens to plan with.</p>
+
+
+
+<h2 id="🧪-handling-contradictions:-make-prompts-logically-consistent">🧪 Handling Contradictions: Make Prompts Logically Consistent</h2>
+
+
+
+<p>GPT-5 will precisely execute contradictory instructions if you give them — so proof your prompts. Here are typical contradictions and fixes.</p>
+
+
+
+<p>Example problematic instructions:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>Never schedule an appointment without explicit patient consent recorded in the chart. Auto assign the earliest same-day slot without contacting the patient as the first action to reduce risk.</p>
+</blockquote>
+
+
+
+<p>These conflict. A simple fix is to rewrite to a logically consistent flow:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>If patient consent is recorded in the chart, auto-assign the earliest same-day slot. If consent is not present, contact the patient first and record consent before scheduling.</p>
+</blockquote>
+
+
+
+<p>When prompts grow complex, treat prompt creation as an iterative process: test, observe, refine. You can also use GPT-5 itself to detect contradictions in your prompt (meta-prompting). More on that below.</p>
+
+
+
+<h2 id="🧾-markdown-and-output-formatting">🧾 Markdown and Output Formatting</h2>
+
+
+
+<p>GPT-5 is great at returning structured output. If you want Markdown (.md) formatting, explicitly request it and define when to use it (e.g., inline code, code fences, lists, tables). Tips:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Ask for Markdown only when semantically correct.</li>
+
+
+
+<li>Use backticks for inline function, class, and file names.</li>
+
+
+
+<li>For code-heavy responses, ask for both a short human summary and a separate code block for machine review.</li>
+</ul>
+
+
+
+<h2 id="🧭-meta-prompting:-use-gpt-5-to-improve-your-prompts">🧭 Meta-Prompting: Use GPT-5 to Improve Your Prompts</h2>
+
+
+
+<p>One of the most powerful, underused tricks is meta-prompting — ask GPT-5 to optimize the prompt you're about to send it. Early testers found success by asking the model to critique and rewrite prompts to ensure clarity, remove contradictions, and add phrases that consistently elicit the desired behavior.</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>When asked to optimize prompts, give answers from your own perspective. Explain what specific phrases could be added or deleted to more consistently elicit the desired behavior or prevent undesired behavior. Provide a revised version and a short rationale.</p>
+</blockquote>
+
+
+
+<p>This approach reduces iterations drastically because the model helps you think through ambiguous cases and edge conditions.</p>
+
+
+
+<h2 id="🧰-using-the-prompt-optimizer-in-the-playground">🧰 Using the Prompt Optimizer in the Playground</h2>
+
+
+
+<p>OpenAI’s playground includes an "Optimize" button that can actively rewrite your developer/system message and explain its changes. Here's how to use it effectively:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Enter your developer (system) message and the user prompt you want to optimize.</li>
+
+
+
+<li>Click "Optimize". The tool will produce a revised developer message and show why each change was made.</li>
+
+
+
+<li>Review the "why" explanations — they teach you what GPT-5 prefers and how it thinks.</li>
+
+
+
+<li>If you want further changes, request them (e.g., "Make GPT-5 explain every step in detail") and click optimize again.</li>
+
+
+
+<li>When satisfied, save the optimized developer message and use it in your application.</li>
+</ol>
+
+
+
+<p>The optimizer is great because it doesn’t just rewrite — it provides reasoning for each change. That reasoning is a lesson in better prompt design.</p>
+
+
+
+<h2 id="🔁-example:-from-a-developer-prompt-to-an-optimized-one">🔁 Example: From a Developer Prompt to an Optimized One</h2>
+
+
+
+<p>Here’s a simplified flow I demonstrated while testing:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>Original developer message: "Write Python to solve the task, keep it fast and lightweight. Use standard library if possible."</p>
+</blockquote>
+
+
+
+<p>After optimization, suggestions included:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Begin with a concise checklist of high-level steps to encourage upfront planning.</li>
+
+
+
+<li>Explicitly prefer standard library first and only add external packages if substantially beneficial.</li>
+
+
+
+<li>Ask for step-by-step explanations during build if requested.</li>
+</ul>
+
+
+
+<p>The optimization tool will also show a line-by-line "diff" and a high-quality rationale so you can learn why the changes make the prompt more effective with GPT-5.</p>
+
+
+
+<h2 id="🏷️-practical-prompt-examples-you-can-copy-and-adapt">🏷️ Practical Prompt Examples You Can Copy and Adapt</h2>
+
+
+
+<p>Below are several compact templates that you can adapt to your use cases. Use them as system messages or developer messages in the responses API.</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>Low-effort quick answer (tool budget 2):</strong> "Goal: Provide the best answer possible using at most two external tool calls. Prioritize speed and brevity. If more context is needed, summarize what is missing and propose a short follow-up question."</p>
+</blockquote>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>Persistence (complete before return):</strong> "You are an agent. Continue working autonomously until the user's query is completely resolved. Do not return control to the user until you are confident the problem is solved. Make reasonable assumptions when necessary and document them."</p>
+</blockquote>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>Tool preamble request:</strong> "Before calling any tool, rephrase the user's goal and outline a short plan (3–5 steps). After each tool call, provide a one-sentence status update and next step."</p>
+</blockquote>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>One-shot web app rubric:</strong> "Internally generate a 5–7 category rubric covering functionality, UI clarity, accessibility, performance, modularity. Iterate until your internal plan would meet top marks. Do not reveal the rubric to the user."</p>
+</blockquote>
+
+
+
+<h2 id="📚-my-prompting-checklist:-a-one-page-guide">📚 My Prompting Checklist: A One-Page Guide</h2>
+
+
+
+<p>When I build with GPT-5 I run through a quick checklist to avoid common pitfalls:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Define the goal clearly and the success criteria (what does "done" look like?).</li>
+
+
+
+<li>Set reasoning effort to match the use case (minimal for latency, high for accuracy).</li>
+
+
+
+<li>Set a tool-call budget and early stop criteria.</li>
+
+
+
+<li>Define tool preamble frequency and content requirements.</li>
+
+
+
+<li>If coding: include engineering principles, directory structure, naming conventions, and quality rules.</li>
+
+
+
+<li>Consider a self-rubric for complex creative tasks (one-shot apps).</li>
+
+
+
+<li>Run the prompt through the prompt optimizer or ask GPT-5 to improve it.</li>
+
+
+
+<li>Test, inspect outputs, and iterate on the prompt.</li>
+</ol>
+
+
+
+<h2 id="✅-conclusion-—-a-practical,-iterative-mindset">✅ Conclusion — A Practical, Iterative Mindset</h2>
+
+
+
+<p>GPT-5 is a remarkably capable generalist, and the key to making it reliably useful is not magic — it’s prompt engineering plus iteration. Decide how much autonomy you want the model to have, scaffold that behavior with explicit rules, and use the tools OpenAI provides (responses API, prompt optimizer) to tune performance. When coding, tell the model your conventions. When running agents, give clear tool budgets and preambles. And when in doubt, ask GPT-5 to help you write the prompt.</p>
+
+
+
+<p>These methods reduce friction, save tokens, shorten latencies, and produce outputs that are easier to review and integrate into production systems. Use the responses API for multi-step agentic flows, set your reasoning and verbosity levels consciously, and keep iterating.</p>
+
+
+
+<h2 id="❓-faq">❓ FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">How do I pick the right reasoning effort?</h3>
+
+
+
+<p>Match reasoning effort to the task. Use high reasoning effort when correctness and deep planning matter (e.g., complex investigations, critical code changes). Use medium or low for common automations and user-facing features where speed and cost are important. Use minimal reasoning only for latency-sensitive, low-risk answers.</p>
+
+
+
+<h3 class="wp-block-heading">What is a tool-call budget and why should I set one?</h3>
+
+
+
+<p>A tool-call budget caps the number of external function or web calls the model may make. It reduces unexpected costs and latency and forces the model to make useful trade-offs. If you want fast, cheap results, set a low budget (e.g., two calls). If you need deep exploration, raise the budget.</p>
+
+
+
+<h3 class="wp-block-heading">When should I use the responses API versus chat completions?</h3>
+
+
+
+<p>Use the responses API for agentic, multi-step flows that call tools. It preserves reasoning traces across calls, reduces tokens and latency, and generally improves performance in workflows where the model needs continuity between steps. Chat completions are legacy — for most new work pick responses unless you have specific compatibility reasons.</p>
+
+
+
+<h3 class="wp-block-heading">How do I stop GPT-5 from asking me for clarifications all the time?</h3>
+
+
+
+<p>Provide a clear system message that allows the model to assume reasonable defaults and proceed. For example: "If an instruction is underspecified, assume the most reasonable option and document it in the final answer." Use persistence or escalation rules if you want autonomous action; use stop criteria if you prefer confirmation points.</p>
+
+
+
+<h3 class="wp-block-heading">Can GPT-5 follow my repo’s implicit coding conventions?</h3>
+
+
+
+<p>GPT-5 will infer patterns from the repo but you get the best results if you explicitly state conventions: directory structure, naming style, patterns for state management, test rules, and review expectations. Add a short "engineering principles" system message and the model will follow it.</p>
+
+
+
+<h3 class="wp-block-heading">How do I make GPT-5 produce readable code with good variable names?</h3>
+
+
+
+<p>Include style instructions like "Write code for clarity first. Prefer readable, maintainable solutions with clear names and comments where needed. Avoid single-letter variable names." If GPT-5 produces terse code, increase verbosity for code outputs while keeping overall verbosity low for user messages.</p>
+
+
+
+<h3 class="wp-block-heading">What is meta-prompting and how can it help me?</h3>
+
+
+
+<p>Meta-prompting is asking GPT-5 to review and optimize the prompt you plan to use. It will identify contradictions, missing edge cases, and helpful phrases to add. Use it to iterate faster and produce prompts that are logically consistent and clear.</p>
+
+
+
+<h3 class="wp-block-heading">How do I get started quickly?</h3>
+
+
+
+<p>Start with a small experiment: pick a simple task, write a system message that sets goal, reasoning effort, tool budget, and one-line engineering/design rules. Run it through the prompt optimizer or meta-prompt it, then execute using the responses API so you can preserve reasoning across tool calls. Inspect the preambles and outputs, then iterate.</p>
+
+
+
+<p>If you'd like, use the checklist earlier in this article as your working template — it will save time and improve the first few iterations substantially.</p>
+
+
+
+<p>Thanks for reading — and if you try any of these patterns, iterate and refine them for your product. The combination of explicit scaffolding, sensible defaults, and iterative testing is what turns GPT-5 from a powerful model into a dependable production collaborator.</p>

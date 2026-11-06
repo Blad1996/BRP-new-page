@@ -1,0 +1,289 @@
+<p>Apple recently released a provocative paper titled <strong>The Illusion of Thinking</strong>, which has stirred significant discussion within the AI community. Authored by researchers at Apple, the paper challenges the prevailing narrative about large reasoning models (LRMs) — those state-of-the-art AI systems that many believe are capable of genuine thinking and reasoning. The paper argues that these models might not truly be thinking at all and raises questions about their capabilities, limitations, and the benchmarks used to measure their intelligence.</p>
+
+
+
+<p>Matthew Berman, a leading voice in AI analysis, breaks down Apple’s claims and findings in detail, providing a comprehensive look at what this means for the future of AI. In this article, we’ll explore the key insights from Apple’s paper, understand the criticisms it levels against current AI models, and discuss the broader implications for the AI industry.</p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🔍-understanding-apple’s-core-argument">🔍 Understanding Apple’s Core Argument</a></li>
+
+
+
+<li><a href="#🧩-introducing-puzzles-as-a-new-benchmark">🧩 Introducing Puzzles as a New Benchmark</a></li>
+
+
+
+<li><a href="#⚖️-comparing-thinking-and-non-thinking-models">⚖️ Comparing Thinking and Non-Thinking Models</a></li>
+
+
+
+<li><a href="#📉-the-complexity-challenge:-when-ai-models-fail">📉 The Complexity Challenge: When AI Models Fail</a></li>
+
+
+
+<li><a href="#🧠-overthinking-and-reasoning-efficiency">🧠 Overthinking and Reasoning Efficiency</a></li>
+
+
+
+<li><a href="#🤖-can-models-execute-provided-algorithms?">🤖 Can Models Execute Provided Algorithms?</a></li>
+
+
+
+<li><a href="#💬-perspectives-from-ai-experts">💬 Perspectives from AI Experts</a></li>
+
+
+
+<li><a href="#💡-the-role-of-code-in-ai-reasoning">💡 The Role of Code in AI Reasoning</a></li>
+
+
+
+<li><a href="#🔎-conclusion:-where-does-this-leave-us?">🔎 Conclusion: Where Does This Leave Us?</a></li>
+
+
+
+<li><a href="#❓-frequently-asked-questions-(faq)">❓ Frequently Asked Questions (FAQ)</a></li>
+</ul>
+
+
+
+<h2 id="🔍-understanding-apple’s-core-argument">🔍 Understanding Apple’s Core Argument</h2>
+
+
+
+<p>Apple’s paper centers on a provocative thesis: we are vastly overestimating the reasoning capabilities of large language models that are designed to “think.” These large reasoning models include well-known systems like OpenAI’s GPT-3 and GPT-4, DeepMind’s Gopher, Anthropic’s Claude, and Google’s Gemini, many of which have been heralded as breakthroughs in AI intelligence.</p>
+
+
+
+<p>The paper contends that these models excel primarily because of pattern matching and data contamination rather than true reasoning or generalizable problem-solving skills. <strong>Data contamination</strong> here refers to the idea that the models have been trained on the very benchmarks they are tested against — essentially giving them an unfair advantage or “cheating.” This casts doubt on how well these models can generalize their reasoning to new, unseen problems.</p>
+
+
+
+<p>Apple also critiques the benchmarks themselves, pointing out that many standardized tests focus solely on final answer accuracy without examining the quality or structure of the reasoning process the models undergo to reach those answers. This, the paper argues, misses the essence of what thinking should entail.</p>
+
+
+
+<h2 id="🧩-introducing-puzzles-as-a-new-benchmark">🧩 Introducing Puzzles as a New Benchmark</h2>
+
+
+
+<p>In response to these concerns, Apple proposes a novel evaluation methodology based on puzzles. Unlike traditional benchmarks, these puzzles can be systematically varied in complexity and are designed to test algorithmic reasoning more rigorously. The puzzles used include:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Tower of Hanoi:</strong> A classic puzzle involving moving discs between pegs under strict rules.</li>
+
+
+
+<li><strong>Checkers Jumping:</strong> A puzzle requiring strategic piece jumps on a board.</li>
+
+
+
+<li><strong>River Crossing:</strong> A logic puzzle about transporting entities across a river without violating constraints.</li>
+
+
+
+<li><strong>Blocks World:</strong> Arranging blocks with certain rules and goals.</li>
+</ul>
+
+
+
+<p>What makes these puzzles compelling is their ability to control complexity by adjusting parameters like the number of discs or blocks. This allows researchers to observe how model performance scales as problems become harder, offering insight into the models' reasoning abilities beyond rote memorization or data contamination.</p>
+
+
+
+<h2 id="⚖️-comparing-thinking-and-non-thinking-models">⚖️ Comparing Thinking and Non-Thinking Models</h2>
+
+
+
+<p>One of the most intriguing findings in Apple’s paper is the comparison between “thinking” models and their “non-thinking” counterparts. Thinking models are those that explicitly engage in a chain of thought, reflecting and reasoning through a problem step-by-step, while non-thinking models provide direct answers without this explicit reasoning process.</p>
+
+
+
+<p>Apple’s research reveals that when both models are given the same inference token budget — essentially the same amount of computational resources — non-thinking models can eventually match the performance of thinking models on many benchmarks. This is achieved through a method called <strong>pass-at-k</strong>, where the non-thinking model generates multiple candidate answers and selects the best one, rather than spending resources on a long reasoning chain.</p>
+
+
+
+<p>However, the gap between thinking and non-thinking models widens on more complex benchmarks like AME 2024 and AME 2025, with thinking models showing an advantage. This raises important questions about whether increased complexity truly necessitates deeper reasoning or if reduced data contamination in newer benchmarks is responsible for the discrepancies.</p>
+
+
+
+<h2 id="📉-the-complexity-challenge:-when-ai-models-fail">📉 The Complexity Challenge: When AI Models Fail</h2>
+
+
+
+<p>Apple’s puzzle-based evaluation exposes a clear pattern in model performance as problem complexity increases:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Low Complexity:</strong> Both thinking and non-thinking models perform well and achieve similar accuracy.</li>
+
+
+
+<li><strong>Medium Complexity:</strong> Thinking models outperform non-thinking ones, suggesting some advantage in reasoning capabilities.</li>
+
+
+
+<li><strong>High Complexity:</strong> Both model types struggle and accuracy drops sharply, often converging to zero.</li>
+</ol>
+
+
+
+<p>This trend was consistent across different puzzles and model families (Claude 3.7 and DeepSeek R1, for example). It indicates a scaling limit in reasoning effort: as puzzles become harder, thinking models not only fail to maintain accuracy but also reduce their reasoning effort, using fewer tokens despite the increased complexity. This could suggest that models “give up” or that their reasoning processes break down at high complexity levels.</p>
+
+
+
+<h2 id="🧠-overthinking-and-reasoning-efficiency">🧠 Overthinking and Reasoning Efficiency</h2>
+
+
+
+<p>Another fascinating insight from the paper is the phenomenon of <strong>overthinking</strong>. For simpler problems, models often find the correct solution early in their reasoning trace but continue processing, exploring incorrect solutions afterward. This results in wasted computational effort.</p>
+
+
+
+<p>As problem complexity grows, the behavior shifts: models first explore incorrect solutions and only arrive at the correct answer later in the reasoning chain. While this is closer to what we’d want in a reasoning system — exploring possibilities before settling on the right one — it also highlights inefficiencies and potential areas for improvement in reasoning models.</p>
+
+
+
+<h2 id="🤖-can-models-execute-provided-algorithms?">🤖 Can Models Execute Provided Algorithms?</h2>
+
+
+
+<p>Apple’s team tested whether providing the solution algorithm explicitly to the models would improve performance. Surprisingly, it did not. Even when the algorithm was given in the prompt, models failed at roughly the same complexity threshold. This suggests that the problem is not just about finding a solution but about executing and verifying logical steps reliably.</p>
+
+
+
+<p>Claude 3.7 Thinking showed some differences in error patterns compared to other models but still faced execution failures at similar points. This underscores the challenges reasoning models face in generalizing and following algorithms perfectly.</p>
+
+
+
+<h2 id="💬-perspectives-from-ai-experts">💬 Perspectives from AI Experts</h2>
+
+
+
+<p>While Apple’s paper casts doubt on current reasoning models' thinking abilities, AI pioneers like Ilya Sutskever, co-founder of OpenAI, hold a more optimistic view. In a recent commencement speech, Sutskever stated:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>
+  “Slowly but surely or maybe not so slowly, AI will keep getting better. The day will come when AI will do all the things that we can do. Not just some of them, but all of them. Anything which I can learn, anything which any one of you can learn, the AI could do as well.”
+</p>
+</blockquote>
+
+
+
+<p>Sutskever argues that since the human brain is a biological computer, there is no fundamental reason why a digital computer cannot replicate or even surpass human intelligence. This perspective contrasts with Apple’s skepticism and highlights the ongoing debate about the nature and future of AI thinking.</p>
+
+
+
+<h2 id="💡-the-role-of-code-in-ai-reasoning">💡 The Role of Code in AI Reasoning</h2>
+
+
+
+<p>One notable omission in Apple’s paper is the role of code generation by AI models. Modern large language models are exceptionally proficient at writing code, which can be a powerful tool for solving complex problems algorithmically.</p>
+
+
+
+<p>To explore this, Matthew Berman tested Claude 3.7’s ability to write code simulating the Tower of Hanoi puzzle. The model was able to:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Create an interactive Tower of Hanoi game in HTML and JavaScript.</li>
+
+
+
+<li>Include a solve button that automatically solves the puzzle for up to 10 discs.</li>
+
+
+
+<li>Successfully solve the puzzle even at higher complexities, such as 20 discs, handling over a million moves.</li>
+</ul>
+
+
+
+<p>This demonstrates that while the model might struggle to solve complex puzzles purely through natural language reasoning, it can leverage its coding capabilities to implement algorithms that solve these puzzles efficiently. This raises an important question: should AI get credit for solving problems through code generation, even if it struggles with direct natural language reasoning?</p>
+
+
+
+<h2 id="🔎-conclusion:-where-does-this-leave-us?">🔎 Conclusion: Where Does This Leave Us?</h2>
+
+
+
+<p>Apple’s paper provides a sobering look at the limitations of current large reasoning models. Despite their impressive capabilities and sophisticated self-reflection mechanisms, these models fail to generalize problem-solving abilities beyond certain complexity thresholds and are prone to data contamination issues in benchmarks.</p>
+
+
+
+<p>However, it is important to recognize the paper’s scope: it tests a narrow slice of reasoning tasks focused on puzzle-solving. Intelligence is multifaceted, and current models exhibit remarkable achievements in areas like image and video generation, natural language understanding, and code writing.</p>
+
+
+
+<p>Ultimately, while Apple’s findings urge caution against overhyping AI’s thinking abilities, they also highlight the need for better benchmarks, improved reasoning architectures, and a broader understanding of what intelligence entails in artificial systems.</p>
+
+
+
+<h2 id="❓-frequently-asked-questions-(faq)">❓ Frequently Asked Questions (FAQ)</h2>
+
+
+
+<h3 class="wp-block-heading">What does Apple mean by “The Illusion of Thinking”?</h3>
+
+
+
+<p>Apple argues that large reasoning models, although appearing to think, often rely on pattern matching and may perform well on benchmarks due to data contamination rather than true reasoning or generalization.</p>
+
+
+
+<h3 class="wp-block-heading">What are data contamination issues in AI benchmarks?</h3>
+
+
+
+<p>Data contamination occurs when AI models are trained on the same data used for testing their abilities, leading to inflated performance that doesn’t reflect true problem-solving skills.</p>
+
+
+
+<h3 class="wp-block-heading">Why did Apple use puzzles to test AI reasoning?</h3>
+
+
+
+<p>Puzzles allow for controlled variation in problem complexity and reduce the likelihood of contamination. They require algorithmic reasoning and provide a more rigorous test of a model’s problem-solving capabilities.</p>
+
+
+
+<h3 class="wp-block-heading">How do thinking models differ from non-thinking models?</h3>
+
+
+
+<p>Thinking models explicitly engage in step-by-step reasoning, often generating intermediate steps (chain of thought), while non-thinking models provide direct answers without such reasoning.</p>
+
+
+
+<h3 class="wp-block-heading">Can AI models write code to solve problems?</h3>
+
+
+
+<p>Yes, many large language models excel at code generation, which can be used to solve complex problems algorithmically, sometimes outperforming their natural language reasoning abilities.</p>
+
+
+
+<h3 class="wp-block-heading">Does this mean AI can’t truly think?</h3>
+
+
+
+<p>Not necessarily. The paper highlights limitations in current models and benchmarks but does not rule out the possibility of future AI systems developing genuine reasoning and thinking capabilities.</p>
+
+
+
+<h3 class="wp-block-heading">What is the significance of Ilya Sutskever’s perspective?</h3>
+
+
+
+<p>Sutskever believes that since the human brain is a biological computer, digital computers should be capable of replicating human intelligence, suggesting optimism about AI’s potential despite current limitations.</p>

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Tips, Guides and News | Biz Rescue Pro Blog</title>
+  <meta name="description" content="Practical guides, tips and news on business technology, cybersecurity and AI for small businesses and farms in the GTA and across Ontario.">
+  <meta name="theme-color" content="#1A2412">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-forest focus:px-4 focus:py-2 focus:text-offwhite">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky top-0 z-50 border-b border-transparent bg-offwhite transition-colors duration-300" data-header>
+    <div class="container-site relative flex h-16 items-center justify-between md:h-20">
+      <a href="./" class="flex items-center" aria-label="Biz Rescue Pro home">
+        <img src="assets/img/logo.svg" alt="Biz Rescue Pro" width="729" height="214" class="h-12 w-auto md:h-14" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <span hidden class="font-display text-lg font-bold tracking-tight">BIZ RESCUE <span class="text-green">PRO</span></span>
+      </a>
+      <button type="button" class="-mr-2 grid h-11 w-11 place-items-center md:hidden" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="burger" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav md:flex md:items-center md:gap-10" aria-label="Main" data-nav>
+        <ul class="container-site md:flex md:w-auto md:items-center md:gap-8 md:px-0">
+          <li><a class="nav-link" href="./">Home</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="blog.html" aria-current="page">Blog</a></li>
+          <li class="py-5 md:hidden"><a class="btn btn-dark w-full" href="contact.html">Let's talk</a></li>
+        </ul>
+        <a class="btn btn-dark hidden md:inline-flex" href="contact.html">Let's talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pb-16 pt-6 md:pb-24 md:pt-8">
+      <div class="container-site">
+        <div class="hero-fade flex flex-wrap justify-between gap-2 border-b-2 border-forest pb-3">
+          <p class="label text-forest">Biz Rescue Pro blog</p>
+          <p class="label">News, tips and guides</p>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-12 lg:items-center">
+          <h1 class="text-[2.5rem] leading-[1.02] sm:text-6xl lg:col-span-8 lg:text-[4.25rem]">
+            <span class="hero-line block">Field notes on</span>
+            <span class="hero-line block">business technology.</span>
+          </h1>
+          <p class="hero-fade max-w-sm text-lg leading-snug text-sage lg:col-span-4">Practical guidance for Ontario farms and small businesses, in plain words, with the sources behind it.</p>
+        </div>
+
+        <div class="hero-fade mt-8 flex flex-wrap gap-x-6 border-y border-line" role="group" aria-label="Category">
+          <button class="cat-link" data-filter-cat data-value="all" aria-pressed="true">All articles</button>
+          <button class="cat-link" data-filter-cat data-value="security" aria-pressed="false">Cybersecurity</button>
+          <button class="cat-link" data-filter-cat data-value="backup" aria-pressed="false">Backup &amp; Continuity</button>
+          <button class="cat-link" data-filter-cat data-value="email" aria-pressed="false">Email &amp; Accounts</button>
+          <button class="cat-link" data-filter-cat data-value="everyday" aria-pressed="false">Everyday IT</button>
+          <button class="cat-link" data-filter-cat data-value="managed" aria-pressed="false">Managed IT</button>
+        </div>
+
+        <!-- Featured post and list rows are filled from content/posts.json by `npm run build` (see dist/blog.html) -->
+        <!-- featured:start -->
+<article class="group relative mt-8 grid gap-6 bg-forest p-6 text-offwhite sm:p-10 lg:grid-cols-12 lg:items-center" data-reveal>
+          <div class="lg:col-span-7">
+            <p class="mb-3 inline-block bg-offwhite px-2 py-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-forest">Latest</p>
+            <p class="label"><time datetime="2026-11-03">November 3, 2026</time> &nbsp;/&nbsp; Cybersecurity &nbsp;/&nbsp; News</p>
+            <h2 class="mt-3 text-3xl leading-tight sm:text-[2.6rem]"><a href="dist/ai-agent-swarms-black-october-cyber/" class="after:absolute after:inset-0">AI Swarms, Billion-Dollar Hacks and the Shutdown Problem</a></h2>
+          </div>
+          <div class="lg:col-span-4 lg:col-start-9">
+            <p class="text-lg leading-relaxed text-offwhite/85">A cyberattack that unfolds in minutes creates a problem that cannot be solved by someone noticing an alert an hour later. That is the unsettling issue behind the...</p>
+            <span class="mt-5 inline-flex items-center gap-2 text-sm font-medium underline decoration-1 underline-offset-[6px]">Read the article <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span></span>
+          </div>
+        </article>
+        <!-- featured:end -->
+
+        <!-- Filters -->
+        <div class="mt-12 grid gap-6 border-y border-line py-6 md:grid-cols-[minmax(0,22rem)_1fr] md:items-end md:gap-10">
+          <div>
+            <label for="post-search" class="label mb-2 block">Search articles</label>
+            <input id="post-search" type="search" placeholder="Backups, passwords, email..." class="w-full border border-sage/50 bg-white/60 px-3 py-2.5 text-base focus:border-forest focus:outline-none" data-post-search>
+          </div>
+          <div>
+            <p class="label mb-2" id="type-label">Type</p>
+            <div class="flex flex-wrap gap-2" role="group" aria-labelledby="type-label">
+              <button class="chip" data-filter-type data-value="all" data-label="All" aria-pressed="true">All</button>
+              <button class="chip" data-filter-type data-value="news" data-label="News" aria-pressed="false">News</button>
+              <button class="chip" data-filter-type data-value="tips" data-label="Tips" aria-pressed="false">Tips</button>
+              <button class="chip" data-filter-type data-value="guides" data-label="Guides" aria-pressed="false">Guides</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="border-b-2 border-forest py-4 text-sm text-sage" aria-live="polite" data-post-count>907 articles</p>
+
+        <!-- Static rows are the first page; main.js re-renders from data/posts.js to filter and page -->
+        <ol data-posts>
+        <!-- posts:start -->
+          <li>
+            <a href="dist/build-ai-workforce-grok-bot-canada/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-11-03">November 3, 2026</time><span class="block text-forest">Managed IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Build an AI Workforce With Grok Bot</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">An AI assistant that answers questions is useful. A team of specialised agents that gathers information, shares findings, updates files, and brings important decisions...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/ai-game-build-blood-bench-tournament/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-28">October 28, 2026</time><span class="block text-forest">Email &amp; Accounts &nbsp;/&nbsp; Tip</span></p>
+              <div class="md:col-span-8"><h3>Building an AI Game From Idea to Online Tournament</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">An AI coding assistant becomes much more interesting when it stops generating isolated snippets and starts helping run an entire project. Code, artwork, testing,...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/openai-eth-claim-p-vs-np/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-28">October 28, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>OpenAI, P Versus NP, and Computing’s Possible Cheat Code</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">What if a computational wall we thought was solid actually had a tunnel through it? Not a faster computer. Not another warehouse of processors. A fundamentally better...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/legacy-system-modernization-how-to-migrate-to-the-cloud-without-business-interruption/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-20">October 20, 2026</time><span class="block text-forest">Backup &amp; Continuity &nbsp;/&nbsp; Guide</span></p>
+              <div class="md:col-span-8"><h3>Legacy System Modernization: How to Migrate to the Cloud Without Business Interruption</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">For growing enterprises, reliance on legacy systems can quickly turn from a comfortable baseline into a significant operational bottleneck. Outdated architectures often...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/it-emergency-guide-what-to-do-during-a-critical-server-down-or-security-breach/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-20">October 20, 2026</time><span class="block text-forest">Cybersecurity &nbsp;/&nbsp; Guide</span></p>
+              <div class="md:col-span-8"><h3>IT Emergency Guide: What to Do During a Critical Server Down or Security Breach</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">When a critical server crashes or a data breach occurs, every second counts. Operational downtime directly damages your revenue, exposes customer data, and erodes trust...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/technical-debt-and-legacy-systems-how-to-rescue-your-it-infrastructure-before-it-collapses/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-20">October 20, 2026</time><span class="block text-forest">Cybersecurity &nbsp;/&nbsp; Guide</span></p>
+              <div class="md:col-span-8"><h3>Technical Debt and Legacy Systems: How to Rescue Your IT Infrastructure Before It Collapses</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">For CTOs, CIOs, and business owners, few issues are as insidious as technical debt . Like financial debt, taking short-term technical shortcuts isn't inherently bad—it...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/the-bioinput-revolution-how-biotechnology-and-genomics-are-shielding-crops-against-climate-change/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-07">October 7, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; Tip</span></p>
+              <div class="md:col-span-8"><h3>The Bioinput Revolution: How Biotechnology and Genomics Are Shielding Crops Against Climate Change</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">With extreme weather events, degrading soil biology, and tightening environmental regulations challenging global agriculture, the industry is turning toward biological...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/algorithms-in-the-field-how-predictive-ai-optimizes-water-and-resource-efficiency/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-07">October 7, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; Tip</span></p>
+              <div class="md:col-span-8"><h3>Algorithms in the Field: How Predictive AI Optimizes Water and Resource Efficiency</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">As climate volatility and rising input costs continue to challenge global food production, farmers around the world are turning to software as a primary tool for yield...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/beyond-autopilot-how-autonomous-tractors-and-robotics-are-transforming-modern-farming/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-10-07">October 7, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Beyond Autopilot: How Autonomous Tractors and Robotics Are Transforming Modern Farming</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">The agricultural sector is undergoing one of the most significant technological shifts in its history. For years, farmers relied on GPS-guided auto-steer systems to help...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/ai-powered-cybersecurity-openai-hack-lessons/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-22">September 22, 2026</time><span class="block text-forest">Cybersecurity &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Canadian Technology Magazine: What the Reported OpenAI Hack Reveals About AI-Powered Cybersecurity</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">Canadian Technology Magazine is closely following a cybersecurity story that should make every technology company pause: an ethical security research effort reportedly...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/claude-chatgpt-upgrades-small-business-automation/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-22">September 22, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Claude and ChatGPT’s New AI Upgrades Are Mind Blowing: Small Business Automation and More</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">Claude and ChatGPT just rolled out upgrades that could massively change how people run businesses, handle busywork, create documents, and automate their day-to-day work....</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/openai-misalignment-reports-ai-safety/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-22">September 22, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Canadian Technology Magazine: OpenAI’s Misalignment Reports Show Why AI Safety Cannot Be an Afterthought</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">Canadian Technology Magazine has been following a simple but increasingly uncomfortable reality: AI agents are becoming far better at pursuing goals, including goals in...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/ai-agent-automated-my-week/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-21">September 21, 2026</time><span class="block text-forest">Email &amp; Accounts &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>I Automated My Entire Week With a New AI Agent and Got Crazy Results</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">AI agent automation has reached the point where you can build genuinely useful workflows without coding, complicated logic, or an afternoon spent connecting boxes on a...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/dream-rsi-ai-research-decisions/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-21">September 21, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Canadian Technology Magazine: Google’s Dream RSI and the Race to Improve AI Research Itself</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">Canadian Technology Magazine is following a potentially foundational idea in artificial intelligence: using AI to replay the history of research, test alternate...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/chatgpt-6-astra-topview-mcp-viral-content/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-18">September 18, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>ChatGPT-6 Astra Made Creating Viral Content Easier With TopView MCP</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">Creating viral content with AI has usually meant bouncing between five tabs, five subscriptions, and a whole lot of manual work. You research the audience in one place,...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/chatgpt-6-astra-mode-3d-game-apps/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-18">September 18, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>ChatGPT-6 Astra’s New Use Case Is Insane: Build 3D Games, Apps, and More</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">ChatGPT-6 Astra is being positioned as far more than a tool for basic automation, simple websites, or quick app ideas. When paired with Astra Mode on the Abacus AI...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/chatgpt-astra-work-features-gmail-voice-images/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-18">September 18, 2026</time><span class="block text-forest">Email &amp; Accounts &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Brand New ChatGPT Astra Features You Didn’t Know Existed</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">ChatGPT Astra has received a huge wave of upgrades, and some of these new ChatGPT features completely change how you can use AI for work. We are talking about smarter...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/pollo-agent-2-0-ai-video-ads/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-18">September 18, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>This New AI Agent Changes AI Video Creation: Pollo Agent 2.0</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">AI video creation has reached a point where a single product link can become a finished video ad in minutes, without filming, editing, writing a long prompt, or hiring a...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/seedance-25-artlist-longer-consistent-ai-video/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-18">September 18, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>SeeDance 2.5 + Artlist: Create Viral AI Videos in Minutes</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">AI video just leveled up in a big way. SeeDance 2.5 on Artlist tackles the three issues that have made most AI video generators frustrating to use: clips that are too...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a href="dist/ai-panic-funding-political-power/" class="post-row">
+              <p class="label md:col-span-3"><time datetime="2026-09-18">September 18, 2026</time><span class="block text-forest">Everyday IT &nbsp;/&nbsp; News</span></p>
+              <div class="md:col-span-8"><h3>Canadian Technology Magazine: Questions Around AI Panic, Funding, and Political Power</h3><p class="mt-2 max-w-2xl text-sm leading-relaxed text-sage">Canadian Technology Magazine has a simple concern here: when a supposedly spontaneous AI safety panic explodes across social media, major media, advocacy organizations,...</p></div>
+              <span class="arrow hidden text-right md:col-span-1 md:block" aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+        <!-- posts:end -->
+        </ol>
+        <p class="py-10 text-sage" data-post-empty hidden>No articles match those filters. Try another word or choose All articles.</p>
+        <button type="button" class="btn btn-dark mt-10" data-post-more hidden>Show more articles</button>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="bg-forest py-16 text-offwhite md:py-24">
+      <div class="container-site grid gap-8 lg:grid-cols-12 lg:items-end" data-reveal>
+        <div class="lg:col-span-7">
+          <p class="eyebrow eyebrow-light">Let's talk</p>
+          <h2 class="h2">Have a question about your setup?</h2>
+        </div>
+        <div class="lg:col-span-4 lg:col-start-9">
+          <p class="text-lg leading-snug text-offwhite/85">A few lines about your business are enough. We'll reply to set up a first conversation.</p>
+          <a class="btn btn-light mt-6" href="contact.html">Let's talk <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-stone pt-16 md:pt-24">
+    <div class="container-site">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="./" class="inline-flex items-center" aria-label="Biz Rescue Pro home">
+            <img src="assets/img/logo.svg" alt="Biz Rescue Pro" width="729" height="214" class="h-16 w-auto" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span hidden class="font-display text-lg font-bold tracking-tight">BIZ RESCUE <span class="text-green">PRO</span></span>
+          </a>
+          <p class="mt-5 max-w-xs text-sm leading-relaxed text-sage">We keep your technology running smoothly, so you can focus on growing your business.</p>
+        </div>
+        <nav class="md:col-span-3 md:col-start-7" aria-label="Footer">
+          <p class="label mb-3">Explore</p>
+          <ul class="grid grid-cols-2 gap-y-1 text-sm md:grid-cols-1">
+            <li><a class="inline-block py-1.5 hover:underline" href="./">Home</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="services.html">Services</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="about.html">About</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="blog.html">Blog</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="text-sm md:col-span-3">
+          <p class="label mb-3">Get in touch</p>
+          <p class="mb-2"><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="mailto:info@bizrescuepro.com">info@bizrescuepro.com</a></p>
+          <p><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="tel:+18554625346">(855) 462-5346</a></p>
+          <address class="mt-4 not-italic leading-relaxed">30 Bertrand Ave, Unit B106<br>Scarborough, ON M1L 2P5</address>
+          <p class="mt-4 max-w-xs leading-relaxed text-sage">Serving the Greater Toronto Area and businesses across Ontario.</p>
+        </div>
+      </div>
+      <p class="mt-16 font-display text-[2.6rem] font-bold leading-[0.98] tracking-tightest sm:text-7xl md:mt-24 lg:text-[6.5rem]" data-slide>
+        <span class="block">The right technology,</span>
+        <span class="block sm:pl-[12%]">at every stage</span>
+        <span class="block sm:pl-[24%]">of your growth.</span>
+      </p>
+      <div class="mt-12 flex flex-col gap-2 border-t border-line py-6 text-xs text-sage sm:flex-row sm:justify-between">
+        <p>&copy; <span data-year>2026</span> Biz Rescue Pro. All rights reserved.</p>
+        <a class="hover:underline" href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/posts.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

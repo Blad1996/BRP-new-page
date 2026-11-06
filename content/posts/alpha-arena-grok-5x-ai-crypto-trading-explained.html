@@ -1,0 +1,625 @@
+<p>Canadian Technology Magazine readers are sometimes skeptical when buzz meets money. That skepticism is healthy. So in the paragraphs that follow I’ll explain how a live benchmark called Alpha Arena is structured, why crypto is the chosen proving ground, what “alpha” truly means in this context, and what the early behavior of models like GROK, Gemini, Claude Sonnet, DeepSeek, GPT-5 and Quinn suggest about the future of autonomous market agents. I’ll keep things practical, technical enough to be meaningful, and clear enough for non‑traders among the Canadian Technology Magazine audience.</p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#outline">Outline</a></li>
+
+
+
+<li><a href="#what-alpha-arena-is-and-why-it-matters">What Alpha Arena Is and Why It Matters</a></li>
+
+
+
+<li><a href="#why-crypto-is-the-chosen-proving-ground">Why Crypto Is the Chosen Proving Ground</a></li>
+
+
+
+<li><a href="#who’s-competing-and-what’s-being-measured">Who’s Competing and What’s Being Measured</a></li>
+
+
+
+<li><a href="#rules-of-engagement:-prompts,-inputs,-and-autonomy">Rules of Engagement: Prompts, Inputs, and Autonomy</a></li>
+
+
+
+<li><a href="#early-results-and-notable-behavior-patterns">Early Results and Notable Behavior Patterns</a></li>
+
+
+
+<li><a href="#technical-analysis-only—why-that-matters-and-what’s-next">Technical Analysis Only—Why That Matters and What’s Next</a></li>
+
+
+
+<li><a href="#measuring-success:-beyond-absolute-returns">Measuring Success: Beyond Absolute Returns</a></li>
+
+
+
+<li><a href="#lessons-from-early-trade-logs">Lessons from Early Trade Logs</a></li>
+
+
+
+<li><a href="#implications-for-llm-capability-and-investment-practice">Implications for LLM Capability and Investment Practice</a></li>
+
+
+
+<li><a href="#what-businesses-should-watch">What Businesses Should Watch</a></li>
+
+
+
+<li><a href="#where-this-could-go-next">Where This Could Go Next</a></li>
+
+
+
+<li><a href="#ethics,-safety,-and-the-regulatory-angle">Ethics, Safety, and the Regulatory Angle</a></li>
+
+
+
+<li><a href="#conclusion">Conclusion</a></li>
+
+
+
+<li><a href="#how-does-alpha-arena-ensure-trades-are-not-fabricated?">How does Alpha Arena ensure trades are not fabricated?</a></li>
+
+
+
+<li><a href="#which-cryptocurrencies-are-included-in-the-competition?">Which cryptocurrencies are included in the competition?</a></li>
+
+
+
+<li><a href="#what-production-risk-controls-must-an-ai-obey?">What production risk controls must an AI obey?</a></li>
+
+
+
+<li><a href="#will-alpha-arena-add-news-and-sentiment-data-later?">Will Alpha Arena add news and sentiment data later?</a></li>
+
+
+
+<li><a href="#can-these-models-beat-professional-quant-funds?">Can these models beat professional quant funds?</a></li>
+
+
+
+<li><a href="#what-should-businesses-interested-in-ai-trading-be-doing-now?">What should businesses interested in AI trading be doing now?</a></li>
+
+
+
+<li><a href="#where-can-i-follow-alpha-arena-and-similar-experiments?">Where can I follow Alpha Arena and similar experiments?</a></li>
+
+
+
+<li><a href="#how-should-individual-investors-interpret-a-model’s-early-success?">How should individual investors interpret a model’s early success?</a></li>
+
+
+
+<li><a href="#does-the-experiment-mean-i-should-let-an-ai-manage-my-portfolio?">Does the experiment mean I should let an AI manage my portfolio?</a></li>
+
+
+
+<li><a href="#how-often-will-results-be-updated-and-how-long-will-the-season-run?">How often will results be updated and how long will the season run?</a></li>
+
+
+
+<li><a href="#how-can-developers-replicate-or-extend-the-experiment?">How can developers replicate or extend the experiment?</a></li>
+
+
+
+<li><a href="#final-notes-for-canadian-technology-magazine-readers">Final Notes for Canadian Technology Magazine Readers</a></li>
+</ul>
+
+
+
+<h2 id="outline">Outline</h2>
+
+
+
+<ul class="wp-block-list">
+<li>What Alpha Arena is and why it matters</li>
+
+
+
+<li>Why crypto makes a great benchmark</li>
+
+
+
+<li>Which models are competing and how they’re measured</li>
+
+
+
+<li>How the competition is run: prompts, inputs, and rules</li>
+
+
+
+<li>Early results, notable trades, and behavior patterns</li>
+
+
+
+<li>What this says about LLMs and trading: limitations and promise</li>
+
+
+
+<li>Practical implications for businesses and investors</li>
+
+
+
+<li>FAQ</li>
+</ul>
+
+
+
+<h2 id="what-alpha-arena-is-and-why-it-matters">What Alpha Arena Is and Why It Matters</h2>
+
+
+
+<p>Alpha Arena is a live benchmark designed to evaluate how well large language models (LLMs) can trade real money in real markets. The experiment gives each model an identical starting capital—$10,000 USD—and puts them into a hyper‑liquid crypto perpetual market where all trades are verifiable. That last point matters: this is real capital, visible on on‑chain wallets, so outcomes can’t be fudged after the fact.</p>
+
+
+
+<p>For Canadian Technology Magazine readers, the import is twofold. First, this is a new class of benchmark: instead of static datasets or synthetic tasks, models are tested in a dynamic, adversarial, and noisy environment that resembles real business conditions. Second, because trades are public and verifiable, Alpha Arena gives us transparent, high‑signal data about what different architectures and training regimes produce in the wild.</p>
+
+
+
+<p>Benchmarks have historically driven progress in machine learning. Alpha Arena is attempting to do the same for AI-driven investing: to see whether general-purpose LLMs, without being specialized trading engines, can produce consistent alpha in an open market.</p>
+
+
+
+<h2 id="why-crypto-is-the-chosen-proving-ground">Why Crypto Is the Chosen Proving Ground</h2>
+
+
+
+<p>There are reasons crypto is the ideal first battleground for model-driven trading experiments:</p>
+
+
+
+<ul class="wp-block-list">
+<li>24/7 market hours. Crypto never sleeps, which tests an AI’s real‑time decision capability around the clock—excellent for stress‑testing autonomy.</li>
+
+
+
+<li>Verifiability. Many crypto markets are on‑chain or otherwise auditable; trades and wallet flows can be inspected publicly.</li>
+
+
+
+<li>Relative regulatory looseness. While regulatory pressure is increasing, crypto is still less gatekept than equities and derivatives—ideal for rapid experimentation.</li>
+
+
+
+<li>High noise and adversarial behavior. Crypto markets are often sentiment-driven, volatile, and occasionally manipulated—forcing models to operate in messy real‑world conditions.</li>
+</ul>
+
+
+
+<p>For Canadian Technology Magazine readers, those characteristics mean Alpha Arena is less about producing a production‑ready trading bot today and more about revealing what general LLMs can learn about time series, risk, and execution when they have real capital and real consequences.</p>
+
+
+
+<h2 id="who’s-competing-and-what’s-being-measured">Who’s Competing and What’s Being Measured</h2>
+
+
+
+<p>Several prominent LLMs are participating, spanning different vendors and design philosophies. Among the birds‑eye list are:</p>
+
+
+
+<ul class="wp-block-list">
+<li>GROK 4</li>
+
+
+
+<li>Gemini 2.5 Pro</li>
+
+
+
+<li>GPT‑5</li>
+
+
+
+<li>Claude Sonnet 4.5</li>
+
+
+
+<li>DeepSeek Chat v3.1</li>
+
+
+
+<li>Quinn 3 Max</li>
+</ul>
+
+
+
+<p>Each gets the same starting capital and the same stream of inputs. The objective is not just raw profit but <strong>risk‑adjusted</strong> performance. That means the scoreboard doesn’t reward reckless all‑in gambles that happen to win; it rewards consistent and disciplined portfolio management.</p>
+
+
+
+<p>Metrics used include account returns, comparison versus a passive Bitcoin buy‑and‑hold benchmark (i.e., how much alpha each agent produces vs. simply holding BTC), and standard risk metrics like the Sharpe ratio. Sharpe interprets return relative to volatility; in this experiment anything above a Sharpe of 1 looks respectable, while values above 2 are very strong.</p>
+
+
+
+<h2 id="rules-of-engagement:-prompts,-inputs,-and-autonomy">Rules of Engagement: Prompts, Inputs, and Autonomy</h2>
+
+
+
+<p>The rigor of Alpha Arena starts with its prompt engineering. Each model receives a structured prompt that contains:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Current time and the number of inference turns used so far</li>
+
+
+
+<li>Per‑asset price series for a set of crypto assets (BTC, ETH, SOL, BNB, DOGE, XRP)</li>
+
+
+
+<li>Technical indicators per asset (EMA, MACD, RSI, intraday series)</li>
+
+
+
+<li>Portfolio status: cash on hand, account value, current positions, unrealized P&amp;L</li>
+
+
+
+<li>Performance statistics such as current return and Sharpe</li>
+</ul>
+
+
+
+<p>Everything the models need is kept within the context window and refreshed each inference. That design choice—feeding full, precise inputs rather than a vague “check the market”—is crucial. It eliminates excuse for hallucination and focuses the test on time‑series reasoning, position sizing, entry/exit timing, and risk control.</p>
+
+
+
+<p>Autonomy is measured by whether a model can propose and manage trades without hand‑holding. Required outputs typically include:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A trade decision (buy, sell, hold, or adjust)</li>
+
+
+
+<li>The quantity or leverage to apply</li>
+
+
+
+<li>An explicit thesis (why the trade is being made)</li>
+
+
+
+<li>An exit plan and stop loss</li>
+
+
+
+<li>Invalidation conditions—what needs to happen for the model to concede it was wrong</li>
+</ul>
+
+
+
+<p>Models return decisions in a machine‑readable format (JSON), which is then executed on a live exchange. Execution is handled programmatically to ensure parity and timing fairness across participants.</p>
+
+
+
+<h2 id="early-results-and-notable-behavior-patterns">Early Results and Notable Behavior Patterns</h2>
+
+
+
+<p>Alpha Arena’s first hours and days were a data goldmine. Several high‑level patterns emerged:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A few models surged early then regressed toward the mean—classic behavior in noisy markets.</li>
+
+
+
+<li>GROK made a particularly dramatic early move: converting a small stake into a roughly 5x return in one day by flipping a position from short to long at the right time. Whether this was a product of skill, luck, or curve‑fitting to the immediate conditions is the important empirical question Alpha Arena seeks to answer.</li>
+
+
+
+<li>Some models used heavy leverage (e.g., 8x), amplifying both wins and the risk of catastrophic drawdowns.</li>
+
+
+
+<li>One model exhibited extreme caution, refusing to trade for many inference turns despite oversold signals—the tradeoff between capital preservation and opportunity cost is playing out in real time.</li>
+
+
+
+<li>Chain‑of‑thought traces are being logged, giving unprecedented visibility into the internal reasoning steps of models that lead to trade decisions.</li>
+</ul>
+
+
+
+<p>Those chain‑of‑thought excerpts are telling. Some agents write like disciplined quants: “Target price X, stop loss Y, invalidation: BTC below Z.” Others write like anxious traders: “Holding shorts like standing in front of a runaway train—must exit soon.” It turns out models can be both mathematically rigorous and emotionally evocative in their internal narratives.</p>
+
+
+
+<h3 class="wp-block-heading">Why the Chain‑of‑Thought Matters</h3>
+
+
+
+<p>Exposing the internal reasoning (the chain‑of‑thought) is perhaps the most consequential design choice. It lets researchers and market observers inspect the steps that led to each trade. If a model is consistently producing good outcomes, we can study which signals, indicators, or heuristics it relied upon. If a model blows up, we can dissect where risk controls failed.</p>
+
+
+
+<p>For Canadian Technology Magazine readers, this transparency is invaluable. It transforms trading performance from a black box metric into an interpretable process that engineers and compliance teams can audit.</p>
+
+
+
+<h2 id="technical-analysis-only—why-that-matters-and-what’s-next">Technical Analysis Only—Why That Matters and What’s Next</h2>
+
+
+
+<p>Alpha Arena currently restricts models to technical analysis inputs: price series and derived indicators. The models are explicitly not ingesting social streams, Reddit or Twitter signals, proprietary news feeds, or chain on‑chain sentiment directly (beyond what may be reflected in prices).</p>
+
+
+
+<p>That constraint is pragmatic. It keeps the unit of analysis focused: can an LLM translate structured time‑series data into an investable decision? It also standardizes inputs across models so the test evaluates modeling and decision algorithms rather than ingestion or proprietary data advantages.</p>
+
+
+
+<p>That said, the next natural iteration will likely include alternative data and unstructured streams. Sentiment, on‑chain metrics, macroeconomic releases, and news could be added later—and that will change both the problem and the solutions. For now, performance on technical signals alone is already illuminating about a model’s time series intuition and risk posture.</p>
+
+
+
+<h2 id="measuring-success:-beyond-absolute-returns">Measuring Success: Beyond Absolute Returns</h2>
+
+
+
+<p>Alpha Arena judges models not only on raw P&amp;L but on how they compare to a simple buy‑and‑hold benchmark. This comparison yields the classic investment concept: alpha. Alpha is the extra return above what a passive strategy achieved. If Bitcoin goes up 10% and a model’s account goes up 20%, that incremental 10% is the model’s alpha.</p>
+
+
+
+<p>Why benchmark to buy‑and‑hold? Because passive strategies are cheap, predictable, and surprisingly hard to beat consistently. A model that produces volatile but occasionally spectacular returns might score well in a headline but poorly on risk‑adjusted metrics. That’s why Sharpe and similar ratios are also reported: they penalize excess volatility and reward consistent skill.</p>
+
+
+
+<h2 id="lessons-from-early-trade-logs">Lessons from Early Trade Logs</h2>
+
+
+
+<p>Some initial takeaways from observing the trade logs and chat transcripts:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Discipline trumps bravado. Models that articulated clear entry and exit criteria—with invalidation conditions—tended to preserve capital in the early noisy phase.</li>
+
+
+
+<li>Leverage amplifies learning. Heavy leverage made for dramatic results, but not necessarily robust strategies. A few points of adverse movement can wipe an account quickly.</li>
+
+
+
+<li>Conservatism is underrated. Models that waited for stronger confirmations often underperformed on upside but maintained better drawdown control when markets reversed.</li>
+
+
+
+<li>Prompt design matters. Providing fresh structured inputs within the context window ensured coherent decisions; loose prompts would likely have produced hallucination and inconsistent behavior.</li>
+</ul>
+
+
+
+<h2 id="implications-for-llm-capability-and-investment-practice">Implications for LLM Capability and Investment Practice</h2>
+
+
+
+<p>Alpha Arena illustrates a central question: are general LLMs, trained mainly on language, capable of performing well in continuous, adversarial environments like markets? Early evidence suggests they can at least compete. A few important implications follow:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Specialization may still be required. General LLMs show surprising competence, but domain‑specific fine‑tuning or architectures optimized for time series prediction could outperform in the long run.</li>
+
+
+
+<li>Risk controls are critical. Any deployment of autonomous agents in finance must bake in stop losses, position sizing rules, and explicit invalidation criteria to prevent catastrophic failure.</li>
+
+
+
+<li>Explainability matters. Chain‑of‑thought logging is a game changer for auditing and model governance. It enables compliance teams and engineers to diagnose behavior.</li>
+
+
+
+<li>Regulation will follow performance. As models prove capable and capital flows into AI‑driven strategies, regulators will scrutinize how algorithms are used, what data they consume, and how they impact market stability.</li>
+</ul>
+
+
+
+<h2 id="what-businesses-should-watch">What Businesses Should Watch</h2>
+
+
+
+<p>For product leaders, trading desks, and technology teams—especially those following Canadian Technology Magazine—the Alpha Arena experiment is a useful case study in deploying autonomy safely and transparently. Consider the following action items:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Instrument every decision. If you build autonomous agents, log chain‑of‑thought and decision metadata from day one.</li>
+
+
+
+<li>Design fail‑safe rules. Always include invalidation conditions and automatic stop losses at the orchestration layer.</li>
+
+
+
+<li>Measure against simple benchmarks. It’s tempting to chase absolute returns; instead measure alpha versus simple passive strategies to evaluate real skill.</li>
+
+
+
+<li>Plan for human‑in‑the‑loop. Initially, hybrid setups that allow human oversight reduce regulatory risk and operational surprises.</li>
+</ul>
+
+
+
+<h2 id="where-this-could-go-next">Where This Could Go Next</h2>
+
+
+
+<p>Alpha Arena season one tests technical analysis only and compares general LLMs under identical conditions. Future seasons could introduce:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Alternative and unstructured data (news, social sentiment, on‑chain metrics)</li>
+
+
+
+<li>Longer experiment horizons to test persistent skill across market regimes</li>
+
+
+
+<li>Specialized time‑series models trained explicitly for forecasting and execution</li>
+
+
+
+<li>Multi‑agent ecosystems where models trade among themselves and external liquidity providers</li>
+</ul>
+
+
+
+<p>Each iteration will teach us whether these agents improve with exposure, whether some architectures generalize better, and whether human traders still hold an advantage in complex macro events with limited precedent.</p>
+
+
+
+<h2 id="ethics,-safety,-and-the-regulatory-angle">Ethics, Safety, and the Regulatory Angle</h2>
+
+
+
+<p>A few inevitable concerns arise when you let algorithms trade real money in public:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Market impact. Autonomous agents that coordinate (accidentally or not) could amplify volatility.</li>
+
+
+
+<li>Transparency vs. exploitation. Publicly visible strategies enable study but also invite adversaries to game the agents.</li>
+
+
+
+<li>Consumer protection. If AI agents are deployed on behalf of retail users, regulation will require safeguards and disclosures.</li>
+</ul>
+
+
+
+<p>For organizations and readers of Canadian Technology Magazine, the takeaway is to treat autonomy as powerful but risky. Governance, auditing, and robust testing under many market conditions must precede any live deployment.</p>
+
+
+
+<h2 id="conclusion">Conclusion</h2>
+
+
+
+<p>Alpha Arena is an elegant, transparent, and ambitious experiment. It moves beyond static benchmarks and puts LLMs in the messy reality of markets. Early fireworks—like GROK’s dramatic early gain—are exciting, but what matters for digital finance and technology adoption is the trend over months and quarters, not hour‑by‑hour swings.</p>
+
+
+
+<p>For readers who follow Canadian Technology Magazine, the most valuable part of Alpha Arena is the illumination it gives us into how models reason about risk, discipline, and decision‑making under uncertainty. The chain‑of‑thought logs, the explicit invalidation conditions, and the verifiable wallets create an auditable record of AI behavior that could be instructive for enterprise adoption, risk management, and regulatory frameworks.</p>
+
+
+
+<p>Whether general LLMs will become routinely profitable traders or whether specialized time‑series models will dominate remains an open question. What’s clear is that live benchmarks like Alpha Arena accelerate our learning and help bridge the gap between academic performance and real‑world impact.</p>
+
+
+
+<h2 id="how-does-alpha-arena-ensure-trades-are-not-fabricated?">How does Alpha Arena ensure trades are not fabricated?</h2>
+
+
+
+<p>Trades are executed on live exchanges with verifiable wallet addresses. Each model’s trading wallet and trade history are visible, so anyone can audit the activity and confirm that reported P&amp;L corresponds to on‑chain or exchange records.</p>
+
+
+
+<h2 id="which-cryptocurrencies-are-included-in-the-competition?">Which cryptocurrencies are included in the competition?</h2>
+
+
+
+<p>The initial asset set includes major, highly liquid cryptocurrencies such as Bitcoin (BTC), Ethereum (ETH), Solana (SOL), Binance Coin (BNB), Dogecoin (DOGE), and XRP. The selection focuses on assets with high liquidity to minimize execution risk in the benchmark.</p>
+
+
+
+<h2 id="what-production-risk-controls-must-an-ai-obey?">What production risk controls must an AI obey?</h2>
+
+
+
+<p>Models must produce a thesis, an explicit entry, exit plan, and invalidation conditions. The benchmark also evaluates risk‑adjusted returns (Sharpe ratio) so reckless, high‑variance strategies aren’t rewarded solely for lucky outcomes. Execution parity and contextual inputs are standardized to avoid unfair advantages.</p>
+
+
+
+<h2 id="will-alpha-arena-add-news-and-sentiment-data-later?">Will Alpha Arena add news and sentiment data later?</h2>
+
+
+
+<p>Yes. Season one is intentionally focused on technical analysis to isolate time‑series capability. Future seasons are likely to incorporate alternative data sources—news, social sentiment, on‑chain analytics—to test models’ abilities to synthesize unstructured inputs with price data.</p>
+
+
+
+<h2 id="can-these-models-beat-professional-quant-funds?">Can these models beat professional quant funds?</h2>
+
+
+
+<p>It’s too early to generalize. Some LLMs show promise in short bursts, but consistent outperformance versus specialized quant funds requires robust risk management and domain‑specific techniques. Alpha Arena will provide controlled, public data to evaluate long‑term skill differences.</p>
+
+
+
+<h2 id="what-should-businesses-interested-in-ai-trading-be-doing-now?">What should businesses interested in AI trading be doing now?</h2>
+
+
+
+<p>Start by instrumenting decisions, logging chain‑of‑thought, and prototyping governance layers. Build systems that can simulate many market regimes and stress test stop losses and invalidation rules. Treat live experimentation as a controlled research program with compliance and operational safety nets.</p>
+
+
+
+<h2 id="where-can-i-follow-alpha-arena-and-similar-experiments?">Where can I follow Alpha Arena and similar experiments?</h2>
+
+
+
+<p>Alpha Arena is run by a small, dedicated team focused on transparent benchmarking. For readers of Canadian Technology Magazine, track open research channels and community forums that publish trade logs and chain‑of‑thought outputs. Following these open experiments is an efficient way to learn and prepare for AI in finance.</p>
+
+
+
+<h2 id="how-should-individual-investors-interpret-a-model’s-early-success?">How should individual investors interpret a model’s early success?</h2>
+
+
+
+<p>Treat early wins as informative but not definitive. Short‑term performance can be driven by luck or favorable microstructure events. Look for consistent returns over multiple market regimes and transparent risk controls before attributing success to model skill.</p>
+
+
+
+<h2 id="does-the-experiment-mean-i-should-let-an-ai-manage-my-portfolio?">Does the experiment mean I should let an AI manage my portfolio?</h2>
+
+
+
+<p>Not yet. Public benchmarks are a necessary step toward trust, but production deployment requires rigorous compliance, testing, and often human oversight. Autonomous agents can augment portfolio management, but wholesale replacement of oversight is premature.</p>
+
+
+
+<h2 id="how-often-will-results-be-updated-and-how-long-will-the-season-run?">How often will results be updated and how long will the season run?</h2>
+
+
+
+<p>Season one is designed to run for a few weeks to gather initial performance signals before more expansive season updates. Results are updated in near real‑time, with public dashboards showing account values, positions, and performance metrics for transparency.</p>
+
+
+
+<h2 id="how-can-developers-replicate-or-extend-the-experiment?">How can developers replicate or extend the experiment?</h2>
+
+
+
+<p>Replicating the experiment involves creating standard prompts, providing consistent market data feeds, and enforcing execution parity. Teams can start with shadow mode experiments (paper trading with identical inputs) before moving to live capital. Instrumentation for chain‑of‑thought and JSON outputs aids reproducibility.</p>
+
+
+
+<h2 id="final-notes-for-canadian-technology-magazine-readers">Final Notes for Canadian Technology Magazine Readers</h2>
+
+
+
+<p>Alpha Arena is an instructive early experiment for anyone watching the intersection of AI and finance. For readers of Canadian Technology Magazine, it’s an important signal: LLMs are moving from text‑centric tasks to continuous, decision‑making roles that require accountability and governance. If you’re building AI systems, working on fintech products, or advising clients on technology strategy, watching these live benchmarks will provide practical lessons about risk control, model explainability, and the next frontier of autonomous agents.</p>
+
+
+
+<p>Stay curious, stay skeptical, and treat early wins as the start of a data‑driven conversation about capability—not the final word. The real insights will come from long‑run trends, repeated stress testing, and careful attention to how models reason when money is on the line.</p>

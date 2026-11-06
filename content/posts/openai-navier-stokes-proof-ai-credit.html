@@ -1,0 +1,353 @@
+<p><strong>Canadian Technology Magazine</strong> is tracking one of the wildest stories to hit artificial intelligence in a long time: OpenAI says an internal next generation model, coordinated through 10,000 agents, produced a proposed solution to the Navier Stokes Millennium Prize Problem in just 88 hours.</p>
+
+
+
+<p>That statement alone would be enormous. The Navier Stokes problem has stood open for close to a century, is attached to a US$1 million Clay Mathematics Institute prize, and sits alongside mathematical celebrity problems such as the Riemann Hypothesis and P versus NP.</p>
+
+
+
+<p>But this is AI in 2025. Nothing stays simple for long. The announcement immediately collided with an independent mathematician’s work, an Anthropic employee’s personal collaboration, questions about training data, an expensive computational sprint, and a very human argument over who should get credit.</p>
+
+
+
+<p>The result has not been accepted by the Clay Mathematics Institute. That distinction matters. Still, whether this particular proof survives formal scrutiny or not, <strong>Canadian Technology Magazine</strong> sees a much bigger signal here: AI systems may be moving from helping researchers to actively generating research level mathematical results at extraordinary speed.</p>
+
+
+
+<h2 id="openai-s-announcement">OpenAI’s Announcement</h2>
+
+
+
+<p>OpenAI published a proposed proof that the three dimensional incompressible Navier Stokes equations can develop a singularity in finite time under smooth forcing. In plain language, it claims there is a mathematically valid fluid motion that begins smoothly and then reaches a point where the model’s predicted speed becomes unbounded in a limited amount of time.</p>
+
+
+
+<p>The reported scale is almost absurd. OpenAI says the proof was completed in 88 hours by a coordinated system of 10,000 agents. The effort reportedly consumed roughly 300 billion output tokens and around US$22 million in compute over six days.</p>
+
+
+
+<p>That is not someone casually prompting a chatbot to solve a famous equation. This was an industrial scale attempt using an unreleased internal model that OpenAI says has shown unprecedented mathematical benchmark performance. The agents explored and developed arguments while humans guided the overall process rather than supplying the research level mathematical content themselves.</p>
+
+
+
+<p>OpenAI’s work is publicly framed as a proposed solution, not a settled fact. The Clay Mathematics Institute still needs to evaluate whether it meets the exact conditions of the Millennium Prize Problem. There is also an unusual open question around prize eligibility if an AI system generated the proof.</p>
+
+
+
+<p>For <strong>Canadian Technology Magazine</strong>, this is the correct place to begin: a major claim deserves major verification. Yet a proof being unverified is very different from a proof being irrelevant. The sheer ability to produce formal and informal mathematical work of this depth, at this pace, is the story shaking the research world.</p>
+
+
+
+<h2 id="navier-stokes-explained">Navier–Stokes Explained</h2>
+
+
+
+<p>The Navier Stokes equations describe how liquids and gases move. They matter in areas including aircraft design, weather forecasting, and blood flow. They account for concepts such as acceleration, pressure differences, momentum transfer, and viscosity.</p>
+
+
+
+<p>A simple analogy is a cup of coffee. Stir it with a spoon and the fluid begins to spin. With coffee, the motion gradually slows because viscosity creates friction. Stir honey and the resistance is much more obvious. Stir a nearly frictionless ideal fluid and the motion behaves very differently.</p>
+
+
+
+<p>The central mathematical question is whether a smooth fluid motion can become singular. A singularity is a breakdown point where quantities in the equation, such as fluid speed, grow without bound. It is not merely a large wave or a fast swirl. It is the equation reaching infinity in finite time.</p>
+
+
+
+<p>That “finite time” condition is important. The question is not whether something strange happens after an infinite amount of stirring. It asks whether a smooth, physically framed evolution can lead to a mathematical blowup within a bounded period.</p>
+
+
+
+<h3 class="wp-block-heading">Euler, viscosity, and forcing</h3>
+
+
+
+<p>Another major name in this story is Euler, pronounced “Oiler,” after mathematician Leonhard Euler. Euler’s equations describe fluid motion without viscosity. In the coffee analogy, this is the idealized no friction case.</p>
+
+
+
+<p>Euler is related to Navier Stokes but is not the same prize problem. Establishing a singularity for Euler would still be a major mathematical result, but it would not itself collect the Navier Stokes Millennium Prize.</p>
+
+
+
+<p>There is also the distinction between <strong>forced</strong> and <strong>unforced</strong> motion:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Forced</strong> means energy is being added to the system, similar to continuing to stir the coffee or pushing a swing.</li>
+
+
+
+<li><strong>Unforced</strong> means the fluid evolves without ongoing external input.</li>
+</ul>
+
+
+
+<p>The swing analogy gives a useful intuition. Push a swing at the wrong time and the push can reduce its motion. Push in rhythm, however, and each contribution builds on the last. That is resonance. In fluid mathematics, the relevant question is whether carefully structured motion can build and build until the equation hits a singularity.</p>
+
+
+
+<p>A real physical cup of coffee is not expected to become infinitely fast. The Millennium problem concerns whether the equations themselves guarantee smooth, well behaved solutions or allow this theoretical kind of failure. <strong>Canadian Technology Magazine</strong> emphasizes that a proposed singularity would not mean planes suddenly stop flying or weather forecasts become unusable. The immediate significance is theoretical, although better understanding foundational equations can eventually influence engineering and scientific modelling.</p>
+
+
+
+<h2 id="earlier-research">Earlier Research</h2>
+
+
+
+<p>OpenAI’s alleged breakthrough did not emerge from nowhere. Earlier work by Diego Córdoba and Luis Martínez Zoroa explored constructions of forced blowups in related mathematical settings.</p>
+
+
+
+<p>The intuitive picture is a special vortex configuration. Fluid spins and stretches inward. Its central region shrinks, its speed rises, and the structure is designed so the total energy remains finite. It is an extraordinarily delicate mathematical mechanism, not a standard kitchen experiment.</p>
+
+
+
+<p>That earlier research established a potentially powerful way to make resonance accumulate rather than cancel itself out. It created a foundation that later researchers could build upon in problems involving singularity formation.</p>
+
+
+
+<p>This is normal research practice. Mathematics is cumulative. Researchers use prior techniques, results, and insights to go further. Credit is not erased because later work depends on earlier work. At the same time, using a shared foundation does not automatically mean every later result is a copy of every earlier one.</p>
+
+
+
+<p>The distinction became central once multiple groups appeared to be following related paths toward the Navier Stokes question. <strong>Canadian Technology Magazine</strong> notes that the core issue is not whether prior research influenced later work. Of course it did. The real questions are how information moved, whether private work entered model training, and whether OpenAI’s final proof genuinely followed a materially different route.</p>
+
+
+
+<h2 id="tristan-buckmaster">Tristan Buckmaster</h2>
+
+
+
+<p>Tristan Buckmaster, a mathematics professor at New York University’s Courant Institute of Mathematical Sciences, had been pursuing related work with Levent Alpöge, an Anthropic employee. They described their collaboration as personal rather than an official university or company project.</p>
+
+
+
+<p>Their programme drew from the ideas developed by Córdoba and Martínez Zoroa. Over much of the year, the pair worked through literature, strengthened preliminary results, and used large language models throughout their research process. The tools named included Anthropic’s Claude, OpenAI’s Codex and GPT models, plus Astra for later writing and auditing work.</p>
+
+
+
+<p>They reported significant progress in August, including results concerning Euler and other related systems. Their work was not yet fully written up for release, in part because serious mathematics demands more than an interesting idea or an informal derivation.</p>
+
+
+
+<h3 class="wp-block-heading">Why Lean matters</h3>
+
+
+
+<p>Lean is a formal proof language and proof assistant. It requires every logical step to be represented in a highly precise way that can be mechanically checked. A conventional proof can be persuasive, elegant, and still contain a hidden gap. Formalization is not magic, but it raises the standard of clarity and verification.</p>
+
+
+
+<p>Buckmaster described some early AI generated proof drafts as deeply rough. That is an important reality check. Models can generate productive leads, ugly writeups, false starts, and valid arguments in the same research process. Human mathematical judgement remains vital in separating genuinely useful work from polished nonsense.</p>
+
+
+
+<p>The pair had formalized key Euler work in Lean and believed they were approaching a result for a hypo dissipative Navier Stokes setting. Their position was that they wanted enough time to properly understand, formalize, and communicate the work before making it public.</p>
+
+
+
+<p>Then the race accelerated. Rumours circulated that Anthropic linked researchers were making progress on a major open problem. OpenAI became aware of the possibility and began its own intense effort.</p>
+
+
+
+<h2 id="the-dispute">The Dispute</h2>
+
+
+
+<p>Buckmaster later stated that he contacted Sébastien Bubeck at OpenAI after hearing that an OpenAI system might be working on the same problem. He stressed that his collaboration with Alpöge was personal and described where their project stood.</p>
+
+
+
+<p>OpenAI subsequently told Buckmaster that its internal model had produced a proof involving finite time blowup for forced Navier Stokes. The use of “forced” immediately stood out to Buckmaster because that route was closely connected to the earlier research direction his project had chosen.</p>
+
+
+
+<p>From his perspective, OpenAI had arrived with a massive AI system just as his own work was nearing a pivotal stage. That would be hard for any researcher to process. A career defining achievement can feel very close, only to be overtaken by thousands of agents running on tens of millions of dollars of compute.</p>
+
+
+
+<p>The disagreement became more personal around release plans, authorship, and coordination. Buckmaster said OpenAI proposed options involving separate announcements or a paper where he could present the Navier Stokes result while acknowledging the internal OpenAI model. He declined those proposals.</p>
+
+
+
+<p>He also reported tense language in private exchanges, including remarks he interpreted as pressure not to go public. Bubeck later expressed regret for some statements and disputed elements of the characterization of events.</p>
+
+
+
+<p>None of this proves plagiarism. Buckmaster himself was careful not to claim that OpenAI stole his work. He said he did not know whether their data had been used. That restraint matters.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> sees a collision between two things that are both understandable: an independent researcher’s frustration at being rapidly overtaken, and a frontier AI lab’s determination to race against its major corporate competitor rather than wait for the traditional pace of academic publication.</p>
+
+
+
+<h2 id="training-data">Training Data</h2>
+
+
+
+<p>The most uncomfortable question is whether private work from Buckmaster and Alpöge’s use of OpenAI products could have influenced the internal model’s training data.</p>
+
+
+
+<p>Buckmaster asked whether the model had access to their Codex sessions, where they had stored drafts and material from the project. He said he was told that the system did not look up user data. When he asked more directly about training, he did not initially receive a clear answer.</p>
+
+
+
+<p>OpenAI later stated that neither its researchers nor its agents saw the pair’s work before it was publicly released. It also said no specific user data was accessed to solve the problem.</p>
+
+
+
+<p>However, OpenAI added an important qualification: it could not completely rule out that de identified data derived from product usage helped improve its models. It described that possibility as unlikely.</p>
+
+
+
+<p>This is where the distinction gets tricky. There is a difference between a team intentionally opening someone’s private draft and an internal model being trained on broad, de identified product data that may have included pieces of a user’s interaction. Both scenarios raise different ethical, technical, and consent questions.</p>
+
+
+
+<p>OpenAI argued that its proof differed significantly from Buckmaster and Alpöge’s work, including differences in precise results and the forced versus unforced Euler case. Its position is that similar inspiration does not mean identical mathematical reasoning.</p>
+
+
+
+<p>The timing is why the issue will not disappear. OpenAI said the relevant internal model had been training since late August, near the same period when the independent project made important progress. In an era where research drafts, prompts, code, and conversations can be valuable model training material, data policy is no longer a fine print concern.</p>
+
+
+
+<p>For organizations following this through <strong>Canadian Technology Magazine</strong>, the practical lesson is blunt: understand what happens to information entered into AI products. Check data controls, opt out settings, enterprise terms, retention policies, and the boundary between a tool’s immediate use and future model improvement.</p>
+
+
+
+<h2 id="openai-s-response">OpenAI’s Response</h2>
+
+
+
+<p>OpenAI’s response is that its team acted with integrity and tried to coordinate once it believed another group had solved, or was close to solving, the same problem.</p>
+
+
+
+<p>Its leadership said OpenAI initially believed the other project had also completed the Navier Stokes problem and preferred a joint release. Once it understood that Buckmaster and Alpöge had Euler related results but not the full Navier Stokes solution, OpenAI says it offered to let them publish first, suggested they should receive the prize if appropriate, and discussed Buckmaster taking a lead role in rewriting the OpenAI proof.</p>
+
+
+
+<p>OpenAI also said it was difficult to coordinate with Alpöge because he was an Anthropic employee who did not want to meet or communicate directly with OpenAI. The lab interpreted public posts and the use of internal Anthropic models as signs that the work might be at least partly linked to Anthropic, even though Buckmaster and Alpöge characterized it as personal.</p>
+
+
+
+<p>On the claim of “very little human input,” OpenAI clarified that a group of people participated, but collectively did not have research level expertise in fluid dynamics or the Navier Stokes problem. Their role was to test techniques, prepare prompts, and operate the multi agent system, not to contribute the decisive mathematical insight as expert fluid dynamicists.</p>
+
+
+
+<p>That clarification is important. “Little human input” does not mean no one touched a keyboard. It means the alleged mathematical advance came primarily from the model driven agent swarm rather than from a human mathematician independently deriving the proof and using AI as a side tool.</p>
+
+
+
+<p>The four minute mile comparison is useful here. Hearing that someone is close to achieving something changes what competitors believe is possible. OpenAI may have learned that a promising path existed, poured compute into exploring it, and reached the finish line by another route. That can look brutal without being theft.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> also recognizes that OpenAI now has a powerful incentive to demonstrate more results. If the same model continues to solve difficult problems across mathematics, the argument that it merely captured one nearby project becomes less convincing. Repeated, independently verifiable breakthroughs would be much stronger evidence of general research capability.</p>
+
+
+
+<h2 id="ai-and-research">AI and Research</h2>
+
+
+
+<p>This episode may be remembered less for one disputed proof than for the new research tempo it reveals.</p>
+
+
+
+<p>Traditional mathematical discovery can move slowly for excellent reasons. Researchers need time to inspect assumptions, formalize arguments, test edge cases, communicate with peers, and accept that a beautiful looking proof may fail at the final step.</p>
+
+
+
+<p>AI changes the pressure. A mathematician may reasonably expect several weeks to refine an emerging result. A frontier lab can now hear a rumour, deploy enormous compute, coordinate thousands of agents, and produce a competing result in days.</p>
+
+
+
+<p>That is a Deep Blue moment, but broader. The question is no longer only whether a machine can beat an elite human at a bounded game. It is whether machines can accelerate open ended intellectual work that has historically been tied to a person’s expertise, career, and life’s attention.</p>
+
+
+
+<p>The consequences will reach far beyond mathematics:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Research credit</strong> will become harder to assign when humans, models, private tools, and institutional compute all contribute.</li>
+
+
+
+<li><strong>Training data governance</strong> will become central for researchers using AI assistants in sensitive work.</li>
+
+
+
+<li><strong>Formal verification</strong> may become even more valuable as AI generated results arrive faster than humans can inspect them.</li>
+
+
+
+<li><strong>Academic incentives</strong> may need to adapt when a small team with access to huge compute can outpace years of conventional work.</li>
+
+
+
+<li><strong>Competitive pressure</strong> between AI labs may increasingly dictate the timing of scientific announcements.</li>
+</ul>
+
+
+
+<p>There is a temptation to dismiss models as sophisticated autocomplete and leave it there. That position becomes increasingly difficult to hold if frontier systems continue to generate proofs, formalizations, and discoveries that experts can verify but did not themselves foresee.</p>
+
+
+
+<p>There is another temptation to treat every headline as settled science. That is just as dangerous. The Navier Stokes claim must be checked. The credit dispute deserves careful reporting. The training data question requires direct answers rather than vibes.</p>
+
+
+
+<p>Still, the direction is hard to miss. <strong>Canadian Technology Magazine</strong> will be following the evidence, not just the hype. If AI systems can repeatedly produce valid research at this level, then the future of discovery will not be a distant abstract debate. It is already arriving at GPU speed.</p>
+
+
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+
+
+<h3 class="wp-block-heading">Did OpenAI definitively solve the Navier Stokes Millennium Prize Problem?</h3>
+
+
+
+<p>No. OpenAI has published a proposed solution. The Clay Mathematics Institute must still assess whether the proof satisfies the Millennium Prize requirements.</p>
+
+
+
+<h3 class="wp-block-heading">What is the Navier Stokes problem about?</h3>
+
+
+
+<p>It concerns whether the equations used to describe three dimensional fluid motion always remain smooth or can develop singularities, where mathematical quantities such as velocity become unbounded in finite time.</p>
+
+
+
+<h3 class="wp-block-heading">Would a Navier Stokes singularity make current engineering systems fail?</h3>
+
+
+
+<p>Not immediately. The claim is primarily a theoretical mathematical result. The equations remain deeply useful for applications such as weather forecasting, aircraft design, and blood flow modelling.</p>
+
+
+
+<h3 class="wp-block-heading">Did OpenAI steal another mathematician’s work?</h3>
+
+
+
+<p>There is no established evidence that OpenAI stole anyone’s work. Tristan Buckmaster explicitly said he was not accusing OpenAI of theft, though he raised concerns about the timeline, data use, and credit.</p>
+
+
+
+<h3 class="wp-block-heading">Why does training data matter in this dispute?</h3>
+
+
+
+<p>OpenAI said its researchers and agents did not see the independent researchers’ work, while also stating it could not fully rule out that de identified product data might have helped improve its models. That distinction is central to the debate.</p>

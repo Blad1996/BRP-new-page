@@ -1,0 +1,685 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🔥-what-is-rube.app-and-why-it-matters">🔥 What is Rube.app and why it matters</a></li>
+
+
+
+<li><a href="#⚙️-how-to-set-up-rube.app-with-cloud-desktop-(step-by-step)">⚙️ How to set up Rube.app with Cloud Desktop (step-by-step)</a></li>
+
+
+
+<li><a href="#📧-connecting-your-favorite-apps:-what-to-enable-and-why">📧 Connecting your favorite apps: what to enable and why</a></li>
+
+
+
+<li><a href="#🤯-five-insane-automation-use-cases-you-can-start-today">🤯 Five insane automation use-cases you can start today</a></li>
+
+
+
+<li><a href="#🧠-advanced-workflows:-chaining-tools-and-train-of-thought-automation">🧠 Advanced workflows: chaining tools and train-of-thought automation</a></li>
+
+
+
+<li><a href="#🏢-where-this-is-most-useful-(roles-&amp;-industries)">🏢 Where this is most useful (roles &amp; industries)</a></li>
+
+
+
+<li><a href="#🔒-security,-privacy,-and-governance-considerations">🔒 Security, privacy, and governance considerations</a></li>
+
+
+
+<li><a href="#⚖️-alternatives,-integrations-and-when-to-use-rube-vs-n8n-or-zapier">⚖️ Alternatives, integrations and when to use Rube vs n8n or Zapier</a></li>
+
+
+
+<li><a href="#🛠️-tips,-best-practices,-and-troubleshooting">🛠️ Tips, best practices, and troubleshooting</a></li>
+
+
+
+<li><a href="#📝-meta-description-and-tags-for-seo">📝 Meta description and tags for SEO</a></li>
+
+
+
+<li><a href="#🖼️-suggested-multimedia-and-image-alt-text">🖼️ Suggested multimedia and image alt text</a></li>
+
+
+
+<li><a href="#❓-faq">❓ FAQ</a></li>
+
+
+
+<li><a href="#🚀-conclusion-&amp;-call-to-action">🚀 Conclusion &amp; call to action</a></li>
+</ul>
+
+
+
+<h2 id="🔥-what-is-rube.app-and-why-it-matters">🔥 What is Rube.app and why it matters</h2>
+
+
+
+<p>At its core, Rube.app is essentially an AI-focused “app store” and free MCP (MCP = Modular Connector Proxy) server that gives you centralized access to hundreds of AI-enabled tools and connectors. Think of it like an app marketplace + proxy connector layer that you can plug into your favorite IDEs, cloud desktops, or automation platforms. The benefit is simple: instead of switching between a dozen different tabs and authorizing each tool independently every time, you can add Rube as a connector and then enable the apps you use through that single entrypoint.</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>"I just found a brand new AI app store that allows you to access more than five hundred plus AI tools for free, and it allows you to connect them to your favorite AI tools that you're currently using."</p>
+</blockquote>
+
+
+
+<p>Why this matters:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Speed:</strong> Spin up integrations quickly from one central place.</li>
+
+
+
+<li><strong>Scale:</strong> Access hundreds of tools without building individual connectors.</li>
+
+
+
+<li><strong>Flexibility:</strong> Use Rube from multiple environments (Cloud Desktop, Cursor, VS Code, cloud code, n8n, etc.) by pasting an MCP URL.</li>
+
+
+
+<li><strong>Cost:</strong> The Rube marketplace is free to access, which is a major plus for solo founders, small teams, and hobbyists experimenting with AI tools.</li>
+</ul>
+
+
+
+<p>Rube is especially powerful when combined with LLMs like Claude (which I demoed) because the LLM can orchestrate a sequence of actions across multiple apps via Rube’s connectors. That’s where the “insane” part comes in — one prompt can trigger multi-step, multi-app workflows.</p>
+
+
+
+<h2 id="⚙️-how-to-set-up-rube.app-with-cloud-desktop-(step-by-step)">⚙️ How to set up Rube.app with Cloud Desktop (step-by-step)</h2>
+
+
+
+<p>Below is the step-by-step setup I walked through. I’ll keep it pragmatic so you can replicate this quickly.</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Open Cloud Desktop:</strong> You need the Cloud Desktop app or the environment you want to attach Rube to (Cursor, VS Code, Cloud Code, etc.).</li>
+
+
+
+<li><strong>Go to Settings → Connectors:</strong> In Cloud Desktop, navigate to settings and then to the connectors area.</li>
+
+
+
+<li><strong>Add a custom connector:</strong> Click "Add custom connector" and be prepared to paste the MCP URL from Rube.</li>
+
+
+
+<li><strong>Name the connector:</strong> For clarity, set the name to "Rube" or "Rube.app".</li>
+
+
+
+<li><strong>Install from Rube:</strong> On rube.app, open the marketplace and click the desired app tile (e.g., Cloud Desktop) then click "Install" and "Copy" to get the MCP URL.</li>
+
+
+
+<li><strong>Paste URL into Cloud Desktop:</strong> Paste that MCP URL into the custom connector field in Cloud Desktop and click "Add".</li>
+
+
+
+<li><strong>Connect &amp; Authorize:</strong> Click connect and authorize Rube to access the environment (this will open a page to confirm permissions similar to connecting any OAuth app).</li>
+
+
+
+<li><strong>Enable apps in Rube’s marketplace:</strong> Back in Rube, go to the marketplace and enable the specific apps you want — Gmail, Slack, Notion, GitHub, Google Sheets, etc. Log into those apps during the enable flow.</li>
+
+
+
+<li><strong>Confirm access in Cloud Desktop:</strong> You should see Rube listed under your connectors and toggled on — meaning your connected LLM (like Claude) can call into those apps through Rube.</li>
+</ol>
+
+
+
+<p>This is basically the exact sequence I use. The first time you authorize each app you’ll grant Rube the permissions necessary to read, create, or update data depending on the connector. Always verify the scopes before accepting.</p>
+
+
+
+<h2 id="📧-connecting-your-favorite-apps:-what-to-enable-and-why">📧 Connecting your favorite apps: what to enable and why</h2>
+
+
+
+<p>Rube supports hundreds of tools, but here are the most common ones I recommend starting with and why:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Gmail:</strong> Read and draft emails for notifications, summaries, and automated replies.</li>
+
+
+
+<li><strong>Google Sheets:</strong> Create and update spreadsheets for lead lists, logs, and reports.</li>
+
+
+
+<li><strong>Slack / Discord / X (Twitter):</strong> Send messages, post updates, or pull context from your chat history.</li>
+
+
+
+<li><strong>Notion:</strong> Save notes, meeting summaries, and prep docs which you can then share or email.</li>
+
+
+
+<li><strong>GitHub / GitLab:</strong> Create issues, pull requests, and link code-related tasks.</li>
+
+
+
+<li><strong>Asana / Trello / Linear / Jira:</strong> Create tasks/cards and manage project workflows.</li>
+
+
+
+<li><strong>Shopify / WooCommerce:</strong> Pull order info, create customer records, or trigger ecommerce flows.</li>
+
+
+
+<li><strong>Salesforce / HubSpot:</strong> Create leads, update contacts, or start sequences.</li>
+</ul>
+
+
+
+<p>To enable these, go into the Rube marketplace, click each app tile, and follow the "Enable" → "Login" flow. After this, the apps will be available as actions from your connected LLM or cloud desktop environment.</p>
+
+
+
+<h2 id="🤯-five-insane-automation-use-cases-you-can-start-today">🤯 Five insane automation use-cases you can start today</h2>
+
+
+
+<p>Below I dive into five practical, high-impact automations. Each example includes the apps involved and how the chained actions flow.</p>
+
+
+
+<h3 class="wp-block-heading">1) Turn a client email into an engineering issue and notify the team</h3>
+
+
+
+<p>Apps: Gmail → GitHub (or Linear/Jira) → Slack</p>
+
+
+
+<ol class="wp-block-list">
+<li>A customer email arrives in Gmail describing a bug or feature request.</li>
+
+
+
+<li>Prompt your LLM (Claude) to "Create a GitHub issue from this client email, summarize the steps to reproduce, add labels, and assign to the engineering lead."</li>
+
+
+
+<li>LLM creates the GitHub issue via Rube's GitHub connector.</li>
+
+
+
+<li>LLM posts a summary message to the engineering Slack channel with link to the issue and necessary context.</li>
+</ol>
+
+
+
+<p>Why it’s powerful: it reduces manual triage and ensures urgent requests are routed to engineering quickly with all context in one go.</p>
+
+
+
+<h3 class="wp-block-heading">2) Send formatted meeting notes to leadership and save a copy</h3>
+
+
+
+<p>Apps: Notion → Gmail → Google Drive</p>
+
+
+
+<ol class="wp-block-list">
+<li>After a meeting, your Notes are saved in Notion.</li>
+
+
+
+<li>Prompt the LLM: "Format the Notion meeting notes into a leadership-friendly email, summarize action items, attach as PDF to Google Drive, and send to executive distribution list."</li>
+
+
+
+<li>LLM reads from Notion, generates the email draft, saves a formatted document to Google Drive, and sends the email via Gmail.</li>
+</ol>
+
+
+
+<p>This is ideal for recurring meeting workflows where execs only need a concise summary and a single saved artifact in Drive.</p>
+
+
+
+<h3 class="wp-block-heading">3) Turn Slack DMs into tasks and calendar reminders</h3>
+
+
+
+<p>Apps: Slack → Asana → Google Calendar</p>
+
+
+
+<ol class="wp-block-list">
+<li>A teammate DM requests a follow-up item or task.</li>
+
+
+
+<li>Prompt: "Convert this Slack DM into an Asana task, assign it to X, set due date, and block time in Google Calendar for me."</li>
+
+
+
+<li>LLM creates the Asana task, sets the due date, and inserts a calendar event with a reminder. It can also post a confirmation back in Slack.</li>
+</ol>
+
+
+
+<p>This saves time when ad-hoc requests appear in chat and avoids losing tasks in message threads.</p>
+
+
+
+<h3 class="wp-block-heading">4) Ecommerce order -&gt; finance and ops handoff</h3>
+
+
+
+<p>Apps: Shopify → Trello (or Asana) → Gmail → Slack</p>
+
+
+
+<ol class="wp-block-list">
+<li>New Shopify order appears.</li>
+
+
+
+<li>LLM creates a Trello card or Asana task for fulfillment, attaches the invoice (pulled from Gmail), and posts the order link to the ops Slack channel.</li>
+
+
+
+<li>It can also add the transaction details into a Google Sheet for bookkeeping and email a finance summary daily.</li>
+</ol>
+
+
+
+<p>Why this matters: automates order handling and centralizes ops communication without manual copy/paste.</p>
+
+
+
+<h3 class="wp-block-heading">5) Lead generation and outreach for local businesses</h3>
+
+
+
+<p>Apps: Web search (via Claude) → Google Sheets (Rube-created) → Mailchimp / HubSpot → Slack</p>
+
+
+
+<ol class="wp-block-list">
+<li>Prompt the LLM: "Research and create a list of 25 commercial clients in Southampton for my window washing business, include contact name, phone, priority, and address — put them into a Google Sheet you create."</li>
+
+
+
+<li>LLM performs research, builds the Google Sheet via Rube, and fills all fields.</li>
+
+
+
+<li>Then optionally: add those leads to Mailchimp or HubSpot, start a nurture sequence, and notify sales in Slack.</li>
+</ol>
+
+
+
+<p>This example shows the power of discovery + execution — Rube plus an LLM can discover prospects and immediately turn them into tracked leads.</p>
+
+
+
+<h2 id="🧠-advanced-workflows:-chaining-tools-and-train-of-thought-automation">🧠 Advanced workflows: chaining tools and train-of-thought automation</h2>
+
+
+
+<p>The real magic happens when you "stack" tools and instruct the LLM to carry multi-step logic or train-of-thought tasks. Instead of single API calls, you can direct workflows like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Search market data → summarize insights → create a report in Google Docs → share in Slack → set follow-up tasks in Asana.</li>
+
+
+
+<li>Scan error logs in Sentry → create or update a Jira ticket → update project timeline in Google Sheets → save a report to Drive.</li>
+
+
+
+<li>Collect survey/poll results from Slack → aggregate in Google Sheets → generate charts → email a one-page summary to stakeholders.</li>
+</ul>
+
+
+
+<p>Under the hood, the LLM (Claude or another) is orchestrating the data flow. Rube exposes the connectors so the LLM can read and write across apps. In my demo I used a chain like: search tool → planning tool → multi-execute tool → spreadsheet creator. The LLM executes each step, using the outputs of previous steps as inputs to the next.</p>
+
+
+
+<p>Benefits:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Context awareness:</strong> The LLM can reason across steps because it has access to the app data through Rube connectors.</li>
+
+
+
+<li><strong>One-shot automation:</strong> Tell it once, and it can run a full workflow without additional manual actions.</li>
+
+
+
+<li><strong>Iterative improvements:</strong> You can refine prompts to improve results, add validation steps, or insert human-in-the-loop checks.</li>
+</ul>
+
+
+
+<h2 id="🏢-where-this-is-most-useful-(roles-&amp;-industries)">🏢 Where this is most useful (roles &amp; industries)</h2>
+
+
+
+<p>Rube + LLM automations benefit a wide range of teams and industries. A few examples:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Software engineering:</strong> Auto-create tickets, triage bug reports, link issues to PRs, and notify owners.</li>
+
+
+
+<li><strong>Sales &amp; CRM:</strong> Auto-create leads from inbound emails, schedule demos, and attach prep docs.</li>
+
+
+
+<li><strong>Marketing &amp; Growth:</strong> Build lead lists, sync to Mailchimp, and trigger nurture sequences.</li>
+
+
+
+<li><strong>Ecommerce &amp; Ops:</strong> Automate order handling, invoicing, and finance reporting.</li>
+
+
+
+<li><strong>Executive &amp; Admin:</strong> Turn meeting notes into summaries, assign action items, and distribute reports.</li>
+
+
+
+<li><strong>Customer Success:</strong> Convert feedback into tickets, assign follow-ups, and monitor SLAs.</li>
+</ul>
+
+
+
+<p>If your job requires connecting data between apps — reading somewhere and taking action in another — you will save time by moving that logic into an LLM + Rube workflow.</p>
+
+
+
+<h2 id="🔒-security,-privacy,-and-governance-considerations">🔒 Security, privacy, and governance considerations</h2>
+
+
+
+<p>Whenever you introduce a new connector that can read and write across your business apps, you must evaluate risk. Here’s a practical checklist I recommend when you enable Rube or any similar proxy connector:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Review permission scopes:</strong> When authorizing Gmail, Slack, Salesforce, etc., verify exactly which scopes are requested (read-only vs. full mail send/delete, file access, etc.).</li>
+
+
+
+<li><strong>Least privilege:</strong> Grant only the permissions needed for the automation to function. Avoid wide or admin-level scopes when possible.</li>
+
+
+
+<li><strong>Audit logs:</strong> Make sure you have access to activity logs so you can trace who or what performed an action (LLM-driven automation should log actions).</li>
+
+
+
+<li><strong>Token lifecycle:</strong> Maintain a policy for rotating tokens and removing connectors when they are no longer used.</li>
+
+
+
+<li><strong>Data classification:</strong> Avoid sending highly sensitive PII, financial info, or regulatory-protected data through third-party connectors unless you’ve verified compliance.</li>
+
+
+
+<li><strong>Human-in-the-loop:</strong> For high-risk actions (contract changes, refunds, major finance operations), require manual approval before execution.</li>
+
+
+
+<li><strong>Test in sandbox:</strong> Develop and verify workflows in a non-production environment first.</li>
+</ul>
+
+
+
+<p>Rube is a powerful enabler, but with great power comes responsibility. Treat connectors like any other 3rd-party integration: vet, monitor, and enforce least privilege.</p>
+
+
+
+<h2 id="⚖️-alternatives,-integrations-and-when-to-use-rube-vs-n8n-or-zapier">⚖️ Alternatives, integrations and when to use Rube vs n8n or Zapier</h2>
+
+
+
+<p>Rube is not the only player in the no-code/low-code integration space. Here’s how it compares and where it fits:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Zapier / Make (Integromat):</strong> Great for standard SaaS-to-SaaS automations, with many pre-built templates. Zapier is mature and user-friendly, but sometimes limited for complex AI orchestration.</li>
+
+
+
+<li><strong>n8n:</strong> Open-source and developer-friendly, n8n is great for self-hosted or custom logic workflows. It requires more setup but gives more control.</li>
+
+
+
+<li><strong>Rube.app:</strong> Focused on exposing many AI tools and acting as a centralized MCP server. It's especially useful when you want an LLM to orchestrate multiple AI-enabled tools seamlessly without building every connector yourself.</li>
+</ul>
+
+
+
+<p>When to pick Rube:</p>
+
+
+
+<ul class="wp-block-list">
+<li>You want to orchestrate LLM-driven workflows across many AI tools quickly.</li>
+
+
+
+<li>You prefer a marketplace of AI connectors optimized for LLM access.</li>
+
+
+
+<li>You want a simple MCP URL to plug into multiple environments (Cloud Desktop, Cursor, VS Code).</li>
+</ul>
+
+
+
+<p>When to pick n8n or Zapier:</p>
+
+
+
+<ul class="wp-block-list">
+<li>You need enterprise-grade automation templates or deeper platform integrations with advanced error handling.</li>
+
+
+
+<li>You prefer a visual flow builder or need self-hosting for compliance reasons.</li>
+</ul>
+
+
+
+<h2 id="🛠️-tips,-best-practices,-and-troubleshooting">🛠️ Tips, best practices, and troubleshooting</h2>
+
+
+
+<p>From my experience, here are practical tips to make your Rube + LLM workflows robust and reliable:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Start small:</strong> Begin with read-only queries or simple create actions (like adding a row to Google Sheets) before automating destructive operations.</li>
+
+
+
+<li><strong>Name connectors clearly:</strong> If you’re adding Rube to Cloud Desktop, call it "Rube - Prod" vs "Rube - Sandbox" to avoid confusion.</li>
+
+
+
+<li><strong>Version control your prompts:</strong> Keep prompt templates in Notion or GitHub so you can track prompt changes over time.</li>
+
+
+
+<li><strong>Add validation steps:</strong> After a workflow runs, have the LLM summarize the actions it took and write them to a log sheet to verify results.</li>
+
+
+
+<li><strong>Set rate limits and throttles:</strong> If you hit API limits, add backoff and retry logic or throttle job frequency.</li>
+
+
+
+<li><strong>Monitor costs:</strong> While Rube is free to access, downstream APIs (e.g., OpenAI API keys) may incur charges. Monitor usage and set budgets.</li>
+
+
+
+<li><strong>Test edge cases:</strong> Provide the LLM with problematic inputs and validate how it responds (e.g., ambiguous emails, missing fields).</li>
+</ul>
+
+
+
+<h2 id="📝-meta-description-and-tags-for-seo">📝 Meta description and tags for SEO</h2>
+
+
+
+<p>Meta description (150–160 characters): Discover Rube.app — a free AI app store to access 500+ tools and connect Gmail, Slack, Notion, Google Sheets &amp; more for automated workflows.</p>
+
+
+
+<p>Suggested tags &amp; categories: AI automation, Rube.app, AI tools, no-code automation, Claude LLM, productivity, SaaS integrations, Cloud Desktop.</p>
+
+
+
+<h2 id="🖼️-suggested-multimedia-and-image-alt-text">🖼️ Suggested multimedia and image alt text</h2>
+
+
+
+<p>To make this blog post visually engaging, include the following imagery:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Screenshot of Rube.app marketplace — alt text: "Rube app marketplace showing available AI connectors".</li>
+
+
+
+<li>Step-by-step screenshot of adding a custom connector in Cloud Desktop — alt text: "Cloud Desktop settings screen for adding a custom MCP connector named Rube".</li>
+
+
+
+<li>Flow diagram of a chained automation (Gmail → GitHub → Slack) — alt text: "Diagram showing Gmail message turned into GitHub issue then posted to Slack".</li>
+
+
+
+<li>Before/after Google Sheet created by Rube — alt text: "Google Sheet with 25 leads populated automatically by Rube and an LLM".</li>
+</ul>
+
+
+
+<h2 id="❓-faq">❓ FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">Is Rube.app really free?</h3>
+
+
+
+<p>Rube’s marketplace access is free to browse and many connectors can be used without direct charge. However, downstream services you enable (like OpenAI, Claude, Google APIs, Salesforce) may have their own usage limits or costs. Always check the third-party service pricing and monitor API usage.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need to know how to code to use Rube?</h3>
+
+
+
+<p>No — that’s the beauty of it. You can use Rube from Cloud Desktop, Cursor, VS Code, or other GUI environments and instruct an LLM to perform actions using plain English prompts. For advanced custom workflows, some familiarity with prompts and connector scopes helps, but coding is not required for most automations.</p>
+
+
+
+<h3 class="wp-block-heading">Can I use Rube with my own LLM API keys?</h3>
+
+
+
+<p>Yes. You can use Rube in combination with LLMs like Claude, OpenAI, or other compatible models. If using paid LLM APIs, you’ll be responsible for those API costs. Rube simply exposes the connectors to allow the LLM to interact with your apps.</p>
+
+
+
+<h3 class="wp-block-heading">Is using Rube secure for company data?</h3>
+
+
+
+<p>It depends on your risk tolerance and the permissions you grant. Rube requires OAuth-style permissions to access apps. You should always review scopes, use least-privilege principles, and test in non-production environments. For sensitive data, consider enterprise controls, audit logs, or self-hosted alternatives.</p>
+
+
+
+<h3 class="wp-block-heading">What happens if an automation makes a mistake?</h3>
+
+
+
+<p>Good design includes validation and rollback. For critical operations, require human approval before irreversible actions (like deleting accounts or transferring funds). Add logging to Google Sheets or an audit channel in Slack so you can track actions taken by the LLM and revert if necessary.</p>
+
+
+
+<h3 class="wp-block-heading">How do I manage rate limits and API errors?</h3>
+
+
+
+<p>Design workflows with retries, backoff, and error handling. If you run into rate limits, throttle job frequency or batch actions. For high-volume workloads, consider batching updates into a single operation where APIs support bulk writes.</p>
+
+
+
+<h2 id="🚀-conclusion-&amp;-call-to-action">🚀 Conclusion &amp; call to action</h2>
+
+
+
+<p>Rube.app is a game-changer for anyone looking to harness AI across multiple apps without building connectors from scratch. By combining Rube’s connector marketplace with a capable LLM like Claude, you can automate complex, multi-step workflows — from lead generation to bug triage to ecommerce ops — all orchestrated by plain-English prompts.</p>
+
+
+
+<p>If you want to move faster with AI automation, check out Rube at rube.app and try the setup steps described above in a sandbox environment. If you’re serious about adopting AI for work automation, I also run AI Automation School (https://www.skool.com/ai-automation-school/about) where I teach how to build, scale, and monetize AI automations — including audits of personal AI workflows, templates, and hands-on projects.</p>
+
+
+
+<p>One last thing: Goldman Sachs recently estimated that AI could displace up to 300 million jobs in the next 12 months. That’s dramatic and it’s a wake-up call. Will you be the person building the automations that replace jobs, or will you be the one replaced because you didn’t act? Learn the tools, build workflows, and position yourself as someone who leverages AI to create more value.</p>
+
+
+
+<p>If you found this guide helpful, try these next steps:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Visit rube.app and explore the marketplace.</li>
+
+
+
+<li>Set up Rube in a sandbox Cloud Desktop environment and enable Gmail + Google Sheets.</li>
+
+
+
+<li>Run a simple test: "Pull my last five emails and add subjects &amp; senders to a Google Sheet."</li>
+
+
+
+<li>Iterate to more complex workflows: add Slack notifications, task creation, and CRM syncing.</li>
+
+
+
+<li>Consider joining AI Automation School for structured training and templates.</li>
+</ol>
+
+
+
+<p>Want help designing a workflow for your team? Leave a comment below or check my other resources for step-by-step automations that you can adapt for your business.</p>

@@ -1,0 +1,637 @@
+<p>
+    ChatGPT just introduced a set of updates that change how you interact, automate, and build with the platform.
+    If you use ChatGPT for research, coding, customer analysis, or content work, several features deserve immediate attention:
+    new model modes, a dramatically expanded context window when thinking mode is enabled, a built-in Skills system to automate repeatable workflows, Codex for Windows with developer automations, and handy productivity add-ons like prompt optimization.
+    This article explains what changed, how to use the new features, real-world use cases, and practical tips to get the best results fast.
+  </p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#quick-overview-what-landed-and-why-it-matters">Quick overview: What landed and why it matters</a></li>
+
+
+
+<li><a href="#under-the-hood-models-and-modes-explained">Under the hood: models and modes explained</a></li>
+
+
+
+<li><a href="#skills-turn-repeated-workflows-into-reliable-automations">Skills: turn repeated workflows into reliable automations</a></li>
+
+
+
+<li><a href="#codex-on-windows-and-developer-automations">Codex on Windows and developer automations</a></li>
+
+
+
+<li><a href="#boost-output-quality-with-mypromptbuddy-and-prompt-optimization">Boost output quality with MyPromptBuddy and prompt optimization</a></li>
+
+
+
+<li><a href="#web-and-mobile-improvements-that-matter">Web and mobile improvements that matter</a></li>
+
+
+
+<li><a href="#projects-build-a-living-knowledge-base">Projects: build a living knowledge base</a></li>
+
+
+
+<li><a href="#real-world-workflows-and-examples">Real-world workflows and examples</a></li>
+
+
+
+<li><a href="#best-practices-and-tips">Best practices and tips</a></li>
+
+
+
+<li><a href="#what-are-chatgpt-skills-and-why-should-i-care">What are ChatGPT Skills and why should I care?</a></li>
+
+
+
+<li><a href="#how-do-i-decide-between-instant-thinking-and-pro-modes">How do I decide between instant, thinking, and pro modes?</a></li>
+
+
+
+<li><a href="#what-does-the-new-context-window-size-mean-for-my-work">What does the new context window size mean for my work?</a></li>
+
+
+
+<li><a href="#who-has-access-to-skills-right-now">Who has access to Skills right now?</a></li>
+
+
+
+<li><a href="#how-does-codex-on-windows-help-developers">How does Codex on Windows help developers?</a></li>
+
+
+
+<li><a href="#can-prompt-optimizers-really-improve-results">Can prompt optimizers really improve results?</a></li>
+
+
+
+<li><a href="#how-do-i-add-external-context-into-projects">How do I add external context into Projects?</a></li>
+
+
+
+<li><a href="#is-there-any-reason-to-use-auto-mode">Is there any reason to use auto mode?</a></li>
+
+
+
+<li><a href="#meta-description-and-suggested-tags">Meta description and suggested tags</a></li>
+
+
+
+<li><a href="#final-notes-and-next-steps">Final notes and next steps</a></li>
+</ul>
+
+
+
+<h2 id="quick-overview-what-landed-and-why-it-matters">Quick overview: What landed and why it matters</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>New model selector modes:</strong> auto, instant, thinking, and pro — pick based on task complexity.</li>
+
+
+
+<li><strong>Thinking mode:</strong> larger context windows (up to 256k tokens) and controllable thinking depth (light to heavy).</li>
+
+
+
+<li><strong>Skills:</strong> create repeatable, deterministic workflows that reduce hallucinations and automate multi-step tasks.</li>
+
+
+
+<li><strong>Codex app on Windows:</strong> a powerful developer-focused client with automations, terminal integrations, and skills support.</li>
+
+
+
+<li><strong>Prompt optimization tools:</strong> Chrome extensions that store shortcuts and automatically rework prompts for better outputs.</li>
+
+
+
+<li><strong>Web and mobile UX improvements:</strong> edit image prompts, faster sharing, quick search behaviors, and improved Android interactions.</li>
+
+
+
+<li><strong>Projects sources:</strong> add context from Slack, Google Drive, chats, or ad hoc text for a living knowledge base.</li>
+</ul>
+
+
+
+<h2 id="under-the-hood-models-and-modes-explained">Under the hood: models and modes explained</h2>
+
+
+
+<p>
+    The model selector now surfaces four primary options: <strong>auto</strong>, <strong>instant</strong>, <strong>thinking</strong>, and <strong>pro</strong>.
+    Each one is optimized for different workflows.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Instant (default for quick questions)</h3>
+
+
+
+<p>
+    Use instant when you want fast, concise answers — think single-step Q&amp;A, definitions, small calculations, and quick research.
+    It is the most efficient choice for everyday interactions because it returns responses quickly without engaging the extended reasoning pipeline.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Thinking (extended context and reasoning)</h3>
+
+
+
+<p>
+    Thinking mode is the sweet spot when your task requires context, analysis, or predictable multi-step reasoning.
+    You can choose how deeply the model "thinks" by toggling between <strong>light</strong>, <strong>standard</strong>, <strong>extended</strong>, and <strong>heavy</strong>.
+    Two important benefits:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>When enabled, the total context window goes up to <strong>256,000 tokens</strong> (128K input and 128K output), about a 25% increase over the previous limit.</li>
+
+
+
+<li>The model keeps more context and holds internal activity you can inspect; you can interrupt and ask follow-ups while it processes.</li>
+</ul>
+
+
+
+<p>
+    Practical examples for thinking mode include large dataset analysis, long-form document generation, multi-file code refactors, and customer retention analysis where you feed in lots of transaction rows.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Pro (research-grade intelligence)</h3>
+
+
+
+<p>
+    Pro mode is designed for high-stakes, technical work: advanced engineering, life sciences, deep scientific research, and complex code tasks.
+    It exposes options like <strong>standard</strong> and <strong>extended</strong> within pro — choose extended for maximum capability.
+    For most people, instant and thinking modes will handle the majority of tasks; reserve pro for specialized, demanding workflows.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Auto</h3>
+
+
+
+<p>
+    Auto attempts to select the best mode based on your prompt but can be inefficient and slower than choosing the right mode yourself.
+    If speed and predictability matter, avoid auto and pick instant or thinking explicitly.
+  </p>
+
+
+
+<h2 id="skills-turn-repeated-workflows-into-reliable-automations">Skills: turn repeated workflows into reliable automations</h2>
+
+
+
+<p>
+    Skills are a game changer. They let you turn repeatable, multi-step workflows into explicit instructions the model will execute consistently, dramatically reducing hallucinations.
+    Think of a skill as a small program for ChatGPT that defines precise steps, clarifying questions, expected output formats, and validation checks.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Why skills matter</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Determinism:</strong> Skills constrain the model so it follows exact steps rather than inventing answers.</li>
+
+
+
+<li><strong>Efficiency:</strong> Once defined, a skill runs the same process every time — no manual prompt tinkering.</li>
+
+
+
+<li><strong>Shareability:</strong> Export and import skills across tools and platforms that support the open skill format.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">How to create a skill</h3>
+
+
+
+<p>
+    There are three main ways to create skills:
+  </p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Create inside chat:</strong> Spawn a skill directly while in a chat and iterate interactively; ChatGPT will ask clarifying questions until the skill is defined.</li>
+
+
+
+<li><strong>Create with the editor:</strong> Hand-write instructions, validation checks, sample inputs, and output formats if you want full control.</li>
+
+
+
+<li><strong>Upload:</strong> Import skill definitions from another platform or a file if you already use skills elsewhere.</li>
+</ol>
+
+
+
+<p>
+    A typical skill contains: purpose, input expectations, step-by-step actions, outputs (with exact formats), and a short checklist to validate tone and length.
+    After creating a skill you can test it in chat, copy it, tweak it, and save multiple versions for different use cases.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Where skills are available</h3>
+
+
+
+<p>
+    Skills are available in Business, Enterprise, EDU Teachers, and Healthcare tiers, and they are supported in Codex and via the API as well.
+    Expect broader rollout to consumer tiers over time.
+  </p>
+
+
+
+<h2 id="codex-on-windows-and-developer-automations">Codex on Windows and developer automations</h2>
+
+
+
+<p>
+    Codex is now available as a Windows app and brings developer-focused tooling, automations, and terminal integrations that speed up coding workflows.
+    It blends code generation with project automation templates and connects to services like GitHub.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Key capabilities</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Local or cloud execution:</strong> Run suggestions locally or send tasks to Codex web/cloud.</li>
+
+
+
+<li><strong>Skills in Codex:</strong> Reuse the skills framework inside development workflows to create consistent code review, PR summarization, and commit scanning automations.</li>
+
+
+
+<li><strong>Automations:</strong> Prebuilt automations include summarizing PRs, scanning recent commits, and checking website or app health. You can also build custom automations from templates.</li>
+
+
+
+<li><strong>Terminal + browser automation:</strong> Features like Play let you script and automate browser tasks from the terminal, which is extremely helpful for end-to-end testing and reproducible workflows.</li>
+</ul>
+
+
+
+<p>
+    For teams and engineers, Codex compresses many repetitive tasks into automated flows and integrates well with existing CI/CD and GitHub workflows.
+    If you frequently debug, refactor, or document code, the automation templates save time and reduce human error.
+  </p>
+
+
+
+<h2 id="boost-output-quality-with-mypromptbuddy-and-prompt-optimization">Boost output quality with MyPromptBuddy and prompt optimization</h2>
+
+
+
+<p>
+    Prompt optimization changes how you get value from prompts. Storing and refining prompts avoids wasted iterations and yields higher-quality results the first time.
+    A Chrome extension like MyPromptBuddy offers two practical features that make a huge difference:
+  </p>
+
+
+
+<h3 class="wp-block-heading">Shortcuts</h3>
+
+
+
+<p>
+    Save your best prompts as shortcuts to paste instantly into ChatGPT. That saves time and keeps effective prompts at your fingertips instead of buried in notes.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Prompt optimizer</h3>
+
+
+
+<p>
+    Supply a raw prompt and let the optimizer generate a more structured, objective-driven prompt with situation, task, knowledge, and constraints.
+    The optimized prompt guides the model to respond with clearer, more actionable outputs — especially useful for marketing copy, technical requests, or lengthy creative briefs.
+  </p>
+
+
+
+<p>
+    Using an optimizer plus the new model modes is like calibrating your toolbox: optimized prompts plus thinking or pro modes dramatically improve accuracy, reduce back-and-forth, and produce final-ready content faster.
+  </p>
+
+
+
+<h2 id="web-and-mobile-improvements-that-matter">Web and mobile improvements that matter</h2>
+
+
+
+<p>
+    A few smaller but practical upgrades to web and Android include:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Edit prompts attached to images directly inside a message without starting over.</li>
+
+
+
+<li>Open search results in a new tab with a keyboard click for faster reference checking.</li>
+
+
+
+<li>Smoother sharing and a faster-loading share menu for exporting chats or examples.</li>
+
+
+
+<li>Android updates: automatic scroll to the last message, faster sidebar actions, improved dictation, and smoother file attachments.</li>
+</ul>
+
+
+
+<p>
+    These UX improvements reduce friction during research and creative work, especially when working with multimodal content.
+  </p>
+
+
+
+<h2 id="projects-build-a-living-knowledge-base">Projects: build a living knowledge base</h2>
+
+
+
+<p>
+    Projects now accept sources from anywhere you already store context. This makes projects much more useful for ongoing work.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Source types you can add</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Slack channels and threads</li>
+
+
+
+<li>Google Drive files and folders</li>
+
+
+
+<li>Chat transcripts or ad hoc text snippets</li>
+
+
+
+<li>Direct uploads</li>
+</ul>
+
+
+
+<p>
+    Adding these sources transforms a project into a living knowledge base that ChatGPT can reference when you ask questions or run Skills. You can also move any chat into a project, pin important conversations, or archive outdated threads.
+  </p>
+
+
+
+<h2 id="real-world-workflows-and-examples">Real-world workflows and examples</h2>
+
+
+
+<p>
+    Here are a few concrete examples to spark ideas and speed up adoption.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Customer churn analysis</h3>
+
+
+
+<p>
+    Want to run a churn report on customer spend data?
+    Choose <strong>thinking mode</strong>, upload the CSV or paste the transactions, and run a skill that:
+  </p>
+
+
+
+<ol class="wp-block-list">
+<li>Validates and normalizes the input fields.</li>
+
+
+
+<li>Generates cohort-based retention tables.</li>
+
+
+
+<li>Produces a ranked list of churn risk drivers.</li>
+
+
+
+<li>Outputs recommended actions and a one-page executive summary.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Weekly marketing updates</h3>
+
+
+
+<p>
+    Create a skill that asks clarifying questions (target audience, KPIs, tone), ingests links or notes, then outputs a formatted newsletter summary plus a checklist for validation.
+    Run this skill every week to generate consistent updates without manual rewriting.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Developer automation</h3>
+
+
+
+<p>
+    Use Codex automations to:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Summarize PRs for standups.</li>
+
+
+
+<li>Scan commits for security issues and flag risky changes.</li>
+
+
+
+<li>Auto-generate release notes from commit messages.</li>
+</ul>
+
+
+
+<h2 id="best-practices-and-tips">Best practices and tips</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Pick the right mode:</strong> Instant for quick Q&amp;A, thinking for context-heavy tasks, pro for technical research or engineering at scale.</li>
+
+
+
+<li><strong>Turn on thinking for large inputs:</strong> The increased 256k token window is invaluable for long documents or datasets.</li>
+
+
+
+<li><strong>Use skills for repeatable outputs:</strong> Formalize multi-step tasks into skills to reduce hallucinations and enforce output formats.</li>
+
+
+
+<li><strong>Optimize prompts before you iterate:</strong> Use a prompt optimizer to transform rough prompts into structured, high-quality instructions.</li>
+
+
+
+<li><strong>Start with templates:</strong> Codex and the automations library include templates — customize them and then save as your own skills.</li>
+
+
+
+<li><strong>Share and version skills:</strong> Copy and tweak existing skills instead of building from scratch; version control prevents regressions.</li>
+</ul>
+
+
+
+<h2 id="what-are-chatgpt-skills-and-why-should-i-care">What are ChatGPT Skills and why should I care?</h2>
+
+
+
+<p>
+    Skills are reusable, explicit workflows for ChatGPT that define step-by-step actions, clarifying questions, and exact output formats.
+    They reduce hallucinations, save time by automating repeatable tasks, and can be shared or imported across tools that support the open skill format.
+  </p>
+
+
+
+<h2 id="how-do-i-decide-between-instant-thinking-and-pro-modes">How do I decide between instant, thinking, and pro modes?</h2>
+
+
+
+<p>
+    Use instant for quick questions and short tasks. Use thinking when you need to provide lots of context or require multi-step reasoning and the expanded context window. Use pro for research-grade or highly technical tasks like life sciences or complex engineering.
+  </p>
+
+
+
+<h2 id="what-does-the-new-context-window-size-mean-for-my-work">What does the new context window size mean for my work?</h2>
+
+
+
+<p>
+    When thinking mode is enabled, you get up to 256k tokens (128k input and 128k output), which allows you to process entire books, large datasets, or many conversation threads without chunking.
+    This reduces the need for manual prompt engineering to maintain context across long interactions.
+  </p>
+
+
+
+<h2 id="who-has-access-to-skills-right-now">Who has access to Skills right now?</h2>
+
+
+
+<p>
+    Skills are currently available to Business, Enterprise, EDU Teachers, and Healthcare tiers, as well as in Codex and the API. Availability to consumer tiers is expected to expand over time.
+  </p>
+
+
+
+<h2 id="how-does-codex-on-windows-help-developers">How does Codex on Windows help developers?</h2>
+
+
+
+<p>
+    Codex provides a Windows client with terminal integrations, prebuilt automations, and skills support. It streamlines code generation, PR summaries, commit scans, and browser automation tasks directly from your development environment.
+  </p>
+
+
+
+<h2 id="can-prompt-optimizers-really-improve-results">Can prompt optimizers really improve results?</h2>
+
+
+
+<p>
+    Yes. A well-structured prompt that defines situation, task, objectives, constraints, and desired format consistently produces better outputs than short, vague prompts. Prompt optimizers automate this transformation and save multiple edit cycles.
+  </p>
+
+
+
+<h2 id="how-do-i-add-external-context-into-projects">How do I add external context into Projects?</h2>
+
+
+
+<p>
+    Projects can ingest sources from Google Drive, Slack, chats, ad hoc text inputs, and direct uploads. Connecting these sources creates a living knowledge base ChatGPT can reference during queries or when running skills.
+  </p>
+
+
+
+<h2 id="is-there-any-reason-to-use-auto-mode">Is there any reason to use auto mode?</h2>
+
+
+
+<p>
+    Auto attempts to pick the best mode automatically but can be slower and less predictable. For consistent performance and speed, pick instant or thinking explicitly based on your needs.
+  </p>
+
+
+
+<h2 id="meta-description-and-suggested-tags">Meta description and suggested tags</h2>
+
+
+
+<p>
+    Meta description: ChatGPT updates: skills for automated workflows, thinking mode with 256k tokens, Codex on Windows, prompt optimization tips, and practical use cases.
+  </p>
+
+
+
+<p>
+    Suggested tags: <strong>ChatGPT</strong>, <strong>GPT-5.4</strong>, <strong>GPT-5.3</strong>, <strong>Skills</strong>, <strong>Codex</strong>, <strong>prompt optimization</strong>, <strong>AI automations</strong>, <strong>productivity</strong>.
+  </p>
+
+
+
+<h2 id="final-notes-and-next-steps">Final notes and next steps</h2>
+
+
+
+<p>
+    The combination of skills, extended context, and developer tooling turns ChatGPT from a conversational assistant into a platform for repeatable, trustworthy automation.
+    Start by identifying one repeatable task in your workflow — a weekly report, a PR summary, or a content brief — and formalize it as a skill.
+    Pair that skill with optimized prompts and the appropriate model mode. If you code, try the Codex automations to shave hours off repetitive engineering chores.
+  </p>
+
+
+
+<p>
+    If you want to get hands-on: save your best prompts into a prompt manager, experiment with thinking mode for long inputs, and convert one manual process into a skill this week.
+    Share results and iterate. Small automations compound quickly and free up time for higher-leverage work.
+  </p>

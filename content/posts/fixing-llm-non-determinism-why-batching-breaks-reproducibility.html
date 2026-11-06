@@ -1,0 +1,477 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#introduction:-why-this-matters-and-where-this-came-from-🧭">Introduction: Why this matters and where this came from 🧭</a></li>
+
+
+
+<li><a href="#what-is-non-determinism-in-llms?-🧩">What is non-determinism in LLMs? 🧩</a></li>
+
+
+
+<li><a href="#common-hypothesis:-floating-point-precision-and-concurrency-🧮">Common hypothesis: floating point precision and concurrency 🧮</a></li>
+
+
+
+<li><a href="#the-real-culprit:-batch-size-and-batching-behavior-🚌">The real culprit: batch size and batching behavior 🚌</a></li>
+
+
+
+<li><a href="#how-thinking-machines-proposes-to-fix-it:-batch-invariant-kernels-and-three-practical-steps-⚙️">How Thinking Machines proposes to fix it: batch-invariant kernels and three practical steps ⚙️</a></li>
+
+
+
+<li><a href="#why-consistency-can-be-worth-a-small-speed-hit-⚖️">Why consistency can be worth a small speed hit ⚖️</a></li>
+
+
+
+<li><a href="#experiment:-did-it-actually-work?-the-quen-235b-test-📊">Experiment: did it actually work? The QUEN 235B test 📊</a></li>
+
+
+
+<li><a href="#why-defeating-non-determinism-is-important-beyond-debugging-🔍">Why defeating non-determinism is important beyond debugging 🔍</a></li>
+
+
+
+<li><a href="#when-randomness-is-still-useful:-creative-and-exploratory-use-cases-🎨">When randomness is still useful: creative and exploratory use cases 🎨</a></li>
+
+
+
+<li><a href="#sponsor-note:-lindy-—-building-fast-and-shipping-working-code-🚀">Sponsor note: Lindy — building fast and shipping working code 🚀</a></li>
+
+
+
+<li><a href="#how-this-fits-into-the-broader-ai-infrastructure-landscape-🌐">How this fits into the broader AI infrastructure landscape 🌐</a></li>
+
+
+
+<li><a href="#limitations-and-open-questions-🔬">Limitations and open questions 🔬</a></li>
+
+
+
+<li><a href="#practical-checklist-for-engineering-teams-✅">Practical checklist for engineering teams ✅</a></li>
+
+
+
+<li><a href="#conclusion:-determinism-as-a-feature,-not-an-accident-🏁">Conclusion: determinism as a feature, not an accident 🏁</a></li>
+
+
+
+<li><a href="#faq-❓">FAQ ❓</a></li>
+</ul>
+
+
+
+<h2 id="introduction:-why-this-matters-and-where-this-came-from-🧭">Introduction: Why this matters and where this came from 🧭</h2>
+
+
+
+<p>When Thinking Machines Lab launched their research blog, Connectionism, their first post didn't talk about bigger models or fancy training tricks. Instead, they focused on a fundamental operational issue: non-determinism during LLM inference. As I said in the video, </p>
+
+
+
+<blockquote class="wp-block-quote">
+<p><strong>"reproducibility is a bedrock of scientific progress."</strong></p>
+</blockquote>
+
+
+
+<p> If we can't reliably get the same output from the same input, a lot of downstream activities — debugging, auditing, benchmarking, production reliability — become much harder.</p>
+
+
+
+<p>In the video I walked through the paper at a high level, and I want to do the same here but with more context, clearer analogies, and practical takeaways. If you use LLMs in production or are building tooling around them, this discovery could change how you think about reliability.</p>
+
+
+
+<h2 id="what-is-non-determinism-in-llms?-🧩">What is non-determinism in LLMs? 🧩</h2>
+
+
+
+<p>At its simplest, non-determinism is when the same input produces different outputs on repeated runs. With LLMs this is easy to observe: ask a model the exact same prompt multiple times and you’ll often get different completions. Sometimes this is intentional and desirable — creative tasks benefit from variety — but other times it is a major pain point. For repeatable systems, especially in enterprise, finance, legal, or scientific applications, you want the same prompt to give the same answer (unless you explicitly request variability).</p>
+
+
+
+<p>There are two separate layers to this:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Sampling randomness:</strong> When a model uses temperature or stochastic sampling for token selection, you naturally get variability. That’s intended and controllable by parameters like temperature, top-k, top-p, etc.</li>
+
+
+
+<li><strong>Unexpected non-determinism:</strong> Even with sampling set to a deterministic mode (for example, temperature = 0), many deployments still produce different outputs across repeated runs. That unpredictability is the problem Thinking Machines addresses.</li>
+</ul>
+
+
+
+<p>So the question the paper asks is: why, even when we try to make inference deterministic, do we still get differences? And can we remove those differences entirely?</p>
+
+
+
+<h2 id="common-hypothesis:-floating-point-precision-and-concurrency-🧮">Common hypothesis: floating point precision and concurrency 🧮</h2>
+
+
+
+<p>A frequent explanation you’ll hear in engineering circles is that numerical precision and parallel execution introduce tiny rounding differences, and those tiny differences cascade into different tokens. Let me unpack that quickly.</p>
+
+
+
+<p><strong>Floating point non-associativity:</strong> Computers represent decimal numbers with finite precision (floating point). When you add numbers in different orders, rounding happens at each step, and floating point arithmetic is not associative — (a + b) + c can differ from a + (b + c) in the final bits. In deep learning, we do millions of tiny arithmetic operations, so in theory these rounding differences could accumulate and change a final token probability.</p>
+
+
+
+<p><strong>Concurrency:</strong> Modern accelerators (GPUs, TPUs, specialized chips) parallelize matrix math across many cores. The order in which parallel ops finish can change depending on thread scheduling, hardware micro-variations, and other processes on the machine. If two cores finish slightly differently across runs, you could get different rounding behaviors.</p>
+
+
+
+<p>Those explanations are plausible, and they are part of the story — they explain why small numeric differences could arise. But Thinking Machines’ team observed something important: if you run the exact same matrix multiply repeatedly on a GPU with identical inputs, you often get bitwise-identical results. That suggests floating point and concurrency aren't the whole story by themselves.</p>
+
+
+
+<h2 id="the-real-culprit:-batch-size-and-batching-behavior-🚌">The real culprit: batch size and batching behavior 🚌</h2>
+
+
+
+<p>Thinking Machines pinpoints a different and surprising root cause: batching. To understand this, imagine every prompt you send to a public LLM is placed into a shared ride—the inference server will group multiple requests into a batch to amortize compute and improve throughput. Sometimes the carpool (batch) is big because the system is busy. Other times it’s small.</p>
+
+
+
+<p>Why does that matter?</p>
+
+
+
+<p>Because batching subtly changes the exact sequence of arithmetic operations the model performs. Even if the underlying GPU kernels are deterministic for a fixed matrix multiply, changing batch sizes changes matrix shapes, memory access patterns, and the order of intermediate arithmetic reductions. Those small differences shift the probabilities at certain token positions. When you're predicting tokens one-by-one, a tiny shift in probability at some point can flip which token is chosen next. Even when sampling is turned off (temperature = 0, i.e., greedy decoding), the argmax selection can change when probabilities are nearly tied.</p>
+
+
+
+<p>Put another way: the same single prompt, when processed alone versus processed inside a batch of 8 or 32, can traverse slightly different arithmetic paths. Those differences can produce different outputs.</p>
+
+
+
+<h2 id="how-thinking-machines-proposes-to-fix-it:-batch-invariant-kernels-and-three-practical-steps-⚙️">How Thinking Machines proposes to fix it: batch-invariant kernels and three practical steps ⚙️</h2>
+
+
+
+<p>The good news from the paper is that this is not an intractable hardware-level mystery — it's an engineering problem with concrete fixes. The Thinking Machines team proposes a combination of strategies that together remove the non-determinism introduced by variable batching.</p>
+
+
+
+<p>I described these fixes in the video using a kitchen analogy, and I’ll repeat it here because I think the analogy helps.</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Fix 1 — Keep the bowl weights the same (batch-invariant kernels):</strong> Regardless of how many orders (prompts) are in the kitchen, ensure that the weight of each bowl is measured in the same way. In computing terms, that means designing inference kernels whose internal arithmetic and reduction orders are independent of batch size. The implementation is technical: it involves reworking how operations are partitioned and reduced so that the sequence of arithmetic operations is invariant to how many items are batched together. You preserve deterministic outcomes even if batch size changes.</li>
+
+
+
+<li><strong>Fix 2 — Keep the mixing step the same (consistent computation layout):</strong> Choose a single, stable internal layout for how intermediate tensors are stored and how computations are scheduled. Don’t switch layouts depending on batch size or input shape. Again, this can cost some performance in edge cases — you may not be using the absolute fastest kernel for a particular batch size — but you gain deterministic behavior.</li>
+
+
+
+<li><strong>Fix 3 — Taste in the same order (deterministic attention chunking and ordering):</strong> LLMs use attention, which often requires chunking or tiling long sequences for memory reasons. If you slice or chunk differently depending on runtime buffering, the attention reductions can sum in different orders. The fix is to canonicalize the chunking/slicing strategy so the model always “looks back” at previous tokens in the same way and in the same sequence.</li>
+</ul>
+
+
+
+<p>Those three ideas — batch-invariant kernels, a stable computation layout, and fixed slicing/order for attention — together create an inference pipeline where the same prompt produces the same intermediate math and, therefore, the same final output every time, regardless of the traffic or how many concurrent prompts are coalesced.</p>
+
+
+
+<h2 id="why-consistency-can-be-worth-a-small-speed-hit-⚖️">Why consistency can be worth a small speed hit ⚖️</h2>
+
+
+
+<p>I know what you’re thinking: locking down compute patterns to be invariant will cost throughput or latency. That’s true in some configurations. The tradeoff that Thinking Machines is explicit about is: accept a small performance penalty to win enormous gains in determinism and reliability.</p>
+
+
+
+<p>For many applications, that tradeoff is worth it. Imagine:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Running legal or medical QA where exact reproducibility is critical for audits;</li>
+
+
+
+<li>Doing regression testing or benchmarks where you want stable outputs across CI runs;</li>
+
+
+
+<li>Building safety systems that must be reliably inspectable and debuggable;</li>
+
+
+
+<li>Providing a deterministic API for enterprise customers who demand audit trails.</li>
+</ul>
+
+
+
+<p>For creative, exploratory, or stochastic use cases (poetry, brainstorming), you might prefer randomness. In those cases you can still enable sampling parameters. The key point is that determinism should be a controllable property of your inference stack, not an unpredictable side-effect of batching.</p>
+
+
+
+<h2 id="experiment:-did-it-actually-work?-the-quen-235b-test-📊">Experiment: did it actually work? The QUEN 235B test 📊</h2>
+
+
+
+<p>Thinking Machines ran a clear experiment to validate their approach. They used a model (referenced in the paper as <strong>QUEN 235B</strong>) and ran 1,000 completions at temperature zero with the same prompt: "Tell me about Richard Feynman", generating 1,000 tokens each.</p>
+
+
+
+<p>Baseline behavior (no batch-invariant kernels): they observed 80 unique completions among the 1,000 runs. The most common completion occurred 78 times — meaning even at temperature zero there was significant variability due to batching differences.</p>
+
+
+
+<p>After enabling the batch-invariant kernels and applying their deterministic inference pipeline, all 1,000 completions were identical. That’s not “mostly identical.” That’s bit-for-bit identical outputs for repeated runs of the same prompt under identical decoding parameters.</p>
+
+
+
+<p>That experimental result is important because it shows practical, reproducible wins from the proposed engineering changes. This isn't just a theoretical claim — it's an empirical fix.</p>
+
+
+
+<h2 id="why-defeating-non-determinism-is-important-beyond-debugging-🔍">Why defeating non-determinism is important beyond debugging 🔍</h2>
+
+
+
+<p>The paper and I highlight several downstream benefits, but it's worth spelling them out with concrete examples:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Trust and Verification:</strong> If your model gives the same answer every time, users can build workflows that trust those answers. For example, legal document generation pipelines or compliance checks need deterministic outputs to ensure consistent records.</li>
+
+
+
+<li><strong>Benchmarking and Research:</strong> Comparisons between models or model versions rely on stable inputs and outputs. If a model sometimes outputs A and sometimes B for the same prompt, it’s much harder to measure improvements or regressions.</li>
+
+
+
+<li><strong>Auditing and Explainability:</strong> If you're investigating why a model produced an output, deterministic execution makes it possible to run step-by-step reproductions and trace the internal state systematically. That’s crucial for safety teams, regulators, and internal audits.</li>
+
+
+
+<li><strong>Testing and CI/CD:</strong> Unit tests or integration tests that include LLM outputs will fail unpredictably if the outputs vary. Determinism makes automated testing possible and practical.</li>
+
+
+
+<li><strong>Production consistency:</strong> If customer-facing behavior is deterministic, support is easier, SLA guarantees are more meaningful, and you avoid hard-to-reproduce bug reports.</li>
+</ul>
+
+
+
+<h2 id="when-randomness-is-still-useful:-creative-and-exploratory-use-cases-🎨">When randomness is still useful: creative and exploratory use cases 🎨</h2>
+
+
+
+<p>Importantly, this paper is not arguing that randomness is always bad. I emphasized in the video — and reiterate here — that creative tasks often benefit from variability. The goal is to make determinism a deliberate choice rather than an accidental side-effect of how an inference cluster happens to batch requests.</p>
+
+
+
+<p>Practical systems should expose modes:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Deterministic mode:</strong> For testing, auditing, and regulated workflows. Same input → same output every time.</li>
+
+
+
+<li><strong>Stochastic mode:</strong> For creative generation where sampling, temperature, and nucleus sampling give diverse outputs.</li>
+
+
+
+<li><strong>Hybrid approaches:</strong> Deterministic backbone with controlled stochastic layers, where only certain parts of the pipeline are randomized for creativity while core outputs remain reproducible.</li>
+</ul>
+
+
+
+<h2 id="sponsor-note:-lindy-—-building-fast-and-shipping-working-code-🚀">Sponsor note: Lindy — building fast and shipping working code 🚀</h2>
+
+
+
+<p>In the video I briefly mentioned Lindy, which is a tool for agent-driven application building. Why mention it here? Because reproducibility and shipping quality code go hand-in-hand. If you're building products that rely on LLMs, you want tools that can generate, test, and deploy code with consistent behavior. Lindy claims to research best practices, write tests, and run QA so you can deploy functional apps quickly — a practical example of how engineering rigor and automation reduce friction in the product lifecycle.</p>
+
+
+
+<h2 id="how-this-fits-into-the-broader-ai-infrastructure-landscape-🌐">How this fits into the broader AI infrastructure landscape 🌐</h2>
+
+
+
+<p>Thinking Machines' work is interesting not just for its immediate fix, but for what it signals about the next stage of LLM infrastructure. As models get larger and inference costs become significant, batching will remain an essential optimization for throughput. But as LLMs move into mission-critical roles, the expectations around determinism, auditability, and reproducibility will increase.</p>
+
+
+
+<p>We can expect several trends:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Deterministic inference modes:</strong> Vendors will offer both performance-optimized and determinism-optimized kernels, letting customers choose the right tradeoffs.</li>
+
+
+
+<li><strong>Hardware and compiler co-design:</strong> More attention to how tensorization and kernel scheduling affect final numeric stability, with hardware vendors offering deterministic primitives.</li>
+
+
+
+<li><strong>Standardized test suites:</strong> Public benchmarks for determinism that measure whether repeated runs give identical outputs across common prompts and decoding settings.</li>
+
+
+
+<li><strong>Better observability:</strong> Tooling that captures and compares intermediate logits and probabilities so engineers can trace where variability originates.</li>
+</ul>
+
+
+
+<p>We're moving from an era where many production LLM systems were "best-effort" to one where predictable, auditable behavior is expected in many industries. Thinking Machines has provided a concrete technical path to help us get there.</p>
+
+
+
+<h2 id="limitations-and-open-questions-🔬">Limitations and open questions 🔬</h2>
+
+
+
+<p>There are a few caveats and open problems worth noting:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Performance tradeoffs:</strong> Deterministic kernels might be slower in some scenarios, and there's a practical question about how much cost or latency customers are willing to accept for deterministic outputs.</li>
+
+
+
+<li><strong>Scale and model variety:</strong> The paper demonstrates results for a specific model and setup. We need broader testing across architectures, sizes, and hardware platforms to fully generalize the approach.</li>
+
+
+
+<li><strong>Hybrid deployment complexity:</strong> Many production systems use a mix of accelerators and routes. Ensuring determinism end-to-end across heterogeneous setups is non-trivial.</li>
+
+
+
+<li><strong>Operational adoption:</strong> Changing inference kernels and deployment standards requires integration with existing MLOps tooling. Rollout will take time.</li>
+</ul>
+
+
+
+<h2 id="practical-checklist-for-engineering-teams-✅">Practical checklist for engineering teams ✅</h2>
+
+
+
+<p>If you're responsible for LLMs in production, here are immediate steps you can take based on these insights:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Determine where determinism matters:</strong> Classify endpoints and use cases as "deterministic-required" or "stochastic-allowed".</li>
+
+
+
+<li><strong>Measure current non-determinism:</strong> Run repeated zero-temperature completions across your endpoints and quantify variability.</li>
+
+
+
+<li><strong>Isolate batching effects:</strong> Test the same model under different batching regimes (single-request, batch-of-8, batch-of-32) and compare outputs.</li>
+
+
+
+<li><strong>Request deterministic kernels from your provider:</strong> If you use a hosted API, ask if they can offer batch-invariant execution modes or explain their batching strategy.</li>
+
+
+
+<li><strong>Introduce test fixtures:</strong> Add deterministic test cases into CI for endpoints that require reproducibility.</li>
+
+
+
+<li><strong>Monitor production drift:</strong> Track probability distributions and token-level diffs to capture silent behavior changes.</li>
+</ol>
+
+
+
+<h2 id="conclusion:-determinism-as-a-feature,-not-an-accident-🏁">Conclusion: determinism as a feature, not an accident 🏁</h2>
+
+
+
+<p>Thinking Machines' paper shows that the surprising non-determinism many of us have observed in LLM inference is not an irreducible artifact of floating point math or concurrency alone — it can come from batching behavior. More importantly, with targeted engineering changes (batch-invariant kernels, stable computation layouts, and deterministic attention chunking), we can eliminate that unpredictability entirely.</p>
+
+
+
+<p>That doesn’t mean we must always be deterministic. But it does mean determinism should be a first-class option in inference stacks. Making determinism controllable — and achievable without mysterious hardware hacks — opens the door to better testing, auditing, benchmarking, and production stability. For teams building mission-critical systems, that’s a huge step forward.</p>
+
+
+
+<h2 id="faq-❓">FAQ ❓</h2>
+
+
+
+<h3 class="wp-block-heading">Q: What exactly is "batching" and why do LLM servers use it?</h3>
+
+
+
+<p>A: Batching is the process of grouping multiple incoming inference requests into a single compute operation so the system can leverage parallelism and amortize per-request overhead. It improves throughput and resource utilization, which is crucial when serving many concurrent users. The downside is that batching can change the shapes and memory layout of operations, which is where non-determinism can creep in.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Will enabling deterministic kernels always make models slower?</h3>
+
+
+
+<p>A: Not necessarily always, but often there is a tradeoff. To achieve determinism you might avoid the absolutely fastest kernel for a specific batch shape and instead use a canonical kernel that’s invariant. In practice the performance hit can be small relative to the operational benefits, but it depends on your latency and throughput requirements.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Is this problem only relevant for large, public LLM APIs?</h3>
+
+
+
+<p>A: No. Any system that uses batching or dynamic computation layouts can encounter this issue. It’s especially visible in highly-shared, high-throughput public APIs because they maximize variable batch coalescing. But private deployments, multi-tenant setups, and edge serving systems can all see similar effects.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Can we get deterministic behavior by always setting batch size to 1?</h3>
+
+
+
+<p>A: Running with batch size 1 removes one axis of variability, but it's not always practical due to throughput and cost. Additionally, other runtime factors (like attention chunking or layout differences) can still introduce variability. The Thinking Machines approach is to make the kernels invariant to batch size so you get determinism without sacrificing batching entirely.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Does this fix apply to all model architectures?</h3>
+
+
+
+<p>A: The paper demonstrates the technique on the models they tested, and the principles are broadly applicable. However, different architectures, custom ops, or hardware-specific kernels might require additional engineering. Widespread adoption will likely involve collaboration between model providers, inference stack maintainers, and hardware vendors.</p>
+
+
+
+<h3 class="wp-block-heading">Q: How should product teams decide when to use deterministic vs stochastic modes?</h3>
+
+
+
+<p>A: Base the decision on the use case. If you need auditability, reproducibility, or regulatory compliance, prefer deterministic mode. If you need creativity or variety (marketing copy, ideation), prefer stochastic. Ideally, expose both modes to users or have hybrid modes where core outputs are deterministic and optional augmentations are stochastic.</p>
+
+
+
+<h3 class="wp-block-heading">Q: Where can I read the original Thinking Machines paper?</h3>
+
+
+
+<p>A: The Thinking Machines team published their post on the Connectionism blog and included technical details and experimental results. Check the <strong>Thinking Machines</strong> website under their research blog for "Defeating Non-Determinism in LLM Inference."</p>
+
+
+
+<h3 class="wp-block-heading">Q: Will major cloud providers adopt deterministic inference?</h3>
+
+
+
+<p>A: It’s likely. As demand for reproducibility grows in enterprise and regulated industries, cloud providers and inference-serving vendors will be motivated to offer determinism as a supported option. The timeline depends on customer demand and engineering investment.</p>
+
+
+
+<p>If you found this breakdown helpful, consider exploring the Thinking Machines post yourself and testing determinism in your own systems. If you're building apps with LLMs, make reproducibility a design consideration — it's a small change in approach that unlocks big wins for trust, testing, and auditability.</p>

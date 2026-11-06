@@ -1,0 +1,557 @@
+<p>
+    Claude just rolled out a set of updates that change how you build automations, manage memory, and use their newer models. If you want Claude to behave like a reliable teammate—remembering what matters, running scheduled tasks on your computer, and executing work with lower cost and higher speed—these are the changes to adopt right away.
+  </p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#what-changed-and-why-it-matters">What changed and why it matters</a></li>
+
+
+
+<li><a href="#importing-memory-from-chatgpt-gemini-and-other-llms">Importing memory from ChatGPT, Gemini, and other LLMs</a></li>
+
+
+
+<li><a href="#automate-work-with-claude-cowork-scheduled-tasks-and-agents">Automate work with Claude CoWork: scheduled tasks and agents</a></li>
+
+
+
+<li><a href="#sonnet-4-6-vs-opus-4-6-which-model-to-use-and-when">Sonnet 4.6 vs Opus 4.6: which model to use and when</a></li>
+
+
+
+<li><a href="#critical-claude-settings-to-enable">Critical Claude settings to enable</a></li>
+
+
+
+<li><a href="#security-cost-control-and-operational-tips">Security, cost control, and operational tips</a></li>
+
+
+
+<li><a href="#workflow-examples-you-can-implement-this-week">Workflow examples you can implement this week</a></li>
+
+
+
+<li><a href="#resources-and-how-to-learn-safely">Resources and how to learn safely</a></li>
+
+
+
+<li><a href="#suggested-images-videos-and-metadata-for-publishing">Suggested images, videos, and metadata for publishing</a></li>
+
+
+
+<li><a href="#call-to-action">Call to action</a></li>
+
+
+
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+
+
+
+<li><a href="#final-notes">Final notes</a></li>
+</ul>
+
+
+
+<h2 id="what-changed-and-why-it-matters">What changed and why it matters</h2>
+
+
+
+<p>
+    The update includes three high-impact improvements:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Memory import from other AI providers</strong> — move your contacts and memories into Claude in minutes.</li>
+
+
+
+<li><strong>CoWork scheduling</strong> — set up recurring or on-demand tasks that run locally or in the cloud.</li>
+
+
+
+<li><strong>New models: Sonnet 4.6 and Opus 4.6</strong> — Sonnet 4.6 is optimized for everyday use; Opus 4.6 is for deep analysis and coding.</li>
+</ul>
+
+
+
+<p>
+    Together these features let you create persistent, consistent AI-driven workflows: teach Claude how you do things, connect the apps you use every day, and schedule Claude to run them automatically.
+  </p>
+
+
+
+<h2 id="importing-memory-from-chatgpt-gemini-and-other-llms">Importing memory from ChatGPT, Gemini, and other LLMs</h2>
+
+
+
+<p>
+    Moving memories between providers used to be a huge friction point. Claude now provides an import flow that extracts and encodes what other models know about you so you can consolidate memories into Claude’s system.
+  </p>
+
+
+
+<h3 class="wp-block-heading">How the import flow works</h3>
+
+
+
+<ol class="wp-block-list">
+<li>Open Claude and go to <strong>Settings > Capabilities</strong>.</li>
+
+
+
+<li>Choose <strong>Import memory from other AI providers</strong> and click <strong>Start import</strong>.</li>
+
+
+
+<li>Claude will generate a snippet or prompt. Copy that and paste it into your other AI (for example ChatGPT or Gemini) using the provided prompt instructions.</li>
+
+
+
+<li>Run the prompt in the source model so it produces an encoded export of your memory.</li>
+
+
+
+<li>Copy the export and paste it back into Claude, then click <strong>Add to memory</strong>.</li>
+</ol>
+
+
+
+<p>
+    Claude will process that data and create a nightly regenerated summary. Projects remain separate since they have their own project-level memory. After the import completes, review each memory item and remove or edit anything that’s inaccurate. These automated exports are powerful, but accuracy varies depending on what the source model remembered.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Why this is useful</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Consolidates personal and professional context so Claude can personalize responses across chats.</li>
+
+
+
+<li>Reduces repetitive setup when switching platforms. Your preferences, contacts, and recurring details travel with you.</li>
+
+
+
+<li>Makes long-term automation more reliable because the agent has continuity of information.</li>
+</ul>
+
+
+
+<h2 id="automate-work-with-claude-cowork-scheduled-tasks-and-agents">Automate work with Claude CoWork: scheduled tasks and agents</h2>
+
+
+
+<p>
+    CoWork now supports scheduling tasks that run on-demand or on an interval. That turns Claude into an active assistant that performs parts of your day without manual prompting.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Setting up scheduled tasks</h3>
+
+
+
+<ol class="wp-block-list">
+<li>Open the Claude desktop app and switch to <strong>CoWork</strong>.</li>
+
+
+
+<li>Type <code>/schedule</code> or click the <strong>Schedule</strong> area to create a new task.</li>
+
+
+
+<li>Give the task a name, description, and the prompt that Claude should run.</li>
+
+
+
+<li>Under <strong>More options</strong>, choose:
+<ul class="wp-block-list">
+<li>The model to use (Sonnet 4.6 is efficient for everyday tasks; Opus 4.6 for heavy compute and coding).</li>
+
+
+
+<li>The folder and file access scope if the task needs to interact with local files.</li>
+
+
+
+<li>A trigger frequency: manual, hourly, daily, weekdays only, or weekly.</li>
+</ul>
+</li>
+
+
+
+<li>Save and test the task. Monitor the first few runs to ensure it behaves as expected.</li>
+</ol>
+
+
+
+<p>
+    Examples of useful scheduled tasks:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Sorting screenshots and moving them into categorized folders.</li>
+
+
+
+<li>Drafting routine content such as YouTube ideas, scripts, or social captions.</li>
+
+
+
+<li>Processing and organizing sponsored emails or lead lists.</li>
+
+
+
+<li>Performing nightly analytics summaries or financial checks.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Best practices for CoWork automations</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Start simple. Automate a single, repeatable task and validate results before increasing complexity.</li>
+
+
+
+<li>Limit scope. Give tasks only the file/folder and connector permissions they need.</li>
+
+
+
+<li>Choose appropriate cadence. Not every process needs to run hourly—consider daily or on-demand for resource-heavy tasks.</li>
+
+
+
+<li>Monitor costs. Scheduled agents can run frequently and accumulate model usage. Track runtime and model choice to avoid surprises.</li>
+</ul>
+
+
+
+<h2 id="sonnet-4-6-vs-opus-4-6-which-model-to-use-and-when">Sonnet 4.6 vs Opus 4.6: which model to use and when</h2>
+
+
+
+<p>
+    Claude introduced Sonnet 4.6 and Opus 4.6 alongside interface updates. Each model serves a defined role:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Sonnet 4.6</strong>: Default for free and Pro users. Faster and cheaper. Improved instruction following, greater consistency, and stronger performance on general tasks like summarization, office tests, finance analysis, and routine reasoning.</li>
+
+
+
+<li><strong>Opus 4.6</strong>: Targeted for deep analysis, complex coding, and technical work where maximum reasoning and larger context handling matter.</li>
+</ul>
+
+
+
+<p>
+    Recommendations:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Use Sonnet 4.6 for everyday queries, customer support responses, content generation, research, and CoWork automations where cost and speed are important.</li>
+
+
+
+<li>Reserve Opus 4.6 for debugging, complicated code generation, or multi-step analytic tasks that demand higher reasoning fidelity.</li>
+</ul>
+
+
+
+<h2 id="critical-claude-settings-to-enable">Critical Claude settings to enable</h2>
+
+
+
+<p>
+    To get the most from Claude, enable a few key settings in <strong>Settings &gt; Capabilities</strong>. These unlock memory, tool, and visual features that unlock CoWork automation.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Must-have toggles</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Search and reference chats</strong> — enable to let Claude use external and internal references effectively.</li>
+
+
+
+<li><strong>Generate memory from chats</strong> — allows Claude to create memory entries; review those entries for accuracy regularly.</li>
+
+
+
+<li><strong>Tool access: Auto</strong> — set tool access to auto so Claude can choose the needed tool without manual permission prompts. Avoid "on demand" or "always available" for smoother workflows.</li>
+
+
+
+<li><strong>Visuals: Artifacts and AI-powered artifacts</strong> — turn both on to improve visual analysis and outputs.</li>
+
+
+
+<li><strong>Code execution</strong> — enable if you want Claude to run scripts or operate on files; only grant necessary permissions.</li>
+
+
+
+<li><strong>Domain allow list: Package managers only</strong> — restrict domain access to reduce risk; do not permit all domains unless you have a controlled, secure use case.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Connectors, plugins, and custom skills</h3>
+
+
+
+<p>
+    The connectors and customize panels are where Claude transforms into a hub for your apps and processes.
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Connectors</strong>: Link the built-in connectors (email, calendar, Notion, Google Drive, Slack, etc.) so CoWork and scheduled tasks can interact with your tools. You can also set up custom connectors for proprietary systems or an MCP server.</li>
+
+
+
+<li><strong>Customize > Skills</strong>: Teach Claude repeatable processes. Build a skill for how you write YouTube scripts, brand guidelines, or design assets. Skills act like reusable SOPs the AI follows across chats.</li>
+
+
+
+<li><strong>Plugins</strong>: Install Claude’s marketplace plugins for research, legal, and customer support actions. You can upload your own plugin or use marketplace URLs to maintain consistency for automations and scheduled jobs.</li>
+</ul>
+
+
+
+<p>
+    The combination of connectors, skills, and plugins is the secret sauce for reliable automations. Rather than crafting ad hoc prompts every time, encode the process once and reuse it through scheduled tasks and skills.
+  </p>
+
+
+
+<h2 id="security-cost-control-and-operational-tips">Security, cost control, and operational tips</h2>
+
+
+
+<p>
+    Powerful automations require guardrails. Here are practical controls to keep systems secure and costs predictable.
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Never expose API keys or credentials in plain text</strong>. Use secure vaults, connector-level OAuth, or custom connector patterns that hide secrets.</li>
+
+
+
+<li><strong>Use the domain allow list</strong> to limit where Claude can navigate. Package managers only is a safe default for code-related automations.</li>
+
+
+
+<li><strong>Monitor usage</strong>. If you run scheduled tasks, add metrics to log runtime, prompt tokens consumed, and model selected. That helps optimize cadence and model choice.</li>
+
+
+
+<li><strong>Prefer Sonnet 4.6 for frequent tasks</strong>. It’s cheaper and faster for most operations. Use Opus 4.6 selectively.</li>
+
+
+
+<li><strong>Test in non-production</strong>. Validate automations on sample data before granting access to sensitive systems.</li>
+</ul>
+
+
+
+<h2 id="workflow-examples-you-can-implement-this-week">Workflow examples you can implement this week</h2>
+
+
+
+<p>
+    Practical ideas that turn passive chats into active assistants:
+  </p>
+
+
+
+<ol class="wp-block-list">
+<li><br>      <strong>Content engine</strong>: Create a skill for your content format (title, outline, script, thumbnails). Schedule a weekly task to generate 10 new video ideas and outlines. Use Sonnet 4.6 for speed and cost efficiency.<br>    </li>
+
+
+
+<li><br>      <strong>Email triage</strong>: Configure a CoWork task to scan a sponsorship inbox, compile opportunities based on a template, and draft outreach messages. Run nightly with limited permissions.<br>    </li>
+
+
+
+<li><br>      <strong>File organizer</strong>: Automate screenshot sorting and file renaming rules that keep a messy Downloads folder tidy. Give the task access only to the target folders.<br>    </li>
+
+
+
+<li><br>      <strong>Financial snapshot</strong>: Schedule a daily financial summary that pulls in numbers, creates a short analysis, and highlights anomalies. Sonnet 4.6 performs well on these tests and is cost-effective.<br>    </li>
+</ol>
+
+
+
+<h2 id="resources-and-how-to-learn-safely">Resources and how to learn safely</h2>
+
+
+
+<p>
+    There are free training opportunities that cover building AI agents safely using Claude CoWork and OpenClaw. These sessions emphasize securing credentials, integrating with Zapier, and architecting cost-effective agents. Consider registering for a reputable webinar or tutorial that shows practical, secure agent construction.
+  </p>
+
+
+
+<p>
+    Suggested further reading and resources to consult:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Zapier’s developer and automation guides for connecting third-party apps and building workflows.</li>
+
+
+
+<li>Claude’s official documentation on capabilities, connectors, and memory to understand limits and data handling.</li>
+
+
+
+<li>Security best practices for API key management, such as using secret managers or connector-level OAuth.</li>
+</ul>
+
+
+
+<h2 id="suggested-images-videos-and-metadata-for-publishing">Suggested images, videos, and metadata for publishing</h2>
+
+
+
+<p>
+    To make this post more engaging, include:
+  </p>
+
+
+
+<ul class="wp-block-list">
+<li>Screenshots of the Claude Settings > Capabilities page showing the memory import prompt and enabled toggles. Alt text: "Claude capabilities settings showing memory import and tool access."</li>
+
+
+
+<li>A step-by-step screenshot series of creating a scheduled task in CoWork. Alt text: "Creating a scheduled CoWork task in Claude desktop app."</li>
+
+
+
+<li>An infographic comparing Sonnet 4.6 vs Opus 4.6 by use case, cost, and speed. Alt text: "Model comparison Sonnet 4.6 vs Opus 4.6."</li>
+</ul>
+
+
+
+<p>
+    Meta description (150-160 characters): Claude’s new Sonnet 4.6, memory import, and CoWork scheduling let you build secure AI agents and automations that save time and cost.
+  </p>
+
+
+
+<p>
+    Suggested tags and categories: Claude AI, Claude CoWork, Sonnet 4.6, Opus 4.6, AI automations, AI agents, memory import, Zapier, productivity, security.
+  </p>
+
+
+
+<h2 id="call-to-action">Call to action</h2>
+
+
+
+<p>
+    Try these steps: enable the key Claude capabilities, import a small set of memories from another provider, and create a single scheduled CoWork task that saves you time. Start small, observe results, and iterate. If you want help designing a safe automation or choosing which tasks to automate first, leave a comment or share your use case.
+  </p>
+
+
+
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+
+
+
+<h3 class="wp-block-heading">Which Claude model should I use for everyday tasks?</h3>
+
+
+
+<p>
+    Sonnet 4.6 is the recommended default for general use. It is faster and cheaper than Opus 4.6 and shows improved consistency and instruction following for typical workflows like summarization, content generation, and office tasks.
+  </p>
+
+
+
+<h3 class="wp-block-heading">When should I pick Opus 4.6 instead of Sonnet 4.6?</h3>
+
+
+
+<p>
+    Choose Opus 4.6 for deep analysis, complex coding, or multi-step reasoning tasks where you need the highest performance and accuracy. Use it selectively for resource-intensive operations.
+  </p>
+
+
+
+<h3 class="wp-block-heading">How does memory import work across models?</h3>
+
+
+
+<p>
+    Claude generates an import prompt that you run inside other models (for example ChatGPT or Gemini). The source model exports encoded memory, which you paste back into Claude. Review and edit the imported entries before trusting them for automations.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Is it safe to give Claude access to my files and apps?</h3>
+
+
+
+<p>
+    It can be safe if you follow best practices: grant minimal permissions, use connectors with OAuth when possible, limit domain access via the allow list, and test automations on sample data. Avoid exposing API keys directly in prompts or chat.
+  </p>
+
+
+
+<h3 class="wp-block-heading">How do I avoid unexpected costs from scheduled tasks?</h3>
+
+
+
+<p>
+    Monitor model usage and runtime, prefer Sonnet 4.6 for frequent jobs, set reasonable cadence, and log token consumption. Start with manual or low-frequency schedules and increase only after validating outcomes.
+  </p>
+
+
+
+<h3 class="wp-block-heading">Can Claude replace Zapier or other automation platforms?</h3>
+
+
+
+<p>
+    Claude complements automation platforms. Use Claude CoWork for AI-driven processes that require language reasoning and contextual memory, and integrate with platforms like Zapier for robust multi-app orchestration when needed.
+  </p>
+
+
+
+<h2 id="final-notes">Final notes</h2>
+
+
+
+<p>
+    These updates make Claude far more useful for builders and everyday users alike. Memory portability, scheduled CoWork automation, and the Sonnet 4.6 model are the pillars of a practical, secure AI-assisted workflow. Build incrementally, lock down permissions, monitor costs, and you’ll quickly find hours reclaimed from repetitive work.
+  </p>

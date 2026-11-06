@@ -1,0 +1,777 @@
+<p>If you are paying for Claude, ChatGPT, or both, there is a good chance you are spending more than you need to. The problem is not just the subscription cost. The real issue is that most people are using the wrong model for the wrong task, with the wrong effort settings, and then burning through limits way faster than necessary.</p>
+
+
+
+<p>That is exactly where a <strong>custom AI model router</strong> changes the game. Instead of manually guessing whether a task should go to Claude, ChatGPT, or some specific model variant, you can set up a system that routes each prompt to the best model automatically. That means better results, lower cost, and far less friction.</p>
+
+
+
+<p>The tool making this possible is Abacus AI’s <strong>Create Custom Router</strong>. It lets you mix and match AI models, define routing rules, use templates, and even access more than 70 models through one setup. If you want to lower AI costs while still getting strong performance from Claude Fable 5, Sonnet 5, GPT 4.0, or GPT 5.6, this is one of the smartest workflows you can build right now.</p>
+
+
+
+<h2 id="why-most-people-are-overpaying-for-ai">Why Most People Are Overpaying for AI</h2>
+
+
+
+<p>Right now, both Claude and ChatGPT give you a pile of choices. That sounds great in theory, but in practice it creates confusion.</p>
+
+
+
+<p>Inside Claude, you might see options like Sonnet, Haiku, Opus 4.8, and Fable 5. Inside ChatGPT, you might be comparing GPT 5.5, GPT 5.6 Sol, GPT 5.6 Terra, GPT 5.6 Luna, and different effort or speed settings on top of that.</p>
+
+
+
+<p>That leaves you trying to answer questions like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Which model should handle quick everyday questions?</li>
+
+
+
+<li>Which one is best for coding?</li>
+
+
+
+<li>Should AI agents and automations run on Claude or ChatGPT?</li>
+
+
+
+<li>When is a premium model worth the extra usage cost?</li>
+
+
+
+<li>Should the same conversation stay on one model or switch prompt by prompt?</li>
+</ul>
+
+
+
+<p>Most people do not have a clear system for this. So they default to a more powerful and more expensive model for everything. That is where the waste happens.</p>
+
+
+
+<p><strong>Simple prompts do not need premium reasoning every time.</strong> Quick questions can often go to a cheaper model. Coding tasks might perform best on another. Research tasks may be stronger on something else entirely. Without routing, you are manually making those decisions every single time, and usually not making them efficiently.</p>
+
+
+
+<h2 id="what-a-custom-ai-router-actually-does">What a Custom AI Router Actually Does</h2>
+
+
+
+<p>A custom AI router is a layer between you and the models. You give it your prompt, and it decides which model should handle the request based on rules you define.</p>
+
+
+
+<p>Abacus AI gives you two main ways to do this:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Route LLM</strong>, which can route across 70 different models through an API</li>
+
+
+
+<li><strong>Create Custom Router</strong>, where you build your own routing logic based on your use cases</li>
+</ul>
+
+
+
+<p>The big win is that you stop treating every prompt like it deserves the most expensive option. Instead, you build categories and map each category to the model that makes the most sense.</p>
+
+
+
+<p>For example:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Quick questions go to GPT 4.0</li>
+
+
+
+<li>Coding and development go to Claude Fable 5</li>
+
+
+
+<li>AI agents and automation go to Sonnet 5</li>
+
+
+
+<li>Research and YouTube tasks go to GPT 5.6 Sol</li>
+</ul>
+
+
+
+<p>That is a much smarter use of AI than throwing everything at one model and hoping for the best.</p>
+
+
+
+<h2 id="three-ways-to-build-a-custom-router-in-abacus-ai">Three Ways to Build a Custom Router in Abacus AI</h2>
+
+
+
+<p>Abacus AI gives you three approaches, and each one is useful depending on how hands-on you want to be.</p>
+
+
+
+<h3 class="wp-block-heading">1. Describe the router in plain English</h3>
+
+
+
+<p>This is probably the easiest starting point.</p>
+
+
+
+<p>You can simply explain what you want in normal language. Something like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Use ChatGPT for questions</li>
+
+
+
+<li>Use Claude for coding</li>
+
+
+
+<li>Use Claude for AI agents</li>
+
+
+
+<li>Use ChatGPT for research or YouTube work</li>
+</ul>
+
+
+
+<p>Then Abacus AI generates the routing structure for you.</p>
+
+
+
+<p>This is powerful because you do not need to configure everything from scratch. You can also give the router a custom identity, name it something like <strong>Claude vs ChatGPT Router</strong>, and add a system prompt if you want tighter control over behaviour.</p>
+
+
+
+<h3 class="wp-block-heading">2. Start from scratch</h3>
+
+
+
+<p>If you want maximum control, you can build the router manually.</p>
+
+
+
+<p>This means creating categories yourself, writing the descriptions for each category, assigning a model to each one, and defining fallback behaviour for prompts that do not clearly match anything.</p>
+
+
+
+<p>This option makes the most sense if:</p>
+
+
+
+<ul class="wp-block-list">
+<li>You already know which models perform best for your workflow</li>
+
+
+
+<li>You want very specific routing rules</li>
+
+
+
+<li>You plan to use the router inside tools like Cursor, OpenCode, or an AI agent stack</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">3. Use a template</h3>
+
+
+
+<p>If you want speed, templates are excellent.</p>
+
+
+
+<p>Abacus AI includes a wide range of router templates, including setups for:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Coding assistant</li>
+
+
+
+<li>Open source coding</li>
+
+
+
+<li>Frontier models only</li>
+
+
+
+<li>Budget only</li>
+
+
+
+<li>Open source only</li>
+
+
+
+<li>Google only</li>
+
+
+
+<li>Anthropic only</li>
+
+
+
+<li>OpenAI only</li>
+
+
+
+<li>Cheap everyday chat</li>
+
+
+
+<li>Vision and multimodal work</li>
+</ul>
+
+
+
+<p>Pick one, and the routing logic updates automatically. That gives you a strong starting point, which you can then fine-tune based on your own needs.</p>
+
+
+
+<h2 id="a-practical-router-setup-that-saves-money">A Practical Router Setup That Saves Money</h2>
+
+
+
+<p>One of the cleanest ways to use this is to break your work into categories and assign the cheapest model that still gives you the quality you need.</p>
+
+
+
+<p>Here is a simple setup:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Quick questions:</strong> GPT 4.0</li>
+
+
+
+<li><strong>Coding and development:</strong> Claude Fable 5</li>
+
+
+
+<li><strong>AI agents and automations:</strong> Sonnet 5</li>
+
+
+
+<li><strong>Research and YouTube tasks:</strong> GPT 5.6 Sol</li>
+</ul>
+
+
+
+<p>The logic behind this is straightforward.</p>
+
+
+
+<p><strong>GPT 4.0</strong> is cheap and good enough for fast everyday answers. There is no reason to spend premium tokens on basic prompts.</p>
+
+
+
+<p><strong>Claude Fable 5</strong> is assigned to coding because that is where it is especially valuable.</p>
+
+
+
+<p><strong>Sonnet 5</strong> handles AI agents and automations when you need strong execution in those workflows.</p>
+
+
+
+<p><strong>GPT 5.6 Sol</strong> is used for research and YouTube-related work where that model is the preferred fit.</p>
+
+
+
+<p>This kind of model specialization is the entire point of routing. It turns AI use from random model hopping into an actual system.</p>
+
+
+
+<h2 id="sticky-routing-vs-dynamic-routing">Sticky Routing vs Dynamic Routing</h2>
+
+
+
+<p>One of the most useful controls inside the router is whether to keep a conversation on one model or re-evaluate on every prompt.</p>
+
+
+
+<h3 class="wp-block-heading">Sticky routing</h3>
+
+
+
+<p>Sticky routing classifies the first message and then keeps the same model for the whole conversation.</p>
+
+
+
+<p>This is helpful when:</p>
+
+
+
+<ul class="wp-block-list">
+<li>You want consistency across a longer thread</li>
+
+
+
+<li>You are working on a coding session that should stay on the same model</li>
+
+
+
+<li>You do not want the router switching engines midstream</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Non-sticky routing</h3>
+
+
+
+<p>Non-sticky routing evaluates each new prompt separately.</p>
+
+
+
+<p>This is useful when:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Your prompts change topic frequently</li>
+
+
+
+<li>You use one conversation for many unrelated tasks</li>
+
+
+
+<li>You want to optimise every single request individually</li>
+</ul>
+
+
+
+<p>If your work usually happens in focused sessions, sticky routing is often the better default.</p>
+
+
+
+<h2 id="how-to-use-the-router-after-you-build-it">How to Use the Router After You Build It</h2>
+
+
+
+<p>Once your custom router is saved, you can use it in two major ways.</p>
+
+
+
+<h3 class="wp-block-heading">Inside Abacus AI Chat LLM</h3>
+
+
+
+<p>You can open the router directly in Chat LLM and let it handle model selection automatically. That gives you a cleaner experience because your prompts are being routed in the background without extra decisions every time.</p>
+
+
+
+<h3 class="wp-block-heading">As an API key in other tools</h3>
+
+
+
+<p>You can also generate an API key and use the router elsewhere.</p>
+
+
+
+<p>That means you can plug the same routing logic into:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Cursor</li>
+
+
+
+<li>AI agent workflows</li>
+
+
+
+<li>OpenCode</li>
+
+
+
+<li>ERMES agent setups</li>
+
+
+
+<li>Other apps that accept external model routing via API</li>
+</ul>
+
+
+
+<p>This is where things get really interesting. You are not just creating a nice interface. You are building a reusable AI decision layer you can deploy across your stack.</p>
+
+
+
+<h2 id="how-to-keep-access-to-claude-fable-5">How to Keep Access to Claude Fable 5</h2>
+
+
+
+<p>One of the standout benefits here is continued access to <strong>Claude Fable 5</strong>, even while it is disappearing from Claude’s own interface.</p>
+
+
+
+<p>Inside Claude, Fable 5 had usage restrictions and a limited availability window. It also consumed usage much faster than other models like Opus 4.8. That makes it expensive to rely on directly, even if you like the results.</p>
+
+
+
+<p>Inside Abacus AI, you can still select <strong>Claude Fable 5</strong> from the available models and use it there. You can also include it in a custom router and call it through the API. That gives you a much more flexible way to keep using it where it matters most, especially for coding and development tasks.</p>
+
+
+
+<p>Instead of losing access or wasting high-cost usage on the wrong prompts, you can reserve Fable 5 for the exact categories where it actually delivers value.</p>
+
+
+
+<h2 id="beyond-routing-24-7-ai-agents-in-the-cloud">Beyond Routing: 24-7 AI Agents in the Cloud</h2>
+
+
+
+<p>This is where Abacus AI goes beyond being just a router tool.</p>
+
+
+
+<p>It also gives you access to a <strong>supercomputer environment</strong> where you can run always-on AI agents in the cloud. You can launch environments like ERMES Agent or OpenClaw directly inside the platform.</p>
+
+
+
+<p>When you start one of these cloud computers, you are not getting a toy sandbox. You are getting a full Linux environment with real capability.</p>
+
+
+
+<p>That means you can:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Run a 24-7 AI agent</li>
+
+
+
+<li>Build and host projects</li>
+
+
+
+<li>Deploy apps</li>
+
+
+
+<li>Deploy APIs</li>
+
+
+
+<li>Run databases</li>
+
+
+
+<li>Install and use open source software</li>
+</ul>
+
+
+
+<p>You can also carry over important context and infrastructure, including:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Conversations</li>
+
+
+
+<li>Memories</li>
+
+
+
+<li>Agent personality</li>
+
+
+
+<li>Skills</li>
+
+
+
+<li>Hooks</li>
+
+
+
+<li>Cron jobs</li>
+
+
+
+<li>Workflow plans</li>
+</ul>
+
+
+
+<p>That makes the setup much more than a chatbot. It becomes an operational AI workspace.</p>
+
+
+
+<h2 id="integration-options-that-make-this-actually-useful">Integration Options That Make This Actually Useful</h2>
+
+
+
+<p>A platform like this only matters if it fits into the way you already work. Abacus AI has a strong edge here because it supports integrations and external access that make the whole thing practical.</p>
+
+
+
+<p>You can connect with tools and channels like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Slack</li>
+
+
+
+<li>Telegram</li>
+
+
+
+<li>Discord</li>
+
+
+
+<li>Workspace files and projects</li>
+</ul>
+
+
+
+<p>That means your cloud-based AI agent can be accessed from your phone or your team tools, not just from one dashboard.</p>
+
+
+
+<p>You also get access to session controls, models, logs, cron jobs, skills, plugins, profiles, config settings, terminal access, and even a desktop environment. If you want a serious AI operations setup rather than a basic chat interface, those controls matter.</p>
+
+
+
+<h2 id="more-than-70-ai-models-in-one-place">More Than 70 AI Models in One Place</h2>
+
+
+
+<p>One of the strongest arguments for using Abacus AI is that it centralises model access.</p>
+
+
+
+<p>Instead of bouncing between separate subscriptions and interfaces, you can access more than 70 AI models in one place. That includes chat models, audio tools, agent workflows, and custom bots.</p>
+
+
+
+<p>On top of that, the platform supports broad tool connectivity through custom MCP access. So if your goal is to build one unified AI workspace that can connect across your ecosystem, that capability matters a lot.</p>
+
+
+
+<p>This also reinforces why routing is so important. The more models you have, the more valuable it becomes to automate model selection instead of making that decision manually every time.</p>
+
+
+
+<h2 id="other-things-you-can-build-inside-abacus-ai">Other Things You Can Build Inside Abacus AI</h2>
+
+
+
+<p>The platform is not limited to routing and agents. It also includes a wide range of AI-powered building tools.</p>
+
+
+
+<p>You can work on:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Apps</li>
+
+
+
+<li>APIs</li>
+
+
+
+<li>Agent swarms</li>
+
+
+
+<li>Sheets</li>
+
+
+
+<li>Slides</li>
+
+
+
+<li>Design projects</li>
+
+
+
+<li>Code workflows</li>
+
+
+
+<li>Chatbots</li>
+
+
+
+<li>Browser use tasks</li>
+
+
+
+<li>Video creation</li>
+
+
+
+<li>Research tasks</li>
+
+
+
+<li>Audio tasks</li>
+
+
+
+<li>Trading workflows</li>
+
+
+
+<li>Websites</li>
+</ul>
+
+
+
+<p>There are also many built-in templates with visible prompts, which makes it easier to understand how each workflow is structured and adapt it for your own use.</p>
+
+
+
+<p>If you care about consolidating your AI stack, this all-in-one setup is a big deal.</p>
+
+
+
+<h2 id="best-practices-for-lowering-ai-costs-with-a-router">Best Practices for Lowering AI Costs With a Router</h2>
+
+
+
+<p>If your goal is to stop wasting money, follow these principles:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Use cheap models for simple tasks.</strong> Do not send every prompt to a premium model.</li>
+
+
+
+<li><strong>Create clear categories.</strong> Quick questions, coding, research, and automations should not all be treated the same.</li>
+
+
+
+<li><strong>Use fallback logic.</strong> Decide what should happen when a prompt does not match any category.</li>
+
+
+
+<li><strong>Turn on sticky routing when consistency matters.</strong> Especially for coding or deep task threads.</li>
+
+
+
+<li><strong>Reserve expensive models for high-value work.</strong> Use Claude Fable 5 where it earns its keep.</li>
+
+
+
+<li><strong>Reuse the router through API access.</strong> The more places you deploy it, the more value you get from the setup.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Suggested media</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Screenshot of the Create Custom Router interface with model categories visible</li>
+
+
+
+<li>Diagram showing how prompts route to different models based on task type</li>
+
+
+
+<li>Screenshot of the cloud supercomputer or OpenClaw environment</li>
+</ul>
+
+
+
+<h2 id="final-thought">Final Thought</h2>
+
+
+
+<p>If you are still manually choosing between Claude and ChatGPT for every task, you are doing extra work and probably spending extra money. A custom AI model router solves both problems at once.</p>
+
+
+
+<p>It gives you a repeatable system for sending each prompt to the right model, helps you preserve usage limits, and lets you keep access to valuable models like Claude Fable 5 in a more controlled way. Add in API access, cloud agents, and 70-plus model options, and it becomes a very serious upgrade for anyone relying on AI daily.</p>
+
+
+
+<p>If you want your AI stack to be cheaper, smarter, and far more efficient, build the router once and let it do the thinking for you.</p>
+
+
+
+<p><strong>Got a routing setup that is working well for you?</strong> Share the categories and model pairings you are using, or explore more AI automation workflows to keep tightening up your stack.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">What is a custom AI model router?</h3>
+
+
+
+<p>A custom AI model router is a system that automatically sends each prompt to the most appropriate AI model based on rules you define. It helps improve performance while reducing unnecessary cost.</p>
+
+
+
+<h3 class="wp-block-heading">How does a custom router save money on Claude and ChatGPT?</h3>
+
+
+
+<p>It saves money by routing simple tasks to cheaper models and reserving premium models for work that truly needs them. That reduces wasted usage and helps avoid hitting limits too quickly.</p>
+
+
+
+<h3 class="wp-block-heading">Can I still use Claude Fable 5 with Abacus AI?</h3>
+
+
+
+<p>Yes. Abacus AI allows access to Claude Fable 5 inside its environment, and you can also include it in a custom router for coding or other specific task categories.</p>
+
+
+
+<h3 class="wp-block-heading">What is sticky routing?</h3>
+
+
+
+<p>Sticky routing means the router classifies the first message in a conversation and keeps the same model for the entire thread. This is useful for consistency in longer workflows like coding sessions.</p>
+
+
+
+<h3 class="wp-block-heading">Can I use the router outside Abacus AI?</h3>
+
+
+
+<p>Yes. You can generate an API key and use the router in external tools such as Cursor, AI agents, OpenCode, and other environments that support API-based model access.</p>
+
+
+
+<h3 class="wp-block-heading">How many models does Abacus AI support?</h3>
+
+
+
+<p>Abacus AI provides access to more than 70 AI models, along with tools for chat, audio, agents, custom bots, and broader workflow automation.</p>

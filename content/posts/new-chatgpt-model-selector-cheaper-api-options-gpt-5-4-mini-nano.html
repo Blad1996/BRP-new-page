@@ -1,0 +1,661 @@
+<p>ChatGPT has rolled out a set of updates that quietly change how you should use the platform. The biggest wins are practical: a new model selector that makes choosing the right brain simpler, access to newer model options (including cheaper ones through the API), and upgrades to both Sora for video creation and Codex for coding workflows. On top of that, ChatGPT is expanding integrations with everyday apps so it can pull from your tools instead of starting from scratch.</p>
+
+
+
+<p>If you use ChatGPT for anything from content creation to research to agentic coding, these changes are worth understanding. The goal here is simple: help you set things up the right way so you get stronger results without wasting time or compute.</p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#the-new-chatgpt-model-selector-instant-thinking-and-pro">The new ChatGPT model selector: instant, thinking, and pro</a></li>
+
+
+
+<li><a href="#new-chatgpt-models-via-api-gpt-5-4-mini-and-nano">New ChatGPT models via API: GPT 5.4 mini and nano</a></li>
+
+
+
+<li><a href="#sora-updates-add-references-for-consistent-characters-and-settings">Sora updates: add references for consistent characters and settings</a></li>
+
+
+
+<li><a href="#chatgpt-image-upgrades-more-styles-prompts-and-libraries">ChatGPT image upgrades: more styles, prompts, and libraries</a></li>
+
+
+
+<li><a href="#use-an-optimized-prompt-workflow-mypromptbuddy-and-why-it-works">Use an optimized prompt workflow: MyPromptBuddy (and why it works)</a></li>
+
+
+
+<li><a href="#codex-updates-more-models-subagents-automations-and-skills">Codex updates: more models, subagents, automations, and skills</a></li>
+
+
+
+<li><a href="#chatgpt-app-integrations-connect-gmail-slack-and-more-for-deep-research">ChatGPT app integrations: connect Gmail, Slack, and more for deep research</a></li>
+
+
+
+<li><a href="#what-to-do-next-a-simple-upgrade-checklist">What to do next: a simple upgrade checklist</a></li>
+
+
+
+<li><a href="#faq">FAQ</a></li>
+
+
+
+<li><a href="#next-steps-and-recommended-reading">Next steps and recommended reading</a></li>
+</ul>
+
+
+
+<h2 id="the-new-chatgpt-model-selector-instant-thinking-and-pro">The new ChatGPT model selector: instant, thinking, and pro</h2>
+
+
+
+<p>One of the most visible updates is the new model selector. Instead of hunting through a long list of options, ChatGPT now groups choices by what you are trying to do.</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Instant</strong> for everyday chats</li>
+
+
+
+<li><strong>Thinking</strong> for complex questions</li>
+
+
+
+<li><strong>Pro</strong> (for research-heavy or technical work, like science and engineering)</li>
+</ul>
+
+
+
+<p>This matters because “best model” often depends on the task type. A creative rewrite does not need the same level of reasoning as a technical plan or a deep analysis. The selector is designed to get you closer to the right mode faster.</p>
+
+
+
+<h3 class="wp-block-heading">Use the thinking level settings the smart way</h3>
+
+
+
+<p>Inside the “thinking” option, there are different thinking levels. The recommendation is straightforward:</p>
+
+
+
+<ul class="wp-block-list">
+<li>If you are using <strong>thinking</strong>, default to a <strong>heavy</strong> setting.</li>
+
+
+
+<li>If you are using <strong>pro</strong>, use <strong>extended</strong> thinking.</li>
+
+
+
+<li>Avoid higher levels unless the task truly benefits from it.</li>
+</ul>
+
+
+
+<p>Higher thinking effort is not automatically “better.” It is more deliberate. For tasks that need maximum capability (deep reasoning, complex problem solving, technical decision-making), it helps. For simpler tasks, it can slow you down without delivering proportional value.</p>
+
+
+
+<h3 class="wp-block-heading">Configure lets you toggle thinking on and off</h3>
+
+
+
+<p>There is also a <strong>configure</strong> area where you can choose between the latest models and control your “pro thinking effort” and whether it is turned on.</p>
+
+
+
+<p>In practice, this gives you a workflow. If you want ChatGPT to feel snappy, configure it for <strong>instant</strong>. If you want to engage deeper reasoning, turn thinking on and select a higher effort setting. The key idea is to match the configuration to your goal for that specific session.</p>
+
+
+
+<h2 id="new-chatgpt-models-via-api-gpt-5-4-mini-and-nano">New ChatGPT models via API: GPT 5.4 mini and nano</h2>
+
+
+
+<p>Another upgrade is happening behind the scenes in the API model lineup. When you check the API documentation, you can see new model options such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>GPT 5.4</strong></li>
+
+
+
+<li><strong>GPT 5.0 mini</strong></li>
+
+
+
+<li><strong>GPT 5.0 nano</strong></li>
+</ul>
+
+
+
+<p>The important detail is about availability. Some of these options are not necessarily shown the same way inside the main ChatGPT interface. However, if you are using the API directly, these model choices can be a big deal because they can be <strong>cheaper</strong> while still being very capable.</p>
+
+
+
+<p>If your use case involves high volume (like summarization pipelines, tool-using agents, classification, or multi-step content generation), the cheaper models can improve cost efficiency dramatically.</p>
+
+
+
+<h3 class="wp-block-heading">Quick decision guide: when to pick which model</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Use a smaller/cost-efficient model</strong> for repeatable tasks like extraction, rewriting, structured output, and routing.</li>
+
+
+
+<li><strong>Use a stronger model</strong> when the task requires nuanced reasoning or fewer retries.</li>
+
+
+
+<li><strong>Experiment with thresholds</strong> (for example, “send to nano unless confidence is low”).</li>
+</ul>
+
+
+
+<p>As always, benchmark on your own prompts and output requirements. The right model is the one that reliably hits your quality bar at your target cost.</p>
+
+
+
+<h2 id="sora-updates-add-references-for-consistent-characters-and-settings">Sora updates: add references for consistent characters and settings</h2>
+
+
+
+<p>Sora has gained a feature that feels small but is a huge step forward: <strong>references</strong>. You can now upload images to define characters or settings you want to reuse in generated content.</p>
+
+
+
+<p>Instead of hoping the model “sort of” keeps the same person across generations, you can anchor the style and identity. This is especially valuable for creators who work in series or build a recognizable visual world.</p>
+
+
+
+<h3 class="wp-block-heading">How reference uploads improve consistency</h3>
+
+
+
+<p>Here is what the workflow looks like conceptually:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Open the Sora creation flow and select <strong>references</strong> (under a beta section).</li>
+
+
+
+<li>Click <strong>add new</strong>.</li>
+
+
+
+<li>Upload an image of a character or a setting you want to reuse.</li>
+
+
+
+<li>Name the reference (for example, “Rob headshot”).</li>
+
+
+
+<li>Optionally adjust character attributes like style and configuration details.</li>
+
+
+
+<li>Save the reference and reuse it in future creations.</li>
+</ul>
+
+
+
+<p>The payoff is consistency. If you generate images or videos and the character keeps changing face, outfit, or proportions, that inconsistency becomes the bottleneck. References help remove that bottleneck so you can focus on the creative direction instead of re-prompting forever.</p>
+
+
+
+<h3 class="wp-block-heading">Better characters lead to better images and videos</h3>
+
+
+
+<p>Creators often run into a simple problem: AI output is impressive once, but inconsistent across iterations. References help you build continuity, which improves the quality of final assets and makes collaboration easier (designers and editors can count on stable identity and visual rules).</p>
+
+
+
+<h2 id="chatgpt-image-upgrades-more-styles-prompts-and-libraries">ChatGPT image upgrades: more styles, prompts, and libraries</h2>
+
+
+
+<p>Inside ChatGPT under <strong>images</strong>, you can now find a set of image styles and prompt suggestions, plus image libraries showing what has been created. The user-facing idea is clear: you can move faster from concept to finished output.</p>
+
+
+
+<p>Instead of crafting every prompt from scratch, you can start with suggested prompts and steer from there. Libraries also matter because they let you reuse or compare results without losing your context.</p>
+
+
+
+<p>When combined with model improvements and Sora’s reference support, these updates make visual workflows more repeatable. That is the real competitive advantage: less chaos, more control.</p>
+
+
+
+<h2 id="use-an-optimized-prompt-workflow-mypromptbuddy-and-why-it-works">Use an optimized prompt workflow: MyPromptBuddy (and why it works)</h2>
+
+
+
+<p>One of the strongest practical takeaways is prompt optimization. Your prompt largely determines your output, especially for image and video generation where details like lighting, lens feel, hyper-realism cues, and scene composition can decide whether you get “solid” or “great.”</p>
+
+
+
+<p>A tool mentioned in the workflow is <strong>MyPromptBuddy</strong>, a Chrome extension designed to generate an <strong>optimized prompt</strong> for different task types such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Standard prompts</li>
+
+
+
+<li>Reasoning prompts</li>
+
+
+
+<li>Deep research prompts</li>
+
+
+
+<li>AI video prompts</li>
+
+
+
+<li>AI image prompts</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">What the optimization process looks like</h3>
+
+
+
+<p>The workflow described goes like this:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Start with your original request (example: generate an AI image of a Ferrari in a specific scene).</li>
+
+
+
+<li>Paste it into the extension.</li>
+
+
+
+<li>Define your ideal output (for example, “hyper realistic image”).</li>
+
+
+
+<li>Click <strong>optimize</strong> to generate a “super prompt.”</li>
+
+
+
+<li>Use that optimized prompt in ChatGPT to generate the image.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Why this changes results</h3>
+
+
+
+<p>Without prompt optimization, the output may be “good enough” but not truly match the realism and fidelity you want. With optimization, the prompt can include stronger constraints and more specific visual details, resulting in outputs that look more like the target (better model fidelity, better scene lighting, and fewer artifacts).</p>
+
+
+
+<p>Even if you never use the same tool, the lesson is universal: treat prompts like a spec. Precision beats vibes.</p>
+
+
+
+<p>Want to explore it? Start here: <a href="https://mypromptbuddy.ai/" target="_blank" rel="noopener">MyPromptBuddy</a>.</p>
+
+
+
+<h2 id="codex-updates-more-models-subagents-automations-and-skills">Codex updates: more models, subagents, automations, and skills</h2>
+
+
+
+<p>Codex has received a cluster of improvements that make it feel more agentic and more “workflow-native.” The changes fall into four main areas: new models, subagents that work in parallel, automations, and the ability to install “skills” for extra capability.</p>
+
+
+
+<h3 class="wp-block-heading">1) More models inside Codex</h3>
+
+
+
+<p>New models are now available in Codex. More options typically mean better routing for different tasks, such as fast code edits versus deeper reasoning across a repository.</p>
+
+
+
+<h3 class="wp-block-heading">2) Subagents: delegate work in parallel</h3>
+
+
+
+<p>Subagents are a major conceptual change. Instead of Codex doing tasks in a strict sequence, you can spawn subagents that work concurrently.</p>
+
+
+
+<p>For example, you can ask to:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Spawn a subagent to explore an area of the codebase.</li>
+
+
+
+<li>Spawn another subagent to implement the requested changes.</li>
+</ul>
+
+
+
+<p>This improves throughput. In real development, waiting for one subtask before starting the next is often wasteful. Parallelization reduces idle time and can help you reach results faster.</p>
+
+
+
+<h3 class="wp-block-heading">3) Automations: templates for repeatable engineering tasks</h3>
+
+
+
+<p>Codex now provides automations grouped into categories like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Status reports</li>
+
+
+
+<li>Release preparation</li>
+
+
+
+<li>Incident triage</li>
+
+
+
+<li>Code quality</li>
+
+
+
+<li>Repo maintenance</li>
+
+
+
+<li>Growth and exploration</li>
+</ul>
+
+
+
+<p>Instead of designing an automation from scratch each time, you can pick a task, choose the work tree or project scope, and create an automation from a template (or skip templates if you prefer).</p>
+
+
+
+<p>This is huge for teams because it standardizes engineering workflows and reduces “tribal knowledge.”</p>
+
+
+
+<h3 class="wp-block-heading">4) Skills: upload capabilities for specific tools and workflows</h3>
+
+
+
+<p>Codex can now accept <strong>skills</strong> that extend its capability for your environment. The idea is to install the tools you rely on so Codex can interact with them more effectively.</p>
+
+
+
+<p>Examples mentioned include:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Notion workflows</li>
+
+
+
+<li>Playwright for browser automation</li>
+
+
+
+<li>Screenshot capture</li>
+</ul>
+
+
+
+<p>Skills turn Codex from “generic coding assistant” into a tool that understands your stack.</p>
+
+
+
+<h2 id="chatgpt-app-integrations-connect-gmail-slack-and-more-for-deep-research">ChatGPT app integrations: connect Gmail, Slack, and more for deep research</h2>
+
+
+
+<p>Beyond models, ChatGPT is expanding the places it can operate. Integrations with apps mean ChatGPT can use your existing context rather than asking you to paste everything manually.</p>
+
+
+
+<p>In the <strong>Apps</strong> section, you can browse categories such as Lifestyle and Productivity. These categories are meant to make common tools easy to discover and connect.</p>
+
+
+
+<h3 class="wp-block-heading">Connect apps as sources</h3>
+
+
+
+<p>One workflow described is adding “sources” for tasks. For example, you can connect:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Slack</li>
+
+
+
+<li>Gmail</li>
+
+
+
+<li>Other connected tools</li>
+</ul>
+
+
+
+<p>Then, inside a task like <strong>deep research</strong>, ChatGPT can follow specific websites or use connected apps to retrieve information.</p>
+
+
+
+<h3 class="wp-block-heading">Deep research can build reports using your connected tools</h3>
+
+
+
+<p>An example provided: deep research connected with real estate and travel tools. The system ran multiple searches, cited sources, and created a report for a decision like where to buy a house in Montana. It also mapped travel timing for flights and hotels using Expedia, including estimates such as round-trip cost and five-star hotel options.</p>
+
+
+
+<p>The larger takeaway is that “deep research” is shifting from “read the web” to “query your tool ecosystem.” That means faster workflows and fewer manual steps.</p>
+
+
+
+<p>If you want practical value, start by connecting the one or two apps you actually use daily. Then build from there. Integrations are only useful if they reduce effort in your real routines.</p>
+
+
+
+<h2 id="what-to-do-next-a-simple-upgrade-checklist">What to do next: a simple upgrade checklist</h2>
+
+
+
+<p>Here is a quick, actionable checklist based on these updates.</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Update your model habits</strong>
+<ul class="wp-block-list">
+<li>Use <strong>Instant</strong> for routine chat.</li>
+
+
+
+<li>Use <strong>Thinking</strong> for tougher questions.</li>
+
+
+
+<li>Use <strong>Pro</strong> for research, science, engineering, and deep reasoning.</li>
+</ul>
+</li>
+
+
+
+<li><strong>Match thinking effort to the task</strong>
+<ul class="wp-block-list">
+<li>Heavy for general thinking tasks.</li>
+
+
+
+<li>Extended when you truly need maximum reasoning.</li>
+</ul>
+</li>
+
+
+
+<li><strong>If you use the API, check the model lineup</strong>
+<ul class="wp-block-list">
+<li>Look for cheaper options for high-volume or structured work.</li>
+
+
+
+<li>Benchmark quality and cost together.</li>
+</ul>
+</li>
+
+
+
+<li><strong>For images and video, anchor your identity</strong>
+<ul class="wp-block-list">
+<li>Use <strong>Sora references</strong> to keep characters consistent across iterations.</li>
+
+
+
+<li>Use libraries and style presets for faster iteration.</li>
+</ul>
+</li>
+
+
+
+<li><strong>Upgrade your prompts</strong>
+<ul class="wp-block-list">
+<li>Use prompt optimization to get closer to hyper-realistic or specific visual outcomes.</li>
+
+
+
+<li>Write prompts like specs, not requests.</li>
+</ul>
+</li>
+
+
+
+<li><strong>For coding workflows, try Codex subagents and automations</strong>
+<ul class="wp-block-list">
+<li>Spawn subagents for parallel exploration and implementation.</li>
+
+
+
+<li>Use automations for repeatable tasks.</li>
+
+
+
+<li>Install skills for your toolchain.</li>
+</ul>
+</li>
+
+
+
+<li><strong>Connect apps if you want real-world research speed</strong>
+<ul class="wp-block-list">
+<li>Start with Gmail and Slack or your closest equivalent.</li>
+
+
+
+<li>Use deep research to generate reports based on connected sources.</li>
+</ul>
+</li>
+</ol>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">What is the new ChatGPT model selector, and why does it matter?</h3>
+
+
+
+<p>It groups models into practical categories: Instant for everyday chats, Thinking for complex questions, and Pro for research-heavy technical tasks. It helps you pick the right level of reasoning faster and avoid unnecessary compute.</p>
+
+
+
+<h3 class="wp-block-heading">Should I always use “extended” thinking in ChatGPT Pro?</h3>
+
+
+
+<p>No. “Extended” thinking is best when the task benefits from maximum reasoning. For simpler tasks, it can slow you down without improving results proportionally.</p>
+
+
+
+<h3 class="wp-block-heading">How do GPT 5.4 mini and nano relate to ChatGPT?</h3>
+
+
+
+<p>Those model options are visible in the API documentation and are positioned as cheaper models for agentic or high-volume tasks. Some are used implicitly for “Instant” experiences, but the API is where you can intentionally select them.</p>
+
+
+
+<h3 class="wp-block-heading">What are Sora references?</h3>
+
+
+
+<p>References let you upload images of characters or settings and reuse them in new video or image generations. This improves consistency, especially for series-style content.</p>
+
+
+
+<h3 class="wp-block-heading">Why do optimized prompts produce better image results?</h3>
+
+
+
+<p>Image generation is sensitive to prompt detail. Optimized prompts can add clearer constraints about realism, lighting, composition, and style, reducing ambiguity and improving fidelity.</p>
+
+
+
+<h3 class="wp-block-heading">What’s new in Codex with subagents and automations?</h3>
+
+
+
+<p>Subagents allow parallel work, automations provide template-driven workflows like triage and release prep, and skills enable Codex to better interact with your specific tools such as Notion or Playwright.</p>
+
+
+
+<h2 id="next-steps-and-recommended-reading">Next steps and recommended reading</h2>
+
+
+
+<p>If you want to keep building on these improvements, consider exploring more workflow upgrades. A good place to start is with official documentation and integration guides:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://platform.openai.com/docs" target="_blank" rel="noopener">OpenAI API documentation</a></li>
+
+
+
+<li><a href="https://help.openai.com/" target="_blank" rel="noopener">OpenAI Help Center</a></li>
+</ul>

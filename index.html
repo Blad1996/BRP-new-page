@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Support for GTA Farms and Businesses | Biz Rescue Pro</title>
+  <meta name="description" content="Everyday IT support, cybersecurity, backup and business email for farms, offices and growing businesses in the Greater Toronto Area and across Ontario.">
+  <meta name="theme-color" content="#1A2412">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-forest focus:px-4 focus:py-2 focus:text-offwhite">Skip to content</a>
+
+  <!-- ============ HEADER (shared across pages: set aria-current="page" on the active link) ============ -->
+  <header class="site-header sticky top-0 z-50 border-b border-transparent bg-offwhite transition-colors duration-300" data-header>
+    <div class="container-site relative flex h-16 items-center justify-between md:h-20">
+      <a href="./" class="flex items-center" aria-label="Biz Rescue Pro home">
+        <img src="assets/img/logo.svg" alt="Biz Rescue Pro" width="729" height="214" class="h-12 w-auto md:h-14"
+             onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <span hidden class="font-display text-lg font-bold tracking-tight">BIZ RESCUE <span class="text-green">PRO</span></span>
+      </a>
+
+      <button type="button" class="-mr-2 grid h-11 w-11 place-items-center md:hidden" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="burger" aria-hidden="true"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav md:flex md:items-center md:gap-10" aria-label="Main" data-nav>
+        <ul class="container-site md:flex md:w-auto md:items-center md:gap-8 md:px-0">
+          <li><a class="nav-link" href="./" aria-current="page">Home</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="py-5 md:hidden"><a class="btn btn-dark w-full" href="#contact">Let's talk</a></li>
+        </ul>
+        <a class="btn btn-dark hidden md:inline-flex" href="#contact">Let's talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="pb-16 pt-4 md:pb-24 md:pt-8">
+      <div class="container-site grid lg:grid-cols-12">
+        <div class="relative z-10 bg-forest px-6 py-10 text-offwhite sm:px-10 sm:py-14 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:my-12 lg:self-center lg:px-12 lg:py-16">
+          <p class="eyebrow eyebrow-light hero-fade max-w-xs">IT support for Ontario farms, offices and growing businesses</p>
+          <h1 class="text-[2.4rem] leading-[1.02] sm:text-6xl lg:text-[2.9rem] xl:text-[3.35rem]">
+            <span class="hero-line block">When your tech stops,</span>
+            <span class="hero-line block">your work stops.</span>
+            <span class="hero-line block">We keep it running.</span>
+          </h1>
+          <span class="hero-fade my-8 block h-px w-16 bg-offwhite/60" aria-hidden="true"></span>
+          <p class="hero-fade max-w-[34rem] leading-relaxed lg:max-w-[29rem] text-offwhite/85 sm:text-lg">Everyday help, care that prevents problems, and protection for your files and accounts. For family farms, producers, offices and distributors across Ontario.</p>
+          <div class="hero-fade mt-8 flex flex-wrap items-center gap-x-8 gap-y-2">
+            <a class="btn btn-light" href="#contact">Let's talk <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+            <a class="link-u text-offwhite" href="#problems">What's slowing you down?</a>
+          </div>
+        </div>
+
+        <figure class="photo lg:overflow-visible flex min-h-[22rem] flex-col justify-end p-5 sm:p-8 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:min-h-[38rem]">
+          <!-- Hero slideshow: add or remove <img class="slide"> to change the photos; dots are built by main.js -->
+          <div class="absolute inset-0 overflow-hidden" data-carousel role="group" aria-roledescription="carousel" aria-label="Photos of our clients at work">
+            <img src="assets/img/photos/home-hero-1600.webp" srcset="assets/img/photos/home-hero-800.webp 800w, assets/img/photos/home-hero-1600.webp 1600w, assets/img/photos/home-hero-2400.webp 2400w" sizes="(min-width: 1024px) 920px, 150vw" alt="A smiling farmer working on a laptop inside his poultry barn" width="1600" height="1067" fetchpriority="high" class="slide is-active">
+            <img src="assets/img/photos/problem-email-1600.webp" srcset="assets/img/photos/problem-email-800.webp 800w, assets/img/photos/problem-email-1600.webp 1600w, assets/img/photos/problem-email-2400.webp 2400w" sizes="(min-width: 1024px) 920px, 150vw" alt="A farmer checking a device in his cow barn" width="1600" height="1067" decoding="async" class="slide">
+            <img src="assets/img/photos/about-farm-1600.webp" srcset="assets/img/photos/about-farm-800.webp 800w, assets/img/photos/about-farm-1600.webp 1600w, assets/img/photos/about-farm-2400.webp 2400w" sizes="(min-width: 1024px) 920px, 150vw" alt="A farmer working on a laptop out in his fields" width="1600" height="1067" decoding="async" class="slide">
+            <img src="assets/img/photos/about-greenhouse-1600.webp" srcset="assets/img/photos/about-greenhouse-800.webp 800w, assets/img/photos/about-greenhouse-1600.webp 1600w, assets/img/photos/about-greenhouse-2400.webp 2400w" sizes="(min-width: 1024px) 920px, 150vw" alt="A grower checking a tablet in a greenhouse" width="1600" height="2400" decoding="async" class="slide">
+          </div>
+          <div class="absolute right-4 top-4 z-30 flex items-center gap-1 bg-forest/70 px-2 py-1 backdrop-blur-sm sm:right-6 sm:top-6" data-carousel-controls hidden>
+            <div class="flex items-center" data-carousel-dots></div>
+            <button type="button" class="grid h-8 w-8 place-items-center text-offwhite" aria-label="Pause slideshow" data-carousel-toggle>
+              <svg class="h-3.5 w-3.5" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path data-icon-pause d="M3 2h3v10H3zM8 2h3v10H8z"/><path data-icon-play hidden d="M3 2l9 5-9 5z"/></svg>
+            </button>
+          </div>
+          <div class="relative z-20 lg:-ml-12">
+            <p class="quote mb-3 inline-block bg-forest px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-offwhite">Sound familiar?</p>
+            <p class="quote mb-3 w-fit bg-offwhite px-4 py-2.5 text-sm font-medium shadow-[0_8px_24px_-12px_rgb(26_36_18/.35)] sm:text-base">"Email's down again."</p>
+            <p class="quote mb-3 ml-4 w-fit bg-offwhite px-4 py-2.5 text-sm font-medium shadow-[0_8px_24px_-12px_rgb(26_36_18/.35)] sm:ml-10 sm:text-base">"The laptop takes forever to start."</p>
+            <p class="quote ml-8 w-fit bg-offwhite px-4 py-2.5 text-sm font-medium shadow-[0_8px_24px_-12px_rgb(26_36_18/.35)] sm:ml-20 sm:text-base">"Where did last year's invoices go?"</p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEMS ============ -->
+    <section id="problems" class="bg-stone py-16 md:py-28">
+      <div class="container-site">
+        <div class="mb-10 grid gap-6 md:mb-14 lg:grid-cols-12 lg:items-end" data-reveal>
+          <div class="lg:col-span-7">
+            <p class="eyebrow">Start with what's happening</p>
+            <h2 class="h2">What's getting in the way of your work?</h2>
+          </div>
+          <p class="max-w-sm text-lg leading-snug lg:col-span-4 lg:col-start-9">Pick the one that sounds like you. We'll show you what changes.</p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-12 lg:gap-8" data-reveal>
+          <div class="lg:col-span-5" role="tablist" aria-label="Common problems" aria-orientation="vertical" data-tabs>
+            <button class="problem-tab" role="tab" id="tab-slow" aria-controls="panel-slow" aria-selected="true" data-topic="Slow computers"><span>01</span>My computers are running slowly.</button>
+            <button class="problem-tab" role="tab" id="tab-files" aria-controls="panel-files" aria-selected="false" tabindex="-1" data-topic="Backups and important files"><span>02</span>I'm worried about losing important files.</button>
+            <button class="problem-tab" role="tab" id="tab-email" aria-controls="panel-email" aria-selected="false" tabindex="-1" data-topic="Email problems"><span>03</span>My email keeps causing problems.</button>
+            <button class="problem-tab" role="tab" id="tab-systems" aria-controls="panel-systems" aria-selected="false" tabindex="-1" data-topic="Keeping systems working"><span>04</span>I need help keeping our systems working.</button>
+            <button class="problem-tab" role="tab" id="tab-pro" aria-controls="panel-pro" aria-selected="false" tabindex="-1" data-topic="Professional email and accounts"><span>05</span>I want our email and accounts to look professional.</button>
+          </div>
+
+          <div class="bg-offwhite p-5 sm:p-8 lg:col-span-7 lg:p-10">
+            <article class="panel grid gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8" role="tabpanel" id="panel-slow" aria-labelledby="tab-slow" tabindex="0">
+              <img src="assets/img/photos/problem-slow-1600.webp" srcset="assets/img/photos/problem-slow-800.webp 800w, assets/img/photos/problem-slow-1600.webp 1600w, assets/img/photos/problem-slow-2400.webp 2400w" sizes="(min-width: 1024px) 760px, (min-width: 640px) 90vw, 100vw" alt="A frustrated man with his hand on his forehead, waiting at his office computer" width="1600" height="1200" loading="lazy" decoding="async" class="aspect-[4/3] sm:aspect-[4/5] w-full bg-stone object-cover">
+              <dl>
+                <dt>What's happening</dt><dd>Every task takes longer, and nobody on site knows why.</dd>
+                <dt>What it costs you</dt><dd>Your team waits instead of working.</dd>
+                <dt>What changes</dt><dd class="font-display text-2xl font-bold leading-tight tracking-tight sm:text-[1.7rem]">Devices kept updated and maintained, so they stay quick and you get help when they don't.</dd>
+                <dt>How we help</dt><dd>Remote help, updates and regular maintenance.<span class="mt-1 block text-sm text-sage">Included in all three plans.</span></dd>
+              </dl>
+            </article>
+
+            <article class="panel grid gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8" role="tabpanel" id="panel-files" aria-labelledby="tab-files" tabindex="0" hidden>
+              <img src="assets/img/photos/problem-backups-1600.webp" srcset="assets/img/photos/problem-backups-800.webp 800w, assets/img/photos/problem-backups-1600.webp 1600w, assets/img/photos/problem-backups-2400.webp 2400w" sizes="(min-width: 1024px) 760px, (min-width: 640px) 90vw, 100vw" alt="A laptop on a desk beside a tall stack of paper files" width="1600" height="1200" loading="lazy" decoding="async" class="aspect-[4/3] sm:aspect-[4/5] w-full bg-stone object-cover">
+              <dl>
+                <dt>What's happening</dt><dd>Invoices, records and photos live on one computer or a USB drive.</dd>
+                <dt>What it costs you</dt><dd>One failed drive could take years of records with it.</dd>
+                <dt>What changes</dt><dd class="font-display text-2xl font-bold leading-tight tracking-tight sm:text-[1.7rem]">Your files are backed up on a schedule, and we check that they can be restored.</dd>
+                <dt>How we help</dt><dd>Backup setup, follow-up and restore tests.<span class="mt-1 block text-sm text-sage">Add-on in Essential IT. Included in Business Care and Managed IT &amp; Security.</span></dd>
+              </dl>
+            </article>
+
+            <article class="panel grid gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8" role="tabpanel" id="panel-email" aria-labelledby="tab-email" tabindex="0" hidden>
+              <img src="assets/img/photos/problem-email-1600.webp" srcset="assets/img/photos/problem-email-800.webp 800w, assets/img/photos/problem-email-1600.webp 1600w, assets/img/photos/problem-email-2400.webp 2400w" sizes="(min-width: 1024px) 760px, (min-width: 640px) 90vw, 100vw" alt="A farmer checking a device in a cow barn" width="1600" height="1200" loading="lazy" decoding="async" class="aspect-[4/3] sm:aspect-[4/5] w-full bg-stone object-cover">
+              <dl>
+                <dt>What's happening</dt><dd>Messages bounce, land in spam or stop syncing on your phone.</dd>
+                <dt>What it costs you</dt><dd>Orders and customer replies get missed.</dd>
+                <dt>What changes</dt><dd class="font-display text-2xl font-bold leading-tight tracking-tight sm:text-[1.7rem]">Email that works the same on every phone and computer, with one team to call when it acts up.</dd>
+                <dt>How we help</dt><dd>Microsoft 365 or Google Workspace setup and support.<span class="mt-1 block text-sm text-sage">Basic in Essential IT. Fully looked after in Business Care and up.</span></dd>
+              </dl>
+            </article>
+
+            <article class="panel grid gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8" role="tabpanel" id="panel-systems" aria-labelledby="tab-systems" tabindex="0" hidden>
+              <img src="assets/img/photos/problem-network-1600.webp" srcset="assets/img/photos/problem-network-800.webp 800w, assets/img/photos/problem-network-1600.webp 1600w, assets/img/photos/problem-network-2400.webp 2400w" sizes="(min-width: 1024px) 760px, (min-width: 640px) 90vw, 100vw" alt="Network cables plugged into a switch" width="1600" height="1200" loading="lazy" decoding="async" class="aspect-[4/3] sm:aspect-[4/5] w-full bg-stone object-cover">
+              <dl>
+                <dt>What's happening</dt><dd>Whoever is best with computers ends up fixing them between other jobs.</dd>
+                <dt>What it costs you</dt><dd>Fixes get rushed, and the same problems come back.</dd>
+                <dt>What changes</dt><dd class="font-display text-2xl font-bold leading-tight tracking-tight sm:text-[1.7rem]">One team keeps an eye on your systems and catches problems before they grow.</dd>
+                <dt>How we help</dt><dd>Preventive maintenance, monitoring and a monthly report.<span class="mt-1 block text-sm text-sage">Business Care and Managed IT &amp; Security.</span></dd>
+              </dl>
+            </article>
+
+            <article class="panel grid gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8" role="tabpanel" id="panel-pro" aria-labelledby="tab-pro" tabindex="0" hidden>
+              <img src="assets/img/photos/problem-access-1600.webp" srcset="assets/img/photos/problem-access-800.webp 800w, assets/img/photos/problem-access-1600.webp 1600w, assets/img/photos/problem-access-2400.webp 2400w" sizes="(min-width: 1024px) 760px, (min-width: 640px) 90vw, 100vw" alt="A farmer shaking hands with a supplier beside a delivery van" width="1600" height="1200" loading="lazy" decoding="async" class="aspect-[4/3] sm:aspect-[4/5] w-full bg-stone object-cover">
+              <dl>
+                <dt>What's happening</dt><dd>The business runs on personal email addresses and shared passwords.</dd>
+                <dt>What it costs you</dt><dd>Customers can't tell it's really you, and access is hard to manage when staff change.</dd>
+                <dt>What changes</dt><dd class="font-display text-2xl font-bold leading-tight tracking-tight sm:text-[1.7rem]">Email on your own domain, with an account for each person that you can add or remove in minutes.</dd>
+                <dt>How we help</dt><dd>Domain email, account setup and a security review.<span class="mt-1 block text-sm text-sage">Included in all three plans.</span></dd>
+              </dl>
+            </article>
+
+            <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-6 sm:ml-[calc(13rem+2rem)]">
+              <a class="btn btn-dark" href="#contact" data-problem-cta>Talk to us about this <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+              <a class="link-u" href="#plans">See the plans</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLANS ============ -->
+    <section id="plans" class="bg-green py-16 text-offwhite md:py-28">
+      <div class="container-site">
+        <div class="mb-10 grid gap-6 md:mb-14 lg:grid-cols-12 lg:items-end" data-reveal>
+          <div class="lg:col-span-7">
+            <p class="eyebrow eyebrow-light">Three plans</p>
+            <h2 class="h2">Find the plan that fits how you work.</h2>
+          </div>
+          <div class="max-w-sm lg:col-span-4 lg:col-start-9">
+            <p class="text-lg leading-snug">Each plan adds to the one before. We confirm the right one after a first look at your setup.</p>
+            <p class="mt-3 text-sm text-offwhite/70">No fixed price list. Every proposal is quoted on your scope.</p>
+          </div>
+        </div>
+
+        <ol class="grid gap-5 lg:grid-cols-3" data-reveal>
+          <li class="plan flex flex-col bg-offwhite p-6 text-forest sm:p-8">
+            <div class="flex items-start justify-between gap-4"><span class="font-display text-5xl font-bold tracking-tightest">01</span><span class="pt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Everyday support</span></div>
+            <h3 class="mt-4 text-2xl">Essential IT</h3>
+            <p class="mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">For</p>
+            <p class="mt-1 text-sm leading-relaxed">Family farms, small producers, shops and offices with a simple setup (around 1 to 5 devices).</p>
+            <p class="mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Solves</p>
+            <p class="mt-1 font-display text-lg font-bold leading-snug text-green">Everyday problems with computers, email and accounts.</p>
+            <ul class="checks mt-6 space-y-3 border-t border-line pt-6">
+              <li>Remote help when something stops working</li>
+              <li>Devices kept updated and maintained</li>
+              <li>Basic security review and account protection</li>
+            </ul>
+            <div class="mt-auto pt-8"><a class="btn btn-dark w-full" href="#contact" data-plan="Essential IT">Ask about Essential IT</a></div>
+          </li>
+          <li class="plan flex flex-col bg-offwhite p-6 text-forest sm:p-8">
+            <div class="flex items-start justify-between gap-4"><span class="font-display text-5xl font-bold tracking-tightest">02</span><span class="pt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Prevention</span></div>
+            <h3 class="mt-4 text-2xl">Business Care</h3>
+            <p class="mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">For</p>
+            <p class="mt-1 text-sm leading-relaxed">Growing agricultural businesses, greenhouses, distributors and offices (around 6 to 20 devices).</p>
+            <p class="mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Solves</p>
+            <p class="mt-1 font-display text-lg font-bold leading-snug text-green">Problems that grow before anyone notices.</p>
+            <ul class="checks mt-6 space-y-3 border-t border-line pt-6">
+              <li>Preventive maintenance and monitoring of compatible systems</li>
+              <li>Microsoft 365 or Google Workspace looked after</li>
+              <li>A status report with recommendations every month</li>
+            </ul>
+            <div class="mt-auto pt-8"><a class="btn btn-dark w-full" href="#contact" data-plan="Business Care">Ask about Business Care</a></div>
+          </li>
+          <li class="plan flex flex-col bg-offwhite p-6 text-forest sm:p-8">
+            <div class="flex items-start justify-between gap-4"><span class="font-display text-5xl font-bold tracking-tightest">03</span><span class="pt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Full management</span></div>
+            <h3 class="mt-4 text-2xl">Managed IT &amp; Security</h3>
+            <p class="mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">For</p>
+            <p class="mt-1 text-sm leading-relaxed">Businesses with several systems, servers or more than one location.</p>
+            <p class="mt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Solves</p>
+            <p class="mt-1 font-display text-lg font-bold leading-snug text-green">Downtime and risk when the whole operation runs on technology.</p>
+            <ul class="checks mt-6 space-y-3 border-t border-line pt-6">
+              <li>Servers, infrastructure and business services managed</li>
+              <li>24/7 automated monitoring and a managed firewall</li>
+              <li>Security assessments and continuity planning</li>
+            </ul>
+            <p class="mt-5 border-l-2 border-green pl-3 text-xs leading-relaxed text-sage">24/7 monitoring sends automated alerts. It isn't round-the-clock human support.</p>
+            <div class="mt-auto pt-8"><a class="btn btn-dark w-full" href="#contact" data-plan="Managed IT &amp; Security">Ask about Managed IT</a></div>
+          </li>
+        </ol>
+
+        <div class="mt-16 md:mt-20" data-reveal>
+          <div class="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="text-2xl">At a glance</h3>
+            <a class="link-u text-offwhite" href="services.html#compare">Full scope and comparison</a>
+          </div>
+          <p class="mb-3 text-xs text-offwhite/60 md:hidden">Swipe sideways to compare plans.</p>
+          <div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0" tabindex="0" role="region" aria-label="Plan comparison table">
+            <table class="w-full min-w-[44rem] border-collapse text-left text-sm">
+              <thead>
+                <tr class="border-b border-offwhite/30">
+                  <th scope="col" class="py-3 pr-4 text-[11px] font-medium uppercase tracking-[0.12em] text-offwhite/60">What you get</th>
+                  <th scope="col" class="py-3 pr-4 font-display text-base">Essential IT</th>
+                  <th scope="col" class="py-3 pr-4 font-display text-base">Business Care</th>
+                  <th scope="col" class="py-3 font-display text-base">Managed IT &amp; Security</th>
+                </tr>
+              </thead>
+              <tbody class="[&_td]:py-4 [&_td]:pr-4 [&_th]:py-4 [&_th]:pr-4 [&_th]:font-medium [&_tr]:border-b [&_tr]:border-offwhite/15" data-compare>
+                <tr><th scope="row">Help when something stops working</th><td data-yes>Remote support</td><td data-yes>Remote support</td><td data-yes>Remote support</td></tr>
+                <tr><th scope="row">Updates and maintenance</th><td data-yes>Basic</td><td data-yes>Scheduled</td><td data-yes>Advanced</td></tr>
+                <tr><th scope="row">Problems spotted before they grow</th><td data-no>Not included</td><td data-yes>Compatible systems</td><td data-yes>24/7 automated alerts</td></tr>
+                <tr><th scope="row">Email and accounts looked after</th><td data-yes>Basic</td><td data-yes>Full, within scope</td><td data-yes>Full, within scope</td></tr>
+                <tr><th scope="row">Backups followed up</th><td data-no>Add-on</td><td data-yes>Contracted backups</td><td data-yes>Managed, subject to licences</td></tr>
+                <tr><th scope="row">Servers and firewall managed</th><td data-no>Not included</td><td data-no>Add-ons</td><td data-yes>Included</td></tr>
+                <tr><th scope="row">Regular reports</th><td data-yes>Within scope</td><td data-yes>Monthly</td><td data-yes>Monthly</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="bg-forest py-16 text-offwhite md:py-28">
+      <div class="container-site grid gap-12 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-5" data-reveal>
+          <p class="eyebrow eyebrow-light">Let's talk</p>
+          <h2 class="h2">Tell us what's getting in the way.</h2>
+          <p class="mt-6 max-w-md text-lg leading-relaxed text-offwhite/85">A few lines is enough. We'll reply to set up a first conversation, and we'll only recommend what your business needs.</p>
+
+          <div class="mt-10 grid grid-cols-[6rem_1fr] gap-5 sm:grid-cols-[8rem_1fr]">
+            <div class="photo photo-dark aspect-square" aria-hidden="true"></div>
+            <div>
+              <p class="text-[11px] font-medium uppercase tracking-[0.12em] text-offwhite/60">What happens next</p>
+              <ol class="mt-3 space-y-2 text-sm leading-snug [&>li]:relative [&>li]:pl-7">
+                <li class="before:absolute before:left-0 before:text-offwhite/50 before:content-['1.']">We reply to set up a first conversation.</li>
+                <li class="before:absolute before:left-0 before:text-offwhite/50 before:content-['2.']">We review your current setup with you.</li>
+                <li class="before:absolute before:left-0 before:text-offwhite/50 before:content-['3.']">You get a proposal with the plan, scope and terms.</li>
+              </ol>
+            </div>
+          </div>
+
+          <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-5 border-t border-offwhite/20 pt-6 text-sm">
+            <div><dt class="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-offwhite/60">Email</dt><dd><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="mailto:info@bizrescuepro.com">info@bizrescuepro.com</a></dd></div>
+            <div><dt class="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-offwhite/60">Phone</dt><dd><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="tel:+18554625346">(855) 462-5346</a></dd></div>
+          </dl>
+        </div>
+
+        <form id="contact-form" class="bg-offwhite p-6 text-forest sm:p-10 lg:col-span-6 lg:col-start-7" novalidate data-reveal data-endpoint="">
+          <h3 class="text-2xl sm:text-3xl">Request a consultation</h3>
+          <p class="mt-1 text-sm text-sage">All fields are required.</p>
+
+          <div class="mt-8 grid gap-x-5 sm:grid-cols-2">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+              <p class="field-error" id="f-name-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err">
+              <p class="field-error" id="f-email-err"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-business">Business or farm name</label>
+            <input id="f-business" name="business" type="text" autocomplete="organization" required aria-describedby="f-business-err">
+            <p class="field-error" id="f-business-err"></p>
+          </div>
+
+          <div class="field">
+            <label for="f-topic">What can we help with?</label>
+            <select id="f-topic" name="topic">
+              <option>Not sure yet</option>
+              <optgroup label="Something isn't working">
+                <option>Slow computers</option>
+                <option>Backups and important files</option>
+                <option>Email problems</option>
+                <option>Keeping systems working</option>
+                <option>Professional email and accounts</option>
+                <option>Security concerns</option>
+                <option>Internet or network problems</option>
+                <option>Access after someone leaves</option>
+                <option>No one in charge of IT</option>
+              </optgroup>
+              <optgroup label="Services">
+                <option>IT Support &amp; Maintenance</option>
+                <option>Business Email &amp; Communication</option>
+                <option>Cybersecurity &amp; Network Protection</option>
+                <option>Backup &amp; Business Continuity</option>
+                <option>Infrastructure Monitoring &amp; Optimization</option>
+                <option>Managed IT Services</option>
+              </optgroup>
+              <optgroup label="Plans">
+                <option>Essential IT</option>
+                <option>Business Care</option>
+                <option>Managed IT &amp; Security</option>
+              </optgroup>
+            </select>
+            <p class="field-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="f-setup">Tell us about your setup</label>
+            <p id="f-setup-help" class="-mt-1 mb-2 text-xs text-sage">How many people and devices you have, what you use every day, and what isn't working.</p>
+            <textarea id="f-setup" name="setup" rows="5" required aria-describedby="f-setup-help f-setup-err"></textarea>
+            <p class="field-error" id="f-setup-err"></p>
+          </div>
+
+          <div class="mt-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <button class="btn btn-dark" type="submit">Send request <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+            <p class="max-w-[17rem] text-xs leading-relaxed text-sage">We use these details only to reply to your inquiry. See our <a class="underline" href="privacy.html">Privacy Policy</a>.</p>
+          </div>
+          <p class="mt-5 text-sm font-medium empty:hidden" role="status" aria-live="polite" data-form-status></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER (shared across pages) ============ -->
+  <footer class="bg-stone pt-16 md:pt-24">
+    <div class="container-site">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="./" class="inline-flex items-center" aria-label="Biz Rescue Pro home">
+            <img src="assets/img/logo.svg" alt="Biz Rescue Pro" width="729" height="214" class="h-16 w-auto"
+                 onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span hidden class="font-display text-lg font-bold tracking-tight">BIZ RESCUE <span class="text-green">PRO</span></span>
+          </a>
+          <p class="mt-5 max-w-xs text-sm leading-relaxed text-sage">We keep your technology running smoothly, so you can focus on growing your business.</p>
+        </div>
+        <nav class="md:col-span-3 md:col-start-7" aria-label="Footer">
+          <p class="mb-3 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Explore</p>
+          <ul class="grid grid-cols-2 gap-y-1 text-sm md:grid-cols-1">
+            <li><a class="inline-block py-1.5 hover:underline" href="./">Home</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="services.html">Services</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="about.html">About</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="blog.html">Blog</a></li>
+            <li><a class="inline-block py-1.5 hover:underline" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="text-sm md:col-span-3">
+          <p class="mb-3 text-[11px] font-medium uppercase tracking-[0.12em] text-sage">Get in touch</p>
+          <p class="mb-2"><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="mailto:info@bizrescuepro.com">info@bizrescuepro.com</a></p>
+          <p><a class="underline decoration-1 underline-offset-4 hover:decoration-2" href="tel:+18554625346">(855) 462-5346</a></p>
+          <address class="mt-4 not-italic leading-relaxed">30 Bertrand Ave, Unit B106<br>Scarborough, ON M1L 2P5</address>
+          <p class="mt-4 max-w-xs leading-relaxed text-sage">Serving the Greater Toronto Area and businesses across Ontario.</p>
+        </div>
+      </div>
+
+      <p class="mt-16 font-display text-[2.6rem] font-bold leading-[0.98] tracking-tightest sm:text-7xl md:mt-24 lg:text-[6.5rem]" data-slide>
+        <span class="block">The right technology,</span>
+        <span class="block sm:pl-[12%]">at every stage</span>
+        <span class="block sm:pl-[24%]">of your growth.</span>
+      </p>
+
+      <div class="mt-12 flex flex-col gap-2 border-t border-line py-6 text-xs text-sage sm:flex-row sm:justify-between">
+        <p>&copy; <span data-year>2026</span> Biz Rescue Pro. All rights reserved.</p>
+        <a class="hover:underline" href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

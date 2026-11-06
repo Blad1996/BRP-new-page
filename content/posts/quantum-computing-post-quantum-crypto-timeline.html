@@ -1,0 +1,537 @@
+<p><strong>Canadian Technology Magazine</strong> has spent plenty of time covering AI, cybersecurity, and digital infrastructure, but there is a bigger collision forming now between all three. And if the timeline being discussed by serious people is even close to correct, the issue is no longer abstract.</p>
+
+
+
+<p>For years, “quantum breaks encryption” sounded like one of those distant tech warnings that always lived safely in the future. Interesting in theory, not urgent in practice. That mood is changing fast.</p>
+
+
+
+<p>The reason is simple. Some of the most credible people in quantum computing now appear to believe that a <strong>fault-tolerant quantum computer capable of breaking currently deployed cryptographic systems could arrive around 2029</strong>. If that happens, the problem is not just Bitcoin. It is websites, cloud systems, software updates, identity verification, financial networks, archived government secrets, and a huge amount of the trust layer that keeps the internet functioning.</p>
+
+
+
+<p>That is why <strong>Canadian Technology Magazine</strong> readers should care. This is not a niche crypto story. It is a business continuity story, an IT infrastructure story, and increasingly, an AI story too.</p>
+
+
+
+<h2 id="why-this-warning-matters-more-than-the-usual-hype">Why this warning matters more than the usual hype</h2>
+
+
+
+<p>Quantum computing has always attracted a lot of overstatement. Usually, the smartest people in the field are the first to pump the brakes and remind everyone that practical quantum systems are extremely hard to build.</p>
+
+
+
+<p>So when a careful and respected quantum researcher starts saying the timeline may be much closer than the public thinks, that lands differently.</p>
+
+
+
+<p>This is not coming from random social media panic or a breathless blockchain thread. It is coming from people who understand:</p>
+
+
+
+<ul class="wp-block-list">
+<li>quantum hardware,</li>
+
+
+
+<li>quantum error correction,</li>
+
+
+
+<li>cryptography,</li>
+
+
+
+<li>and the real-world systems that depend on those cryptographic assumptions.</li>
+</ul>
+
+
+
+<p>The core warning is blunt: <strong>start migrating to post-quantum cryptography now</strong>. Not someday. Not after the next budget cycle if there is room. Now.</p>
+
+
+
+<h2 id="what-quantum-computing-actually-threatens">What quantum computing actually threatens</h2>
+
+
+
+<p>To understand the risk, it helps to separate two very different kinds of cryptography that are often mashed together in casual discussion.</p>
+
+
+
+<h3 class="wp-block-heading">1. Symmetric encryption</h3>
+
+
+
+<p>This is the simpler “shared key” model. Think of two people who both have the same key to the same lockbox. It is efficient and useful for encrypting lots of data quickly.</p>
+
+
+
+<h3 class="wp-block-heading">2. Public key cryptography</h3>
+
+
+
+<p>This is where the bigger danger sits. Public key systems use a public key that anyone can see and a private key that must remain secret. This is what enables strangers on the internet to do all kinds of critical things safely:</p>
+
+
+
+<ul class="wp-block-list">
+<li>establish secure connections,</li>
+
+
+
+<li>verify identity,</li>
+
+
+
+<li>sign software updates,</li>
+
+
+
+<li>authenticate APIs,</li>
+
+
+
+<li>secure financial systems,</li>
+
+
+
+<li>and control crypto assets.</li>
+</ul>
+
+
+
+<p>Today, much of this depends on mathematical problems that ordinary computers are terrible at solving efficiently. The lock works because the math behind it is hard.</p>
+
+
+
+<p>A large, error-corrected quantum computer changes that.</p>
+
+
+
+<p>It does not “pick the lock” in the ordinary sense. It makes the underlying math stop being difficult. That is a very different kind of threat, and a much more structural one.</p>
+
+
+
+<h2 id="shor-s-algorithm-is-the-real-issue">Shor’s algorithm is the real issue</h2>
+
+
+
+<p>The technical phrase at the centre of this conversation is <strong>Shor’s algorithm</strong>. Proposed in the 1990s, it showed that a sufficiently powerful quantum computer could solve certain mathematical problems that classical computers struggle with. Those problems happen to be the foundation of much of modern public key cryptography.</p>
+
+
+
+<p>That is why this matters so much.</p>
+
+
+
+<p>If a fault-tolerant quantum computer can run Shor’s algorithm at useful scale, then several cryptographic systems used across the internet become vulnerable. Not every form of encryption dies at once, and not every system is equally exposed, but the blast radius is enormous.</p>
+
+
+
+<p>We are talking about possible exposure across:</p>
+
+
+
+<ul class="wp-block-list">
+<li>website certificates,</li>
+
+
+
+<li>digital signatures,</li>
+
+
+
+<li>cloud authentication,</li>
+
+
+
+<li>mobile operating systems,</li>
+
+
+
+<li>software patching and code signing,</li>
+
+
+
+<li>satellite control systems,</li>
+
+
+
+<li>financial infrastructure,</li>
+
+
+
+<li>and blockchain wallets based on quantum-vulnerable schemes.</li>
+</ul>
+
+
+
+<h2 id="the-store-now-decrypt-later-problem-is-already-here">The “store now, decrypt later” problem is already here</h2>
+
+
+
+<p>One of the most unsettling parts of this story is that quantum risk is not just about future communications. It is also about past communications that were intercepted and saved.</p>
+
+
+
+<p>Governments and intelligence agencies have long had a strong incentive to collect encrypted traffic even if they could not read it at the time. Why? Because if the encryption could be broken later, the information would still be valuable.</p>
+
+
+
+<p>That creates a two-sided threat.</p>
+
+
+
+<h3 class="wp-block-heading">Yesterday’s secrets</h3>
+
+
+
+<p>Encrypted diplomatic cables, military communications, classified archives, and long-stored private data may become readable if sufficiently capable quantum systems arrive.</p>
+
+
+
+<h3 class="wp-block-heading">Tomorrow’s trust</h3>
+
+
+
+<p>Even more disruptive, digital identity itself becomes shakier. If someone can forge signatures or impersonate keyholders, then trust in updates, transactions, and authentication begins to erode.</p>
+
+
+
+<p>That means the issue is not just confidentiality. It is also <strong>authenticity</strong>.</p>
+
+
+
+<p>If a wallet moves ancient coins, was it the rightful owner or a quantum attacker? If a phone prompts a critical update, is it really the platform vendor or a malicious impersonator? If infrastructure receives a signed instruction, can it still trust the signature?</p>
+
+
+
+<p>This is where the danger stops sounding theoretical and starts sounding operational.</p>
+
+
+
+<h2 id="who-is-most-exposed">Who is most exposed?</h2>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> readers in IT, operations, and business leadership should think about exposure in layers.</p>
+
+
+
+<h3 class="wp-block-heading">Governments and intelligence services</h3>
+
+
+
+<p>These are obvious high-value targets because they hold classified communications, military systems, diplomatic records, and long-term archives.</p>
+
+
+
+<h3 class="wp-block-heading">Banks and financial infrastructure</h3>
+
+
+
+<p>Payment systems, interbank communication, digital signing, transaction validation, and secure identity workflows all rely heavily on cryptography.</p>
+
+
+
+<h3 class="wp-block-heading">Large technology platforms</h3>
+
+
+
+<p>Browsers, cloud providers, account systems, mobile operating systems, certificates, software updates, and APIs all sit in the line of fire.</p>
+
+
+
+<h3 class="wp-block-heading">Critical infrastructure</h3>
+
+
+
+<p>Power systems, satellite links, health records, and industrial platforms often have long lifecycles, slow upgrade paths, and serious consequences if trust breaks.</p>
+
+
+
+<h3 class="wp-block-heading">Crypto and blockchains</h3>
+
+
+
+<p>This is where the conversation gets the most public attention, because the risk is easy to picture. A wallet controlled by a vulnerable key could be impersonated. Dormant funds could become accessible to attackers. The problem is visible, dramatic, and politically messy.</p>
+
+
+
+<h2 id="why-bitcoin-and-ethereum-face-different-kinds-of-pain">Why Bitcoin and Ethereum face different kinds of pain</h2>
+
+
+
+<p>Not all blockchains are exposed in the same way.</p>
+
+
+
+<h3 class="wp-block-heading">Bitcoin</h3>
+
+
+
+<p>Bitcoin’s architecture means not every address exposes its public key immediately. In some cases, the key becomes visible when coins are spent. That nuance matters.</p>
+
+
+
+<p>But it does not eliminate the issue. Old wallets, abandoned holdings, and famous dormant addresses could become prime targets if their keys are exposed or derivable under future quantum conditions. That includes legendary untouched wallets that the market has long treated as frozen in amber.</p>
+
+
+
+<p>The governance problem is brutal. If vulnerable coins can be stolen by future attackers, should the network intervene? But if someone intervenes, does that violate the immutability that gave the system legitimacy in the first place?</p>
+
+
+
+<h3 class="wp-block-heading">Ethereum</h3>
+
+
+
+<p>Ethereum may have more flexibility because it has a more active governance culture and an ecosystem used to coordinated technical change. That does not make migration easy. It just means the chain may be somewhat more adaptable.</p>
+
+
+
+<p>Still, post-quantum migration in a live ecosystem full of smart contracts, assets, applications, and dependencies is a massive undertaking. There is no painless switch.</p>
+
+
+
+<p>So the real blockchain question becomes:</p>
+
+
+
+<p><strong>Who gets to change the locks when the old locks are no longer safe?</strong></p>
+
+
+
+<p>That is not only a technical question. It is a governance and legitimacy question.</p>
+
+
+
+<h2 id="google-and-cloudflare-are-acting-like-2029-is-real">Google and Cloudflare are acting like 2029 is real</h2>
+
+
+
+<p>This is one of the clearest signals in the whole story.</p>
+
+
+
+<p>Major infrastructure players are not behaving as though post-quantum migration is some distant problem for the 2040s. They are working against a <strong>2029 timeline</strong>.</p>
+
+
+
+<p>Google has publicly accelerated its security timeline and is targeting migration of internal infrastructure to post-quantum cryptography by 2029. The stated reason is straightforward: progress in quantum computing appears faster than expected, and the resources required to break current systems may be lower than previously estimated.</p>
+
+
+
+<p>That should get everyone’s attention.</p>
+
+
+
+<p>If one of the companies leading in both AI and quantum thinks 2029 is the right planning horizon, the rest of the market cannot afford to act like this is a mid-century concern.</p>
+
+
+
+<p>Cloudflare is also highly relevant here because it sits in front of a large share of internet traffic. It too is targeting full quantum security on a similar timeline.</p>
+
+
+
+<p>So this is no longer just a research conversation. It is an infrastructure migration conversation.</p>
+
+
+
+<h2 id="why-this-is-also-an-ai-story">Why this is also an AI story</h2>
+
+
+
+<p>At first glance, quantum risk and AI risk look like separate topics. They are not.</p>
+
+
+
+<p>One of the biggest bottlenecks in quantum computing has been error correction. Qubits are fragile. Noise and instability make long, reliable computation extremely difficult. Building a useful quantum computer is not just about adding more qubits. It is about making them reliable enough to matter.</p>
+
+
+
+<p>AI is now helping push on that exact problem.</p>
+
+
+
+<p>Google DeepMind developed an AI-based decoder called <strong>AlphaQubit</strong> designed to identify and correct quantum errors with state-of-the-art accuracy. That matters because improved error correction is one of the keys to scaling quantum systems into something truly dangerous to current cryptography.</p>
+
+
+
+<p>So yes, this is absolutely an AI story.</p>
+
+
+
+<p>AI is not just generating images, answering questions, or writing code. It is helping solve hard scientific bottlenecks that can reshape computing itself. And when that happens, the downstream impact reaches into banking, national security, mobile ecosystems, software supply chains, and digital assets.</p>
+
+
+
+<p>That is why <strong>Canadian Technology Magazine</strong> should treat this as a front-page technology transition, not a niche lab curiosity.</p>
+
+
+
+<h2 id="the-uncomfortable-race-logic-behind-all-of-this">The uncomfortable race logic behind all of this</h2>
+
+
+
+<p>There is another piece here that feels familiar, especially if you have been following AI.</p>
+
+
+
+<p>The logic goes something like this: if a dangerous capability is going to exist, better that “our side” gets there first and in the open than that a rival state or intelligence service develops it secretly.</p>
+
+
+
+<p>That argument now appears in both AI and quantum.</p>
+
+
+
+<p>And just like with AI, it is suspiciously convenient for the organizations doing the racing.</p>
+
+
+
+<p>No one wants to be the lab that voluntarily slows down while competitors keep going. So the race continues. Security teams are told to adapt. Everyone else is told there has been plenty of warning.</p>
+
+
+
+<p>That may be true. It may also be a terrible way to manage civilization-scale infrastructure risk.</p>
+
+
+
+<h2 id="what-businesses-and-it-teams-should-take-from-this">What businesses and IT teams should take from this</h2>
+
+
+
+<p>For practical purposes, the takeaway is not “panic.” The takeaway is <strong>inventory, assess, and migrate</strong>.</p>
+
+
+
+<p>For organizations that rely on managed IT, cloud services, authentication systems, backups, and secure communications, this is exactly the type of transition that cannot be solved overnight. Businesses need reliable support, clear planning, and providers who understand that cybersecurity is not just about malware anymore. It is also about cryptographic resilience.</p>
+
+
+
+<p>Priority areas include:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Cryptographic inventory</strong>: know where public key cryptography is used across systems, apps, certificates, devices, and vendors.</li>
+
+
+
+<li><strong>Vendor readiness</strong>: ask cloud, security, and platform providers about post-quantum migration plans.</li>
+
+
+
+<li><strong>Long-life data protection</strong>: identify sensitive data that must remain secure for many years.</li>
+
+
+
+<li><strong>Software signing and updates</strong>: review how devices and applications verify authenticity.</li>
+
+
+
+<li><strong>Identity systems</strong>: assess exposure in account security, API authentication, and access controls.</li>
+
+
+
+<li><strong>Business continuity planning</strong>: treat quantum migration as part of resilience, not a standalone science project.</li>
+</ul>
+
+
+
+<p>This is where the concerns of a publication like <strong>Canadian Technology Magazine</strong> overlap with the needs of real businesses. Companies do not need sci-fi speculation. They need practical answers about backups, secure infrastructure, trustworthy vendors, and managed transitions when foundational technology shifts under their feet.</p>
+
+
+
+<h2 id="crypto-is-not-dead-but-the-old-assumptions-might-be">Crypto is not dead, but the old assumptions might be</h2>
+
+
+
+<p>The dramatic version of this story is “AI just killed crypto.” That makes for a good headline, but it is not quite right.</p>
+
+
+
+<p>What is dying, if this timeline holds, is the idea that existing cryptographic assumptions can coast indefinitely. Crypto assets are part of that. So are software ecosystems, cloud identity, and secure internet communications more broadly.</p>
+
+
+
+<p>The challenge is not that quantum destroys everything equally. The challenge is that it destroys confidence in systems that were built around problems being hard. If the hard problems stop being hard, the systems have to change.</p>
+
+
+
+<p>And they have to change before the break arrives, not after.</p>
+
+
+
+<h2 id="final-thought">Final thought</h2>
+
+
+
+<p>For decades, the quantum threat to cryptography lived in the category of “important, but later.” The mood now is very different. The people closest to the field are sounding less like theorists and more like fire alarms.</p>
+
+
+
+<p>If 2029 really is the right horizon, then this decade is not about debating whether post-quantum cryptography matters. It is about how quickly institutions can migrate without breaking trust in the systems they depend on.</p>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> will likely be covering this topic a lot more, because it touches almost everything: AI progress, cloud security, national defence, crypto, mobile platforms, software integrity, and business IT readiness.</p>
+
+
+
+<p>Interesting times, as they say. Depending on your threat model, that phrase can sound either like a blessing or a curse.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">What is post-quantum cryptography?</h3>
+
+
+
+<p>Post-quantum cryptography, often shortened to PQC, refers to cryptographic methods designed to remain secure even against powerful quantum computers. The goal is to replace or supplement current public key systems that may become vulnerable to quantum attacks.</p>
+
+
+
+<h3 class="wp-block-heading">Does quantum computing break all encryption?</h3>
+
+
+
+<p>No. The concern is mainly focused on certain public key cryptography systems that rely on mathematical problems vulnerable to algorithms such as Shor’s. Some other forms of encryption are more resilient, but the systems most important to identity and trust online are heavily exposed.</p>
+
+
+
+<h3 class="wp-block-heading">Why is 2029 being mentioned so often?</h3>
+
+
+
+<p>Because major infrastructure players and credible experts appear to be using that timeframe for post-quantum migration planning. The concern is that progress in quantum hardware and error correction may be happening faster than many expected.</p>
+
+
+
+<h3 class="wp-block-heading">Why are cryptocurrencies especially sensitive to this issue?</h3>
+
+
+
+<p>Many blockchain systems rely on cryptographic schemes that could become vulnerable to future quantum attacks. If a private key can be derived or impersonated, funds may be moved without the rightful owner’s consent. Dormant wallets and old exposed keys are a major concern.</p>
+
+
+
+<h3 class="wp-block-heading">Why is this considered an AI story too?</h3>
+
+
+
+<p>AI is helping tackle one of the hardest problems in quantum computing: error correction. Better AI-driven methods for identifying and correcting qubit errors could accelerate the arrival of practical quantum systems, which in turn speeds up the cryptographic threat.</p>
+
+
+
+<h3 class="wp-block-heading">What should businesses do right now?</h3>
+
+
+
+<p>Start with a cryptographic inventory, ask vendors about their PQC timelines, identify data that must remain secure for years, and treat post-quantum readiness as part of broader cybersecurity and IT planning. The organizations that wait for certainty may end up moving too late.</p>

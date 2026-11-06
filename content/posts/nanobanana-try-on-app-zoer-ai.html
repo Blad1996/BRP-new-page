@@ -1,0 +1,741 @@
+<p>If you want to build an AI app without writing a single line of glue code, ZOER AI is one of the most powerful tools I've used. In this walkthrough I show exactly how I built a NanoBanana-powered AI outfit try-on generator in minutes, complete with user authentication, a database, Stripe payments, a co-pilot, and a public marketplace listing. Keywords you should know from the start: ZOER AI, NanoBanana, AI image generator, no-code app builder, Stripe integration, AI app monetization.</p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#why-zoer-ai-changes-how-you-build-ai-apps">Why ZOER AI Changes How You Build AI Apps</a></li>
+
+
+
+<li><a href="#high-level-overview:-what-i-built">High-level Overview: What I Built</a></li>
+
+
+
+<li><a href="#step-by-step:-how-i-built-the-app-in-minutes">Step-by-Step: How I Built the App in Minutes</a></li>
+
+
+
+<li><a href="#why-database-first-matters">Why Database-First Matters</a></li>
+
+
+
+<li><a href="#detailed-stripe-setup:-step-by-step">Detailed Stripe Setup: Step-by-Step</a></li>
+
+
+
+<li><a href="#previewing-and-using-the-app">Previewing and Using the App</a></li>
+
+
+
+<li><a href="#the-co-pilot:-an-ai-assistant-inside-your-app">The Co-pilot: An AI Assistant Inside Your App</a></li>
+
+
+
+<li><a href="#iterating-the-app-with-natural-language">Iterating the App with Natural Language</a></li>
+
+
+
+<li><a href="#publishing-and-monetizing-on-the-zoer-marketplace">Publishing and Monetizing on the ZOER Marketplace</a></li>
+
+
+
+<li><a href="#versioning-and-restore-points">Versioning and Restore Points</a></li>
+
+
+
+<li><a href="#design,-ux,-and-accessibility-considerations">Design, UX, and Accessibility Considerations</a></li>
+
+
+
+<li><a href="#security-and-data-privacy">Security and Data Privacy</a></li>
+
+
+
+<li><a href="#costs,-credits,-and-pricing-strategies">Costs, Credits, and Pricing Strategies</a></li>
+
+
+
+<li><a href="#time-breakdown:-how-long-it-really-took">Time Breakdown: How Long It Really Took</a></li>
+
+
+
+<li><a href="#troubleshooting:-common-issues-and-how-to-fix-them">Troubleshooting: Common Issues and How to Fix Them</a></li>
+
+
+
+<li><a href="#advanced-tips-to-get-more-from-zoer">Advanced Tips to Get More from ZOER</a></li>
+
+
+
+<li><a href="#suggested-media-and-alt-text">Suggested Media and Alt Text</a></li>
+
+
+
+<li><a href="#meta-description-and-tags">Meta Description and Tags</a></li>
+
+
+
+<li><a href="#final-thoughts-and-call-to-action">Final Thoughts and Call to Action</a></li>
+
+
+
+<li><a href="#what-is-zoer-ai-and-how-is-it-different-from-other-no-code-builders?">What is ZOER AI and how is it different from other no-code builders?</a></li>
+
+
+
+<li><a href="#do-i-need-to-know-how-to-code-to-use-zoer-ai?">Do I need to know how to code to use ZOER AI?</a></li>
+
+
+
+<li><a href="#which-ai-models-can-i-use-with-zoer?">Which AI models can I use with ZOER?</a></li>
+
+
+
+<li><a href="#how-do-credits-and-payments-work-in-a-zoer-built-app?">How do credits and payments work in a ZOER-built app?</a></li>
+
+
+
+<li><a href="#how-do-i-set-up-stripe-webhooks-for-my-zoer-app?">How do I set up Stripe webhooks for my ZOER app?</a></li>
+
+
+
+<li><a href="#can-i-sell-my-app-on-zoer’s-marketplace?">Can I sell my app on ZOER’s marketplace?</a></li>
+
+
+
+<li><a href="#is-the-generated-code-editable?">Is the generated code editable?</a></li>
+
+
+
+<li><a href="#what-should-i-watch-out-for-when-using-user-photos-in-an-ai-app?">What should I watch out for when using user photos in an AI app?</a></li>
+</ul>
+
+
+
+<h2 id="why-zoer-ai-changes-how-you-build-ai-apps">Why ZOER AI Changes How You Build AI Apps</h2>
+
+
+
+<p>Traditional app development requires wiring together many pieces: hosting, databases, authentication, payment processors, frontend, backend, and the AI APIs themselves. ZOER AI combines those components and automates the orchestration. What used to be a multi-tool, multi-step project becomes a single prompt, a short setup for API keys, and a build button. That means you can go from idea to a live, monetizable app in a matter of minutes.</p>
+
+
+
+<p>What impressed me most is that ZOER AI does more than generate code. It plans the system architecture, generates the UI and UX, configures the database, wires up third-party integrations like Stripe, and even provides a co-pilot that can operate and explain the app to users. It also includes a marketplace where you can publish and sell your app directly, which is a rare and powerful feature for an AI app builder.</p>
+
+
+
+<h2 id="high-level-overview:-what-i-built">High-level Overview: What I Built</h2>
+
+
+
+<ul class="wp-block-list">
+<li>An AI outfit try-on generator powered by the NanoBanana image model.</li>
+
+
+
+<li>User authentication and account management so people can sign up and track credits.</li>
+
+
+
+<li>A media upload area for user photos and clothing assets (wardrobe and catalog).</li>
+
+
+
+<li>Integration with Stripe for payments and credit purchasing.</li>
+
+
+
+<li>An admin-friendly database and code base that ZOER generates automatically.</li>
+
+
+
+<li>A co-pilot assistant embedded into the app to help users and manage operations.</li>
+
+
+
+<li>A marketplace listing so I can sell the app or offer access to others.</li>
+</ul>
+
+
+
+<h2 id="step-by-step:-how-i-built-the-app-in-minutes">Step-by-Step: How I Built the App in Minutes</h2>
+
+
+
+<p>The entire process can be broken into a few clear steps. Below I walk you through each one with examples and practical tips so you can replicate this exact workflow.</p>
+
+
+
+<h3 class="wp-block-heading">Step 1: Draft a Clear Prompt</h3>
+
+
+
+<p>Start by describing your app in plain language. The quality of this prompt matters because ZOER uses it to design pages, database schemas, integrations, and UX flows. My initial prompt looked like this:</p>
+
+
+
+<p><strong>Create a web application that functions as an AI outfit try-on generator. The app must include user authentication so people can sign up. Once logged in, users can upload a photo of themselves, upload clothing images, and use the integrated NanoBanana AI model to generate realistic try-on images. Implement Stripe for credit purchases and payments. Provide a wardrobe and catalog feature, and add a co-pilot assistant to help users interact with the app.</strong></p>
+
+
+
+<p>That single prompt was enough to kick off the entire build. ZOER also offers an enhance prompt feature that expands and refines your initial prompt into a richer, production-ready specification including pages, permissions, and expected interactions.</p>
+
+
+
+<h3 class="wp-block-heading">Step 2: Use the Enhance Prompt Feature</h3>
+
+
+
+<p>If your initial prompt is short or you want a more detailed specification, click the enhance prompt tool. ZOER rewrites the prompt into a long-form feature list, describing pages, components, navigation, and permission models. The enhanced prompt often contains more detail than you might originally think to include, such as typography, color palette suggestions, and interaction patterns.</p>
+
+
+
+<p>Example: the enhanced prompt for my app included:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Landing page with pricing and testimonial sections.</li>
+
+
+
+<li>Signup and login pages with email verification.</li>
+
+
+
+<li>User dashboard with credit balance, upload buttons, and history.</li>
+
+
+
+<li>Admin views for managing catalogs and user activity.</li>
+
+
+
+<li>API integration plan that includes NanoBanana as the image model and Stripe for payments.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Step 3: Turn on Integrations and Provide API Keys</h3>
+
+
+
+<p>ZOER exposes a set of integrations. For my try-on generator I enabled everything I needed: the NanoBanana model, Stripe for payments, and the database and hosting components that ZOER provisions. The step requires adding your API keys into the ZOER dashboard. Here are the keys you’ll typically need:</p>
+
+
+
+<ul class="wp-block-list">
+<li>NanoBanana API key (or the AI model key you plan to use)</li>
+
+
+
+<li>Stripe publishable key</li>
+
+
+
+<li>Stripe secret key</li>
+
+
+
+<li>Stripe webhook signing secret</li>
+
+
+
+<li>Any other third-party services you prefer, for example image CDN keys or analytics</li>
+</ul>
+
+
+
+<p>Make sure to keep your keys secret. ZOER provides specific input fields for each key so you do not need to paste them into code files.</p>
+
+
+
+<h3 class="wp-block-heading">Step 4: Click Build and Watch ZOER Assemble the App</h3>
+
+
+
+<p>Hit the build button and ZOER begins creating the app. What happens during the build is worth noting because it explains why ZOER is so fast and reliable:</p>
+
+
+
+<ul class="wp-block-list">
+<li>System design creation: ZOER outlines core features, navigation, permission flows, and key design decisions based on the prompt.</li>
+
+
+
+<li>Database-first approach: ZOER builds the database schema before generating the UI, preventing plumbing issues later.</li>
+
+
+
+<li>Code generation: Frontend and backend code are created and wired to the chosen integrations.</li>
+
+
+
+<li>Design generation: ZOER proposes typography, color palettes, and layout—these are editable.</li>
+
+
+
+<li>Cost and usage estimate: ZOER provides projected costs for AI generations and hosting.</li>
+</ul>
+
+
+
+<p>The build process shows a generation history, what has been created, and the resource usage so you can inspect everything as it is produced.</p>
+
+
+
+<h2 id="why-database-first-matters">Why Database-First Matters</h2>
+
+
+
+<p>Most no-code and low-code tools build the UI and then let you add the database. ZOER flips that by building the underlying data model first. Think about building a house: you install plumbing and wiring before finishing floors and walls. The database-first approach avoids messy refactors and ensures the data model, permissions, and relations are correct from day one. That results in fewer edge-case bugs and a more maintainable app.</p>
+
+
+
+<h2 id="detailed-stripe-setup:-step-by-step">Detailed Stripe Setup: Step-by-Step</h2>
+
+
+
+<p>Stripe is critical if you want to monetize. ZOER integrates with Stripe and requires three keys to be fully functional. Here’s exactly what you need to do in your Stripe dashboard and in ZOER to get payments working.</p>
+
+
+
+<ol class="wp-block-list">
+<li>Open your Stripe dashboard and go to Developers > API keys. Copy the publishable key and the secret key.</li>
+
+
+
+<li>In ZOER, paste the publishable key and secret key in the Stripe integration fields.</li>
+
+
+
+<li>Back in Stripe, go to Developers > Webhooks and click Add an endpoint. Paste the endpoint URL ZOER provides at the prompt. This connects Stripe events to your ZOER app.</li>
+
+
+
+<li>When adding the webhook in Stripe, select all events or the specific events you want to receive. Selecting all events is fine for initial testing.</li>
+
+
+
+<li>Back in Stripe, after the endpoint is created, click the endpoint to reveal the signing secret. Click Reveal and copy the value.</li>
+
+
+
+<li>Paste the webhook signing secret into the ZOER Stripe webhook secret field.</li>
+
+
+
+<li>Use ZOER’s test utilities to run a payment flow and verify a successful transaction. ZOER provides a built-in testing area to input test card numbers and seeing the result reflected in the app.</li>
+</ol>
+
+
+
+<p>If you ever get stuck, ZOER includes “how to configure” help within the Stripe integration settings. The platform also displays example requests and webhook payloads so you can align any custom logic you build later on.</p>
+
+
+
+<h2 id="previewing-and-using-the-app">Previewing and Using the App</h2>
+
+
+
+<p>Once the app is built, click Preview to open the live app in a new window. The preview allows you to sign up, test authentication flows, and run the AI generation pipeline. For the try-on generator I created a test account and received three initial credits — credits are the internal currency that gate generating new images if you choose to monetize.</p>
+
+
+
+<p>The user workflow in the try-on app is straightforward:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Create an account and log in.</li>
+
+
+
+<li>Upload a model or your own photo.</li>
+
+
+
+<li>Upload clothing images to the wardrobe or the catalog.</li>
+
+
+
+<li>Choose an aspect ratio and generation settings.</li>
+
+
+
+<li>Click Generate. NanoBanana produces a realistic try-on image and stores it in user history and the database.</li>
+</ul>
+
+
+
+<p>In my test I uploaded a model photo and an image of a Gucci brown jacket, selected a 3:2 aspect ratio, and clicked Generate. NanoBanana returned a realistic try-on with a tasteful extra flair effect that I found visually appealing. Each generation reduced one credit from the account, demonstrating how ZOER integrates charging for usage.</p>
+
+
+
+<h2 id="the-co-pilot:-an-ai-assistant-inside-your-app">The Co-pilot: An AI Assistant Inside Your App</h2>
+
+
+
+<p>One of the features I liked most is the co-pilot—an AI assistant embedded in the app. It serves two important roles:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Operational and administrative tasks for creators. You can query your database, pull analytics, and manage content via natural language rather than SQL or dashboards.</li>
+
+
+
+<li>Customer-facing help. Users can ask how to use the app, troubleshoot problems, or get help understanding pricing and credits.</li>
+</ul>
+
+
+
+<p>The co-pilot improves usability and reduces support load. For example, users can ask how many credits they have, how to upload clothing, or what a particular feature does, and the co-pilot replies in natural language, often with links to pages or actions embedded in the app UI.</p>
+
+
+
+<h2 id="iterating-the-app-with-natural-language">Iterating the App with Natural Language</h2>
+
+
+
+<p>Want a landing page, testimonials, or a pricing table? You do not need to open a code editor. ZOER allows you to tell it what to add or change using plain English.</p>
+
+
+
+<p>Example instruction I used to add a landing page:</p>
+
+
+
+<p><strong>Please build out a landing page with a button to click so that users can sign up. This page needs to sell the app and include pricing, testimonials, and a call to action that says Sign up now.</strong></p>
+
+
+
+<p>After submitting that instruction, ZOER generated a landing page with a free trial offer (three credits), a pricing section, testimonials, and a clear signup button. It even populated sample testimonials and stats like number of outfits tried and satisfaction metrics, which you can edit later.</p>
+
+
+
+<h2 id="publishing-and-monetizing-on-the-zoer-marketplace">Publishing and Monetizing on the ZOER Marketplace</h2>
+
+
+
+<p>Rather than building the app and then trying to find customers, ZOER gives you an integrated marketplace. Once your app is public, you can set a price and publish it directly in the ZOER marketplace where other users can discover and buy it.</p>
+
+
+
+<p>Key marketplace features:</p>
+
+
+
+<ul class="wp-block-list">
+<li>List your app and set a price — you can sell access or the entire product to other creators.</li>
+
+
+
+<li>Marketplace ranking and visibility so well-built apps can get discovered organically.</li>
+
+
+
+<li>Built-in Stripe payment flows so buyers pay directly and you receive revenue.</li>
+
+
+
+<li>Version history and restore points so buyers can see how the app has evolved and revert if needed.</li>
+</ul>
+
+
+
+<p>When I listed the app, I could set it to public, pick a price, and then watch as the listing became discoverable in the marketplace alongside other AI tools. This approach turns ZOER into not just a building platform but a commercialization platform too.</p>
+
+
+
+<h2 id="versioning-and-restore-points">Versioning and Restore Points</h2>
+
+
+
+<p>ZOER tracks every major change you make. The platform provides a timeline of versions so you can preview or restore any previous state. This is especially useful when experimenting with different landing page variants, feature toggles, or pricing models. If a change causes issues you can revert quickly without code-level rollbacks.</p>
+
+
+
+<h2 id="design,-ux,-and-accessibility-considerations">Design, UX, and Accessibility Considerations</h2>
+
+
+
+<p>ZOER automatically suggests typography and color choices, but you should always review them for brand alignment and accessibility. Keep these tips in mind:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Contrast: Verify text contrast meets accessibility standards for readability.</li>
+
+
+
+<li>Responsive layout: Test the app on mobile and desktop preview modes to ensure UI scales properly.</li>
+
+
+
+<li>Image alt text: Provide descriptive alt text for uploaded images so screen readers and SEO benefit from your content. ZOER allows you to edit metadata for images.</li>
+
+
+
+<li>Onboarding: Use the co-pilot to guide first-time users through the features and credit system.</li>
+</ul>
+
+
+
+<h2 id="security-and-data-privacy">Security and Data Privacy</h2>
+
+
+
+<p>If your app handles user photos, personal data, and payment details, you need to plan for privacy and security:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Secure API keys and never expose them in public code or screenshots.</li>
+
+
+
+<li>Use Stripe’s PCI-compliant flows for payments — ZOER integrates with Stripe’s recommended setup.</li>
+
+
+
+<li>Provide a privacy policy and terms of service that explain how images are used and stored.</li>
+
+
+
+<li>Offer opt-out or deletion features so users can remove their data from your database if requested.</li>
+</ul>
+
+
+
+<h2 id="costs,-credits,-and-pricing-strategies">Costs, Credits, and Pricing Strategies</h2>
+
+
+
+<p>Running an AI image generator has recurring costs tied to model usage, storage, and hosting. ZOER provides estimates during the build so you understand projected spending. I recommend the following pricing approach:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Offer a small free trial allotment, such as three credits, so users can try the core feature risk-free.</li>
+
+
+
+<li>Price additional credits at a margin that covers AI generation costs and leaves room for profit. Monitor model usage to adjust pricing.</li>
+
+
+
+<li>Consider subscription tiers for frequent users with included credits.</li>
+
+
+
+<li>Use the marketplace to sell your entire app to other creators or sell access to end customers directly.</li>
+</ul>
+
+
+
+<p>Because ZOER automates a lot of the plumbing, you can iterate quickly on pricing experiments and measure conversion directly.</p>
+
+
+
+<h2 id="time-breakdown:-how-long-it-really-took">Time Breakdown: How Long It Really Took</h2>
+
+
+
+<p>Practical time estimates I experienced:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Drafting the core prompt and enabling integrations: 5 to 10 minutes.</li>
+
+
+
+<li>Providing API keys and initial Stripe setup: 5 to 15 minutes depending on familiarity with Stripe.</li>
+
+
+
+<li>Build process and initial provisioning: several minutes while ZOER compiles code and configures the database.</li>
+
+
+
+<li>First preview, testing a few generations, and minor UI tweaks: 10 to 30 minutes.</li>
+</ul>
+
+
+
+<p>All told, from idea to a functioning preview with image generations and payments enabled, you can be live in under an hour. For simple apps, it can truly be just minutes.</p>
+
+
+
+<h2 id="troubleshooting:-common-issues-and-how-to-fix-them">Troubleshooting: Common Issues and How to Fix Them</h2>
+
+
+
+<p>Here are common stumbling blocks and how to resolve them quickly:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Stripe webhook failing: Ensure the webhook endpoint is copied exactly and the signing secret is pasted into ZOER correctly.</li>
+
+
+
+<li>API key errors for AI models: Double-check you used the right environment keys (test versus production) and that the model has quota.</li>
+
+
+
+<li>Image uploads failing: Check file size limits and supported formats. Use an image CDN if heavy traffic is expected.</li>
+
+
+
+<li>Database schema issues: Because ZOER is database-first, most schema issues are preempted. If you need custom fields, add them via the ZOER database editor and re-run a preview to validate changes.</li>
+</ul>
+
+
+
+<h2 id="advanced-tips-to-get-more-from-zoer">Advanced Tips to Get More from ZOER</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Design assets: Upload brand assets and mockups so ZOER can generate UI consistent with your identity.</li>
+
+
+
+<li>Automation: Use the co-pilot to automate operational tasks like clearing a user account or running batch jobs.</li>
+
+
+
+<li>Testing: Use Stripe test mode and ZOER’s preview to simulate many user flows before switching to production.</li>
+
+
+
+<li>Monitoring: Keep an eye on AI generation costs and model latency to optimize the user experience and pricing.</li>
+</ul>
+
+
+
+<h2 id="suggested-media-and-alt-text">Suggested Media and Alt Text</h2>
+
+
+
+<p>When adding images or promotional media to your website, consider including these assets for improved conversion and SEO:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Hero screenshot of the try-on result with alt text: AI try-on example showing a model wearing a brown jacket generated by NanoBanana.</li>
+
+
+
+<li>Step-by-step demo GIF with alt text: Demo of uploading a user photo, selecting clothing, and generating an outfit preview.</li>
+
+
+
+<li>Pricing card visual with alt text: Pricing tiers and included credits for the AI try-on service.</li>
+</ul>
+
+
+
+<h2 id="meta-description-and-tags">Meta Description and Tags</h2>
+
+
+
+<p>Meta description (150-160 characters): Build and monetize an AI outfit try-on app fast with ZOER AI and NanoBanana. Learn how to set up Stripe, co-pilot, database, and marketplace.</p>
+
+
+
+<p>Suggested tags and categories: ZOER AI, NanoBanana, AI image generator, no-code, app monetization, Stripe integration, co-pilot, AI marketplace.</p>
+
+
+
+<h2 id="final-thoughts-and-call-to-action">Final Thoughts and Call to Action</h2>
+
+
+
+<p>ZOER AI is a game changer if you want to build AI-powered apps quickly and monetize them without stitching together multiple services. The platform’s database-first approach, built-in AI integrations, co-pilot assistant, and a marketplace for selling apps make it uniquely suited for creators who want production-ready apps with minimal friction.</p>
+
+
+
+<p>If you want to try it yourself, visit Zoer.ai and start with a simple prompt: describe the app you want and enable the integrations you need. Use the enhance prompt feature if you want a richer specification instantly. For a try-on generator, include NanoBanana as the model and set up Stripe for payments. You can be live in minutes.</p>
+
+
+
+<p>Want help designing a prompt or deciding on pricing? Leave a comment with your app idea and I’ll suggest a prompt and a monetization plan.</p>
+
+
+
+<h2 id="what-is-zoer-ai-and-how-is-it-different-from-other-no-code-builders?">What is ZOER AI and how is it different from other no-code builders?</h2>
+
+
+
+<p>ZOER AI is an AI-first app builder that generates full-stack applications from natural language prompts. Unlike many no-code builders that focus on UI first, ZOER builds the database and system architecture first, then generates frontend and backend code, integrates third-party services, and provides a marketplace to sell apps. It also includes a co-pilot to help operate and explain the app, which other platforms often lack.</p>
+
+
+
+<h2 id="do-i-need-to-know-how-to-code-to-use-zoer-ai?">Do I need to know how to code to use ZOER AI?</h2>
+
+
+
+<p>No. ZOER AI is designed for creators who do not want to write code. You provide a natural language prompt and API keys for integrations, then ZOER handles the code generation, database configuration, hosting, and wiring of services. Advanced users can still inspect and modify the generated code if desired.</p>
+
+
+
+<h2 id="which-ai-models-can-i-use-with-zoer?">Which AI models can I use with ZOER?</h2>
+
+
+
+<p>ZOER supports various AI models, and in this walkthrough I used the NanoBanana model for image generation. You can typically select from supported models in the integrations section and provide the required API key for the model you choose.</p>
+
+
+
+<h2 id="how-do-credits-and-payments-work-in-a-zoer-built-app?">How do credits and payments work in a ZOER-built app?</h2>
+
+
+
+<p>Credits are an internal currency you can define to gate AI generations or premium features. ZOER integrates with Stripe so users can purchase credits directly through your app. You configure pricing and Stripe handles the payment processing, with events forwarded to your app via webhooks for fulfillment.</p>
+
+
+
+<h2 id="how-do-i-set-up-stripe-webhooks-for-my-zoer-app?">How do I set up Stripe webhooks for my ZOER app?</h2>
+
+
+
+<p>In the Stripe dashboard go to Developers &gt; Webhooks and create a new endpoint using the URL ZOER provides. Select the events you want (select all for testing). Then copy the signing secret from the webhook and paste it into ZOER’s webhook secret field. This ensures Stripe events such as successful payments are communicated back to your app.</p>
+
+
+
+<h2 id="can-i-sell-my-app-on-zoer’s-marketplace?">Can I sell my app on ZOER’s marketplace?</h2>
+
+
+
+<p>Yes. ZOER includes a marketplace where you can publish and sell your app. Set your app visibility to public, set a price, and it will appear in the marketplace. Buyers can purchase and deploy your app or access it depending on how you structure the offer.</p>
+
+
+
+<h2 id="is-the-generated-code-editable?">Is the generated code editable?</h2>
+
+
+
+<p>Yes. ZOER provides access to the generated code and database schema. If you prefer to customize or extend the application beyond what the platform offers in natural language edits, you can inspect and modify the code base.</p>
+
+
+
+<h2 id="what-should-i-watch-out-for-when-using-user-photos-in-an-ai-app?">What should I watch out for when using user photos in an AI app?</h2>
+
+
+
+<p>Handle user photos with care. Provide clear privacy terms, ensure secure storage, and allow users to delete their images. Be mindful of model safety and bias issues when generating images and ensure you have the rights and consent for any third-party clothing images you display.</p>
+
+
+
+<h3 class="wp-block-heading">Try It Yourself</h3>
+
+
+
+<p>If this guide helped spark an idea, try building your app by going to Zoer.ai and entering a short prompt that describes what you want. Use the enhance prompt feature to expand it into a full specification. If you want, use the prompt I used for the outfit try-on generator as a starting point and swap in your own AI model or brand details. Good luck building — I can’t wait to see what you create.</p>

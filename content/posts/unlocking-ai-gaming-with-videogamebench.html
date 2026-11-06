@@ -1,0 +1,485 @@
+<p>Welcome to the future of gaming with AI! In this guide, we'll explore how to set up VideoGameBench, allowing your favorite large language models to play classic MS DOS games. Whether you're a seasoned coder or a curious beginner, you'll find that installing and running this innovative tool is easier than you think.</p>
+
+
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="#🎮-videogamebench">🎮 VideoGameBench</a></li>
+
+
+
+<li><a href="#🤖-join-my-subreddit">🤖 Join My Subreddit</a></li>
+
+
+
+<li><a href="#📦-conda-environments">📦 Conda Environments</a></li>
+
+
+
+<li><a href="#🔧-installing-videogamebench">🔧 Installing VideoGameBench</a></li>
+
+
+
+<li><a href="#🎮-gameboy-emulator">🎮 Gameboy Emulator</a></li>
+
+
+
+<li><a href="#⚙️-options-and-arguments">⚙️ Options and Arguments</a></li>
+
+
+
+<li><a href="#🎮-running-doom-2">🎮 Running Doom 2</a></li>
+
+
+
+<li><a href="#🕹️-other-games">🕹️ Other Games</a></li>
+
+
+
+<li><a href="#📜-logs-and-other-options">📜 Logs and Other Options</a></li>
+
+
+
+<li><a href="#🐾-pokemon-red">🐾 Pokemon Red</a></li>
+
+
+
+<li><a href="#❓-faq">❓ FAQ</a></li>
+</ul>
+
+
+
+<h2 id="🎮-videogamebench">🎮 VideoGameBench</h2>
+
+
+
+<p>VideoGameBench is an innovative platform that allows you to leverage large language models (LLMs) to play classic MS DOS games. This isn't just about nostalgia; it's about merging AI with gaming in a way that brings new life to these beloved titles. Imagine your favorite retro games being played by AI that can analyze and react to the environment in real time. The potential here is enormous for both entertainment and research.</p>
+
+
+
+<h3 class="wp-block-heading">Why VideoGameBench Stands Out</h3>
+
+
+
+<p>What sets VideoGameBench apart is its accessibility. Unlike many AI projects that are confined to Linux or macOS, this tool runs seamlessly on Windows, making it available to a broader audience. You don’t need to be a hardcore developer to dive in; even beginners can find success with the provided guides.</p>
+
+
+
+<h3 class="wp-block-heading">Supported Games</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Pokemon Red</li>
+
+
+
+<li>Doom</li>
+
+
+
+<li>Doom II</li>
+
+
+
+<li>Quake</li>
+
+
+
+<li>Civilization</li>
+
+
+
+<li>Warcraft II</li>
+
+
+
+<li>XCOM</li>
+
+
+
+<li>Need for Speed</li>
+</ul>
+
+
+
+<p>These games are just the tip of the iceberg. The list continues to grow as more enthusiasts contribute to the project. Each game presents unique challenges and opportunities for the AI, making it a versatile tool for both fun and experimentation.</p>
+
+
+
+<h2 id="🤖-join-my-subreddit">🤖 Join My Subreddit</h2>
+
+
+
+<p>If you're as excited about VideoGameBench as I am, I invite you to join my subreddit, AI Guild. This community is dedicated to sharing experiences, troubleshooting issues, and showcasing AI-driven gaming adventures. Whether you're a veteran coder or just getting started, your insights and questions are welcome.</p>
+
+
+
+<h3 class="wp-block-heading">What to Expect</h3>
+
+
+
+<p>In the AI Guild subreddit, you can expect:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Step-by-step installation guides</li>
+
+
+
+<li>Troubleshooting tips</li>
+
+
+
+<li>Showcase of AI gameplay</li>
+
+
+
+<li>Discussion on AI models and their performance</li>
+</ul>
+
+
+
+<p>Engaging with fellow enthusiasts will not only enhance your understanding but also inspire creativity in how you utilize VideoGameBench. Let’s build a community that thrives on innovation and fun!</p>
+
+
+
+<h2 id="📦-conda-environments">📦 Conda Environments</h2>
+
+
+
+<p>One of the key components of setting up VideoGameBench is the use of Conda environments. Conda, part of the Anaconda distribution, allows you to create isolated environments for your projects. This means you can manage dependencies without affecting other projects on your machine.</p>
+
+
+
+<h3 class="wp-block-heading">Benefits of Using Conda</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Isolation:</strong> Each environment can have its own packages installed, preventing conflicts.</li>
+
+
+
+<li><strong>Reproducibility:</strong> Easily replicate the environment for future use or share it with others.</li>
+
+
+
+<li><strong>Flexibility:</strong> Switch between different versions of packages effortlessly.</li>
+</ul>
+
+
+
+<p>By using Conda, you ensure that your setup for VideoGameBench is clean and organized, allowing for a smoother experience as you dive into the world of AI gaming.</p>
+
+
+
+<h2 id="🔧-installing-videogamebench">🔧 Installing VideoGameBench</h2>
+
+
+
+<p>Ready to get started? Installing VideoGameBench is straightforward, even if you're not an expert. Here’s a step-by-step guide to help you through the process:</p>
+
+
+
+<h3 class="wp-block-heading">Step-by-Step Installation</h3>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Download Anaconda:</strong> Visit the Anaconda website and download the installer for your OS. Choose between the full Anaconda installer or Miniconda for a lighter setup.</li>
+
+
+
+<li><strong>Open PowerShell:</strong> Search for Windows PowerShell in your applications and run it. You may need to run it as an administrator for certain commands.</li>
+
+
+
+<li><strong>Create a Directory:</strong> Use the command <code>mkdir video_game_bench</code> to create a new directory for your project.</li>
+
+
+
+<li><strong>Clone the Repository:</strong> Run <code>git clone [repository_url]</code> to download the necessary files.</li>
+
+
+
+<li><strong>Create the Environment:</strong> Execute <code>conda create --name video_game_bench</code> to set up a new Conda environment.</li>
+
+
+
+<li><strong>Activate the Environment:</strong> Use <code>conda activate video_game_bench</code> to switch to your new environment.</li>
+
+
+
+<li><strong>Install Requirements:</strong> Run <code>pip install -r requirements.txt</code> to install all necessary packages.</li>
+
+
+
+<li><strong>Run Playwright Install:</strong> Complete the setup by executing <code>playwright install</code>.</li>
+</ol>
+
+
+
+<p>Follow these steps, and you’ll be ready to experience the magic of AI gaming in no time!</p>
+
+
+
+<h2 id="🎮-gameboy-emulator">🎮 Gameboy Emulator</h2>
+
+
+
+<p>The Gameboy Emulator is one of the first features you’ll want to try out on VideoGameBench. It allows you to play classic games like Pokemon Red using AI models. The setup is simple, but you’ll need the game ROM file to get started.</p>
+
+
+
+<h3 class="wp-block-heading">Setting Up the Gameboy Emulator</h3>
+
+
+
+<p>To run the Gameboy Emulator, follow these steps:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Acquire the ROM:</strong> Ensure you have a legal copy of Pokemon Red. The ROM file should be named <code>pokemon_red.gb</code>.</li>
+
+
+
+<li><strong>Place the ROM:</strong> Move the ROM file into the <code>roms</code> folder within your VideoGameBench directory.</li>
+
+
+
+<li><strong>Run the Emulator:</strong> Execute the command <code>python main.py --game pokemon_red</code> to start the game with your chosen AI model.</li>
+</ol>
+
+
+
+<p>Enjoy watching the AI navigate the challenges of Pokemon Red, from battles to exploring the world!</p>
+
+
+
+<h2 id="⚙️-options-and-arguments">⚙️ Options and Arguments</h2>
+
+
+
+<p>Understanding the various options and arguments available in VideoGameBench is crucial for tailoring your gaming experience. By passing different arguments, you can modify how the AI interacts with the games.</p>
+
+
+
+<h3 class="wp-block-heading">Common Command-Line Arguments</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>--game:</strong> Specify which game to run. For example, <code>--game doom_ii</code>.</li>
+
+
+
+<li><strong>--model:</strong> Choose the AI model you want to use, such as <code>--model gpt-4.0</code>.</li>
+
+
+
+<li><strong>--api_key:</strong> Input your API key if you're using a model that requires authentication.</li>
+</ul>
+
+
+
+<p>Customizing these arguments allows you to experiment with different models and games, enhancing your overall experience. Take some time to explore what each option does and see how it affects gameplay.</p>
+
+
+
+<h2 id="🎮-running-doom-2">🎮 Running Doom 2</h2>
+
+
+
+<p>Running Doom 2 on VideoGameBench is an exhilarating experience. The AI can engage with the game just like a human player, navigating through the pixelated corridors and battling monsters. To get started, you'll need to ensure your setup is correct and that you're familiar with the command-line arguments.</p>
+
+
+
+<h3 class="wp-block-heading">Step-by-Step Instructions</h3>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Open Your Terminal:</strong> Launch PowerShell or your preferred terminal.</li>
+
+
+
+<li><strong>Activate Your Environment:</strong> Use the command <code>conda activate video_game_bench</code> to ensure you're working in the right environment.</li>
+
+
+
+<li><strong>Run the Game:</strong> Execute the command <code>python main.py --game doom_ii --enable-ui</code>. The <code>--enable-ui</code> argument is crucial; it prevents the game from crashing.</li>
+</ol>
+
+
+
+<p>Once the game loads, the AI will start executing commands based on the visual input it receives. You'll be amazed at how quickly it adjusts to the gameplay!</p>
+
+
+
+<h3 class="wp-block-heading">Tips for Optimal Performance</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Ensure that your system meets the requirements for running both the game and the AI model.</li>
+
+
+
+<li>Monitor the AI’s health and resources; it can make strategic decisions based on this information.</li>
+
+
+
+<li>Experiment with different models to see which performs best in the Doom environment.</li>
+</ul>
+
+
+
+<h2 id="🕹️-other-games">🕹️ Other Games</h2>
+
+
+
+<p>Besides Doom 2, VideoGameBench supports a variety of other classic games. Each game presents unique challenges and opportunities for the AI, making them fun to explore. Here’s a brief overview of some popular titles you can run.</p>
+
+
+
+<h3 class="wp-block-heading">Supported Titles</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Doom:</strong> The original classic that started it all.</li>
+
+
+
+<li><strong>Quake:</strong> A fast-paced shooter that tests the AI's reflexes.</li>
+
+
+
+<li><strong>Civilization:</strong> A strategy game where the AI has to manage resources and make long-term decisions.</li>
+
+
+
+<li><strong>Warcraft II:</strong> A real-time strategy game that requires tactical thinking.</li>
+
+
+
+<li><strong>XCOM:</strong> A turn-based strategy game that challenges the AI's planning capabilities.</li>
+
+
+
+<li><strong>Need for Speed:</strong> A racing game that tests the AI's ability to navigate quickly.</li>
+</ul>
+
+
+
+<p>Each of these games offers a distinct flavor of gameplay, allowing you to see how different AI models handle various challenges. Dive in and have fun experimenting!</p>
+
+
+
+<h2 id="📜-logs-and-other-options">📜 Logs and Other Options</h2>
+
+
+
+<p>Logging is an essential feature of VideoGameBench. It allows you to review the AI's gameplay and decision-making processes. This can be particularly useful for debugging or for understanding how the AI interacts with the game environment.</p>
+
+
+
+<h3 class="wp-block-heading">Accessing Logs</h3>
+
+
+
+<p>To access the logs, follow these steps:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Locate the Logs Folder:</strong> After running a game, navigate to the logs directory within your VideoGameBench installation.</li>
+
+
+
+<li><strong>Review the Screenshots:</strong> You'll find screenshots that capture the AI's gameplay at various intervals. This is invaluable for seeing how it navigates the game.</li>
+
+
+
+<li><strong>Examine the Thought Process:</strong> Logs also include a record of the AI's decision-making, which can help you understand its strategies.</li>
+</ol>
+
+
+
+<p>Using these logs, you can refine the AI's performance and adjust its strategies for better gameplay results.</p>
+
+
+
+<h2 id="🐾-pokemon-red">🐾 Pokemon Red</h2>
+
+
+
+<p>Pokemon Red is a beloved classic, and running it through VideoGameBench allows you to witness the AI's journey through the Kanto region. With the right setup, the AI can explore, battle, and collect Pokémon, just like a human player.</p>
+
+
+
+<h3 class="wp-block-heading">Setup for Pokemon Red</h3>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Ensure You Have the ROM:</strong> The file should be named <code>pokemon_red.gb</code> and placed in the <code>roms</code> folder.</li>
+
+
+
+<li><strong>Run the Game:</strong> Use the command <code>python main.py --game pokemon_red</code> to start the adventure.</li>
+</ol>
+
+
+
+<p>As the AI plays, you can observe how it tackles challenges, engages in battles, and makes decisions based on the game's mechanics.</p>
+
+
+
+<h2 id="❓-faq">❓ FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">How do I troubleshoot common issues?</h3>
+
+
+
+<p>If you encounter problems, check the logs first. They often provide insights into what went wrong. Additionally, the community on the AI Guild subreddit can be a great resource for troubleshooting.</p>
+
+
+
+<h3 class="wp-block-heading">Can I use other AI models?</h3>
+
+
+
+<p>Yes, you can specify different models using the <code>--model</code> argument. Experiment with various models to find the one that works best for your gaming experience.</p>
+
+
+
+<h3 class="wp-block-heading">Is it legal to use ROMs?</h3>
+
+
+
+<p>Using ROMs is a grey area legally. It's generally acceptable if you own a legal copy of the game. Always ensure you’re compliant with local laws when using ROMs.</p>
+
+
+
+<h3 class="wp-block-heading">What are the performance requirements for VideoGameBench?</h3>
+
+
+
+<p>Performance requirements will vary depending on the games you run and the AI models you use. However, a decent GPU and sufficient RAM will enhance your experience significantly.</p>
+
+
+
+<h3 class="wp-block-heading">Can I run VideoGameBench on other operating systems?</h3>
+
+
+
+<p>While it's primarily designed for Windows, you might be able to run it on Linux or macOS with some adjustments. Check the community for shared experiences and tips.</p>

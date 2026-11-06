@@ -1,0 +1,823 @@
+<p>Claude just rolled out some seriously impressive upgrades, and two of them stand out immediately: <strong>live artifacts</strong> and <strong>Claude Design</strong>. These features push Claude way beyond basic chat. You can now build persistent dashboards connected to real data, create slide decks and prototypes inside the app, and even shape reusable design systems for future projects.</p>
+
+
+
+<p>If you have been wondering what the newest Claude upgrades actually unlock, this is where things get exciting. These updates are not just cosmetic. They change how you can use Claude for analytics, design, reporting, product mockups, presentations, and team collaboration.</p>
+
+
+
+<p>What makes this especially interesting is that these tools are practical right now. You are not looking at a vague promise of future functionality. You can build dashboards tied to connectors, save them as reusable assets, refresh them later with updated data, and design everything from onboarding flows to slide presentations without leaving Claude.</p>
+
+
+
+<h2 id="why-these-claude-upgrades-matter">Why These Claude Upgrades Matter</h2>
+
+
+
+<p>Most AI tools are still stuck in the same pattern: prompt in, answer out. Useful, sure, but limited. Claude is starting to move into something much more actionable.</p>
+
+
+
+<p>With these new upgrades, Claude can now help with:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Persistent reporting</strong> instead of one-off answers</li>
+
+
+
+<li><strong>Connected dashboards</strong> that refresh from data sources</li>
+
+
+
+<li><strong>Visual design work</strong> inside the same environment</li>
+
+
+
+<li><strong>Collaboration and iteration</strong> through comments, tweaks, and version history</li>
+
+
+
+<li><strong>Export and handoff workflows</strong> for code, slides, PDF, Canva, and more</li>
+</ul>
+
+
+
+<p>That means Claude is becoming more like a workspace, not just a chatbot.</p>
+
+
+
+<h2 id="live-artifacts-in-claude-what-they-are">Live Artifacts in Claude: What They Are</h2>
+
+
+
+<p>The first major upgrade is the ability to build <strong>live artifacts</strong> directly inside Claude. This is one of the most useful additions because it turns Claude into a place where you can create dashboards, trackers, and recurring reports that actually persist.</p>
+
+
+
+<p>A live artifact is essentially a self-contained HTML page that lives in your Claude sidebar. It can pull fresh data from connected tools when you reopen it, which means it is not just a static output. It stays useful over time.</p>
+
+
+
+<p>That opens up a lot of possibilities.</p>
+
+
+
+<p>You could build:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Performance dashboards</li>
+
+
+
+<li>Sales trackers</li>
+
+
+
+<li>Marketing reports</li>
+
+
+
+<li>Subscription or revenue overviews</li>
+
+
+
+<li>Shopify or Stripe summaries</li>
+
+
+
+<li>Internal operations dashboards</li>
+
+
+
+<li>Recurring KPI reports tied to business tools</li>
+</ul>
+
+
+
+<p>Everything you build is saved in a live artifacts tab and includes <strong>version history</strong>. That means you can come back later, reopen the artifact from any session, and continue from where you left off.</p>
+
+
+
+<p>This feature is available on <strong>all paid plans</strong>.</p>
+
+
+
+<h2 id="how-live-artifacts-work-inside-claude">How Live Artifacts Work Inside Claude</h2>
+
+
+
+<p>The workflow is surprisingly straightforward.</p>
+
+
+
+<p>To create a live artifact, you first need to define what the artifact should do and what kind of data it should use. The best use cases are things you will want to reopen later, such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A tracker</li>
+
+
+
+<li>A dashboard</li>
+
+
+
+<li>A recurring report</li>
+</ul>
+
+
+
+<p>From there, Claude can connect the artifact to a supported connector. In the example shown, the setup used an MCP server and pulled in data from vidIQ, but the same idea applies to other tools and services as well.</p>
+
+
+
+<p>The general process looks like this:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Choose what the dashboard or report should track.</li>
+
+
+
+<li>Connect it to a data source through a connector or MCP setup.</li>
+
+
+
+<li>Let Claude inspect the returned data structure.</li>
+
+
+
+<li>Have Claude build a parser so it uses the actual response shape instead of guessing.</li>
+
+
+
+<li>Generate a self-contained HTML, CSS, and JavaScript file.</li>
+
+
+
+<li>Save it as a live artifact that can refresh over time.</li>
+</ol>
+
+
+
+<p>That part about shaping the data matters. Connectors do not always return perfectly labelled information in a clean format. Sometimes wrappers rename fields or structure payloads in a way that is not obvious. Claude can help parse that correctly so the dashboard reflects what is really there.</p>
+
+
+
+<h2 id="a-real-example-building-a-youtube-dashboard-with-vidiq-data">A Real Example: Building a YouTube Dashboard with vidIQ Data</h2>
+
+
+
+<p>One of the best demonstrations of live artifacts was a dashboard built using vidIQ data for a YouTube channel. The dashboard was configured to pull data for the authorized channel over the last seven days.</p>
+
+
+
+<p>Claude asked a few setup questions, then generated a dashboard using the connector data. Once complete, it produced a clean summary page showing key channel metrics such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Total subscribers</li>
+
+
+
+<li>Total views</li>
+
+
+
+<li>Number of uploaded videos</li>
+
+
+
+<li>Recent updates</li>
+
+
+
+<li>Recent uploads</li>
+
+
+
+<li>Clickable entries that opened the related YouTube videos</li>
+</ul>
+
+
+
+<p>That is where this starts to feel powerful. Claude is not just listing data in chat. It is building an interface around it.</p>
+
+
+
+<p>There was one issue during the build: the thumbnail images did not load properly. That appeared to be related to network access restrictions blocking the image URLs. Even so, the rest of the dashboard still worked, and Claude was able to suggest a cleaner alternative layout afterward.</p>
+
+
+
+<p>That is another big advantage of doing this inside Claude. If the first pass is not perfect, you can iterate naturally. You can say what is off, ask for a redesign, request additional metrics, or clean up the UI without starting over.</p>
+
+
+
+<h2 id="best-uses-for-claude-live-artifacts">Best Uses for Claude Live Artifacts</h2>
+
+
+
+<p>If you are trying to figure out where this could fit into your workflow, here are some of the strongest use cases mentioned:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>GoHighLevel dashboards</strong> for lead and campaign tracking</li>
+
+
+
+<li><strong>Stripe dashboards</strong> for revenue and payment monitoring</li>
+
+
+
+<li><strong>Shopify dashboards</strong> for store performance</li>
+
+
+
+<li><strong>YouTube analytics dashboards</strong> via tools like vidIQ</li>
+
+
+
+<li><strong>Custom KPI boards</strong> using any connector you already have</li>
+</ul>
+
+
+
+<p>If you already use MCP servers or external connectors, this becomes even more useful because you can build custom reporting layers without spinning up a full application from scratch.</p>
+
+
+
+<p>A practical tip here: <strong>pin your dashboards</strong>. Once you start creating multiple artifacts, pinning makes them much easier to access quickly.</p>
+
+
+
+<h2 id="which-claude-model-should-you-use">Which Claude Model Should You Use?</h2>
+
+
+
+<p>The example used <strong>Opus 4.7</strong>, but there is an important note here. You do <strong>not</strong> have to use 4.7 to take advantage of these features.</p>
+
+
+
+<p>If you want to save credits, <strong>Opus 4.6</strong> can also do the job. That is a useful detail because advanced workflows like dashboard creation can become expensive if you always default to the most powerful model.</p>
+
+
+
+<p>So the takeaway is simple:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Use <strong>Opus 4.7</strong> if you want the latest and strongest model available.</li>
+
+
+
+<li>Use <strong>Opus 4.6</strong> if you want to reduce credit usage while still getting access to the workflow.</li>
+</ul>
+
+
+
+<h2 id="claude-design-is-the-other-big-upgrade">Claude Design Is the Other Big Upgrade</h2>
+
+
+
+<p>The second major feature is <strong>Claude Design</strong>, and honestly, this opens up a completely different category of use cases.</p>
+
+
+
+<p>Inside Claude, there is now a Design section in the left-hand sidebar. From there, you can build all kinds of visual assets, including:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Prototypes</li>
+
+
+
+<li>Wireframes</li>
+
+
+
+<li>High-fidelity designs</li>
+
+
+
+<li>Slide decks</li>
+
+
+
+<li>Animations</li>
+
+
+
+<li>Template-based creative projects</li>
+</ul>
+
+
+
+<p>This is a big shift because it means Claude is not limited to text generation or code help. It can now support visual ideation and production workflows directly.</p>
+
+
+
+<h2 id="a-great-example-building-a-slide-deck-on-the-great-depression">A Great Example: Building a Slide Deck on the Great Depression</h2>
+
+
+
+<p>One example created with Claude Design was a five-slide presentation about the <strong>1929 Great Depression</strong>. The prompt asked Claude to make a slideshow that depicted what the era was like and highlighted the most important statistics.</p>
+
+
+
+<p>The result was described as an incredibly clean slide deck, and the process illustrates what makes Claude Design useful:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Claude handled the research</li>
+
+
+
+<li>Claude structured the slides</li>
+
+
+
+<li>Claude created the visual presentation</li>
+
+
+
+<li>The project could then be edited and refined manually</li>
+</ul>
+
+
+
+<p>That combination of generation plus customization is the real value. You are not locked into a static result. You can tweak, comment, restyle, resize, annotate, and rework the content as needed.</p>
+
+
+
+<h2 id="editing-collaboration-and-export-options-in-claude-design">Editing, Collaboration, and Export Options in Claude Design</h2>
+
+
+
+<p>Claude Design includes a lot more than simple generation. It also gives you a proper editing and collaboration environment.</p>
+
+
+
+<p>You can:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Make tweaks</strong> by telling Claude exactly what to change</li>
+
+
+
+<li><strong>Add comments</strong> for team collaboration</li>
+
+
+
+<li><strong>Edit visually</strong> with a surprisingly deep level of customization</li>
+
+
+
+<li><strong>Draw</strong> directly on the design</li>
+
+
+
+<li><strong>Resize elements</strong> and adjust layouts</li>
+
+
+
+<li><strong>Use full-screen mode</strong> while working</li>
+
+
+
+<li><strong>Share projects</strong> with others</li>
+</ul>
+
+
+
+<p>On top of that, the export and handoff options are strong. You can:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Hand the design off to Claude Code</li>
+
+
+
+<li>Export as standalone HTML</li>
+
+
+
+<li>Send it to Canva</li>
+
+
+
+<li>Export as PowerPoint</li>
+
+
+
+<li>Export as PDF</li>
+
+
+
+<li>Download as a ZIP</li>
+
+
+
+<li>Duplicate as a template</li>
+
+
+
+<li>Duplicate as a project</li>
+
+
+
+<li>Copy a shareable link and manage access</li>
+</ul>
+
+
+
+<p>That makes Claude Design much more than a toy. It can fit into real creative and business workflows.</p>
+
+
+
+<h2 id="design-systems-make-this-even-more-useful">Design Systems Make This Even More Useful</h2>
+
+
+
+<p>One of the more underrated parts of Claude Design is the ability to work with <strong>design systems</strong>.</p>
+
+
+
+<p>If you are creating branded materials, websites, apps, or recurring design assets, consistency matters. Claude now gives you a way to set that up.</p>
+
+
+
+<p>Inside design systems, you can add:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Company name</li>
+
+
+
+<li>Brand description or blurb</li>
+
+
+
+<li>GitHub code links</li>
+
+
+
+<li>Code from your computer</li>
+
+
+
+<li>Uploaded files</li>
+
+
+
+<li>Fonts</li>
+
+
+
+<li>Logos</li>
+
+
+
+<li>Other brand assets</li>
+
+
+
+<li>Additional notes and instructions</li>
+</ul>
+
+
+
+<p>This means Claude can generate assets that align better with your existing brand rather than reinventing the style every time.</p>
+
+
+
+<p>If you are building a website, app interface, or branded presentation series, this feature could save a huge amount of time.</p>
+
+
+
+<h2 id="examples-of-what-claude-design-can-create">Examples of What Claude Design Can Create</h2>
+
+
+
+<p>The examples shown inside Claude Design make it clear that this tool is not limited to static slides.</p>
+
+
+
+<p>Some of the design examples included:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Text effects</strong> with custom styling</li>
+
+
+
+<li><strong>Organic loaders</strong> for websites</li>
+
+
+
+<li><strong>App onboarding screens</strong></li>
+
+
+
+<li><strong>Animated text streaming</strong></li>
+
+
+
+<li><strong>Custom UI cards</strong></li>
+
+
+
+<li><strong>Globe loaders</strong> and other interactive visuals</li>
+</ul>
+
+
+
+<p>What is especially helpful is that these examples also include the exact prompts used to create them. So if you are learning how to use Claude Design, you can study the prompt structure, reuse it, and modify it for your own needs.</p>
+
+
+
+<p>This lowers the learning curve quite a bit.</p>
+
+
+
+<h2 id="claude-design-use-cases-that-stand-out">Claude Design Use Cases That Stand Out</h2>
+
+
+
+<p>A few use cases really show how broad this feature can be.</p>
+
+
+
+<h3 class="wp-block-heading">1. Animated Social Media Posts</h3>
+
+
+
+<p>Claude Design can be used to create animated social media assets, which is a strong option for marketers, creators, and brands that want lightweight motion content without jumping between multiple tools.</p>
+
+
+
+<h3 class="wp-block-heading">2. Product Launch Videos</h3>
+
+
+
+<p>One example highlighted creating a full product launch video in just seven prompts by combining animation and design generation. That is a massive time saver for anyone producing promotional content.</p>
+
+
+
+<h3 class="wp-block-heading">3. Dynamic Web and App Design</h3>
+
+
+
+<p>Claude can help build dynamic design concepts for both websites and mobile interfaces. That makes it useful for founders, product teams, and designers who want to prototype quickly.</p>
+
+
+
+<h3 class="wp-block-heading">4. Full Brand Kits</h3>
+
+
+
+<p>Because of the design system support, Claude can also help build out full brand kits with coordinated visuals and reusable assets.</p>
+
+
+
+<p>The opportunities here really do feel wide open.</p>
+
+
+
+<h2 id="why-this-puts-claude-in-a-different-category">Why This Puts Claude in a Different Category</h2>
+
+
+
+<p>One of the most interesting takeaways is that Claude is starting to chip away at a space that was previously dominated by more design-focused ecosystems.</p>
+
+
+
+<p>Now you can generate designs, create interactive visual assets, and build persistent data-connected dashboards all in one environment. And this is not limited to the web experience. Claude Design is also accessible in the Claude app.</p>
+
+
+
+<p>That matters because it reduces context switching.</p>
+
+
+
+<p>Instead of doing research in one tool, dashboarding in another, prototyping somewhere else, and slide creation in yet another app, Claude is becoming a central workspace for all of it.</p>
+
+
+
+<h2 id="how-to-start-using-claude-design-effectively">How to Start Using Claude Design Effectively</h2>
+
+
+
+<p>If you want better results right away, a simple approach works best:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Describe exactly what you want to create.</strong></li>
+
+
+
+<li><strong>Choose the right model</strong> based on quality and credit needs.</li>
+
+
+
+<li><strong>Add files or references</strong> if your project depends on existing assets.</li>
+
+
+
+<li><strong>Use design systems</strong> when consistency matters.</li>
+
+
+
+<li><strong>Iterate through tweaks</strong> instead of expecting perfection on the first pass.</li>
+</ol>
+
+
+
+<p>Claude also lets you pull in external context through things like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Design systems</li>
+
+
+
+<li>Skills</li>
+
+
+
+<li>Other projects</li>
+
+
+
+<li>Code folders</li>
+
+
+
+<li>GitHub connections</li>
+
+
+
+<li>Uploaded files</li>
+
+
+
+<li>Referenced web elements</li>
+</ul>
+
+
+
+<p>That flexibility makes the tool far more useful for serious projects than a simple prompt-only design generator.</p>
+
+
+
+<h2 id="practical-tips-for-getting-better-results">Practical Tips for Getting Better Results</h2>
+
+
+
+<p>Based on the examples shown, here are a few practical tips worth following:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Use dashboards for recurring needs</strong>, not one-time visuals.</li>
+
+
+
+<li><strong>Pin important live artifacts</strong> so they stay easy to access.</li>
+
+
+
+<li><strong>Expect some connector quirks</strong> and be ready to refine the layout or parsing.</li>
+
+
+
+<li><strong>Leverage built-in example prompts</strong> inside Claude Design to learn faster.</li>
+
+
+
+<li><strong>Set up a design system early</strong> if you work with branding.</li>
+
+
+
+<li><strong>Export in the format your workflow needs</strong> instead of rebuilding manually elsewhere.</li>
+</ul>
+
+
+
+<h2 id="suggested-media-to-add-to-this-article">Suggested Media to Add to This Article</h2>
+
+
+
+<p>To improve clarity and engagement, this article would benefit from a few visuals:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Screenshot of a Claude live artifact dashboard</strong><br>Alt text: "Claude live artifact dashboard connected to analytics data"</li>
+
+
+
+<li><strong>Screenshot of the Claude Design interface</strong><br>Alt text: "Claude Design workspace showing slide deck editing tools"</li>
+
+
+
+<li><strong>Example of a generated slide deck</strong><br>Alt text: "Presentation slides created in Claude Design"</li>
+
+
+
+<li><strong>Example of design system settings</strong><br>Alt text: "Claude Design system panel with fonts, logos, and brand assets"</li>
+</ul>
+
+
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+
+
+<p>These Claude upgrades are a big deal because they make the platform much more practical.</p>
+
+
+
+<p><strong>Live artifacts</strong> turn Claude into a place where useful data products can live, update, and stay accessible over time. <strong>Claude Design</strong> turns it into a workspace for prototyping, visual storytelling, branding, and content creation.</p>
+
+
+
+<p>Put those together, and Claude starts to feel less like a chatbot and more like an operating layer for creative and analytical work.</p>
+
+
+
+<p>If you are already using Claude, these are absolutely worth testing. And if you have not explored Claude Design or the newest Opus workflows yet, this is probably the right moment to start.</p>
+
+
+
+<p>If you want to keep pushing what Claude can do, try building one live dashboard tied to a connector you already use, and one design project tied to a real business need. That is usually all it takes to see how much potential these features have.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">What is a live artifact in Claude?</h3>
+
+
+
+<p>A live artifact is a persistent HTML-based asset inside Claude that can pull fresh data from connected tools when reopened. It is ideal for dashboards, trackers, and recurring reports.</p>
+
+
+
+<h3 class="wp-block-heading">Can Claude create dashboards connected to external data?</h3>
+
+
+
+<p>Yes. Claude can build dashboards connected to apps, files, or connectors, including setups using MCP servers. These dashboards can refresh with updated data over time.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need Opus 4.7 to use live artifacts?</h3>
+
+
+
+<p>No. Opus 4.7 was used in the example, but Opus 4.6 can also be used if you want to conserve credits.</p>
+
+
+
+<h3 class="wp-block-heading">What can I build with Claude Design?</h3>
+
+
+
+<p>Claude Design can be used for prototypes, wireframes, high-fidelity mockups, slide decks, animations, onboarding flows, loaders, cards, and other visual assets.</p>
+
+
+
+<h3 class="wp-block-heading">Can Claude Design export files for other tools?</h3>
+
+
+
+<p>Yes. Claude Design supports exports such as standalone HTML, PowerPoint, PDF, ZIP files, and can also send projects to Canva or hand them off to Claude Code.</p>
+
+
+
+<h3 class="wp-block-heading">Does Claude Design support branding and design systems?</h3>
+
+
+
+<p>Yes. You can add company details, fonts, logos, files, notes, and code references to create a reusable design system for more consistent outputs.</p>

@@ -1,0 +1,643 @@
+<p>If you create content for Instagram, TikTok, and other social media platforms, you already know the real problem is not usually coming up with one idea. It is everything that happens after the idea. Writing copy, turning it into slides, finding images, formatting everything, exporting it, and then scheduling the post can eat up far more time than the creative work itself.</p>
+
+
+
+<p>That is why this Claude and Metricool workflow is such a big deal. With the right setup, Claude can help generate branded social media carousels, create captions and hashtags, render the assets, and schedule the finished post for publishing. Once the system is configured properly, you can go from a topic idea to a scheduled post in just a few commands.</p>
+
+
+
+<p>If your goal is to automate social media content, especially carousel content for TikTok and Instagram, this setup gives you a practical way to do it without patching together five different tools manually.</p>
+
+
+
+<h2 id="why-this-workflow-changes-content-creation">Why this workflow changes content creation</h2>
+
+
+
+<p>Most AI content workflows still break down in the middle. The model can help brainstorm and write, but the actual publishing process is still manual. That means you end up doing all the annoying parts yourself:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Prompting for the copy</li>
+
+
+
+<li>Reformatting the text into slides</li>
+
+
+
+<li>Tracking down visuals</li>
+
+
+
+<li>Matching your branding</li>
+
+
+
+<li>Exporting the carousel</li>
+
+
+
+<li>Uploading and scheduling it on each platform</li>
+</ul>
+
+
+
+<p>This new Claude setup closes that gap. Instead of stopping at content generation, it pushes all the way through to scheduled publishing using Metricool.</p>
+
+
+
+<p>The key idea is simple. You connect Claude Code to a Metricool agent, give it your brand rules, and then let it handle the content creation and scheduling workflow in a much more structured way.</p>
+
+
+
+<h2 id="what-this-claude-and-metricool-agent-actually-does">What this Claude and Metricool agent actually does</h2>
+
+
+
+<p>At a high level, this setup allows you to create and schedule social media carousels from Claude Code in a very short workflow. Once installed, the agent can:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Generate carousel topics and slide structure</li>
+
+
+
+<li>Write the copy based on your brand voice</li>
+
+
+
+<li>Pull in supporting images</li>
+
+
+
+<li>Render slides into image files</li>
+
+
+
+<li>Create captions and hashtags in your preferred format</li>
+
+
+
+<li>Schedule posts through Metricool</li>
+</ul>
+
+
+
+<p>That means you are no longer using Claude just as a writing assistant. You are using it as a lightweight social media automation system.</p>
+
+
+
+<h2 id="how-to-set-up-claude-code-for-social-media-automation">How to set up Claude Code for social media automation</h2>
+
+
+
+<p>The setup is surprisingly straightforward, but there are a few moving pieces. The process starts with downloading the agent file, opening Claude Desktop, and loading the unzipped folder into Claude Code.</p>
+
+
+
+<p>After that, the setup command handles most of the heavy lifting.</p>
+
+
+
+<h3 class="wp-block-heading">1. Download the agent file</h3>
+
+
+
+<p>You begin by getting the Claude and Metricool agent file. Once downloaded, unzip the folder so Claude Code can access it properly.</p>
+
+
+
+<h3 class="wp-block-heading">2. Open Claude Code and load the folder</h3>
+
+
+
+<p>Inside Claude Desktop, open Claude Code and drag the unzipped folder into the workspace. Then run the configuration command:</p>
+
+
+
+<pre class="wp-block-code"><code>/configure</code></pre>
+
+
+
+<p>This is where the workflow gets nice. Instead of leaving you to figure everything out manually, Claude walks through the setup step by step and tells you what it needs.</p>
+
+
+
+<h3 class="wp-block-heading">3. Connect Metricool</h3>
+
+
+
+<p>One of the first tasks is authorizing your Metricool account. This gives Claude the ability to interact with your publishing workflow.</p>
+
+
+
+<p>If your account is not connected yet, the setup prompts you to complete the authorization process. After that, Claude can detect connected resources and move on to the next steps.</p>
+
+
+
+<h3 class="wp-block-heading">4. Install Playwright</h3>
+
+
+
+<p>Playwright is used to render the HTML slide designs into PNG images. That matters because the carousel is being built visually, not just as text.</p>
+
+
+
+<p>During setup, Claude asks for permission to install it, then handles the installation.</p>
+
+
+
+<h3 class="wp-block-heading">5. Connect an image source with Pexels</h3>
+
+
+
+<p>If you want the system to automatically fetch background images, you will need to provide a Pexels API key. Claude guides you through getting the key and adding it to the setup.</p>
+
+
+
+<p>You can skip this if you prefer text-only slides or if you want to use your own visuals. But if you want the workflow to be as automatic as possible, connecting Pexels is the better move.</p>
+
+
+
+<h2 id="the-most-important-step-setting-your-brand-correctly">The most important step: setting your brand correctly</h2>
+
+
+
+<p>This part is easy to rush and that would be a mistake.</p>
+
+
+
+<p>If you want Claude to generate content that actually feels like your content, you need to spend time defining your brand properly. This is the difference between content that feels generic and content that feels tailored to your audience.</p>
+
+
+
+<p>During setup, Claude asks a series of brand questions and builds a brand folder around your answers. That includes things like:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Display name</strong></li>
+
+
+
+<li><strong>Target audience</strong></li>
+
+
+
+<li><strong>Core topics</strong></li>
+
+
+
+<li><strong>Tone of voice</strong></li>
+
+
+
+<li><strong>Language</strong></li>
+
+
+
+<li><strong>Brand colours</strong></li>
+
+
+
+<li><strong>Font preferences</strong></li>
+
+
+
+<li><strong>Logo usage</strong></li>
+
+
+
+<li><strong>CTA format</strong></li>
+
+
+
+<li><strong>Hashtag preferences</strong></li>
+
+
+
+<li><strong>Caption length and styling</strong></li>
+</ul>
+
+
+
+<p>In the example setup, the audience was people interested in AI tools, AI automations, AI news, and the latest releases. The tone was casual but informative. The colours included bright green, dark green, red, black, and white.</p>
+
+
+
+<p>Those details matter because they shape the output. Claude is not just generating a post. It is generating a post for a specific audience, in a specific voice, with a specific presentation style.</p>
+
+
+
+<h3 class="wp-block-heading">Why brand setup matters so much</h3>
+
+
+
+<p>When your brand rules are clear, the system can make better decisions without constant supervision. It knows:</p>
+
+
+
+<ul class="wp-block-list">
+<li>How formal or relaxed the copy should sound</li>
+
+
+
+<li>What style of captions to generate</li>
+
+
+
+<li>What kinds of hashtags fit your niche</li>
+
+
+
+<li>What slide colours and typography are appropriate</li>
+
+
+
+<li>What kind of call to action to include</li>
+</ul>
+
+
+
+<p>In other words, you are teaching the system how to think like your content brand.</p>
+
+
+
+<h2 id="how-to-generate-a-carousel-inside-claude">How to generate a carousel inside Claude</h2>
+
+
+
+<p>Once the setup is complete, generating your first carousel is simple.</p>
+
+
+
+<p>You use the carousel command and provide a topic. For example, one topic used in the workflow was a post about little-known ChatGPT hacks. After the command is entered correctly, Claude starts refining the topic and proposing a structure for the slides.</p>
+
+
+
+<p>This stage is useful because it gives you a checkpoint before the full asset generation happens. You can approve the structure or request changes if something feels off.</p>
+
+
+
+<p>Once approved, Claude moves into production mode. It begins:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Building the outline</li>
+
+
+
+<li>Applying your brand guidelines</li>
+
+
+
+<li>Fetching images if enabled</li>
+
+
+
+<li>Choosing fonts and colours</li>
+
+
+
+<li>Creating the HTML version of the carousel</li>
+</ul>
+
+
+
+<p>The result is a slide deck that follows your chosen visual style and message framework.</p>
+
+
+
+<h3 class="wp-block-heading">A small detail that matters</h3>
+
+
+
+<p>The command syntax needs to be exact. In the example workflow, using the wrong version of the command caused an issue until it was corrected. That is worth remembering when you build repeatable prompts or skills later. Small command differences can matter.</p>
+
+
+
+<h2 id="reviewing-and-customizing-the-generated-carousel">Reviewing and customizing the generated carousel</h2>
+
+
+
+<p>After generation, Claude presents an outline of what it created and opens the carousel output so you can inspect the slides.</p>
+
+
+
+<p>This is where you should check whether the content actually matches your intent. Even with good automation, final review is smart.</p>
+
+
+
+<p>For example, one improvement made during the process was adding the ChatGPT logo to better match the topic. Claude was able to update the design accordingly.</p>
+
+
+
+<p>That is the beauty of this workflow. It is automated, but not rigid. You can still tweak things when needed.</p>
+
+
+
+<p>Useful things to review include:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Whether the slide hook is strong enough</li>
+
+
+
+<li>Whether the visuals match the topic</li>
+
+
+
+<li>Whether the text feels on brand</li>
+
+
+
+<li>Whether the layout is readable</li>
+
+
+
+<li>Whether any logo or brand assets should be added</li>
+</ul>
+
+
+
+<h2 id="generating-captions-and-hashtags-automatically">Generating captions and hashtags automatically</h2>
+
+
+
+<p>The carousel is only part of the post. You still need a caption and hashtags, and those should match the content style you set in the brand configuration.</p>
+
+
+
+<p>Claude can generate both in the format you previously defined. That might include:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A 4 to 5 sentence caption</li>
+
+
+
+<li>One sentence per line</li>
+
+
+
+<li>Spacing for readability</li>
+
+
+
+<li>Emoji placement rules</li>
+
+
+
+<li>3 to 5 relevant hashtags</li>
+</ul>
+
+
+
+<p>This is a major time saver because caption formatting can become repetitive fast. Instead of recreating your preferred style every time, you define it once and let Claude repeat it consistently.</p>
+
+
+
+<h2 id="scheduling-the-post-directly-through-metricool">Scheduling the post directly through Metricool</h2>
+
+
+
+<p>Once the carousel, caption, and hashtags are approved, the final step is scheduling.</p>
+
+
+
+<p>You can tell Claude exactly when and where to publish the content. In the example workflow, the post was scheduled for TikTok at 9 a.m. Eastern on a specific date.</p>
+
+
+
+<p>Claude then:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Renders the slides into image assets</li>
+
+
+
+<li>Passes the content into Metricool</li>
+
+
+
+<li>Schedules the post</li>
+</ul>
+
+
+
+<p>That is the moment where this goes from AI writing tool to full social media automation workflow.</p>
+
+
+
+<p>One thing to double check is your time zone inside Metricool. In the example, the scheduled post initially appeared incorrect until the time zone was switched to New York. So if a scheduled time looks off, that is one of the first things to verify.</p>
+
+
+
+<h2 id="how-to-turn-this-into-a-repeatable-content-machine">How to turn this into a repeatable content machine</h2>
+
+
+
+<p>Creating one post with AI is helpful. Creating a repeatable system is where the real leverage shows up.</p>
+
+
+
+<p>After you understand the manual flow, the next move is to turn it into a reusable skill. The idea is simple: instead of repeating every step one by one, you create a command that handles the whole process for a batch of topics.</p>
+
+
+
+<p>That means you can provide:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A list of content topics</li>
+
+
+
+<li>The platform</li>
+
+
+
+<li>The posting times</li>
+
+
+
+<li>The posting dates</li>
+</ul>
+
+
+
+<p>And Claude can take care of the rest.</p>
+
+
+
+<h3 class="wp-block-heading">The batch carousel skill</h3>
+
+
+
+<p>A custom skill such as a batch carousel command lets you automate content in bulk. Instead of generating a single carousel, you can generate and schedule multiple posts in one session.</p>
+
+
+
+<p>That could mean:</p>
+
+
+
+<ul class="wp-block-list">
+<li>One week of content</li>
+
+
+
+<li>One month of content</li>
+
+
+
+<li>A single campaign across several dates</li>
+
+
+
+<li>A full set of themed educational posts</li>
+</ul>
+
+
+
+<p>You could use it weekly, monthly, or on whatever cadence fits your publishing strategy.</p>
+
+
+
+<p>This is especially powerful if your content format is consistent. If your niche relies on educational carousels, recurring tips, or themed post series, this kind of structured AI workflow can dramatically cut the time needed to stay consistent.</p>
+
+
+
+<h2 id="where-this-gets-even-more-interesting">Where this gets even more interesting</h2>
+
+
+
+<p>The bigger idea here is not only about carousels.</p>
+
+
+
+<p>Once you start connecting other tools and assets to Claude Code, the same approach can expand to other content types. If you have video files or additional tools available in the environment, similar automation logic can be applied there too.</p>
+
+
+
+<p>So while this workflow starts with carousel creation for Instagram and TikTok, the underlying advantage is broader. You are building an AI operating system for content.</p>
+
+
+
+<h2 id="best-practices-for-using-claude-to-automate-social-media">Best practices for using Claude to automate social media</h2>
+
+
+
+<p>If you want better outputs and fewer headaches, keep these guidelines in mind:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Run the first workflow manually.</strong> Learn the process before trying to automate everything at once.</li>
+
+
+
+<li><strong>Spend time on the brand setup.</strong> Generic brand rules produce generic content.</li>
+
+
+
+<li><strong>Be precise with commands.</strong> Small syntax errors can break the flow.</li>
+
+
+
+<li><strong>Review the first few outputs closely.</strong> Adjust layout, visuals, and copy until they feel right.</li>
+
+
+
+<li><strong>Check time zones before scheduling in bulk.</strong> This avoids publishing mistakes.</li>
+
+
+
+<li><strong>Use batch automation only after the workflow is stable.</strong> Scale after quality is dialed in.</li>
+</ol>
+
+
+
+<h2 id="final-thoughts">Final thoughts</h2>
+
+
+
+<p>Automating social media usually sounds good in theory and messy in practice. This is one of the rare setups that actually feels useful because it handles the parts that tend to slow creators down the most.</p>
+
+
+
+<p>Claude can help you generate the idea, shape the content, build the carousel, write the caption, add hashtags, and send it to Metricool for scheduling. Once you package that into a reusable skill, you are not just saving time on one post. You are creating a repeatable publishing system.</p>
+
+
+
+<p>If consistency has been the bottleneck in your content strategy, this kind of workflow can remove a huge amount of friction.</p>
+
+
+
+<p>Try the process manually first, get your brand settings dialed in, and then build the batch version. That is where it starts to become seriously powerful.</p>
+
+
+
+<p>If you found this useful, consider sharing it with someone building an AI content workflow, leaving a comment with your biggest automation bottleneck, or exploring more articles on AI tools and social media systems.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">Can Claude really automate social media posting?</h3>
+
+
+
+<p>Yes, with the right setup Claude can help generate carousel content, captions, hashtags, and then schedule the final post through Metricool.</p>
+
+
+
+<h3 class="wp-block-heading">What platforms can this workflow support?</h3>
+
+
+
+<p>The workflow is designed for platforms like TikTok and Instagram, and it can support other social media platforms connected through Metricool.</p>
+
+
+
+<h3 class="wp-block-heading">Why is Playwright needed in this setup?</h3>
+
+
+
+<p>Playwright is used to turn the generated HTML carousel into PNG slide images, which makes the content ready for scheduling and publishing.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need a Pexels API key?</h3>
+
+
+
+<p>You only need it if you want Claude to automatically fetch images for your carousel slides. If you want text-only slides or prefer your own assets, you can skip it.</p>
+
+
+
+<h3 class="wp-block-heading">Can I automate a full month of content at once?</h3>
+
+
+
+<p>Yes. Once you create a reusable batch skill, you can feed Claude multiple topics and dates, then have it generate and schedule content in bulk.</p>
+
+
+
+<h3 class="wp-block-heading">What is the biggest factor in getting good results?</h3>
+
+
+
+<p>The brand setup is the biggest factor. The clearer your audience, tone, formatting, and visual preferences are, the better the generated content will match your style.</p>

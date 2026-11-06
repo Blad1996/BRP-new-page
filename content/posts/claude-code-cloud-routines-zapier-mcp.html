@@ -1,0 +1,131 @@
+<p>Claude Code automation just got a lot more serious. You can now schedule routines, run workflows in the cloud, record yourself completing a task and turn that process into a reusable skill, then connect Claude to thousands of additional tools through Zapier MCP.</p>
+<p>That means the question is no longer just, “Can AI help me do this?” The question is, “Can I show Claude how I do this once, connect the right apps, and have it run without me?” For a huge number of repetitive tasks, the answer is increasingly yes.</p>
+<p>The real power comes from combining four pieces:</p>
+<ul>
+    <li><strong>Claude Code routines</strong> for scheduled, API-triggered, or webhook-triggered tasks.</li>
+    <li><strong>Cloud execution</strong> so work can run even when your computer is off.</li>
+    <li><strong>Recorded skills</strong> that capture the process you already use.</li>
+    <li><strong>MCP connectors</strong>, including Zapier MCP, to give Claude access to the apps where your work actually happens.</li>
+  </ul>
+<p>Put all of that together and you can build systems that research, organize, analyze, report, write, and notify you automatically.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul><li><a href="#start-with-claude-code-settings-not-the-automation">Start With Claude Code Settings, Not the Automation</a></li><li><a href="#claude-code-routines-the-foundation-of-scheduled-automation">Claude Code Routines: The Foundation of Scheduled Automation</a></li><li><a href="#why-claude-needs-more-connectors">Why Claude Needs More Connectors</a></li><li><a href="#record-a-skill-by-demonstrating-the-work-once">Record a Skill by Demonstrating the Work Once</a></li><li><a href="#build-better-content-workflows-with-skills-and-mcp">Build Better Content Workflows With Skills and MCP</a></li><li><a href="#combine-skills-and-routines-for-full-automation">Combine Skills and Routines for Full Automation</a></li><li><a href="#the-practical-framework-record-connect-schedule-review">The Practical Framework: Record, Connect, Schedule, Review</a></li><li><a href="#suggested-visuals-for-this-article">Suggested Visuals for This Article</a></li><li><a href="#what-makes-this-claude-code-upgrade-different">What Makes This Claude Code Upgrade Different</a></li></ul>
+<h2 id="start-with-claude-code-settings-not-the-automation">Start With Claude Code Settings, Not the Automation</h2>
+<p>Before building any workflow, get the settings right. Claude Code is much more capable when the relevant permissions, browser controls, and workflow features are enabled. But this is also where you need to be smart, because greater autonomy means greater potential for unwanted actions.</p>
+<p>The desktop app is the best place to configure this. Open the settings area and make sure the Claude Code options needed for advanced workflows are enabled.</p>
+<h3>Key settings to enable</h3>
+<ul>
+    <li><strong>Classify session states</strong></li>
+    <li><strong>Switch models when a message is flagged</strong></li>
+    <li><strong>Dynamic workflows</strong></li>
+    <li><strong>Remote control by default</strong></li>
+    <li><strong>Permission bypass mode</strong>, where appropriate and safe</li>
+    <li><strong>Browser permissions</strong> for browser-based tasks</li>
+    <li><strong>Claude in Chrome</strong> and relevant Co-Work settings</li>
+    <li><strong>Computer use</strong> for workflows that need to operate across apps</li>
+  </ul>
+<p><strong>Dynamic workflows</strong> are especially important. This allows Claude to use multiple agents in parallel for more complex work. It can consume usage more quickly, but it also makes Claude Code considerably more powerful when a task has multiple moving parts.</p>
+<p>Computer use and remote-control features are also incredibly useful, but do not enable them blindly. Some actions cannot be undone. An approved application may open other applications. A website, document, or message could contain misleading or malicious instructions. If an automation can delete files, alter code, send messages, or access financial or customer data, treat it like you would any powerful operational tool.</p>
+<p>Use the <strong>Denied Apps</strong> section to block anything Claude should never access automatically. Be especially careful with pull request permissions. If Claude Code is not being used directly as part of your coding workflow, it is safer to avoid enabling controls that could unintentionally push, change, or delete code.</p>
+<h2 id="claude-code-routines-the-foundation-of-scheduled-automation">Claude Code Routines: The Foundation of Scheduled Automation</h2>
+<p>Routines are templated workflows that can be triggered on a schedule, through an API, or by a webhook. They can run locally on your device or in the cloud.</p>
+<p>Cloud execution is one of the biggest upgrades here. A local workflow depends on your computer being on and available. A cloud routine keeps running independently, which is exactly what makes real automation possible.</p>
+<h3>Example: Build a recurring bill finder</h3>
+<p>A simple but useful example is a routine that checks Gmail for invoices and bills. Create a new routine, choose cloud execution, and give it a clear name such as <strong>Bills Finder</strong>.</p>
+<p>The instruction can be straightforward:</p>
+<p><strong>Search my Gmail account for invoices and bills from the last 30 days. Track them and identify opportunities to save money by cancelling unnecessary subscriptions.</strong></p>
+<p>From there, choose the model you want to use, connect Gmail, and select a trigger. A weekly run at 9 a.m. every Monday is a practical cadence for this type of check, although a monthly schedule could work just as well depending on your needs.</p>
+<p>Once the routine is created, use <strong>Run Now</strong> to test it immediately. This is important. Do not wait for a scheduled run before checking whether the instructions, permissions, and connectors work the way you expect.</p>
+<p>A properly configured bill-finding workflow can identify recent charges, group vendors, separate metered usage from fixed subscriptions, highlight duplicate payments, and estimate potential savings. In one example, it found 36 charges across 10 vendors in the prior 30 days and identified approximately $310 in potentially recoverable spending.</p>
+<p>That is the kind of task that is annoying to do manually, easy to delay, and perfect for an AI routine. The workflow does not make the final cancellation decision for you. It gives you a much clearer picture of where money is going so you can make that decision quickly.</p>
+<h3>Where routines work best</h3>
+<p>Routines are strongest when a task is repetitive, has a predictable trigger, and produces a clear output. Good candidates include:</p>
+<ul>
+    <li>Checking email for bills, invoices, receipts, or follow-ups.</li>
+    <li>Preparing recurring research summaries.</li>
+    <li>Monitoring a connected source for new items.</li>
+    <li>Creating reports on a daily, weekly, or monthly schedule.</li>
+    <li>Generating content briefs when new relevant information appears.</li>
+    <li>Sending a notification after a workflow completes.</li>
+  </ul>
+<h2 id="why-claude-needs-more-connectors">Why Claude Needs More Connectors</h2>
+<p>Routines are only useful if Claude can access the tools you rely on. Native connectors can cover a lot, but they do not cover everything. If your workflow depends on platforms such as YouTube or Instagram and they are not available directly in Claude’s connector list, you need another path.</p>
+<p>That is where <strong>Zapier MCP</strong> becomes a major unlock. MCP, short for Model Context Protocol, gives Claude a way to connect to external services through compatible servers and tools. Zapier’s MCP integration expands the number of available applications to more than 9,000.</p>
+<p>You can explore the available option through <a href="https://bit.ly/4giPktB" rel="noopener noreferrer">Zapier MCP for Claude</a>.</p>
+<h3>How Zapier MCP expands Claude Code</h3>
+<p>Inside the Zapier MCP setup, create a new MCP server and choose Claude or Claude Code. The setup provides the implementation instructions, after which you can add the apps and actions you want available to Claude.</p>
+<p>This matters because tools that may not appear in Claude’s native connectors can become available through MCP. For a content workflow, that can mean access to YouTube-related actions, Instagram-related actions, and many other marketing, productivity, database, and communications tools.</p>
+<p>Do not think of Zapier MCP as just another connector. Think of it as the layer that prevents your automations from being trapped in a small number of apps.</p>
+<p>For every new workflow, ask one simple question: <strong>What systems does this task need to touch?</strong> If the answer includes apps that Claude does not natively support, an MCP connection may be the missing piece.</p>
+<h2 id="record-a-skill-by-demonstrating-the-work-once">Record a Skill by Demonstrating the Work Once</h2>
+<p>Routines handle timing. Connectors handle access. Skills handle the actual method.</p>
+<p>Claude Co-Work introduced a feature that can record a process and turn it into a reusable skill. This is massive because you do not need to perfectly document every tiny click, decision, and step in advance. You can demonstrate how you currently perform a task, then let Claude turn the workflow into something repeatable.</p>
+<p>In Claude, open Co-Work and select <strong>Record a Skill</strong>. You can also access skills from Claude Code through the Customize area. There, you can browse existing skills, create one with Claude, write instructions manually, upload a skill, or record a new one.</p>
+<p>It is worth adding the available Anthropic skills that are relevant to your work, then building custom skills for the processes that make your own workflow unique.</p>
+<h3>What gets captured during a skill recording</h3>
+<p>When you begin recording, Claude can capture your screen activity, clicks, typing, and voice. It then processes the demonstration and converts it into a skill with instructions and a defined output.</p>
+<p>That comes with one non-negotiable rule: <strong>do not expose passwords, secrets, private conversations, or sensitive information while recording.</strong> A recording can capture what is on screen. Keep the environment clean before you start.</p>
+<h3>Example: Turn content research into a skill</h3>
+<p>Consider a content-idea research process. You might open a source such as Testing Catalog, review the newest headlines and summaries, open the stories that look relevant, and collect the strongest potential ideas.</p>
+<p>Once that process is recorded, Claude can ask clarifying questions about the desired output. For example:</p>
+<ul>
+    <li>Should the skill produce ranked ideas, full briefs, or both?</li>
+    <li>Should it validate potential ideas against audience demand?</li>
+    <li>How far back should each research run look?</li>
+    <li>Should it cross-check the ideas through another MCP-connected tool such as vidIQ?</li>
+  </ul>
+<p>Those questions are important because a skill should not merely mimic clicks. It needs to understand what a successful result looks like. In this example, the desired result was ranked video ideas with complete briefs, checked against audience demand, using only the current and previous day’s source material.</p>
+<p>After processing, the skill can produce ranked ideas, explain why each one matters, provide demand and topic context, and recommend why a particular piece of content should be made now.</p>
+<h2 id="build-better-content-workflows-with-skills-and-mcp">Build Better Content Workflows With Skills and MCP</h2>
+<p>A recorded skill becomes much more valuable when it is connected to additional tools. One example is thumbnail research.</p>
+<p>The manual process is familiar: search a topic on YouTube, review the results, identify thumbnails that immediately stand out, capture the strongest examples, and organize them for later reference. That works, but it takes time and it is inconsistent if you are doing it repeatedly.</p>
+<p>A thumbnail research skill can formalize that process. It can include a sanity filter, organize reference thumbnails into a board or artifact, and use a connected MCP server such as vidIQ to improve the research. From there, Claude can help identify which concepts are strongest and even create a thumbnail direction based on the findings.</p>
+<p>That does not mean you should hand over creative judgment completely. It means the repetitive gathering, sorting, and first-pass analysis can be systemized, leaving you with more time for the decisions that actually require your taste.</p>
+<h2 id="combine-skills-and-routines-for-full-automation">Combine Skills and Routines for Full Automation</h2>
+<p>Here is where it gets nuts. A routine can run skills.</p>
+<p>You can invoke a skill by using its slash command or by describing the task naturally enough that Claude can identify the relevant skill. The key requirement is that any MCP servers the skill relies on must also be available to the routine.</p>
+<p>For example, you could create a cloud routine called <strong>Hourly Idea Finder Plus Script Writer</strong>. Its instruction could tell Claude to:</p>
+<ol>
+    <li>Use a Testing Catalog content-idea skill to identify new ideas.</li>
+    <li>Cross-check promising ideas with a connected demand-research tool.</li>
+    <li>Rank the best opportunities.</li>
+    <li>Use a separate YouTube script skill to write scripts for the strongest ideas.</li>
+  </ol>
+<p>Schedule that routine to run hourly, test it with Run Now, and inspect the files and outputs it creates. Depending on the prompt, the result can include ranked ideas, story angles, hooks, audience demand, topic lanes, reasons to publish now, and complete scripts in your preferred structure.</p>
+<p>For example, a system like this can identify emerging AI topics, compare them with what is performing, score the title opportunities, and generate scripts for the top selections. The output can include a top pick, runner-up options, source briefs, and scripts that follow your normal hook and call-to-action style.</p>
+<p>If the output format is not what you need, change the routine prompt. You might ask for documents instead of Markdown files. You might ask it to send a Slack notification. You might ask it to produce fewer ideas but with deeper research. The automation is not locked. It is shaped by the instructions you give it.</p>
+<h2 id="the-practical-framework-record-connect-schedule-review">The Practical Framework: Record, Connect, Schedule, Review</h2>
+<p>If you want to automate useful work without creating chaos, use this framework:</p>
+<ol>
+    <li><strong>Record:</strong> Demonstrate the process you already trust and convert it into a skill.</li>
+    <li><strong>Connect:</strong> Add the apps and data sources required for the task, using native connectors or MCP where necessary.</li>
+    <li><strong>Schedule:</strong> Put the skill inside a cloud routine with a clear trigger and cadence.</li>
+    <li><strong>Review:</strong> Test the result, check the files or reports, and refine the prompt until the output is consistently useful.</li>
+  </ol>
+<p>Start with a task that is low-risk and easy to verify. A bill summary, research digest, idea list, or internal report is a much better first automation than anything that can directly alter customer data, production code, or financial accounts.</p>
+<p>The goal is not to automate everything just because you can. The goal is to eliminate the repetitive work that slows you down while keeping a human check on decisions that have real consequences.</p>
+<h2 id="suggested-visuals-for-this-article">Suggested Visuals for This Article</h2>
+<ul>
+    <li><strong>Feature image:</strong> A Claude Code dashboard showing routines, skills, and connected apps. Suggested alt text: “Claude Code automation dashboard with routines and AI skills.”</li>
+    <li><strong>Workflow infographic:</strong> Record a skill, connect MCP tools, schedule a cloud routine, and receive output. Suggested alt text: “Four-step Claude Code automation workflow.”</li>
+    <li><strong>Example report image:</strong> A subscription audit with vendor totals, duplicate charges, and savings opportunities. Suggested alt text: “AI-generated bill analysis showing recurring subscription savings.”</li>
+  </ul>
+<h2 id="what-makes-this-claude-code-upgrade-different">What Makes This Claude Code Upgrade Different</h2>
+<p>The breakthrough is not one isolated feature. It is the combination of cloud routines, recorded skills, computer use, and broad app connectivity.</p>
+<p>A routine alone is helpful. A skill alone is helpful. An MCP connector alone is helpful. But when a cloud-based routine can run a skill that you recorded, pull information from the tools you use, and deliver the output on a schedule, you have something far bigger than a chatbot.</p>
+<p>You have an operational system that keeps working when you are away from your computer.</p>
+<p>Start by documenting one annoying task you repeat every week. Turn it into a skill. Connect the tools it needs. Put it on a schedule. Then refine it until it gives you something you would genuinely use.</p>
+<p>Once that first workflow is running, it becomes much easier to see what else can be automated. Share this article with someone buried in repetitive work, and explore more <a href="/ai-automation/">AI automation guides</a> and <a href="/claude-code/">Claude Code workflows</a> to keep building.</p>
+<p><strong>Category:</strong> AI Automation</p>
+<p><strong>Tags:</strong> Claude Code, Claude Co-Work, AI workflows, Zapier MCP, automation routines, recorded skills, productivity</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3>What are Claude Code routines?</h3>
+<p>Claude Code routines are reusable automated workflows that can run locally or in the cloud. They can be triggered on a schedule, through an API, or by a webhook.</p>
+<h3>Can Claude Code run tasks when my computer is off?</h3>
+<p>Yes. When a routine is configured to run in the cloud, it can operate independently of your local computer.</p>
+<h3>What is a recorded skill in Claude?</h3>
+<p>A recorded skill captures a demonstrated workflow, including screen activity, clicks, typing, and voice, then turns that process into a reusable Claude skill.</p>
+<h3>Why use Zapier MCP with Claude Code?</h3>
+<p>Zapier MCP expands Claude’s available app connections to more than 9,000 tools, making it possible to build automations across services that may not be included in Claude’s native connector list.</p>
+<h3>Are Claude Code automations safe to use?</h3>
+<p>They can be used safely when permissions are configured carefully, sensitive apps are denied, and high-impact workflows are reviewed. Avoid exposing private information during recordings and be cautious with automations that can change code, delete data, or send external messages.</p>

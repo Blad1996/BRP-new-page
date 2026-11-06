@@ -1,0 +1,17 @@
+# Dependencies (npm install)
+node_modules/
+
+# Build output (npm run build): upload dist/ to Hostinger, don't commit it
+dist/
+data/
+
+# Source photos: only the WebP versions in assets/img/photos/ are used
+assets/img/*.jpg
+assets/img/*.jpeg
+assets/img/*.JPG
+
+# Local tooling
+.claude/
+*.log
+.DS_Store
+Thumbs.db

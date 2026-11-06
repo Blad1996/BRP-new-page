@@ -1,0 +1,715 @@
+<p>If it feels like Gemini, Claude, and ChatGPT are getting worse, you are not imagining it. Over the last few weeks, major AI companies have been quietly changing model behaviour, downgrading performance, or routing requests behind the scenes without making that obvious to users. That is a huge problem if your business depends on AI automations actually working the same way tomorrow as they do today.</p>
+
+
+
+<p>The real issue is not just that models change. It is that too many people are building their workflows on top of a single provider and hoping nothing breaks. That is not a strategy. That is a dependency risk.</p>
+
+
+
+<p>The better approach is to become <strong>model agnostic</strong>. Instead of tying your business to one model, one company, or one interface, you build a system where you control the model, the tools, the permissions, and the automations. That way, if Claude gets weaker, Gemini changes, or ChatGPT starts routing requests differently, your business keeps running.</p>
+
+
+
+<p>That is exactly what this setup is designed to solve.</p>
+
+
+
+<h2 id="what-s-actually-going-wrong-with-ai-models">What’s Actually Going Wrong with AI Models?</h2>
+
+
+
+<p>The frustration a lot of people feel with AI right now comes from one simple fact: the models are not stable products in the way most people assume they are.</p>
+
+
+
+<p>When you subscribe to an AI platform, you might think you are getting consistent access to a specific top-tier model. But in practice, providers can:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Quietly update the model</li>
+
+
+
+<li>Change its behaviour without warning</li>
+
+
+
+<li>Route requests to other models in the background</li>
+
+
+
+<li>Adjust speed, depth, or capability based on usage</li>
+
+
+
+<li>Limit access in ways that affect automation reliability</li>
+</ul>
+
+
+
+<p>That might be annoying for casual use. For a company, it is dangerous.</p>
+
+
+
+<p>If you have AI handling reports, communications, analytics, outreach, or content operations, a silent downgrade can break quality overnight. Worse, if your entire workflow is hardwired to one provider, you have very little recourse.</p>
+
+
+
+<p>The fix is not to keep chasing whichever model is best this week. The fix is to build an architecture that lets you switch models whenever you want.</p>
+
+
+
+<h2 id="the-core-idea-build-ai-automations-that-don-t-depend-on-one-provider">The Core Idea: Build AI Automations That Don’t Depend on One Provider</h2>
+
+
+
+<p>The setup here is surprisingly straightforward.</p>
+
+
+
+<p>The first piece is using <strong>Cursor</strong> as the workspace. The reason this matters is simple: Cursor lets you choose which model you want to use. You are not locked into just Claude, just ChatGPT, or just Gemini. You can switch between them, compare them, and upgrade your workflows whenever a better model appears.</p>
+
+
+
+<p>That gives you something most people do not have: <strong>full control over the intelligence layer</strong>.</p>
+
+
+
+<p>The second piece is connecting that environment to <strong>Zapier SDK</strong>. This is what gives your AI automations access to thousands of tools and apps, while still letting you control what actions are allowed.</p>
+
+
+
+<p>Together, that creates a powerful combination:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Cursor</strong> gives you model flexibility</li>
+
+
+
+<li><strong>Zapier SDK</strong> gives you tool access and automation power</li>
+
+
+
+<li><strong>Permission controls</strong> keep your data and systems protected</li>
+</ul>
+
+
+
+<p>In other words, you are no longer relying on an AI company to be your workflow platform. You are using AI as a replaceable layer inside a system you control.</p>
+
+
+
+<h2 id="why-this-is-so-much-more-defensible-for-business">Why This Is So Much More Defensible for Business</h2>
+
+
+
+<p>When people build AI workflows inside a single chat app, they usually do not notice the risk until something breaks. The prompt works great one day, then the output quality drops, a feature disappears, or the model starts behaving differently.</p>
+
+
+
+<p>That is exactly why this model-agnostic approach matters.</p>
+
+
+
+<p>A defensible AI automation setup should give you:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Model choice</strong> so you can switch providers any time</li>
+
+
+
+<li><strong>Tool access</strong> across your business apps</li>
+
+
+
+<li><strong>Restricted permissions</strong> so the AI can only do what you approve</li>
+
+
+
+<li><strong>Repeatable automations</strong> that do not rely on one company’s UI or policies</li>
+
+
+
+<li><strong>Self-improvement</strong> through recurring analysis and recommendations</li>
+</ul>
+
+
+
+<p>That is the difference between casually using AI and building something your company can actually rely on.</p>
+
+
+
+<h2 id="real-examples-of-ai-automations-built-this-way">Real Examples of AI Automations Built This Way</h2>
+
+
+
+<p>This is not theoretical. The system can already handle a wide range of practical business tasks.</p>
+
+
+
+<h3 class="wp-block-heading">1. A Daily Business Brief</h3>
+
+
+
+<p>One automation generates a morning brief that pulls together the most important information across multiple platforms.</p>
+
+
+
+<p>It can review:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Calendar events for the day</li>
+
+
+
+<li>Email messages that need action</li>
+
+
+
+<li>FYI items worth knowing about</li>
+
+
+
+<li>Slack activity that needs follow-up</li>
+</ul>
+
+
+
+<p>Instead of manually checking several apps every morning, the AI produces one consolidated summary with clear next steps.</p>
+
+
+
+<p>That is already useful on its own, but the bigger point is what makes it possible: cross-app access combined with model flexibility.</p>
+
+
+
+<h3 class="wp-block-heading">2. A YouTube Analytics Manager</h3>
+
+
+
+<p>Another automation acts like a YouTube manager.</p>
+
+
+
+<p>Its goal was defined clearly:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Maximize views</li>
+
+
+
+<li>Maximize monetization</li>
+</ul>
+
+
+
+<p>From there, it pulls a 7-day report and analyzes things like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Total views</li>
+
+
+
+<li>Top revenue per video</li>
+
+
+
+<li>Subscribers gained</li>
+
+
+
+<li>Shares</li>
+
+
+
+<li>Traffic signals</li>
+
+
+
+<li>Upload patterns</li>
+</ul>
+
+
+
+<p>Then it goes further. It prioritizes content opportunities, explains why certain topics fit, and builds a publishing playbook based on what is actually performing.</p>
+
+
+
+<p>That means the AI is not just reporting numbers. It is helping make content decisions.</p>
+
+
+
+<h3 class="wp-block-heading">3. Script Feedback Inside Google Drive</h3>
+
+
+
+<p>If you work with a lot of documents, this kind of automation can save a ridiculous amount of time.</p>
+
+
+
+<p>In this setup, the AI scans Google Drive for scripts, reviews them, and returns feedback on what is weak and what should be fixed. It can even take action inside Drive to help make those updates.</p>
+
+
+
+<p>That turns AI from a passive writing assistant into an active editor embedded directly in the workflow.</p>
+
+
+
+<h3 class="wp-block-heading">4. Daily Business Performance Updates</h3>
+
+
+
+<p>Another automation delivers updates on business metrics such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Total revenue</li>
+
+
+
+<li>Refunds</li>
+
+
+
+<li>Disputes</li>
+
+
+
+<li>Total payments</li>
+</ul>
+
+
+
+<p>It also highlights changes and suggests actions to take. So instead of simply surfacing numbers, it acts more like an operations assistant that points out where attention is needed.</p>
+
+
+
+<h3 class="wp-block-heading">5. Affiliate Outreach with Personalised Email Drafts</h3>
+
+
+
+<p>This is probably one of the most interesting use cases because it shows how AI can go beyond analysis and move into action.</p>
+
+
+
+<p>The automation finds ten affiliates per day worth reaching out to. For each one, it identifies:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Who they are</li>
+
+
+
+<li>How to contact them</li>
+
+
+
+<li>Why they are a fit</li>
+
+
+
+<li>How to structure the outreach</li>
+</ul>
+
+
+
+<p>Then it drafts personalised emails with:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A tailored hook</li>
+
+
+
+<li>A one-line tool explanation</li>
+
+
+
+<li>A clear ask</li>
+
+
+
+<li>Low-friction wording</li>
+
+
+
+<li>Varied subject lines</li>
+</ul>
+
+
+
+<p>The important detail here is that this is not generic AI spam. The emails are drafted individually and can still be reviewed or adjusted before sending.</p>
+
+
+
+<p>And if one model writes better outreach than another, you can simply switch the model being used.</p>
+
+
+
+<h3 class="wp-block-heading">6. Conversion Optimisation and Automation Discovery</h3>
+
+
+
+<p>There are also automations that scan websites daily to suggest ways to improve conversion rates, plus a weekly process that reviews available tools, prior chats, and existing access to recommend additional things worth automating.</p>
+
+
+
+<p>This creates a <strong>self-improving automation system</strong>.</p>
+
+
+
+<p>Instead of asking, “What can AI do for me?” once, the system keeps identifying new leverage points across the business every week.</p>
+
+
+
+<h2 id="how-zapier-sdk-makes-this-work">How Zapier SDK Makes This Work</h2>
+
+
+
+<p>Zapier SDK is the infrastructure layer that handles the annoying and technical parts most people do not want to deal with manually.</p>
+
+
+
+<p>That includes things like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Authentication</li>
+
+
+
+<li>Retries</li>
+
+
+
+<li>Token refresh</li>
+
+
+
+<li>Connections between your agent and thousands of apps</li>
+</ul>
+
+
+
+<p>It effectively becomes the bridge between your AI workspace and your tools.</p>
+
+
+
+<p>That matters because the value of AI is not just in generating text. The real value comes when AI can <strong>take action across apps</strong>, pull reports, trigger workflows, and create outputs based on live business data.</p>
+
+
+
+<p>With Zapier’s app ecosystem, that means access to more than 9,000 tools without having to wire each one manually from scratch.</p>
+
+
+
+<h2 id="why-permission-control-matters">Why Permission Control Matters</h2>
+
+
+
+<p>More access is useful, but only if it comes with guardrails.</p>
+
+
+
+<p>One of the smartest parts of this setup is that you do not have to give the AI unrestricted control. You can decide exactly what it can and cannot do.</p>
+
+
+
+<p>For example, if an automation has access to a YouTube channel, you can allow reporting and analysis without allowing video edits or destructive actions.</p>
+
+
+
+<p>That gives you a better balance between automation power and business safety.</p>
+
+
+
+<p>So the goal is not “give AI full control over everything.” The goal is:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Connect the tools you need</li>
+
+
+
+<li>Restrict actions you do not want</li>
+
+
+
+<li>Keep sensitive workflows under your rules</li>
+</ul>
+
+
+
+<p>That is how you protect your data, your business systems, and your operations while still getting all the upside of AI automation.</p>
+
+
+
+<h2 id="using-plain-english-instead-of-technical-complexity">Using Plain English Instead of Technical Complexity</h2>
+
+
+
+<p>One of the best parts of this approach is that it does not require deep technical knowledge to get started.</p>
+
+
+
+<p>You can issue a request in plain English, such as asking for a YouTube report from a specific date range to find which videos generate the most money and then generate new content ideas based on that analysis.</p>
+
+
+
+<p>From there, the system can:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Run the report through connected tools</li>
+
+
+
+<li>Analyze the results</li>
+
+
+
+<li>Rank the content</li>
+
+
+
+<li>Generate follow-up ideas</li>
+</ul>
+
+
+
+<p>That is the pattern. Describe the outcome you want, and the system handles the underlying workflow.</p>
+
+
+
+<p>This is a major shift from traditional automation building, where every step had to be manually configured. Here, AI helps plan and build the automation itself.</p>
+
+
+
+<h2 id="extra-features-that-make-the-setup-more-powerful">Extra Features That Make the Setup More Powerful</h2>
+
+
+
+<p>There are a few smaller details that make this environment even more useful.</p>
+
+
+
+<h3 class="wp-block-heading">Agents, Tools, and Skills</h3>
+
+
+
+<p>You can add agents, contacts, and tools, and use features such as plan mode, debug, multitask, ask, and skills. Skills let the system build reusable capabilities, which means it can become more capable over time and better adapted to how you work.</p>
+
+
+
+<h3 class="wp-block-heading">Voice Input</h3>
+
+
+
+<p>If typing everything out feels slow, you can use voice input and simply explain your processes, routines, and manual tasks conversationally. That is a practical way to show the system how your business actually operates.</p>
+
+
+
+<h3 class="wp-block-heading">Pinned Chats and Naming Conventions</h3>
+
+
+
+<p>Organisation matters more than people think. If you are building lots of automations or recurring workflows, pinning important chats and giving them clear names makes it much easier to keep everything manageable.</p>
+
+
+
+<p>That sounds minor, but once your AI workspace starts becoming part of daily operations, good naming conventions save a lot of friction.</p>
+
+
+
+<h2 id="the-best-way-to-start">The Best Way to Start</h2>
+
+
+
+<p>If you want the biggest payoff quickly, the smartest first step is to give the system context.</p>
+
+
+
+<p>Tell it:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Everything you did in the last week</li>
+
+
+
+<li>What tasks you repeat manually</li>
+
+
+
+<li>What tools you use every day</li>
+
+
+
+<li>What outcomes matter most in your business</li>
+</ul>
+
+
+
+<p>Once it understands your workflows and has access to your tools, it can start identifying what should be automated first.</p>
+
+
+
+<p>The more clearly you explain your current process, the faster it can become useful.</p>
+
+
+
+<h2 id="what-this-really-solves">What This Really Solves</h2>
+
+
+
+<p>This setup is not just about making Claude, Gemini, or ChatGPT more powerful.</p>
+
+
+
+<p>It is about removing the single biggest weakness in most AI workflows: <strong>dependence</strong>.</p>
+
+
+
+<p>When your automations are tied to one company’s model decisions, you are exposed. When your business runs on a flexible stack where you control the model, tool access, and permissions, you are protected.</p>
+
+
+
+<p>That means:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Your automations are harder to break</li>
+
+
+
+<li>Your workflows can improve as new models appear</li>
+
+
+
+<li>Your business is less vulnerable to silent downgrades</li>
+
+
+
+<li>Your data and tools stay under your control</li>
+</ul>
+
+
+
+<p>That is the real upgrade.</p>
+
+
+
+<h2 id="suggested-media-to-add-to-this-article">Suggested Media to Add to This Article</h2>
+
+
+
+<p>To improve engagement and SEO, it would make sense to add:</p>
+
+
+
+<ul class="wp-block-list">
+<li>An image of a Cursor workspace with multiple model options visible<br>Suggested alt text: <strong>Cursor interface showing Claude, Gemini, and ChatGPT model selection</strong></li>
+
+
+
+<li>A diagram showing the relationship between Cursor, Zapier SDK, and connected apps<br>Suggested alt text: <strong>AI automation stack using Cursor and Zapier SDK across business tools</strong></li>
+
+
+
+<li>A screenshot of a daily brief automation pulling from email, calendar, and Slack<br>Suggested alt text: <strong>Daily AI business brief summarising calendar email and Slack updates</strong></li>
+
+
+
+<li>An infographic comparing single-provider AI workflows versus model-agnostic AI systems<br>Suggested alt text: <strong>Comparison of fragile AI workflow and model agnostic AI automation system</strong></li>
+</ul>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">Why do Gemini, Claude, and ChatGPT seem worse lately?</h3>
+
+
+
+<p>Because model behaviour can change over time. Providers may update models, adjust performance, or route requests differently behind the scenes. If you rely on a single AI platform, those changes can directly affect your results.</p>
+
+
+
+<h3 class="wp-block-heading">What does it mean to be model agnostic?</h3>
+
+
+
+<p>It means your workflows are not tied to one AI provider. You can switch between models like Claude, Gemini, and ChatGPT depending on which one performs best for a specific task.</p>
+
+
+
+<h3 class="wp-block-heading">How does Zapier SDK help with AI automation?</h3>
+
+
+
+<p>Zapier SDK connects your AI environment to thousands of apps and handles the backend details like authentication, retries, and token refresh. That makes it easier for AI to take action across your business tools.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need coding skills to build this kind of setup?</h3>
+
+
+
+<p>No. A big part of the appeal is that you can describe what you want in plain English. The system can help plan, build, and run automations without requiring advanced technical knowledge.</p>
+
+
+
+<h3 class="wp-block-heading">Can I control what the AI is allowed to do?</h3>
+
+
+
+<p>Yes. You can restrict tool access and specific actions. For example, you might let an automation analyze a YouTube channel without giving it permission to edit anything.</p>
+
+
+
+<h3 class="wp-block-heading">What should I automate first?</h3>
+
+
+
+<p>Start with repetitive, high-value tasks such as daily reporting, inbox triage, analytics summaries, document review, or outreach drafting. Those tend to produce fast wins and show where deeper automation makes sense.</p>
+
+
+
+<h2 id="final-thought">Final Thought</h2>
+
+
+
+<p>If your AI stack depends on one company behaving nicely forever, that is not a safe system. The smarter move is to build around flexibility, permissions, and tool access so you stay in control no matter what the model providers do next.</p>
+
+
+
+<p>If you are serious about making Gemini, Claude, and ChatGPT more powerful instead of more fragile, start building a setup where the model is replaceable and the automation is yours.</p>
+
+
+
+<p>That is how you protect your company, your data, your tools, and your workflows.</p>
+
+
+
+<p>If this sparked ideas for your own AI automation setup, share the article, leave a comment, or explore more guides on building model-agnostic systems that actually hold up in the real world.</p>

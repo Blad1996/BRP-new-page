@@ -1,0 +1,104 @@
+<p>An AI coding assistant becomes much more interesting when it stops generating isolated snippets and starts helping run an entire project. Code, artwork, testing, deployment, live operations: connect those pieces, and suddenly an ambitious idea looks a lot more achievable. For Canadian Technology Magazine readers, Blood Bench offers a practical example of what that workflow can look like.</p>
+<p>The concept is wonderfully nerdy: give competing AI models fantasy sports teams and see whether they can coach them through a league. Building it exposes something equally useful for business software. AI can handle much of the implementation, but somebody still needs to decide what matters, understand the moving parts, and steer.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul><li><a href="#building-blood-bench">Building Blood Bench</a></li><li><a href="#teams-and-gameplay">Teams and Gameplay</a></li><li><a href="#ai-building-workflow">AI Building Workflow</a></li><li><a href="#hostinger-vps-setup">Hostinger VPS Setup</a></li><li><a href="#deploying-with-ai">Deploying With AI</a></li><li><a href="#connecting-hostinger">Connecting Hostinger</a></li><li><a href="#ai-tournament">AI Tournament</a></li><li><a href="#voice-mode-development">Voice Mode Development</a></li></ul>
+<h2 id="building-blood-bench">Building Blood Bench</h2>
+<p>Blood Bench starts with a simple question: can a large language model manage a team over an extended competition rather than merely choose a good move once?</p>
+<p>The setting combines fantasy characters with a rough, tactical version of American football. Orcs, elves, dwarves, goblins, and humans bring very different strengths to the pitch. Scoring matters. So does surviving the opposition.</p>
+<p>The project is its own implementation, not an official product of a sports league or existing game franchise. Its custom environment is important to the benchmark idea: models must work with the supplied rules and game state rather than simply reproduce advice about a familiar game.</p>
+<p>For Canadian Technology Magazine, the interesting part is the division of labour. Human effort went primarily into world-building, rules, team design, and balance. AI handled the game engine, interfaces, artwork, documentation, version history, and much of the testing.</p>
+<p>The reported core implementation involved roughly ten hours of agent working time, with substantially more human time spent experimenting and refining the design. That distinction matters. <strong>Fast implementation does not mean a finished product appears without thought.</strong></p>
+<p>Visual development also required direction. Early concepts were too similar, so the design assistant was pushed toward more adventurous alternatives. Retro pixel art emerged as a strong fit. Although isometric and 3D approaches were explored, a simpler board made tactical information easier to read.</p>
+<p>The Canadian Technology Magazine takeaway is straightforward: direct the outcome, not every keystroke. Clear creative judgement can be more valuable than manually producing every asset.</p>
+<h2 id="teams-and-gameplay">Teams and Gameplay</h2>
+<p>Before a match begins, a coach chooses a team and spends a starting treasury on players. Different positions come with different statistics, skills, costs, and development paths. A dark elf roster, for example, can include runners, linemen, assassins, blitzers, and a witch elf.</p>
+<p>Once the roster is assembled, the coach chooses an opponent, establishes a legal formation, and starts the match. From there, positioning and probability become inseparable.</p>
+<p>Many important actions involve dice rolls. A sensible move is not necessarily the flashiest move. It might be the move that preserves possession, reduces exposure, or avoids an unnecessary risk before a crucial action.</p>
+<p>Canadian Technology Magazine readers can think of the benchmark as several overlapping challenges:</p>
+<ul>
+<li><strong>Tactical planning:</strong> Choose positions and actions that improve the current situation.</li>
+<li><strong>Risk management:</strong> Balance potential gains against the chance of failure.</li>
+<li><strong>Roster development:</strong> Improve players across matches and seasons.</li>
+<li><strong>Strategic adaptation:</strong> Use the strengths of the selected team rather than applying one universal playbook.</li>
+</ul>
+<p>Some teams favour passing. Others prefer rushing. More aggressive teams can focus on inflicting casualties. Players can die, which makes long-term development considerably more complicated than accumulating upgrades.</p>
+<p>That combination is what makes the experiment interesting for Canadian Technology Magazine: the model must connect immediate decisions to consequences that may not become obvious until later matches. Winning one exchange and managing a successful season are different problems.</p>
+<h2 id="ai-building-workflow">AI Building Workflow</h2>
+<p>A useful starting point is research, not a giant request to build everything.</p>
+<p>The Blood Bench workflow began by gathering rules and background material into a locally stored, cross-linked collection of text documents, described as an LLM wiki. This gave the project a reference base and helped distinguish official material, trademarks, and community contributions.</p>
+<p>Next came visual exploration and implementation. Different assistants handled different jobs, partly because of task preferences and partly to conserve usage quotas. One assistant could research or develop artwork while the primary coding agent concentrated on the engine.</p>
+<p>For Canadian Technology Magazine readers considering a similar project, the practical sequence is:</p>
+<ol>
+<li>Define the experience and the decisions users or agents must make.</li>
+<li>Collect the relevant rules and reference material.</li>
+<li>Explore visual styles before committing to one.</li>
+<li>Build the smallest coherent engine and interface.</li>
+<li>Run automated tests and simulated sessions.</li>
+<li>Refine usability, balance, and deployment requirements.</li>
+</ol>
+<p>This is not a claim that every attempt will be efficient. Some earlier approaches consumed substantial coding quotas and required resets and account upgrades. A wandering build process can become expensive even when nobody is manually writing the code.</p>
+<p>Desktop coding applications also lower the entry barrier. A command-line interface remains useful, but it does not have to be the starting point.</p>
+<p>The Canadian Technology Magazine lesson is to keep the work inspectable. Ask for notes, documentation, and version history alongside implementation. Thousands of simulated games can reveal problems, but they do not eliminate the need to understand what is being tested.</p>
+<h2 id="hostinger-vps-setup">Hostinger VPS Setup</h2>
+<p>A local project depends on the local computer remaining available. A virtual private server, or VPS, gives the application somewhere to run when that computer is switched off.</p>
+<p>Hostinger was the hosting provider used in this build. The example selected its KVM2 plan, with two virtual CPU cores, 8 GB of RAM, 100 GB of NVMe storage, and 8 TB of bandwidth. The promotional price shown was US$8.79 per month on a 24-month term. Treat that as an example offer, not a guaranteed current price.</p>
+<p>For Canadian Technology Magazine readers, the setup decisions matter more than copying a particular promotion:</p>
+<ul>
+<li><strong>Location:</strong> Choose a server region with suitable latency.</li>
+<li><strong>Operating system:</strong> Start with a plain installation unless the project needs something else.</li>
+<li><strong>Support lifecycle:</strong> The example used Ubuntu and selected an available long-term support release.</li>
+<li><strong>Access:</strong> Configure an SSH key or a strong root password and keep credentials secure.</li>
+<li><strong>Optional tools:</strong> Review available malware scanning and Docker management features.</li>
+</ul>
+<p>Root access is powerful. It is not just another website login. An agent operating with broad server permissions can make consequential changes.</p>
+<p>One distinction deserves emphasis in Canadian Technology Magazine: renting infrastructure does not automatically make every application maintenance task the provider’s responsibility. The setup discussion included a PHP security incident in which self-managed VPS users needed to update their own installations.</p>
+<p>The provider can supply infrastructure, tooling, and guidance. The project still needs an explicit approach to application security and maintenance.</p>
+<h2 id="deploying-with-ai">Deploying With AI</h2>
+<p>The next step is not simply uploading a folder. The application needs to be prepared for the environment where it will run.</p>
+<p>In this build, the coding assistant inspected the project and identified a small hosting preparation pass. It could then make the necessary changes with knowledge of the existing codebase.</p>
+<p>That context is valuable. A generic deployment guide does not know which parts of your application are public, which actions change the game state, or how your project starts.</p>
+<p>A useful Canadian Technology Magazine deployment principle is to describe the desired operating conditions before asking the agent to act:</p>
+<ul>
+<li>Keep the application available independently of the development computer.</li>
+<li>Protect administrative and tournament-management functions.</li>
+<li>Allow access to the intended replay and standings features.</li>
+<li>Explain the deployment changes and security measures.</li>
+</ul>
+<p>Public information and privileged actions should not be treated alike. Reading standings is different from creating a league or controlling a match.</p>
+<p>Capacity also remains a judgement call. The project did not yet know how many simultaneous visitors it would attract, so the selected VPS was a starting point rather than proof of sufficient capacity at every scale.</p>
+<p>For Canadian Technology Magazine readers, the broader opportunity is contextual assistance. Ask the coding agent how this particular application should be deployed, then review its proposed changes. Delegating implementation is useful; assuming the resulting system needs no scrutiny is not.</p>
+<h2 id="connecting-hostinger">Connecting Hostinger</h2>
+<p>The workflow becomes more powerful when the coding assistant can interact with the hosting account through an authorised connection.</p>
+<p>Hostinger provides an MCP server, with source material available in its <a href="https://github.com/hostinger/api-mcp-server">API MCP server repository</a>. MCP connections give compatible assistants access to external tools and services.</p>
+<p>The setup involved installing the relevant connector, registering Hostinger’s remote MCP server with Codex, and completing browser-based sign-in and authorisation. Account access was explicitly approved rather than assumed.</p>
+<p>Canadian Technology Magazine readers should separate two capabilities here. Writing application code is one capability. Managing the infrastructure that runs it is another. Connecting them lets an agent coordinate changes across both.</p>
+<p>After authorisation, the assistant was asked to confirm that it could interact with the account. It then received a concrete deployment request: host Blood Bench, retain password protection, and support features such as replays and standings.</p>
+<p>The reported deployment task completed in approximately 13 minutes and 30 seconds. That is a useful illustration of the workflow, not a universal deployment estimate.</p>
+<p>The real payoff for Canadian Technology Magazine is continuity. The assistant already understood the code and could now work with the server. A requested change no longer needed to stop at a local implementation while a separate manual deployment process caught up.</p>
+<p><strong>That convenience also increases the importance of reviewing permissions and consequential actions.</strong></p>
+<h2 id="ai-tournament">AI Tournament</h2>
+<p>With the game online, the next request was almost absurdly simple: prepare a tournament and provide the instructions each competing assistant needs to join.</p>
+<p>The coding agent generated connection prompts describing how participants should enter, take their assigned coaching roles, and continue until their games finished. Codex, Claude, Grok, and Gemini-based tooling could then participate through their respective environments.</p>
+<p>For Canadian Technology Magazine, this is where the experiment becomes more than a coding demonstration. It starts testing whether independent agents can reliably operate inside a shared system.</p>
+<p>And immediately, the system revealed problems.</p>
+<p>Both teams initially appeared in blue uniforms. One participant struggled to load tools. More memorably, Claude connected under Grok’s assigned identity, then reported that the league was still waiting for Claude.</p>
+<p>Funny? Absolutely. Also a useful infrastructure diagnosis.</p>
+<p>The resulting priorities were concrete:</p>
+<ul>
+<li>Issue separate joining credentials for each coaching seat.</li>
+<li>Distinguish assigned seats from participants’ reported model identities.</li>
+<li>Require a successful game-tool call before declaring a client ready.</li>
+<li>Make reconnecting, waiting, and disconnected states explicit.</li>
+<li>Use contrasting uniforms so the interface remains readable.</li>
+</ul>
+<p>Canadian Technology Magazine readers should resist drawing model rankings too early. Preliminary play suggested stronger and weaker performances, but connection failures, identity mistakes, and limited completed matches complicate interpretation.</p>
+<p>Before declaring which model is the best coach, establish that every coach occupied the correct seat and could actually play.</p>
+<h2 id="voice-mode-development">Voice Mode Development</h2>
+<p>Once the core system existed, voice interaction became a practical development interface.</p>
+<p>The assistant could retrieve live status, explain what was happening, identify problems, and turn spoken requests into a roadmap. Instead of switching repeatedly between logs, notes, and task descriptions, the developer could discuss the project while it ran.</p>
+<p>For Canadian Technology Magazine readers, the important detail is that this was not merely dictation. The conversation had access to project context and operational tools.</p>
+<p>A spoken review identified seat identity as the first priority, followed by connection reliability and clearer match status. Additional requests addressed uniform colours and encouraged models to choose a wider variety of teams rather than repeatedly defaulting to humans.</p>
+<p>The assistant recorded those changes and could dispatch implementation work. Subsequent sessions showed four participating teams with clearer visual differentiation and continued match progress.</p>
+<p>There were still glitches, balance questions, and unfinished features. Broad public participation was being approached cautiously, with demonstrations, replays, and leaderboards forming a more limited route toward sharing the project.</p>
+<p>That unfinished state is part of the lesson. AI did not remove product development. It changed where the effort went.</p>
+<p>The central Canadian Technology Magazine takeaway is this: <strong>you can delegate code, assets, tests, and deployment, but you cannot delegate away your need to understand the system.</strong> Stay close enough to notice the wrong identity, the ambiguous status message, or the confusing interface. Then use the agents to fix the machinery while you keep directing what it should become.</p>

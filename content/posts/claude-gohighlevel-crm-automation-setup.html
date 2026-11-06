@@ -1,0 +1,791 @@
+<p>Claude and GoHighLevel now make it ridiculously easy to automate your business in a way that actually feels useful. Not gimmicky. Not “AI for the sake of AI.” Useful. You can connect Claude directly to your GoHighLevel account, give it access to the right tools, and have it help qualify leads, clean up CRM data, monitor stalled opportunities, draft follow-ups, and generate weekly business briefings.</p>
+
+
+
+<p>The big shift here is simple: instead of clicking around your CRM all day, you can talk to Claude like it’s a team member and have it do the work for you inside GoHighLevel. If you’ve been looking for a practical way to automate sales ops, lead management, and admin tasks without building a giant tech stack, this is one of the most exciting setups available right now.</p>
+
+
+
+<p>What follows is the exact setup process, plus five automations that can save hours of work and help you increase productivity and revenue.</p>
+
+
+
+<h2 id="why-this-claude-and-gohighlevel-integration-matters">Why this Claude and GoHighLevel integration matters</h2>
+
+
+
+<p>Most business owners do not need more software. They need less manual work.</p>
+
+
+
+<p>That is why this update is such a big deal. Once Claude is connected to GoHighLevel, it can work with your CRM data and help with tasks like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Qualifying and tagging new leads</li>
+
+
+
+<li>Finding stalled opportunities in your pipeline</li>
+
+
+
+<li>Drafting follow-up messages after appointments</li>
+
+
+
+<li>Cleaning up messy contact records</li>
+
+
+
+<li>Generating weekly performance summaries</li>
+</ul>
+
+
+
+<p>Instead of pulling reports manually, sorting through records, or asking a team member to spend hours cleaning up data, you can schedule intelligent tasks and let AI handle the heavy lifting.</p>
+
+
+
+<p>The result is better follow-up, cleaner data, faster decisions, and more time spent on the work that actually grows the business.</p>
+
+
+
+<h2 id="what-you-need-before-you-start">What you need before you start</h2>
+
+
+
+<p>To set this up, you need two things:</p>
+
+
+
+<ol class="wp-block-list">
+<li>A <strong>Claude</strong> account</li>
+
+
+
+<li>A <strong>GoHighLevel</strong> account, specifically a <strong>sub-account</strong></li>
+</ol>
+
+
+
+<p>The integration is created through GoHighLevel private integrations and then added into Claude’s desktop configuration.</p>
+
+
+
+<h2 id="how-to-connect-claude-to-gohighlevel">How to connect Claude to GoHighLevel</h2>
+
+
+
+<p>The setup is surprisingly fast once you know where everything is.</p>
+
+
+
+<h3 class="wp-block-heading">Step 1: Create a private integration in GoHighLevel</h3>
+
+
+
+<p>Inside your GoHighLevel sub-account:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Go to <strong>Settings</strong></li>
+
+
+
+<li>Click <strong>Private Integrations</strong></li>
+
+
+
+<li>Select <strong>Create New Integration</strong></li>
+
+
+
+<li>Name it something obvious, like <strong>Claude</strong></li>
+
+
+
+<li>Click <strong>Next</strong></li>
+</ol>
+
+
+
+<p>At this point, GoHighLevel will show a long list of scopes and permissions.</p>
+
+
+
+<p>For testing, you can select all permissions. But if this is a live business account, and especially if it belongs to a client, be careful here. There are well over 100 permissions available, and you should only grant access to what Claude genuinely needs.</p>
+
+
+
+<p>That matters because once AI has permission, it can act inside your CRM. The smarter move is to keep access limited to the areas you want automated.</p>
+
+
+
+<p>After that:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Click <strong>Create</strong></li>
+
+
+
+<li>Confirm the security warning</li>
+
+
+
+<li>Copy the generated <strong>API key</strong></li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Step 2: Add the integration to Claude desktop</h3>
+
+
+
+<p>Next, open Claude on desktop and go to:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Claude</strong> in the top-left menu</li>
+
+
+
+<li><strong>Settings</strong></li>
+
+
+
+<li><strong>Developer</strong></li>
+
+
+
+<li><strong>Edit Config</strong></li>
+</ol>
+
+
+
+<p>This opens the Claude desktop config JSON file.</p>
+
+
+
+<p>In that configuration, you’ll need to add the GoHighLevel connection details. There are two important values to insert:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Your <strong>API token</strong> from the private integration</li>
+
+
+
+<li>Your <strong>GoHighLevel sub-account ID</strong></li>
+</ul>
+
+
+
+<p>You can find the sub-account ID in the GoHighLevel URL. Copy that code and paste it into the config where the ID belongs.</p>
+
+
+
+<p>Then save the file.</p>
+
+
+
+<h3 class="wp-block-heading">Step 3: Restart Claude</h3>
+
+
+
+<p>Once the config is saved, fully quit Claude and reopen it. This reloads the updated configuration.</p>
+
+
+
+<p>Now you can test the connection by asking Claude if it is connected to the GoHighLevel MCP and what capabilities it has.</p>
+
+
+
+<p>If everything is working, Claude should be able to list available tools and functions across areas like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Contacts</li>
+
+
+
+<li>Conversations and messaging</li>
+
+
+
+<li>Opportunities and pipelines</li>
+
+
+
+<li>Payments</li>
+
+
+
+<li>Location and account setup</li>
+</ul>
+
+
+
+<p>One important note: you may need to provide the <strong>location ID</strong> again during use so Claude can pull the correct data.</p>
+
+
+
+<h2 id="a-quick-word-on-safety-and-permissions">A quick word on safety and permissions</h2>
+
+
+
+<p>This kind of automation is powerful, which also means you should use it responsibly.</p>
+
+
+
+<p>If you allow Claude to act without asking, make sure the task is low-risk and predictable. For example, generating a report is low risk. Updating records or sending messages can be much riskier.</p>
+
+
+
+<p>A good rule of thumb:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Safe to automate:</strong> reporting, analysis, flagging issues, drafting copy, tagging based on clear criteria</li>
+
+
+
+<li><strong>Better with approval:</strong> contact cleanup, data changes, outbound messaging, anything customer-facing</li>
+</ul>
+
+
+
+<p>AI is extremely capable here, but you still want a human in the loop for tasks where one bad action could create problems.</p>
+
+
+
+<h2 id="how-to-schedule-claude-automations">How to schedule Claude automations</h2>
+
+
+
+<p>Once everything is connected, you can schedule tasks from inside <strong>Claude Co-Work</strong>.</p>
+
+
+
+<p>The basic flow looks like this:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Go to <strong>Schedule</strong></li>
+
+
+
+<li>Click <strong>New Task</strong></li>
+
+
+
+<li>Choose whether to set it up manually or create it with Claude</li>
+
+
+
+<li>Write the task prompt</li>
+
+
+
+<li>Select how often it should run</li>
+
+
+
+<li>Choose whether it should <strong>ask before acting</strong> or <strong>act without asking</strong></li>
+
+
+
+<li>Pick the model</li>
+
+
+
+<li>Save the task</li>
+</ol>
+
+
+
+<p>If you’re doing something especially agentic or complex, using a stronger model like <strong>Opus 4.7</strong> can make sense, but keep an eye on cost.</p>
+
+
+
+<p>For recurring business operations, assigning tasks to projects is also smart. That keeps everything organized and makes it easier for your team to review outputs and approvals over time.</p>
+
+
+
+<h2 id="5-claude-automations-you-should-set-up-in-gohighlevel-right-now">5 Claude automations you should set up in GoHighLevel right now</h2>
+
+
+
+<h3 class="wp-block-heading">1. Daily stalled opportunity report</h3>
+
+
+
+<p>This is one of the easiest wins.</p>
+
+
+
+<p>The idea is to have Claude pull every opportunity in your main pipeline that has not moved in 7 or more days, group them by stage, show contact name, deal value, and last activity date, and flag anything over a certain dollar amount that has stalled.</p>
+
+
+
+<p>A practical prompt looks like this:</p>
+
+
+
+<p><strong>Pull every opportunity in my main pipeline that hasn't moved in 7 plus days, group them by stage, show contact name, deal value, and last activity date, and flag anything over 5K that has stalled using the GoHighLevel MCP.</strong></p>
+
+
+
+<p>Run this every morning at 9:00 a.m.</p>
+
+
+
+<p>What makes this useful is not just the report. It’s what happens next. Claude can identify:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Which deals are stuck at lead</li>
+
+
+
+<li>Which are stuck at qualified</li>
+
+
+
+<li>Which demos are not progressing</li>
+
+
+
+<li>Which proposals represent the most revenue at risk</li>
+</ul>
+
+
+
+<p>That immediately tells your sales team where to focus. Instead of guessing who to follow up with, they know exactly where momentum has died and where money is getting trapped.</p>
+
+
+
+<p>Even better, Claude can suggest the next step, such as drafting a re-engagement sequence for proposal-stage deals first.</p>
+
+
+
+<h3 class="wp-block-heading">2. Automatic lead tagging and qualification</h3>
+
+
+
+<p>If new contacts are coming into your CRM and nobody is consistently tagging or qualifying them, your pipeline gets messy fast.</p>
+
+
+
+<p>You can have Claude look at all contacts added in the last 48 hours, read their form notes and source, and apply tags based on simple business logic:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Hot</strong> if they mention a budget or timeline</li>
+
+
+
+<li><strong>Warm</strong> if they ask questions</li>
+
+
+
+<li><strong>Cold</strong> if they just joined the email list</li>
+</ul>
+
+
+
+<p>Then it can update those tags directly inside GoHighLevel.</p>
+
+
+
+<p>This is one of those automations that sounds basic until you realize how much it improves everything downstream. Better tagging means:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Cleaner segmentation</li>
+
+
+
+<li>Faster follow-up</li>
+
+
+
+<li>Better campaign targeting</li>
+
+
+
+<li>Less manual triage from your team</li>
+</ul>
+
+
+
+<p>If lead volume is high, you can even run this hourly. That means almost as soon as a new lead enters the system, Claude can help organize it properly.</p>
+
+
+
+<h3 class="wp-block-heading">3. Post-appointment follow-up drafting</h3>
+
+
+
+<p>Missed follow-up after an appointment is one of the easiest ways to lose revenue.</p>
+
+
+
+<p>Claude can fix that by scanning recent appointments, checking the conversation history, and identifying where there has been no follow-up from your side after the meeting.</p>
+
+
+
+<p>A strong prompt for this is:</p>
+
+
+
+<p><strong>Pull every appointment from the last 7 days. For each one, check the conversation thread. If there’s no follow-up from us after the appointment, draft a personalized follow-up message based on what was discussed and show me one before sending.</strong></p>
+
+
+
+<p>This is a great daily automation.</p>
+
+
+
+<p>The output can include multiple message styles, such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li>An ROI-focused follow-up</li>
+
+
+
+<li>A softer check-in message</li>
+
+
+
+<li>A context-based draft tied to what was discussed in the appointment</li>
+</ul>
+
+
+
+<p>That flexibility is huge because follow-up should not feel robotic. Claude can generate options, but this is one area where keeping a human in the loop is the right call. Review the message, choose the best version, and then send it.</p>
+
+
+
+<h3 class="wp-block-heading">4. CRM cleanup and data hygiene</h3>
+
+
+
+<p>If you’ve worked inside any CRM for long enough, you already know the truth: bad data compounds.</p>
+
+
+
+<p>Formatting gets inconsistent. Names get entered incorrectly. Key custom fields stay blank. Some contacts are actually company names sitting in the wrong fields. And before long, reporting is less reliable and automations start breaking.</p>
+
+
+
+<p>Claude can help clean this up at scale.</p>
+
+
+
+<p>Use a prompt like:</p>
+
+
+
+<p><strong>Scan the last 200 contacts, find any with empty key custom fields, mismatched phone number formatting, or names that look like company names. Show me the cleanup recommendations and apply them after I approve.</strong></p>
+
+
+
+<p>This can save days or even weeks of admin work.</p>
+
+
+
+<p>Claude can identify issues such as:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Phone number formatting problems</li>
+
+
+
+<li>Missing key custom fields</li>
+
+
+
+<li>Contacts where the first or last name appears to be a business name</li>
+
+
+
+<li>Records that need standardization before they’re useful</li>
+</ul>
+
+
+
+<p>It can also propose a cleanup plan while clearly showing what will <strong>not</strong> be auto-applied without approval. That is exactly how this should work. AI identifies and recommends, then a human approves the final changes.</p>
+
+
+
+<p>Once you start storing these cleanup tasks inside projects, your team can review them regularly and work on top of AI instead of doing all the detective work manually.</p>
+
+
+
+<h3 class="wp-block-heading">5. Weekly Monday morning business briefing</h3>
+
+
+
+<p>This one is incredibly powerful for owners, operators, and sales managers.</p>
+
+
+
+<p>You can ask Claude to create a clean weekly business summary pulled directly from GoHighLevel. The prompt can include:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Total new leads</li>
+
+
+
+<li>Lead source breakdown</li>
+
+
+
+<li>Opportunities by pipeline stage</li>
+
+
+
+<li>Dollar values</li>
+
+
+
+<li>Appointments booked vs attended vs no-shows</li>
+
+
+
+<li>Top five contacts to follow up with</li>
+
+
+
+<li>Anything unusual or worthy of attention</li>
+</ul>
+
+
+
+<p>A solid version of the prompt is:</p>
+
+
+
+<p><strong>Give me a weekly business briefing from GoHighLevel. I want total new leads, lead source breakdown, opportunities by pipeline stage, dollar values, appointments booked versus attended versus no-shows, top five contacts to follow up with this week based on engagement, and anything unusual or worthy of my attention formatted as a clean Monday morning brief.</strong></p>
+
+
+
+<p>This replaces the weekly scramble of opening multiple tabs, exporting reports, and trying to figure out what actually matters.</p>
+
+
+
+<p>You get one readable summary that shows:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Where leads are coming from</li>
+
+
+
+<li>How the pipeline is moving</li>
+
+
+
+<li>What was won or lost</li>
+
+
+
+<li>Who needs immediate attention</li>
+</ul>
+
+
+
+<p>If you only set up one reporting automation, this should be near the top of the list.</p>
+
+
+
+<h2 id="how-to-get-claude-to-suggest-even-more-automations">How to get Claude to suggest even more automations</h2>
+
+
+
+<p>One of the smartest things you can do after setup is simply ask Claude what else it should automate.</p>
+
+
+
+<p>Because it can inspect the available GoHighLevel tools, it can recommend new prompts based on what you’re trying to improve, whether that’s:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Closing more leads</li>
+
+
+
+<li>Finding leads</li>
+
+
+
+<li>Cleaning up data</li>
+
+
+
+<li>Improving follow-up</li>
+
+
+
+<li>Serving customers better</li>
+</ul>
+
+
+
+<p>You can ask something like:</p>
+
+
+
+<p><strong>Based on all of the tools that the GoHighLevel MCP has, what other prompts should I use to help automate my business, close leads, find leads, and clean up my data?</strong></p>
+
+
+
+<p>This is where the setup gets really interesting, because once Claude understands your business context and available tools, the recommendations become much more specific.</p>
+
+
+
+<h2 id="best-practices-for-using-claude-with-gohighlevel">Best practices for using Claude with GoHighLevel</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Start with reporting and analysis.</strong> These are low-risk and deliver fast value.</li>
+
+
+
+<li><strong>Use approval for contact updates and messaging.</strong> Keep humans in the loop for anything customer-facing.</li>
+
+
+
+<li><strong>Schedule tasks consistently.</strong> Daily and weekly rhythms make automation truly useful.</li>
+
+
+
+<li><strong>Organize tasks into projects.</strong> This helps your team review results and approvals over time.</li>
+
+
+
+<li><strong>Limit permissions where possible.</strong> Only give Claude access to what it needs.</li>
+</ul>
+
+
+
+<h2 id="what-this-means-for-business-owners-and-teams">What this means for business owners and teams</h2>
+
+
+
+<p>The real advantage is not just time savings, though that alone is significant.</p>
+
+
+
+<p>The bigger win is operational leverage.</p>
+
+
+
+<p>When Claude is connected to GoHighLevel, AI becomes a layer on top of your CRM that helps you:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Sell more effectively</li>
+
+
+
+<li>Follow up faster</li>
+
+
+
+<li>Keep your CRM cleaner</li>
+
+
+
+<li>Spot revenue leaks earlier</li>
+
+
+
+<li>Give your team better information to act on</li>
+</ul>
+
+
+
+<p>That is the kind of automation that actually changes how a business runs.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">Do I need both Claude and GoHighLevel to use this setup?</h3>
+
+
+
+<p>Yes. You need a Claude account and a GoHighLevel account, specifically a sub-account where you can create a private integration.</p>
+
+
+
+<h3 class="wp-block-heading">Is it safe to give Claude access to my CRM?</h3>
+
+
+
+<p>It can be, but you should be selective with permissions. Only grant access to the parts of GoHighLevel you actually want automated, and keep approval enabled for higher-risk tasks like messaging or contact updates.</p>
+
+
+
+<h3 class="wp-block-heading">What kinds of tasks are best to automate first?</h3>
+
+
+
+<p>Start with low-risk, high-value workflows like stalled opportunity reports, lead tagging, weekly summaries, and cleanup recommendations. These save time immediately and are easier to validate.</p>
+
+
+
+<h3 class="wp-block-heading">Can Claude send messages directly from GoHighLevel?</h3>
+
+
+
+<p>It can draft follow-up messages and, depending on the permissions and setup, assist with actions inside GoHighLevel. For outbound communication, it’s smarter to keep a human in the loop and approve messages before sending.</p>
+
+
+
+<h3 class="wp-block-heading">How often should I run these automations?</h3>
+
+
+
+<p>That depends on lead volume and team workflow. Stalled opportunity reports and appointment follow-up checks work well daily. Lead tagging can run every 48 hours or hourly if needed. Weekly business briefings are ideal for Monday mornings.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need technical skills to set this up?</h3>
+
+
+
+<p>You do need to follow a few technical steps, including creating a private integration and editing Claude’s config file, but the process is straightforward once you know where to click and what values to paste in.</p>
+
+
+
+<p>If you’re already using GoHighLevel, this is absolutely worth testing. Start with one daily report, one cleanup workflow, and one follow-up assistant. Once you see how much manual work disappears, it becomes obvious where else Claude can help.</p>
+
+
+
+<p>If you want a simple next step, connect the integration, set up the stalled opportunities report, and schedule a weekly business briefing. That alone can create immediate visibility into your pipeline and free up hours every single week.</p>

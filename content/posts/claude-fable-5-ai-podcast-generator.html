@@ -1,0 +1,363 @@
+<p>Claude Fable 5 changes what vibe coding can look like. Instead of opening a separate coding app, stitching together tools, subscribing to a text-to-speech platform, and hoping everything connects, you can describe the product you want and have Claude build it from inside Fable.</p>
+
+
+
+<p>To put that to the test, I built an <strong>AI podcast generator</strong> that takes an article or topic, researches it, writes a script, applies a chosen voice and emotional delivery, then generates a downloadable audio episode. The app uses Claude for the research and writing workflow, plus Fish Audio S2.1 Pro for expressive text-to-speech.</p>
+
+
+
+<p>The wild part is not just that it works. It is that the whole thing can be created from one clear prompt, with Fable handling the design, code, testing, iteration, and integration work along the way.</p>
+
+
+
+<h2 id="why-claude-fable-5-makes-vibe-coding-more-useful">Why Claude Fable 5 Makes Vibe Coding More Useful</h2>
+
+
+
+<p>Vibe coding has usually meant describing an idea to AI, then using a separate app to turn that idea into something functional. The friction is obvious. You need to decide on a stack, connect APIs, troubleshoot errors, build a usable interface, and often do a lot of cleanup after the first output.</p>
+
+
+
+<p>Fable 5 dramatically compresses that process. You can state the job in product terms rather than technical terms. For example:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>Build an AI podcast generator that lets me enter an article or topic, select a voice, select an emotion, research the topic, and generate an AI podcast using the Fish Audio S2.1 Pro API.</p>
+</blockquote>
+
+
+
+<p>That prompt contains the core product requirements. From there, Fable can fetch the relevant developer documentation, determine what the integration requires, create the interface, wire up the workflow, and continue iterating if it finds issues.</p>
+
+
+
+<p>This is what makes the upgrade so powerful. You are not merely generating isolated chunks of code. You are describing a complete tool and having the model work toward a finished experience.</p>
+
+
+
+<p>Fable 5 High is the model used for this build. If Fable access is unavailable, Sonnet 5 is a strong alternative for building, especially when considering the capability you get for the price. There is a tendency to stay attached to older flagship models, but the practical question is simple: which model gets the product built effectively without making the workflow unnecessarily expensive?</p>
+
+
+
+<h2 id="the-ai-podcast-generator-from-a-topic-to-a-finished-episode">The AI Podcast Generator: From a Topic to a Finished Episode</h2>
+
+
+
+<p>The app is designed to turn a rough idea into a listenable podcast episode. You can enter a short topic, paste source material, or provide a full article. The product then works through the entire pipeline.</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Accept source material:</strong> Enter a topic, headline, article, or other relevant material.</li>
+
+
+
+<li><strong>Research the topic:</strong> Pull current information and useful source material from the live web.</li>
+
+
+
+<li><strong>Write a host-ready script:</strong> Convert the research into a concise audio format.</li>
+
+
+
+<li><strong>Choose a voice:</strong> Select from available Fish Audio voices.</li>
+
+
+
+<li><strong>Choose delivery:</strong> Set the desired mood, such as dramatic, soft, conversational, or another expressive style.</li>
+
+
+
+<li><strong>Generate audio:</strong> Send the script and voice instructions through Fish Audio S2.1 Pro.</li>
+
+
+
+<li><strong>Save the output:</strong> Store the generated episode in a library, where it can be played, reviewed, or downloaded as an MP3.</li>
+</ol>
+
+
+
+<p>That is a real end-to-end application, not a simple text box that returns a code snippet. It has inputs, controls, backend logic, progress reporting, generated assets, and a library for the finished results.</p>
+
+
+
+<h3 class="wp-block-heading">What the Interface Includes</h3>
+
+
+
+<p>The generated app has a straightforward layout because the goal is speed. You add your source material at the top, choose a voice, select the delivery, choose the episode length, and hit <strong>Produce Episode</strong>.</p>
+
+
+
+<p>The episode-length options are intentionally simple:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Short:</strong> About one minute</li>
+
+
+
+<li><strong>Standard:</strong> About three minutes</li>
+
+
+
+<li><strong>Extended:</strong> About five minutes</li>
+</ul>
+
+
+
+<p>Once production starts, the app reports what is happening. It can show that it is researching, reading sources, identifying the strongest information, writing the script, applying emotional tags, and recording the final audio. A typical research, writing, and recording process takes around one to three minutes.</p>
+
+
+
+<p>That progress feedback matters. Generative workflows are much better when you know whether the system is researching, writing, or rendering audio instead of staring at a blank screen and wondering what failed.</p>
+
+
+
+<h2 id="why-fish-audio-s2-1-pro-is-the-voice-layer">Why Fish Audio S2.1 Pro Is the Voice Layer</h2>
+
+
+
+<p>An AI podcast generator is only as good as its audio. A solid script can still fall flat if the voice sounds robotic, emotionless, or completely disconnected from the subject. That is why Fish Audio S2.1 Pro is such an important part of this build.</p>
+
+
+
+<p><a href="https://fish.audio/?fpr=robert73">Fish Audio</a> provides text-to-speech controls that go beyond simply selecting a speaker. You can choose voices, adjust audio controls, create voices, work with sound effects, use audio separation, and even access a voice changer. For developers, the API and playground make it possible to bring those capabilities directly into custom applications.</p>
+
+
+
+<p>The key capability for this podcast tool is <strong>emotional control</strong>. The model can use tags and delivery direction to make generated speech better match the words being spoken.</p>
+
+
+
+<h3 class="wp-block-heading">Emotion Makes a Noticeable Difference</h3>
+
+
+
+<p>Take a simple set of lines:</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>I want to go get ice cream. I finally got a good grade on my test, and I am really happy about it. What kind of score did you get?</p>
+</blockquote>
+
+
+
+<p>Without expressive direction, the speech is clear and usable, but fairly neutral. The excitement over a good grade does not necessarily come through. With automatic tags or manually added tags, the same words can be delivered with much more personality and contrast.</p>
+
+
+
+<p>Fish Audio can add those tags automatically through an auto-tagging option. You can also add tags manually when you want tighter creative control over how a phrase should be delivered. That gives the podcast generator a useful balance: quick automation when speed matters, and detailed controls when the production needs a specific feel.</p>
+
+
+
+<p>For a podcast, this is huge. Tone is not a decorative feature. Tone affects whether an intro feels exciting, whether a serious topic feels appropriate, and whether a generated episode sounds like something worth finishing.</p>
+
+
+
+<h3 class="wp-block-heading">Voice Choices and Localization</h3>
+
+
+
+<p>The app pulls from a range of Fish Audio voices, so the same research workflow can produce very different styles of audio. You can choose a standard narrator, search for another voice, or intentionally pick something unusual to demonstrate the range of the system.</p>
+
+
+
+<p>Fish Audio S2.1 Pro also supports more than 83 languages from a single model. That means an AI podcast workflow can be localized without needing to replace the voice provider every time you want to produce content in another language.</p>
+
+
+
+<p>Fish Audio is presented as a free API under fair-use terms, with no stated usage cap in the workflow described here. An API key is still required to connect the generated app to the voice service. You can create that key in the Fish Audio developer area, then provide it to Claude so the integration can be completed.</p>
+
+
+
+<h2 id="how-the-podcast-generation-workflow-works">How the Podcast Generation Workflow Works</h2>
+
+
+
+<p>To test the tool, I used a timely AI-style headline as the source material, selected a Mortal Kombat-inspired voice, chose a short episode length, and set the delivery to dramatic. It is not the voice choice you would use for every production, but it is an excellent way to hear how varied the available voices can be.</p>
+
+
+
+<p>After selecting <strong>Produce Episode</strong>, the app starts the workflow:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Claude researches the topic on the live web.</li>
+
+
+
+<li>It reads and synthesizes source material.</li>
+
+
+
+<li>It writes an audio-ready script.</li>
+
+
+
+<li>It adds emotional direction suited to the chosen delivery.</li>
+
+
+
+<li>Fish Audio S2.1 Pro generates the spoken episode in the chosen voice.</li>
+
+
+
+<li>The finished output appears in the episode library.</li>
+</ol>
+
+
+
+<p>Each completed episode includes practical controls. You can listen directly in the app, read the generated script, adjust playback volume, and download the final audio as an MP3.</p>
+
+
+
+<p>This is exactly the kind of automation that makes sense for AI. The model handles the repetitive setup work, while you stay focused on the creative decisions that actually matter: topic, angle, format, voice, mood, and what gets published.</p>
+
+
+
+<h2 id="practical-ways-to-use-an-ai-podcast-generator">Practical Ways to Use an AI Podcast Generator</h2>
+
+
+
+<p>The obvious use case is creating podcast content. But the more interesting opportunities come from treating this as a personal or business content engine.</p>
+
+
+
+<h3 class="wp-block-heading">Create Podcasts on Topics You Actually Care About</h3>
+
+
+
+<p>Sometimes the exact podcast episode you want does not exist. Maybe you want a short update on a niche topic, a quick overview of a new development, or a tailored audio briefing based on a specific article. With this tool, you can create the episode instead of searching endlessly for someone else to make it.</p>
+
+
+
+<h3 class="wp-block-heading">Repurpose Existing Content</h3>
+
+
+
+<p>If you already create YouTube videos, articles, or written research, the tool can turn that material into audio. You could paste in an article, generate a script and podcast version, then build a library around content that has already been produced in another format.</p>
+
+
+
+<p>There is also room to take it further by adding voice cloning to a workflow, allowing content to be generated in a consistent personal voice. The core idea is simple: make one piece of content do more work for you.</p>
+
+
+
+<h3 class="wp-block-heading">Build a Personal Audio Library</h3>
+
+
+
+<p>The built-in library is more important than it first appears. Instead of generating one-off files that get lost, every episode becomes part of a reusable collection. You can return to previous scripts, download the audio, compare voice styles, or create new versions with different lengths and emotional delivery.</p>
+
+
+
+<h3 class="wp-block-heading">Scale With Bulk Episode Creation</h3>
+
+
+
+<p>The next feature worth adding is bulk creation. If the goal is to create a series of personalized podcasts or repurpose a large amount of existing content, producing one episode at a time eventually becomes the bottleneck.</p>
+
+
+
+<p>A bulk workflow could accept multiple topics or articles, apply a voice and delivery preset, then build a queue of finished episodes. That is where a simple AI podcast generator starts becoming a real content production system.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" src="/images/fish-audio-emotional-text-to-speech-tags.jpg" alt="Fish Audio text-to-speech controls showing voice selection and emotional delivery tags for expressive AI audio"/><figcaption class="wp-element-caption">Suggested image: Fish Audio voice controls showing speaker selection, automatic tags, emotional tags, and text-to-speech generation.</figcaption></figure>
+
+
+
+<h2 id="fable-5-does-more-than-generate-the-first-draft">Fable 5 Does More Than Generate the First Draft</h2>
+
+
+
+<p>The strongest part of this workflow is that Fable does not just create an initial version and leave you with the cleanup. It can identify mistakes, fix issues, test the build, and keep iterating in the background.</p>
+
+
+
+<p>It also gives you a direct way to refine the interface after the app exists. You can annotate elements, select a specific part of the page, and tell Claude what needs to change. That makes editing much less intimidating because you are not required to hunt through a project file structure to find the correct component.</p>
+
+
+
+<p>Want a different layout? Select the area. Want to change the voice picker, add a bulk generation feature, adjust the library, or revise the episode controls? Point at the element and describe the change.</p>
+
+
+
+<p>That is the real shift with Fable 5. The barrier between having a useful idea and building a usable product is getting much smaller.</p>
+
+
+
+<h2 id="what-this-means-for-ai-agents-websites-and-apps">What This Means for AI Agents, Websites, and Apps</h2>
+
+
+
+<p>The AI podcast generator is one example, but the same approach applies to websites, AI agents, internal tools, and custom apps. The big opportunity is to stop thinking only in terms of “what code can AI write?” and start thinking in terms of “what workflow do I want to exist?”</p>
+
+
+
+<p>Describe the workflow with enough clarity. Name the inputs, outputs, API connections, interface controls, and end result. Then use Fable to make the first functional version and refine it from there.</p>
+
+
+
+<p>You no longer need the excuse that building requires a separate app, a complex development environment, and a stack of disconnected subscriptions just to test an idea. Fable 5 can build the product layer. Fish Audio can handle the expressive voice layer. The result is a working AI application that starts with a simple prompt.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">What is Claude Fable 5 used for?</h3>
+
+
+
+<p>Claude Fable 5 can be used to build and design applications from natural-language prompts. In this workflow, it creates an AI podcast generator that researches topics, writes scripts, connects to a text-to-speech API, and generates audio episodes.</p>
+
+
+
+<h3 class="wp-block-heading">What does the AI podcast generator create?</h3>
+
+
+
+<p>It can take a topic, article, or source material, research the subject, write a host-ready script, generate audio in a selected voice and emotional delivery, then save the result in a library for playback or MP3 download.</p>
+
+
+
+<h3 class="wp-block-heading">Why use Fish Audio S2.1 Pro for AI podcasts?</h3>
+
+
+
+<p>Fish Audio S2.1 Pro provides expressive text-to-speech with voice selection, emotional tags, automatic tagging, audio controls, and support for more than 83 languages. Those features help generated podcast audio sound more natural and intentional.</p>
+
+
+
+<h3 class="wp-block-heading">Can I choose the length and mood of an AI-generated podcast?</h3>
+
+
+
+<p>Yes. The app includes short, standard, and extended episode options, roughly one, three, and five minutes. You can also choose delivery styles such as dramatic and use emotional tagging to shape the tone of the voice.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need an API key for Fish Audio?</h3>
+
+
+
+<p>Yes. You need to create a Fish Audio API key in the developer area and provide it during the app setup so the podcast generator can send scripts to the Fish Audio S2.1 Pro API.</p>
+
+
+
+<h2 id="build-the-tool-you-have-been-putting-off">Build the Tool You Have Been Putting Off</h2>
+
+
+
+<p>AI podcast generation is a great example because it combines research, writing, design, API integration, expressive audio, and file output in one product. A few months ago, that would feel like a project with a lot of moving parts. With Claude Fable 5 and Fish Audio S2.1 Pro, it can begin with one prompt.</p>
+
+
+
+<p><strong>Start with the workflow you wish existed.</strong> Whether that is a personalized podcast tool, a content repurposing engine, an AI agent, or a custom website, describe it clearly and build the first version. Then keep iterating until it becomes something you actually use.</p>

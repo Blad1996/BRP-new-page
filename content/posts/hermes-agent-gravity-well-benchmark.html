@@ -1,0 +1,557 @@
+<p>The <strong>Canadian Technology Magazine</strong> has covered plenty of AI tools, but every now and then something shows up that feels less like a chatbot and more like a real working system. Hermes Agent is one of those tools. It does not just answer questions. It installs, tests, iterates, remembers, and can coordinate other agents to get real work done while you sleep.</p>
+
+
+
+<p>What makes this especially interesting for <strong>Canadian Technology Magazine</strong> readers is not just the novelty. It is the practicality. This is the kind of setup that can help with software prototyping, benchmark creation, automated testing, and long-horizon technical work that used to require constant babysitting.</p>
+
+
+
+<p>I recently used Hermes Agent alongside GPT 5.5, Codex, and Claude Code to build something that is honestly one of the most fun AI benchmarks I have worked on: a gravity-well simulation where language models have to write code to pilot ships through orbital chaos. The result was not just a cool demo. It was proof that these agents can collaborate, improve over time, and produce work that would have taken far longer by hand.</p>
+
+
+
+<h2 id="what-i-built-with-hermes-agent">What I Built With Hermes Agent</h2>
+
+
+
+<p>The benchmark is simple to explain and surprisingly hard to solve.</p>
+
+
+
+<p>There are four gravity wells, basically four suns. Blue dots represent ships that an AI model must control. The model is not pressing buttons directly. It has to write code that decides how to fly those ships. Gravity is real. Fuel is limited. Thrusters matter. Momentum matters. Collisions matter. Get too close to a sun and you can lose everything.</p>
+
+
+
+<p>The objective is to keep the ships inside a moving target circle for as long as possible. Every tick spent in the circle earns a point. The circle moves according to a fixed pattern, not randomly, so the best solutions are not just reactive. They need to learn the motion, anticipate it, and get in front of it.</p>
+
+
+
+<p>That turns this into a great AI test.</p>
+
+
+
+<p>A model receives a plain-English description of the game, including the mechanics of gravity, thrusters, and scoring. It then generates a script. That script gets dropped into the simulation and run. The score comes back. Then the model gets another chance. Not once, but over multiple iterations.</p>
+
+
+
+<p>This is where things get interesting.</p>
+
+
+
+<h2 id="why-this-benchmark-is-more-useful-than-typical-ai-benchmarks">Why This Benchmark Is More Useful Than Typical AI Benchmarks</h2>
+
+
+
+<p>A lot of benchmark scores floating around AI right now are hard to trust. Some are useful. Some are overfit. Some may have been directly trained against. If you want to know whether a model is actually capable, you need tests that are harder to game and closer to real work.</p>
+
+
+
+<p>This benchmark asks a very practical question:</p>
+
+
+
+<ul class="wp-block-list">
+<li><p>Can a model understand instructions written in English?</p></li>
+
+
+
+<li><p>Can it turn those instructions into working code?</p></li>
+
+
+
+<li><p>Can it debug and improve that code over repeated attempts?</p></li>
+
+
+
+<li><p>Can it generalize across many different runs and conditions?</p></li>
+</ul>
+
+
+
+<p>Each model gets 20 attempts to improve. After that, the best program is tested across 100 different seeds. Each seed changes the positions of the suns and slightly alters the movement of the target circle. That helps reduce flukes and reveals whether the solution is robust or just lucky.</p>
+
+
+
+<p>That is the kind of thing <strong>Canadian Technology Magazine</strong> readers should care about because it is much closer to business reality. Real AI work is not one prompt and one answer. It is repeated attempts, diagnostics, adaptation, and refinement.</p>
+
+
+
+<h2 id="what-the-learning-curves-look-like">What the Learning Curves Look Like</h2>
+
+
+
+<p>The first attempts are usually terrible.</p>
+
+
+
+<p>Ships smash into suns. They burn all their fuel racing off into space. They overshoot the target. They drift out of bounds. Some early runs score almost nothing.</p>
+
+
+
+<p>Then the better models begin to learn.</p>
+
+
+
+<p>One strong model started low and eventually climbed to a score of 276 after enough iterations. A mid-sized model improved too, but plateaued much earlier around 78. Another early run scored just 1, and that point looked more like an accident than a strategy.</p>
+
+
+
+<p>This is exactly what you want from a benchmark. You can see the intelligence curve. You can see where models hit a ceiling. You can see which ones really benefit from feedback and which ones just flail more confidently.</p>
+
+
+
+<h2 id="why-hermes-agent-was-so-useful">Why Hermes Agent Was So Useful</h2>
+
+
+
+<p>Technically, I did not need Hermes Agent to build all of this.</p>
+
+
+
+<p>But practically, it saved me in a few tight spots and made the whole process far more efficient.</p>
+
+
+
+<p>Most of the benchmark itself was built with coding agents like Codex. Hermes helped because it can act as a coordinator. It has built-in skills, can call other agent systems, and can manage repeated tasks without needing constant hand-holding. It can even launch Claude Code and Codex as tools and have them work on separate jobs.</p>
+
+
+
+<p>That is where it starts feeling less like a chatbot and more like an orchestration layer.</p>
+
+
+
+<p>For example, I had Hermes open instances of Claude Code and Codex and literally guide them through a game of tic-tac-toe just to test whether the workflow worked. Ridiculous? Absolutely. Useful? Also yes. It confirmed Hermes could coordinate turn-based interaction between separate agent environments.</p>
+
+
+
+<p>That same idea later got applied to the benchmark itself.</p>
+
+
+
+<h2 id="the-real-point-of-hermes-agent">The Real Point of Hermes Agent</h2>
+
+
+
+<p>The coolest part is not that Hermes can generate an image of a flower or answer a question in Telegram. The real point is this: it can turn your day and night into two different modes of AI work.</p>
+
+
+
+<p><strong>Daytime:</strong> collaborative building. You steer. The agent helps create, troubleshoot, and implement.</p>
+
+
+
+<p><strong>Nighttime:</strong> automated grinding. The agent runs tests, benchmarks models, repeats workflows, and comes back with results by morning.</p>
+
+
+
+<p>That is exactly how I used it.</p>
+
+
+
+<p>During the day, the benchmark got built through prompting, direction, and iteration. During the night, the agents ran model evaluations for hours across a stack of systems including GPT 5.4, GPT 5.5, GPT 5.5 Pro, Grok, DeepSeek, Gemini, and Anthropic models. The runs started after 2 a.m. and wrapped around 5:32 a.m.</p>
+
+
+
+<p>That is the kind of labour you want to automate.</p>
+
+
+
+<h2 id="installing-hermes-agent-on-a-vps">Installing Hermes Agent on a VPS</h2>
+
+
+
+<p>If you want Hermes Agent always available, a VPS is the cleanest option. You can also run it on a local desktop, an old laptop, a mini PC, or a Mac mini. All of those work. But a virtual private server has some big advantages:</p>
+
+
+
+<ul class="wp-block-list">
+<li><p>It stays online</p></li>
+
+
+
+<li><p>You do not need to keep your main machine running</p></li>
+
+
+
+<li><p>Hardware maintenance becomes someone else’s problem</p></li>
+
+
+
+<li><p>You can isolate the agent from your personal computer</p></li>
+</ul>
+
+
+
+<p>The setup used here was an Ubuntu VPS, specifically an LTS release. That matters because long-term support versions tend to be the most stable, and Hermes is tested against them.</p>
+
+
+
+<h3 class="wp-block-heading">Basic VPS setup flow</h3>
+
+
+
+<ol class="wp-block-list">
+<li><p>Create a VPS with a plain Ubuntu installation.</p></li>
+
+
+
+<li><p>Set a root password.</p></li>
+
+
+
+<li><p>Copy the server IP address.</p></li>
+
+
+
+<li><p>Open your terminal or PowerShell.</p></li>
+
+
+
+<li><p>SSH into the machine as root.</p></li>
+</ol>
+
+
+
+<pre class="wp-block-code"><code>ssh root@your-server-ip</code></pre>
+
+
+
+<p>Once connected, you are operating directly on the remote machine.</p>
+
+
+
+<p>From there, Hermes can be installed using the installer command recommended by its setup flow. One smart habit here is to ask an AI assistant for the latest install steps for a fresh Ubuntu environment before you run anything. Even when you already know roughly what to do, that extra context can catch small but important details.</p>
+
+
+
+<h2 id="hermes-setup-what-actually-matters">Hermes Setup: What Actually Matters</h2>
+
+
+
+<p>During setup, Hermes walks through a few important choices.</p>
+
+
+
+<h3 class="wp-block-heading">1. Provider selection</h3>
+
+
+
+<p>You can use direct providers or a model aggregator. Two options discussed were:</p>
+
+
+
+<ul class="wp-block-list">
+<li><p><strong>OpenRouter</strong>, which gives access to a huge range of models through one API key</p></li>
+
+
+
+<li><p><strong>Nuse Portal</strong>, which bundles model access plus useful tools like web search, image generation, text-to-speech, and browser automation</p></li>
+</ul>
+
+
+
+<p>The convenience of a bundled option is obvious. Instead of setting up multiple third-party tool APIs one by one, you can enable a tool gateway and get moving faster.</p>
+
+
+
+<h3 class="wp-block-heading">2. Terminal backend</h3>
+
+
+
+<p>You will typically choose between:</p>
+
+
+
+<ul class="wp-block-list">
+<li><p><strong>Local</strong>, which runs directly on the machine</p></li>
+
+
+
+<li><p><strong>Docker</strong>, which sandboxes the agent more safely</p></li>
+</ul>
+
+
+
+<p>On a fresh server, local is often the practical starting point because Docker may not yet be installed. Later, if you want more isolation, Docker is the better choice.</p>
+
+
+
+<h3 class="wp-block-heading">3. Iteration limits and compression</h3>
+
+
+
+<p>Hermes lets you set limits for tool calls and decide when to compress its context. A moderate number such as 90 tool iterations is a good default for substantial tasks. Compression threshold controls how full the context window gets before resetting or summarizing.</p>
+
+
+
+<h3 class="wp-block-heading">4. Messaging and tools</h3>
+
+
+
+<p>Hermes can be controlled through interfaces like Telegram, and it can be configured to use image generation and other tools. For image generation, one setup demonstrated using OpenAI authentication rather than an API key, which made it possible to use GPT Image tools inside Hermes.</p>
+
+
+
+<h2 id="using-gpt-5-5-inside-hermes">Using GPT 5.5 Inside Hermes</h2>
+
+
+
+<p>One especially useful trick is running GPT 5.5 inside Hermes. The process involved updating Hermes, authenticating through OpenAI’s Codex login flow, selecting GPT 5.5 as the active model, and then launching Hermes again.</p>
+
+
+
+<p>That setup matters because GPT 5.5 performed very well on long-horizon project work. It was good at building complicated systems over time, even if it occasionally needed some troubleshooting. And that is the key distinction. A model does not need to be perfect in one shot to be valuable. It needs to be capable of improving over repeated steps.</p>
+
+
+
+<h2 id="hermes-agent-as-a-manager-of-other-agents">Hermes Agent as a Manager of Other Agents</h2>
+
+
+
+<p>This is probably the most exciting part.</p>
+
+
+
+<p>Hermes can act as a controller for sub-agents like Claude Code and Codex. So instead of you manually switching between tools, Hermes can prompt them, collect their outputs, feed them diagnostics, and coordinate the loop.</p>
+
+
+
+<p>For the gravity-well duel mode, the workflow looked like this:</p>
+
+
+
+<ol class="wp-block-list">
+<li><p>Hermes receives the game state and instructions.</p></li>
+
+
+
+<li><p>Hermes asks Claude Code and Codex to generate an initial script.</p></li>
+
+
+
+<li><p>The scripts are submitted into the simulation.</p></li>
+
+
+
+<li><p>The simulation returns diagnostics and scores.</p></li>
+
+
+
+<li><p>Hermes passes those diagnostics back to each coding agent.</p></li>
+
+
+
+<li><p>Each agent revises its script for the next round.</p></li>
+
+
+
+<li><p>The loop continues for a set number of iterations.</p></li>
+</ol>
+
+
+
+<p>This produced a live head-to-head benchmark where two models improve in parallel and battle each other over time. In one test, GPT 5.5 high beat Claude Opus 4.7 seven rounds to three.</p>
+
+
+
+<p>That is not just fun. It is a genuinely useful framework for model evaluation.</p>
+
+
+
+<h2 id="why-iteration-beats-first-impressions">Why Iteration Beats First Impressions</h2>
+
+
+
+<p>One of the strongest lessons from this whole process is that first attempts can be wildly misleading.</p>
+
+
+
+<p>At iteration one, the ships were crashing, overshooting, and wasting fuel. By iteration ten, the behaviour looked disciplined. Tiny thrust adjustments. Better anticipation. Cleaner orbital control. Less panic. Less chaos.</p>
+
+
+
+<p>That progression matters for how we evaluate AI systems in general.</p>
+
+
+
+<p>For <strong>Canadian Technology Magazine</strong>, one of the big takeaways here is that a model’s value should not be judged only by its first output. Some models are dramatically better when allowed to reason through feedback loops and refine their work.</p>
+
+
+
+<h2 id="security-do-not-be-reckless-with-agents">Security: Do Not Be Reckless With Agents</h2>
+
+
+
+<p>Now for the part that is a little less fun but absolutely necessary.</p>
+
+
+
+<p>These agents can be run in modes that bypass frequent approval prompts. That is useful for long jobs because otherwise they stop every few minutes asking whether it is okay to create a file or a folder. For serious autonomous runs, that friction becomes unbearable.</p>
+
+
+
+<p>But there is obvious risk.</p>
+
+
+
+<p>If you allow an agent to operate with broad permissions, do not run it on your main personal machine. That is asking for trouble.</p>
+
+
+
+<p>A better setup is:</p>
+
+
+
+<ul class="wp-block-list">
+<li><p>Use a VPS</p></li>
+
+
+
+<li><p>Use an old laptop or spare mini PC</p></li>
+
+
+
+<li><p>Consider Docker for sandboxing</p></li>
+
+
+
+<li><p>Use password managers and isolated credentials</p></li>
+
+
+
+<li><p>Think in terms of blast radius if something goes wrong</p></li>
+</ul>
+
+
+
+<p>That is the right mental model. Not “will it ever go wrong,” but “if it goes wrong, how contained is the damage?”</p>
+
+
+
+<h2 id="where-this-is-going-next">Where This Is Going Next</h2>
+
+
+
+<p>The gravity-well benchmark is just one test. Several more are already queued up. The broader goal is to create a battery of original, difficult evaluations that reveal how well AI models actually perform in messy, practical environments.</p>
+
+
+
+<p>There is also an interesting future direction inspired by evolutionary approaches. Instead of simple iteration, you can generate many candidate solutions, keep the strong ones, discard the weak ones, and let better strategies evolve over time.</p>
+
+
+
+<p>That is where things get really spicy.</p>
+
+
+
+<p>Once a model becomes a strong pilot in the simulation, it can do more than chase the circle. It can perform intentional manoeuvres. Slingshot around a star. Hover near a gravity well. Execute precision movement objectives. At that point, you are no longer testing one narrow task. You are testing whether the model has developed a deeper understanding of the environment.</p>
+
+
+
+<h2 id="why-this-matters-for-canadian-technology-magazine-readers">Why This Matters for Canadian Technology Magazine Readers</h2>
+
+
+
+<p>The reason this belongs in <strong>Canadian Technology Magazine</strong> is simple. This is not hype for hype’s sake. This is a working example of how AI agents are evolving from novelty tools into operational systems.</p>
+
+
+
+<p>For businesses, developers, and technical teams, the implications are huge:</p>
+
+
+
+<ul class="wp-block-list">
+<li><p>Faster prototyping</p></li>
+
+
+
+<li><p>Cheaper experimentation</p></li>
+
+
+
+<li><p>Overnight testing and analysis</p></li>
+
+
+
+<li><p>More autonomous benchmark creation</p></li>
+
+
+
+<li><p>Better collaboration between specialised models</p></li>
+</ul>
+
+
+
+<p>There is still friction. Things still break. You still need judgment. But the amount of useful work these systems can now do is hard to ignore.</p>
+
+
+
+<p>If you are still thinking AI agents are mostly toys, I get the skepticism. A lot of them have been oversold. But once you start using a setup where an agent helps build during the day and runs experiments overnight, it becomes very difficult to go back.</p>
+
+
+
+<h2 id="faq">FAQ</h2>
+
+
+
+<h3 class="wp-block-heading">What is Hermes Agent?</h3>
+
+
+
+<p>Hermes Agent is an open-source AI agent system designed to perform tasks, use tools, remember how it solved problems, and improve workflows over time. It can also call other agent environments such as Claude Code and Codex.</p>
+
+
+
+<h3 class="wp-block-heading">Can Hermes Agent run on a VPS?</h3>
+
+
+
+<p>Yes. Running Hermes on a VPS is one of the most practical options because it keeps the agent online, separates it from your main computer, and makes long autonomous runs easier to manage.</p>
+
+
+
+<h3 class="wp-block-heading">Do I need Hermes Agent to build AI benchmarks?</h3>
+
+
+
+<p>No. You can build benchmarks using other coding agents. Hermes becomes valuable when you want coordination, memory, tool use, and automation across longer workflows.</p>
+
+
+
+<h3 class="wp-block-heading">What makes the gravity-well benchmark useful?</h3>
+
+
+
+<p>It tests whether a model can understand instructions, write code, improve through feedback, and generalize across many randomized scenarios. That makes it more realistic than many static benchmarks.</p>
+
+
+
+<h3 class="wp-block-heading">Is it safe to run AI agents with broad permissions?</h3>
+
+
+
+<p>It can be done, but it should be approached carefully. A safer practice is to run agents on isolated machines or VPS environments, use Docker when possible, and avoid giving dangerous autonomy to systems running on your primary personal computer.</p>
+
+
+
+<h3 class="wp-block-heading">Why is this relevant to Canadian Technology Magazine readers?</h3>
+
+
+
+<p><strong>Canadian Technology Magazine</strong> focuses on practical technology trends and useful tools. Hermes Agent fits that perfectly because it demonstrates how AI can move beyond chat and into real software work, testing, and automation.</p>
+
+
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+
+
+<p>The best way I can describe Hermes Agent is this: it is one of those tools that makes the near future feel very close.</p>
+
+
+
+<p>You can prompt during the day, hand off the grind at night, and wake up to actual progress. Not just words. Not just ideas. Real iterations, test results, code, and systems.</p>
+
+
+
+<p>For anyone building with AI right now, that is a big deal. And for <strong>Canadian Technology Magazine</strong>, it is exactly the kind of shift worth paying attention to.</p>
